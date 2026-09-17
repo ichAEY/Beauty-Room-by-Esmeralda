@@ -1,0 +1,55 @@
+name: Fix service category gutter final
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-service-category-gutter-final.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply only service category gutter fix
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('mobile-beautyroom-current.js')
+          s = p.read_text()
+          replacements = [
+            (
+              "#tn13Services .tn31-cats-wrap{position:relative!important;width:100%!important;margin:25px 0 0!important;overflow:hidden!important}",
+              "#tn13Services .tn31-cats-wrap{position:relative!important;margin:25px -25px 0!important;overflow:hidden!important}"
+            ),
+            (
+              "#tn13Services .tn31-cats{display:flex!important;width:100%!important;align-items:center!important;gap:8px!important;overflow-x:auto!important;overscroll-behavior-inline:contain!important;-webkit-overflow-scrolling:touch!important;padding:0 0 11px!important;scroll-padding-inline:0!important;box-sizing:border-box!important}",
+              "#tn13Services .tn31-cats{display:flex!important;align-items:center!important;gap:8px!important;overflow-x:auto!important;overscroll-behavior-inline:contain!important;-webkit-overflow-scrolling:touch!important;padding:0 0 11px!important;scroll-padding-inline:25px!important;box-sizing:border-box!important}"
+            ),
+            (
+              "#tn13Services .tn31-cats:before,#tn13Services .tn31-cats:after{display:none!important;content:none!important}",
+              "#tn13Services .tn31-cats:before,#tn13Services .tn31-cats:after{content:''!important;display:block!important;flex:0 0 25px!important;width:25px!important;height:1px!important;pointer-events:none!important}"
+            )
+          ]
+          for old, new in replacements:
+              count = s.count(old)
+              if count != 1:
+                  raise SystemExit(f'Expected exactly one match, got {count}: {old[:90]}')
+              s = s.replace(old, new, 1)
+          p.write_text(s)
+          PY
+          node --check mobile-beautyroom-current.js
+          git diff --check
+          git diff -- mobile-beautyroom-current.js
+      - name: Commit change
+        run: |
+          git config user.name "tanem"
+          git config user.email "melikyan.mac@gmail.com"
+          git add mobile-beautyroom-current.js
+          git commit -m "Fix service category initial edge gutter"
+          git push
