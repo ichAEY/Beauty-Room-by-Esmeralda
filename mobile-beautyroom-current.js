@@ -13,47 +13,68 @@
   const RATINGS_COUNT=19;
 
   const services=[
-    ['nails','Маникюр с покрытием гель-лака OPI, Luxio, EMI','1 700 ₽'],
-    ['nails','Женский педикюр','2 000 ₽'],
-    ['nails','Экспресс-педикюр','1 500 ₽'],
-    ['nails','Наращивание ногтей гелем + цветное покрытие','3 000 ₽'],
-    ['hair','Стрижка и укладка — короткие волосы до 12 см','800 ₽'],
-    ['hair','Вечерняя причёска','1 500 ₽'],
-    ['hair','Биохимическая завивка Selective','от 2 000 ₽'],
-    ['hair','Колорирование / шатуш / балаяж','от 3 400 ₽'],
-    ['face','Чистка лица','Цена по записи'],
-    ['face','Аппаратная чистка лица','Цена по записи'],
-    ['face','Химический пилинг лица','Цена по записи'],
-    ['brows','Коррекция и окрашивание бровей','Цена по записи'],
-    ['lashes','Окрашивание ресниц','Цена по записи'],
-    ['lashes','Наращивание ресниц','Цена по записи'],
-    ['other','Перманентный макияж','Цена по записи'],
-    ['depilation','Шугаринг','Цена по записи'],
-    ['depilation','Восковая депиляция','Цена по записи']
+    ['nails','Педикюр','Записаться'],
+    ['brows','Процедуры для бровей','Записаться'],
+    ['hair','Свадебные прически','Записаться'],
+    ['brows','Тридинг бровей','Записаться'],
+    ['depilation','Удаление волос нитью','Записаться'],
+    ['hair','Укладка волос','Записаться'],
+    ['other','Прокалывание ушей','Записаться'],
+    ['depilation','Шугаринг','Записаться'],
+    ['hair','Стрижка волос','Записаться'],
+    ['depilation','Электроэпиляция игловая','Записаться'],
+    ['hair','Окрашивание волос','Записаться'],
+    ['hair','Уход за волосами восстановление повреждённых волос','Записаться'],
+    ['hair','Спа процедура для волос','Записаться'],
+    ['nails','Наращивание ногтей','Записаться'],
+    ['nails','Маникюр + покрытие гельлак','Записаться'],
+    ['nails','Маникюр + покрытие лак','Записаться'],
+    ['nails','Парафинотерапия для рук','Записаться'],
+    ['face','Карбокси терапия','Записаться'],
+    ['face','Ультразвуковая чистка лица','Записаться'],
+    ['depilation','Восковая эпиляция','Записаться'],
+    ['brows','Коррекция формы бровей','Записаться'],
+    ['hair','Косы','Записаться'],
+    ['brows','Ламинирование бровей','Записаться'],
+    ['brows','Ламинирование ресниц','Записаться'],
+    ['makeup','Макияж','Записаться'],
+    ['nails','Маникюр','Записаться'],
+    ['massage','Массаж','Записаться'],
+    ['hair','Мытье головы шампунем и кондиционирование','Записаться'],
+    ['hair','Наращивание волос','Записаться'],
+    ['brows','Наращивание ресниц','Записаться']
   ];
 
   const works=[
-    {src:'interior_reception_02.webp',cat:'salon',alt:'Интерьер Beauty Room'},
-    {src:'interior_reception_02.webp',cat:'salon',alt:'Зона маникюра Beauty Room'},
-    {src:'assets/images/nails-pink.webp',cat:'nails',alt:'Маникюр Beauty Room'},
-    {src:'assets/images/nails-green.webp',cat:'nails',alt:'Дизайн ногтей Beauty Room'},
-    {src:'assets/images/nails-light.webp',cat:'nails',alt:'Маникюр Beauty Room'},
-    {src:'assets/images/hair-style.webp',cat:'hair',alt:'Работа с волосами Beauty Room'}
+    {src:'interior_reception_02.webp',cat:'salon',alt:'Интерьер Beauty Room by Esmeralda'},
+    {src:'manicure_french_soft_pink_design_04.webp',cat:'nails',alt:'Маникюр Beauty Room by Esmeralda'},
+    {src:'manicure_burgundy_long_glitter_09.webp',cat:'nails',alt:'Маникюр Beauty Room by Esmeralda'},
+    {src:'hair_layered_brunette_02.webp',cat:'hair',alt:'Работа с волосами Beauty Room by Esmeralda'},
+    {src:'hair_blonde_layers_03.webp',cat:'hair',alt:'Работа с волосами Beauty Room by Esmeralda'},
+    {src:'makeup_evening_01.webp',cat:'makeup',alt:'Макияж Beauty Room by Esmeralda'}
   ];
 
   // Только короткие фрагменты отзывов, ранее подтверждённых по карточке Beauty Room в Google Maps.
   const reviews=[
-    {name:'Ольга К.',text:'Делаю хим завивку, в этом салоне никогда не отказывают, отличная атмосфера, все чисто стерильно, приветливый персонал.'},
-    {name:'Мама Рита',text:'Прекрасный косметолог Мария. Умеет всё. Препараты качественные, новейшие. Очень советую мастера.'},
-    {name:'Елизавета С.',text:'Отличное обслуживание, все мастера вежливые и отлично выполняют бьюти-услуги! Салон чистый, стильный!'},
-    {name:'Оксана Семина',text:'Ногти - шедевр!!!'}
+    {name:'Aurélie Vagharchak',text:'Excellent service! The team is truly professional and welcoming. I had such a nice and peaceful time. Highly recommended for a high-quality manicure and pedicure'},
+    {name:'Nathalie Nalbandian',text:'Visited Esmeralda to get my nails done for a wedding in Armenia. I found her on Yandex maps as a visitor from America. She did a wonderful job with the Russian gel manicure and pedicure. Cute little beauty salon. I recommend!'},
+    {name:'Анастасия Франкони',text:'Супер уютный небольшой салон. Сделали прекрасный маникюр (гель-лак) и педикюр. В процессе поняла, что хочу еще и брови, мастер нашла время, чтобы все сразу успеть! Все качественно и красиво! Стоимость приятная. К сожалению поздно узнала, что в салоне работает массажист-врач. В следующий раз обязательно и на массаж запишусь. Определённо рекомендую к визиту, но записывайтесь хотя бы за день.'},
+    {name:'Shushan Abrahamyan',text:'Great atmosphere and a very cozy salon. The staff are professional, friendly, and attentive. I was very satisfied with the service and would definitely recommend this salon'},
+    {name:'Leyla Medetova',text:'В восторге от обслуживания и сервиса 🔥 Особенно от хозяйки, приятная женщина и профессионал своего дела! Записывалась на маникюр и педикюр, очень качественно! 10 из 10. Рекомендую. Цены тоже удивили, в соотношении цены и качества! Внутри салона атмосферно, чисто и уютно🤍 желаю салону процветания и успехов!'},
+    {name:'DE GUZMAN, RICA MAE S.',text:'Highly recommended! The nail technician was gentle, detailed, and really knew what she was doing. The salon was clean and relaxing too. I love my beautiful nails now😍🫶🏻'},
+    {name:'Lilith Gulanyan',text:'Очень довольна обслуживанием, теплый прием, лучшие топ мастера 👍 вкусное угощение ..кофе'},
+    {name:'Ксения Курбатова',text:'Делала маникюр и педикюр. Всё очень понравилось. Уютно, чисто, мастер просто супер. Спасибо'},
+    {name:'Anne Madsen',text:'Мы с подругой сделали стрижку, маникюр и педикюр, и очень довольны результатом. Персонал сделал все возможное, чтобы мы чувствовали себя желанными гостями, был невероятно дружелюбен и создал уютную атмосферу. Несмотря на то, что мы не говорим по-армянски, и общение было ограничено, нам было очень приятно там находиться. Если мы когда-нибудь снова приедем в Ереван, обязательно вернемся в этот салон🌸 Большое спасибо!!'}
   ];
 
   const masters=[
-    {id:'tatiana',name:'Татьяна',category:'Волосы · ногти',initial:'Т',about:'Татьяна — мастер Beauty Room. В отзывах клиенты отдельно отмечают её работу с волосами и ногтями.',cats:['hair','nails']},
-    {id:'maria',name:'Мария',category:'Косметология',initial:'М',about:'Мария — косметолог Beauty Room. Клиенты отдельно рекомендуют её в отзывах о салоне.',cats:['face','brows','lashes']},
-    {id:'alena',name:'Алёна',category:'Мастер',initial:'А',about:'Алёна — мастер Beauty Room, которую клиенты отдельно рекомендуют в отзывах о салоне.',cats:[]},
-    {id:'placeholder',name:'Мастер',category:'Категория уточняется',initial:'S',about:'Карточка подготовлена для ещё одного специалиста Beauty Room.',cats:[]}
+    {id:'nails',name:'Nail-мастер',category:'Маникюр · педикюр',initial:'N',about:'',cats:['nails']},
+    {id:'hair',name:'Парикмахер',category:'Волосы · укладки',initial:'В',about:'',cats:['hair']},
+    {id:'brows',name:'Бровист / Lash-мастер',category:'Брови · ресницы',initial:'Б',about:'',cats:['brows']},
+    {id:'cosmetology',name:'Косметолог',category:'Косметология',initial:'К',about:'',cats:['face']},
+    {id:'depilation',name:'Мастер эпиляции',category:'Эпиляция',initial:'Э',about:'',cats:['depilation']},
+    {id:'makeup',name:'Визажист',category:'Макияж',initial:'М',about:'',cats:['makeup']},
+    {id:'massage',name:'Массажист',category:'Массаж',initial:'М',about:'',cats:['massage']}
   ];
 
   const font=document.createElement('link');
@@ -149,8 +170,8 @@
   const root=document.createElement('div');
   root.id='stluxe-tanem-v13';
 
-  const serviceTabs=[['all','Все'],['nails','Ногти'],['hair','Волосы'],['face','Косметология'],['brows','Брови'],['depilation','Депиляция']];
-  const galleryTabs=[['all','Все'],['salon','Салон'],['nails','Ногти'],['hair','Волосы']];
+  const serviceTabs=[['all','Все'],['nails','Ногти'],['hair','Волосы'],['brows','Брови и ресницы'],['face','Косметология'],['depilation','Эпиляция'],['makeup','Макияж'],['massage','Массаж'],['other','Другое']];
+  const galleryTabs=[['all','Все'],['salon','Салон'],['nails','Ногти'],['hair','Волосы'],['makeup','Макияж']];
 
   root.innerHTML=`
     <div class="tn13-intro" id="tn13Intro"><div class="tn13-intro-inner"><div class="tn13-intro-name">Beauty Room</div><div class="tn13-intro-line"></div><div class="tn13-intro-small">beauty salon · TANEM</div></div></div>
@@ -174,13 +195,13 @@
         <div class="tn13-hero-content">
           <div class="tn13-ticker"><div class="tn13-ticker-track"><span>Салон красоты · Ереван · рейтинг 5,0 · ногти · волосы · косметология</span><span>Салон красоты · Ереван · рейтинг 5,0 · ногти · волосы · косметология</span></div></div>
           <h1>Салон красоты <em>Beauty Room</em></h1>
-          <p class="tn13-hero-copy">Ногти, волосы, косметология и другие направления — в одном пространстве на улице Победы.</p>
+          <p class="tn13-hero-copy">Маникюр, волосы, брови, макияж и другие направления — в одном пространстве в Ереване.</p>
         </div>
 
         <div class="tn13-visual" aria-label="Интерьер и работы Beauty Room">
           <button class="tn13-visual-main" type="button" data-gallery="salon"><img src="interior_reception_02.webp" alt="Интерьер Beauty Room"></button>
-          <button class="tn13-visual-small" type="button" data-gallery="nails"><img src="assets/images/nails-pink.webp" alt="Маникюр Beauty Room"></button>
-          <div class="tn13-visual-label">Ереван · Победы, 16</div>
+          <button class="tn13-visual-small" type="button" data-gallery="nails"><img src="manicure_french_soft_pink_design_04.webp" alt="Маникюр Beauty Room"></button>
+          <div class="tn13-visual-label">Ереван · Zavarian St 1/5</div>
         </div>
 
         <div class="tn13-hero-bottom">
@@ -203,7 +224,7 @@
 
     <section class="tn13-section tn13-services" id="tn13Services">
       <div class="tn13-shell tn13-reveal">
-        <div class="tn13-section-head"><div><p class="tn13-kicker">Услуги</p><h2>Выберите<br>услугу</h2></div><p class="tn13-section-note">Цена указана там, где она подтверждена</p></div>
+        <div class="tn13-section-head"><div><p class="tn13-kicker">Услуги</p><h2>Выберите<br>услугу</h2></div></div>
         <div class="tn13-tabs" id="tn13ServiceTabs">${serviceTabs.map((t,i)=>`<button class="tn13-tab ${i===0?'active':''}" data-service-cat="${t[0]}" type="button">${t[1]}</button>`).join('')}</div>
         <div class="tn13-service-list" id="tn13ServiceList"></div>
         <button class="tn13-more" id="tn13More" type="button">Показать ещё услуги</button>
@@ -229,10 +250,10 @@
       <div class="tn13-shell tn13-reveal">
         <p class="tn13-kicker">Визит и запись</p>
         <h2>Выберите удобный<br><em>способ записи</em></h2>
-        <p class="tn13-final-copy">Beauty Room находится в Ивантеевке на улице Победы, 16. Без выходных, салон работает ежедневно с 09:00 до 20:00.</p>
+        <p class="tn13-final-copy">Beauty Room by Esmeralda находится в Ереване, Zavarian St 1/5. Салон работает ежедневно с 09:00 до 20:00.</p>
         <div class="tn13-final-actions">
           <button class="tn13-final-cta" type="button" data-book><span>Записаться в Beauty Room</span><span>→</span></button>
-          <div class="tn13-final-secondary-row"><a class="tn13-final-secondary" href="${WHATSAPP_URL}" target="_blank" rel="noopener"><svg class="tn50-brand-svg" aria-hidden="true"><use href="#stl-icon-whatsapp"/></svg>Instagram</a><button class="tn13-final-secondary" type="button" disabled style="background:transparent"><svg class="tn50-brand-svg" aria-hidden="true"><use href="#stl-icon-max"/></svg>MAX</button><a class="tn13-final-secondary" href="tel:${PHONE}"><svg aria-hidden="true"><use href="#stl-icon-phone"/></svg>Позвонить</a><a class="tn13-final-secondary" href="${YANDEX}" target="_blank" rel="noopener">Google Maps</a></div>
+          <div class="tn13-final-secondary-row"><a class="tn13-final-secondary" href="${WHATSAPP_URL}" target="_blank" rel="noopener"><svg class="tn50-brand-svg" aria-hidden="true"><use href="#stl-icon-whatsapp"/></svg>Instagram</a><a class="tn13-final-secondary" href="tel:${PHONE}"><svg aria-hidden="true"><use href="#stl-icon-phone"/></svg>Позвонить</a><a class="tn13-final-secondary" href="${YANDEX}" target="_blank" rel="noopener">Google Maps</a></div>
         </div>
         <iframe class="tn13-map" loading="lazy" src="https://www.google.com/maps?q=40.1673067,44.5124793&z=16&output=embed" title="Карта Beauty Room"></iframe>
         <div class="tn13-final-facts"><span><strong>09–20</strong><small>ежедневно</small></span><span><strong>5,0</strong><small>рейтинг</small></span><span><strong>30</strong><small>услуг</small></span></div>
@@ -258,7 +279,7 @@
   document.addEventListener('pointerdown',e=>{if(!e.target.closest('.tn13-menu-wrap')){menuBtn.classList.remove('open');menu.classList.remove('open')}});
 
   let serviceCat='all',expanded=false;
-  function renderServices(){const all=services.filter(s=>serviceCat==='all'||s[0]===serviceCat);const shown=expanded?all:all.slice(0,6);$('#tn13ServiceList').innerHTML=shown.map(s=>`<article class="tn13-service-row"><div class="tn13-service-name"><strong>${s[1]}</strong><small>${s[2]}</small></div><div class="tn13-service-action"><b>${s[2]}</b><button type="button" data-book>Записаться →</button></div></article>`).join('');const more=$('#tn13More');more.style.display=all.length>6?'block':'none';more.textContent=expanded?'Свернуть услуги':'Показать ещё '+Math.max(0,all.length-6)+' услуг';bindBook();}
+  function renderServices(){const all=services.filter(s=>serviceCat==='all'||s[0]===serviceCat);const shown=expanded?all:all.slice(0,6);$('#tn13ServiceList').innerHTML=shown.map(s=>`<article class="tn13-service-row"><div class="tn13-service-name"><strong>${s[1]}</strong></div><div class="tn13-service-action"><button type="button" data-book>Записаться →</button></div></article>`).join('');const more=$('#tn13More');more.style.display=all.length>6?'block':'none';more.textContent=expanded?'Свернуть услуги':'Показать ещё '+Math.max(0,all.length-6)+' услуг';bindBook();}
   renderServices();
   $$('#tn13ServiceTabs [data-service-cat]').forEach(b=>b.addEventListener('click',()=>{serviceCat=b.dataset.serviceCat;expanded=false;$$('#tn13ServiceTabs .tn13-tab').forEach(x=>x.classList.toggle('active',x===b));renderServices()}));
   $('#tn13More').addEventListener('click',()=>{expanded=!expanded;renderServices()});
@@ -339,7 +360,7 @@ const SERVICES=[
 {cat:'Брови и ресницы',title:'Наращивание ресниц',price:'',desc:''},
 ];
 const GALLERY={
-'Sалон':[
+'Салон':[
  {src:'interior_reception_02.webp',alt:'Интерьер Beauty Room by Esmeralda'}
 ],
 'Ногти':[
