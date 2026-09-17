@@ -1,4 +1,4 @@
-/* Beauty Room mobile loader: final client-approved targeted fixes. */
+/* Beauty Room mobile loader: targeted final polish. */
 (function(){
   'use strict';
   if(!window.matchMedia || !window.matchMedia('(max-width:767px)').matches) return;
@@ -11,7 +11,7 @@
     style.id='beautyroom-final-client-polish';
     style.textContent=`
     @media(max-width:767px){
-      /* HERO — STLuxe geometry; remove the descriptive line and use the freed space. */
+      /* HERO — preserve approved layout; remove only rejected copy. */
       #stluxe-tanem-v13 .tn13-hero{height:744px!important;min-height:744px!important;max-height:none!important;padding:0!important;background:linear-gradient(180deg,#f8f4ee 0%,#f8f4ee 90%,#f7f2eb 100%)!important;position:relative!important;overflow:hidden!important}
       .tn22-media{position:absolute!important;top:52px!important;left:50%!important;right:auto!important;width:100vw!important;height:372px!important;min-height:0!important;transform:translateX(-50%)!important;overflow:hidden!important;padding:0!important;margin:0!important;border:0!important}
       .tn22-media .tn22-slide,.tn22-media img{inset:0!important;width:100%!important;height:100%!important;margin:0!important;padding:0!important;display:block!important}
@@ -31,13 +31,17 @@
       .tn22-worklink{display:flex!important;width:min(100%,330px)!important;height:48px!important;margin:10px auto 0!important;align-items:center!important;justify-content:center!important;gap:11px!important;border-radius:8px!important;border:1px solid rgba(113,91,83,.38)!important;background:#efe7e1!important;color:#2f2926!important;text-decoration:none!important;font:500 13px/1 'Manrope',Arial,sans-serif!important;transition:transform .14s ease,background .14s ease,color .14s ease!important}
       .tn22-worklink:active{transform:translateY(2px) scale(.988)!important;background:#715b53!important;color:#fff!important;border-color:#715b53!important}
 
-      /* SERVICES — guaranteed left/right breathing room at both ends of the horizontal category row. */
+      /* PORTFOLIO — reduce only the excessive gap below the hero by about 1 cm. */
+      #tn13Portfolio{min-height:824px!important}
+      #tn13Portfolio .tn22-port{padding-top:22px!important}
+
+      /* SERVICES — fixed, real 25px breathing room at both horizontal ends. */
       #tn13Services{background:#242424!important;color:#f3f3f3!important;border-color:rgba(255,255,255,.08)!important}
       #tn13Services .tn22-kicker{color:#bdbdbd!important}
       #tn13Services h2,#tn13Services .tn31-service-name{color:#f5f5f5!important}
-      #tn13Services .tn31-cats-wrap{position:relative!important;margin:25px -25px 0!important}
-      #tn13Services .tn31-cats{display:flex!important;align-items:center!important;gap:8px!important;overflow-x:auto!important;padding:0 0 11px!important;scroll-padding-inline:25px!important;box-sizing:border-box!important}
-      #tn13Services .tn31-cats:before,#tn13Services .tn31-cats:after{content:''!important;display:block!important;flex:0 0 17px!important;width:17px!important;height:1px!important}
+      #tn13Services .tn31-cats-wrap{position:relative!important;margin:25px 0 0!important}
+      #tn13Services .tn31-cats{display:flex!important;align-items:center!important;gap:8px!important;overflow-x:auto!important;padding:0 0 11px!important;scroll-padding-inline:0!important;box-sizing:border-box!important}
+      #tn13Services .tn31-cats:before,#tn13Services .tn31-cats:after{display:none!important;content:none!important}
       #tn13Services .tn31-cat{border-color:rgba(255,255,255,.20)!important;color:#d2d2d2!important;background:rgba(255,255,255,.03)!important}
       #tn13Services .tn31-cat.active{background:#e7e7e7!important;border-color:#e7e7e7!important;color:#202020!important}
       #tn13Services .tn31-service-list{border-color:rgba(255,255,255,.16)!important}
@@ -47,7 +51,12 @@
       #tn13Services .tn31-service-more{border-color:rgba(255,255,255,.24)!important;background:rgba(255,255,255,.04)!important;color:#f2f2f2!important}
       #tn13Services .tn31-service-more span:last-child{color:#d3d3d3!important}
 
-      /* TEAM — untouched structure, only keep the already approved dark block. */
+      /* ABOUT — make the content cards subtly darker than the section. */
+      #tn38About .tn42-card{background:#e7ded5!important;border-color:rgba(66,55,49,.14)!important}
+      #tn38About .tn42-body{background:#e7ded5!important}
+      #tn38About .tn42-fact{background:#ddd3ca!important;border-color:rgba(64,52,45,.12)!important;box-shadow:none!important}
+
+      /* TEAM — keep approved dark block and three masters. */
       #tn13Team{margin:0!important;padding:0!important;background:#242424!important;color:#f5f5f5!important}
       #tn13Team .tn22-team{padding:42px 28px 38px!important;overflow:hidden!important}
       #tn13Team .tn22-kicker{color:#bdbdbd!important}
@@ -59,7 +68,7 @@
       #tn13Team .tn22-master-role{display:block!important;margin-top:5px!important;font:400 10px/1.3 'Manrope',Arial,sans-serif!important;color:#bdb5b0!important}
       #tn13Team .tn42-team-hint{display:block!important;margin-top:8px!important;text-align:right!important;color:#b7afa9!important;font:500 9px/1 'Manrope',Arial,sans-serif!important;letter-spacing:.08em!important;text-transform:uppercase!important}
 
-      /* REVIEWS — one horizontal carousel made of pages; each page contains exactly three vertically aligned cards. */
+      /* REVIEWS — one infinite carousel; every slide = exactly three stacked reviews. */
       #tn13Reviews{margin:0!important;padding:0!important;background:#e9e2da!important;color:#171513!important;overflow:hidden!important;border-top:1px solid rgba(62,51,44,.07)!important;border-bottom:1px solid rgba(62,51,44,.07)!important}
       #tn13Reviews .br-reviews{padding:44px 0 46px!important}
       #tn13Reviews .br-reviews>.tn22-kicker,#tn13Reviews .br-reviews>h2{margin-left:24px!important;margin-right:24px!important}
@@ -71,22 +80,24 @@
       #tn13Reviews .br-count{margin-top:14px!important;font:400 13px/1 'Manrope',Arial,sans-serif!important;color:#716862!important}
       #tn13Reviews .br-review-viewport{margin-top:37px!important;overflow:hidden!important;touch-action:pan-y!important;user-select:none!important;cursor:grab!important}
       #tn13Reviews .br-review-viewport.dragging{cursor:grabbing!important}
-      #tn13Reviews .br-review-track{display:flex!important;width:100%!important;will-change:transform!important}
-      #tn13Reviews .br-review-page{flex:0 0 100%!important;width:100%!important;box-sizing:border-box!important;display:grid!important;gap:12px!important;padding:0 26px!important}
+      #tn13Reviews .br-review-track{display:flex!important;align-items:stretch!important;gap:12px!important;width:max-content!important;will-change:transform!important}
+      #tn13Reviews .br-review-page{flex:0 0 calc(100vw - 52px)!important;width:calc(100vw - 52px)!important;box-sizing:border-box!important;display:grid!important;gap:12px!important}
       #tn13Reviews .br-review-card{box-sizing:border-box!important;height:184px!important;min-height:184px!important;padding:16px 17px 17px!important;border:1px solid rgba(66,55,49,.15)!important;border-radius:13px!important;background:rgba(255,255,255,.34)!important;text-decoration:none!important;color:#171513!important;overflow:hidden!important}
       #tn13Reviews .br-review-head{display:grid!important;grid-template-columns:45px minmax(0,1fr)!important;gap:12px!important;align-items:center!important}
       #tn13Reviews .br-review-avatar{width:43px!important;height:43px!important;border-radius:50%!important;display:grid!important;place-items:center!important;background:#d7cec6!important;border:1px solid rgba(66,55,49,.1)!important;font:500 22px/1 'Cormorant Garamond',Georgia,serif!important;color:#514943!important}
       #tn13Reviews .br-review-name{display:block!important;font:600 19px/1 'Cormorant Garamond',Georgia,serif!important;color:#2a2522!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
-      #tn13Reviews .br-review-meta{display:block!important;margin-top:5px!important;font:500 9px/1 'Manrope',Arial,sans-serif!important;letter-spacing:.08em!important;text-transform:uppercase!important;color:#8a817a!important}
+      #tn13Reviews .br-review-meta{display:flex!important;align-items:center!important;gap:7px!important;margin-top:5px!important;font:500 9px/1 'Manrope',Arial,sans-serif!important;letter-spacing:.08em!important;text-transform:uppercase!important;color:#8a817a!important}
+      #tn13Reviews .br-review-meta-stars{color:#b78d4f!important;letter-spacing:1px!important;font-size:10px!important}
       #tn13Reviews .br-review-card p{margin:14px 0 0!important;font:400 12.5px/1.5 'Manrope',Arial,sans-serif!important;color:#4f4843!important;display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:4!important;overflow:hidden!important}
       #tn13Reviews .br-review-open{display:block!important;margin-top:10px!important;font:500 9.5px/1 'Manrope',Arial,sans-serif!important;color:#655b54!important}
       #tn13Reviews .br-review-all{display:flex!important;align-items:center!important;justify-content:center!important;margin:28px 22px 0!important;height:46px!important;border:1px solid rgba(66,55,49,.18)!important;border-radius:7px!important;color:#2f2a26!important;text-decoration:none!important;font:500 10.5px/1 'Manrope',Arial,sans-serif!important;letter-spacing:.15em!important;text-transform:uppercase!important;background:rgba(255,255,255,.18)!important}
 
-      /* TANEM badge — compact STLuxe-style mark, no oversized empty footer. */
-      #tn13Visit .tn22-footer{margin:28px -24px 0!important;height:126px!important;min-height:126px!important;background:#171513!important;color:#fff!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:13px!important;padding:18px 24px 20px!important;text-decoration:none!important;border:0!important}
-      #tn13Visit .br-tanem-mark{width:36px!important;height:36px!important;border:1px solid rgba(255,255,255,.42)!important;border-radius:10px!important;display:grid!important;place-items:center!important;font:500 25px/1 'Cormorant Garamond',Georgia,serif!important;color:#fff!important}
-      #tn13Visit .br-tanem-copy{display:block!important;max-width:none!important;text-align:center!important;font:400 11px/1.25 'Manrope',Arial,sans-serif!important;color:#cfc8c4!important}
-      #tn13Visit .br-tanem-copy strong{display:inline!important;font:500 17px/1 'Cormorant Garamond',Georgia,serif!important;color:#fff!important}
+      /* CONTACTS + TANEM — black system/footer area and a badge ~1 cm shorter. */
+      #tn13Visit{background:#2f2926!important}
+      #tn13Visit .tn22-footer{margin:28px -24px 0!important;height:88px!important;min-height:88px!important;background:#11100f!important;color:#fff!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:8px!important;padding:10px 24px 12px!important;text-decoration:none!important;border:0!important}
+      #tn13Visit .br-tanem-mark{width:30px!important;height:30px!important;border:1px solid rgba(255,255,255,.42)!important;border-radius:8px!important;display:grid!important;place-items:center!important;font:500 21px/1 'Cormorant Garamond',Georgia,serif!important;color:#fff!important}
+      #tn13Visit .br-tanem-copy{display:block!important;max-width:none!important;text-align:center!important;font:400 10px/1.2 'Manrope',Arial,sans-serif!important;color:#cfc8c4!important}
+      #tn13Visit .br-tanem-copy strong{display:inline!important;font:500 15px/1 'Cormorant Garamond',Georgia,serif!important;color:#fff!important}
     }
     `;
     document.head.appendChild(style);
@@ -95,7 +106,7 @@
     const heroCopy=document.querySelector('#stluxe-tanem-v13 .tn22-copy');
     if(heroCopy) heroCopy.remove();
 
-    /* Rebuild only the broken reviews area: three aligned cards per page. */
+    /* Rebuild only reviews: 3 stacked cards per slide, centered with neighbor edges visible. */
     const reviewsRoot=document.querySelector('#stluxe-tanem-v13 #tn13Reviews');
     if(reviewsRoot){
       const REVIEW_URL='https://www.google.com/maps/place/Beauty+Room+by+Esmeralda/@40.1673067,44.5124793,17z/';
@@ -111,7 +122,7 @@
         ['Anne Madsen','Мы с подругой сделали стрижку, маникюр и педикюр, и очень довольны результатом. Персонал сделал все возможное, чтобы мы чувствовали себя желанными гостями и создал уютную атмосферу.']
       ];
       const initial=name=>([...String(name).trim()][0]||'B').toUpperCase();
-      const card=r=>`<a class="br-review-card" href="${REVIEW_URL}" target="_blank" rel="noopener"><div class="br-review-head"><span class="br-review-avatar">${initial(r[0])}</span><span><strong class="br-review-name">${r[0]}</strong><span class="br-review-meta">Google Maps</span></span></div><p>${r[1]}</p><span class="br-review-open">Подробнее →</span></a>`;
+      const card=r=>`<a class="br-review-card" href="${REVIEW_URL}" target="_blank" rel="noopener"><div class="br-review-head"><span class="br-review-avatar">${initial(r[0])}</span><span><strong class="br-review-name">${r[0]}</strong><span class="br-review-meta"><span>Google Maps</span><span class="br-review-meta-stars">★★★★★</span></span></span></div><p>${r[1]}</p><span class="br-review-open">Подробнее →</span></a>`;
       const groups=[];
       for(let i=0;i<reviewData.length;i+=3) groups.push(reviewData.slice(i,i+3));
       const page=g=>`<div class="br-review-page">${g.map(card).join('')}</div>`;
@@ -120,20 +131,51 @@
 
       const viewport=reviewsRoot.querySelector('.br-review-viewport');
       const track=reviewsRoot.querySelector('.br-review-track');
-      let pageIndex=1,startX=0,startY=0,dx=0,dragging=false,moved=false,autoTimer=0;
+      let pageIndex=1,startX=0,startY=0,dx=0,dragging=false,moved=false,autoTimer=0,normalizing=false;
       const total=groups.length;
-      const paint=(animate=true,drag=0)=>{
-        track.style.transition=animate?'transform 650ms cubic-bezier(.22,.66,.24,1)':'none';
-        track.style.transform=`translate3d(calc(${-pageIndex*100}% + ${drag}px),0,0)`;
+      const gap=12;
+      const metrics=()=>{
+        const page=track.querySelector('.br-review-page');
+        const width=page?page.getBoundingClientRect().width:Math.max(0,window.innerWidth-52);
+        return {width,step:width+gap,edge:Math.max(0,(viewport.clientWidth-width)/2)};
       };
-      const schedule=()=>{clearTimeout(autoTimer);autoTimer=setTimeout(()=>{pageIndex+=1;paint(true)},4200)};
+      const paint=(animate=true,drag=0)=>{
+        const {step,edge}=metrics();
+        track.style.transition=animate?'transform 650ms cubic-bezier(.22,.66,.24,1)':'none';
+        track.style.transform=`translate3d(${edge-pageIndex*step+drag}px,0,0)`;
+      };
+      const schedule=()=>{
+        clearTimeout(autoTimer);
+        autoTimer=setTimeout(()=>{
+          pageIndex+=1;
+          paint(true);
+        },4200);
+      };
+      const normalize=()=>{
+        if(pageIndex===0){
+          normalizing=true;
+          pageIndex=total;
+          paint(false);
+          requestAnimationFrame(()=>{normalizing=false});
+        }else if(pageIndex===total+1){
+          normalizing=true;
+          pageIndex=1;
+          paint(false);
+          requestAnimationFrame(()=>{normalizing=false});
+        }
+      };
       track.addEventListener('transitionend',()=>{
-        if(pageIndex===0){pageIndex=total;paint(false)}
-        else if(pageIndex===total+1){pageIndex=1;paint(false)}
+        normalize();
         schedule();
       });
       viewport.addEventListener('pointerdown',e=>{
-        clearTimeout(autoTimer);dragging=true;moved=false;dx=0;startX=e.clientX;startY=e.clientY;viewport.classList.add('dragging');
+        clearTimeout(autoTimer);
+        dragging=true;
+        moved=false;
+        dx=0;
+        startX=e.clientX;
+        startY=e.clientY;
+        viewport.classList.add('dragging');
         try{viewport.setPointerCapture(e.pointerId)}catch(_){}
       });
       viewport.addEventListener('pointermove',e=>{
@@ -141,25 +183,56 @@
         const x=e.clientX-startX,y=e.clientY-startY;
         if(!moved&&Math.abs(x)<6)return;
         if(!moved&&Math.abs(y)>Math.abs(x))return;
-        moved=true;dx=x;paint(false,dx);
+        moved=true;
+        dx=x;
+        paint(false,dx);
       });
       const endDrag=e=>{
         if(!dragging)return;
-        dragging=false;viewport.classList.remove('dragging');
+        dragging=false;
+        viewport.classList.remove('dragging');
         try{viewport.releasePointerCapture(e.pointerId)}catch(_){}
-        if(moved&&Math.abs(dx)>50) pageIndex+=dx<0?1:-1;
-        dx=0;paint(true);
+        const {step}=metrics();
+        if(moved&&Math.abs(dx)>Math.min(70,step*.16)) pageIndex+=dx<0?1:-1;
+        pageIndex=Math.max(0,Math.min(total+1,pageIndex));
+        dx=0;
+        paint(true);
         if(!moved)schedule();
       };
       viewport.addEventListener('pointerup',endDrag);
       viewport.addEventListener('pointercancel',endDrag);
-      paint(false);schedule();
+      viewport.addEventListener('click',e=>{
+        if(moved){e.preventDefault();e.stopPropagation();moved=false}
+      },true);
+      window.addEventListener('resize',()=>paint(false),{passive:true});
+      paint(false);
+      schedule();
     }
 
-    /* Replace only the oversized TANEM footer with the compact STLuxe badge. */
+    /* Replace only the TANEM footer content with the compact badge. */
     const tanemFooter=document.querySelector('#stluxe-tanem-v13 #tn13Visit .tn22-footer');
     if(tanemFooter){
       tanemFooter.innerHTML='<span class="br-tanem-mark">T</span><span class="br-tanem-copy">Создано в <strong>TANEM.ru</strong></span>';
+    }
+
+    /* Make iOS/browser system chrome dark while the contact block is on screen. */
+    let themeMeta=document.querySelector('meta[name="theme-color"]');
+    if(!themeMeta){
+      themeMeta=document.createElement('meta');
+      themeMeta.name='theme-color';
+      document.head.appendChild(themeMeta);
+    }
+    const lightTheme='#f8f4ee',darkTheme='#11100f';
+    themeMeta.setAttribute('content',lightTheme);
+    const visit=document.querySelector('#stluxe-tanem-v13 #tn13Visit');
+    if(visit && 'IntersectionObserver' in window){
+      const themeObserver=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting && entry.intersectionRatio>0.18) themeMeta.setAttribute('content',darkTheme);
+          else if(!entry.isIntersecting) themeMeta.setAttribute('content',lightTheme);
+        });
+      },{threshold:[0,.18,.5]});
+      themeObserver.observe(visit);
     }
 
     /* All external destinations open separately from the site. */
