@@ -20,7 +20,6 @@
       .tn22-title{margin:0!important;font:500 49px/.88 'Cormorant Garamond',Georgia,serif!important;letter-spacing:.18em!important;text-indent:.18em!important;text-transform:uppercase!important}
       .tn22-sub{margin:12px 0 17px!important;font:500 10.5px/1 'Manrope',Arial,sans-serif!important;letter-spacing:.38em!important;text-indent:.38em!important;text-transform:uppercase!important;color:#635d58!important}
       .tn22-copy{display:none!important}
-      /* Drop only the lower hero information/buttons by ~0.3 cm; title/subtitle stay fixed. */
       .tn37-hero-info{width:min(100%,330px)!important;margin:37px auto 0!important;display:grid!important;grid-template-columns:1fr 1px 1.18fr!important;align-items:center!important;gap:12px!important;text-align:left!important}
       .tn37-info-divider{width:1px!important;height:42px!important}
       .tn37-info{grid-template-columns:40px minmax(0,1fr)!important;gap:9px!important}
@@ -32,19 +31,19 @@
       .tn22-worklink{display:flex!important;width:min(100%,330px)!important;height:48px!important;margin:10px auto 0!important;align-items:center!important;justify-content:center!important;gap:11px!important;border-radius:8px!important;border:1px solid rgba(113,91,83,.38)!important;background:#efe7e1!important;color:#2f2926!important;text-decoration:none!important;font:500 13px/1 'Manrope',Arial,sans-serif!important;transition:transform .14s ease,background .14s ease,color .14s ease!important}
       .tn22-worklink:active{transform:translateY(2px) scale(.988)!important;background:#715b53!important;color:#fff!important;border-color:#715b53!important}
 
-      /* PORTFOLIO — reduce only the excessive gap below the hero by about 1 cm. */
+      /* PORTFOLIO — approved compact distance below hero. */
       #tn13Portfolio{min-height:824px!important}
       #tn13Portfolio .tn22-port{padding-top:22px!important}
 
-      /* SERVICES — exact STLuxe edge spacing: 25px visible gutter on both ends. */
+      /* SERVICES — categories live inside exactly the same 25px content line as service rows. */
       #tn13Services{background:#242424!important;color:#f3f3f3!important;border-color:rgba(255,255,255,.08)!important}
       #tn13Services .tn22-kicker{color:#bdbdbd!important}
       #tn13Services h2,#tn13Services .tn31-service-name{color:#f5f5f5!important}
-      #tn13Services .tn31-cats-wrap{position:relative!important;margin:25px -25px 0!important}
-      #tn13Services .tn31-cats{display:flex!important;align-items:center!important;gap:8px!important;overflow-x:auto!important;padding:0 25px 11px!important;scroll-padding-inline:25px!important;box-sizing:border-box!important}
+      #tn13Services .tn31-cats-wrap{position:relative!important;width:100%!important;margin:25px 0 0!important;overflow:hidden!important}
+      #tn13Services .tn31-cats{display:flex!important;width:100%!important;align-items:center!important;gap:8px!important;overflow-x:auto!important;overscroll-behavior-inline:contain!important;-webkit-overflow-scrolling:touch!important;padding:0 0 11px!important;scroll-padding-inline:0!important;box-sizing:border-box!important}
       #tn13Services .tn31-cats:before,#tn13Services .tn31-cats:after{display:none!important;content:none!important}
       #tn13Services .tn31-cat{border-color:rgba(255,255,255,.20)!important;color:#d2d2d2!important;background:rgba(255,255,255,.03)!important}
-      #tn13Services .tn31-cat.active{background:#e7e7e7!important;border-color:#e7e7e7!important;color:#202020!important}
+      #tn13Services .tn31-cat.active{background:#f7f2eb!important;border-color:#f7f2eb!important;color:#2f2926!important}
       #tn13Services .tn31-service-list{border-color:rgba(255,255,255,.16)!important}
       #tn13Services .tn31-service-row{border-color:rgba(255,255,255,.14)!important}
       #tn13Services .tn31-service-detail{color:#bdbdbd!important}
@@ -52,10 +51,14 @@
       #tn13Services .tn31-service-more{border-color:rgba(255,255,255,.24)!important;background:rgba(255,255,255,.04)!important;color:#f2f2f2!important}
       #tn13Services .tn31-service-more span:last-child{color:#d3d3d3!important}
 
-      /* ABOUT — make the content cards subtly darker than the section. */
+      /* ABOUT — keep salon name serif, supporting copy modern; facts a brighter warm tone. */
       #tn38About .tn42-card{background:#e7ded5!important;border-color:rgba(66,55,49,.14)!important}
       #tn38About .tn42-body{background:#e7ded5!important}
-      #tn38About .tn42-fact{background:#ddd3ca!important;border-color:rgba(64,52,45,.12)!important;box-shadow:none!important}
+      #tn38About .tn42-lead{font:400 27px/1.08 'Cormorant Garamond',Georgia,serif!important}
+      #tn38About .br-about-brand{display:block!important;font:400 27px/1.08 'Cormorant Garamond',Georgia,serif!important;letter-spacing:-.032em!important;color:#1d1a18!important}
+      #tn38About .br-about-kind{display:block!important;margin-top:9px!important;font:500 12px/1.35 'Manrope',Arial,sans-serif!important;letter-spacing:.015em!important;color:#665c56!important}
+      #tn38About .tn42-copy{font:400 12.8px/1.62 'Manrope',Arial,sans-serif!important;color:#58504a!important}
+      #tn38About .tn42-fact{background:#f1e8df!important;border-color:rgba(64,52,45,.10)!important;box-shadow:none!important}
 
       /* TEAM — keep approved dark block and three masters. */
       #tn13Team{margin:0!important;padding:0!important;background:#242424!important;color:#f5f5f5!important}
@@ -93,8 +96,9 @@
       #tn13Reviews .br-review-open{display:block!important;margin-top:10px!important;font:500 9.5px/1 'Manrope',Arial,sans-serif!important;color:#655b54!important}
       #tn13Reviews .br-review-all{display:flex!important;align-items:center!important;justify-content:center!important;margin:28px 22px 0!important;height:46px!important;border:1px solid rgba(66,55,49,.18)!important;border-radius:7px!important;color:#2f2a26!important;text-decoration:none!important;font:500 10.5px/1 'Manrope',Arial,sans-serif!important;letter-spacing:.15em!important;text-transform:uppercase!important;background:rgba(255,255,255,.18)!important}
 
-      /* CONTACTS + TANEM — black system/footer area and a badge ~1 cm shorter. */
+      /* CONTACTS + TANEM. */
       #tn13Visit{background:#2f2926!important}
+      #tn13Visit .tn22-contact[href^="tel:"] strong{font:400 15.5px/1.2 'Manrope',Arial,sans-serif!important;letter-spacing:.01em!important}
       #tn13Visit .tn22-footer{margin:28px -24px 0!important;height:88px!important;min-height:88px!important;background:#11100f!important;color:#fff!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:8px!important;padding:10px 24px 12px!important;text-decoration:none!important;border:0!important}
       #tn13Visit .br-tanem-mark{width:30px!important;height:30px!important;border:1px solid rgba(255,255,255,.42)!important;border-radius:8px!important;display:grid!important;place-items:center!important;font:500 21px/1 'Cormorant Garamond',Georgia,serif!important;color:#fff!important}
       #tn13Visit .br-tanem-copy{display:block!important;max-width:none!important;text-align:center!important;font:400 10px/1.2 'Manrope',Arial,sans-serif!important;color:#cfc8c4!important}
@@ -106,6 +110,52 @@
     /* Remove only the client-rejected descriptive sentence. */
     const heroCopy=document.querySelector('#stluxe-tanem-v13 .tn22-copy');
     if(heroCopy) heroCopy.remove();
+
+    /* Update only About copy/typography. */
+    const aboutLead=document.querySelector('#stluxe-tanem-v13 #tn38About .tn42-lead');
+    if(aboutLead){
+      aboutLead.innerHTML='<span class="br-about-brand">Beauty Room by Esmeralda</span><span class="br-about-kind">Салон красоты в Ереване</span>';
+    }
+    const aboutCopy=document.querySelector('#stluxe-tanem-v13 #tn38About .tn42-copy');
+    if(aboutCopy){
+      aboutCopy.textContent='Здесь можно спокойно выбрать нужные процедуры и доверить уход мастерам разных направлений. Мы ценим аккуратную работу, комфорт и внимательное отношение к каждому гостю.';
+    }
+
+    /* Remove any stale STLuxe/Estel Lux wording from master sheets, including content rendered later. */
+    const salonNamePattern=/(STLuxe|ST\s*Luxe|ST\s*Lux|Estel\s*Lux|Эстел\s*Люкс)/gi;
+    const replaceSalonText=root=>{
+      if(!root) return;
+      const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+      const nodes=[];
+      while(walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach(node=>{
+        if(salonNamePattern.test(node.nodeValue||'')){
+          salonNamePattern.lastIndex=0;
+          node.nodeValue=(node.nodeValue||'').replace(salonNamePattern,'Beauty Room by Esmeralda');
+        }else{
+          salonNamePattern.lastIndex=0;
+        }
+      });
+    };
+    const appRoot=document.querySelector('#stluxe-tanem-v13');
+    replaceSalonText(appRoot);
+    if(appRoot && 'MutationObserver' in window){
+      new MutationObserver(records=>{
+        records.forEach(record=>{
+          record.addedNodes.forEach(node=>{
+            if(node.nodeType===Node.TEXT_NODE){
+              salonNamePattern.lastIndex=0;
+              if(salonNamePattern.test(node.nodeValue||'')){
+                salonNamePattern.lastIndex=0;
+                node.nodeValue=(node.nodeValue||'').replace(salonNamePattern,'Beauty Room by Esmeralda');
+              }
+            }else if(node.nodeType===Node.ELEMENT_NODE){
+              replaceSalonText(node);
+            }
+          });
+        });
+      }).observe(appRoot,{childList:true,subtree:true});
+    }
 
     /* Rebuild only reviews: 3 stacked cards per slide, centered with neighbor edges visible. */
     const reviewsRoot=document.querySelector('#stluxe-tanem-v13 #tn13Reviews');
@@ -132,7 +182,7 @@
 
       const viewport=reviewsRoot.querySelector('.br-review-viewport');
       const track=reviewsRoot.querySelector('.br-review-track');
-      let pageIndex=1,startX=0,startY=0,dx=0,dragging=false,moved=false,autoTimer=0,normalizing=false;
+      let pageIndex=1,startX=0,startY=0,dx=0,dragging=false,moved=false,autoTimer=0;
       const total=groups.length;
       const gap=12;
       const metrics=()=>{
@@ -154,15 +204,11 @@
       };
       const normalize=()=>{
         if(pageIndex===0){
-          normalizing=true;
           pageIndex=total;
           paint(false);
-          requestAnimationFrame(()=>{normalizing=false});
         }else if(pageIndex===total+1){
-          normalizing=true;
           pageIndex=1;
           paint(false);
-          requestAnimationFrame(()=>{normalizing=false});
         }
       };
       track.addEventListener('transitionend',()=>{
@@ -216,25 +262,36 @@
       tanemFooter.innerHTML='<span class="br-tanem-mark">T</span><span class="br-tanem-copy">Создано в <strong>TANEM.ru</strong></span>';
     }
 
-    /* Make iOS/browser system chrome dark while the contact block is on screen. */
+    /* Make browser/system chrome dark whenever the contacts section is visible. */
     let themeMeta=document.querySelector('meta[name="theme-color"]');
     if(!themeMeta){
       themeMeta=document.createElement('meta');
       themeMeta.name='theme-color';
       document.head.appendChild(themeMeta);
     }
-    const lightTheme='#f8f4ee',darkTheme='#11100f';
-    themeMeta.setAttribute('content',lightTheme);
-    const visit=document.querySelector('#stluxe-tanem-v13 #tn13Visit');
-    if(visit && 'IntersectionObserver' in window){
-      const themeObserver=new IntersectionObserver(entries=>{
-        entries.forEach(entry=>{
-          if(entry.isIntersecting && entry.intersectionRatio>0.18) themeMeta.setAttribute('content',darkTheme);
-          else if(!entry.isIntersecting) themeMeta.setAttribute('content',lightTheme);
-        });
-      },{threshold:[0,.18,.5]});
-      themeObserver.observe(visit);
+    let appleStatus=document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
+    if(!appleStatus){
+      appleStatus=document.createElement('meta');
+      appleStatus.name='apple-mobile-web-app-status-bar-style';
+      document.head.appendChild(appleStatus);
     }
+    const lightTheme='#f8f4ee',darkTheme='#11100f';
+    const visit=document.querySelector('#stluxe-tanem-v13 #tn13Visit');
+    const applySystemTheme=dark=>{
+      themeMeta.setAttribute('content',dark?darkTheme:lightTheme);
+      appleStatus.setAttribute('content',dark?'black-translucent':'default');
+      document.documentElement.style.backgroundColor=dark?darkTheme:lightTheme;
+      document.body.style.backgroundColor=dark?darkTheme:lightTheme;
+    };
+    const syncSystemTheme=()=>{
+      if(!visit){applySystemTheme(false);return}
+      const rect=visit.getBoundingClientRect();
+      applySystemTheme(rect.top<window.innerHeight && rect.bottom>0);
+    };
+    syncSystemTheme();
+    window.addEventListener('scroll',syncSystemTheme,{passive:true});
+    window.addEventListener('resize',syncSystemTheme,{passive:true});
+    window.addEventListener('orientationchange',syncSystemTheme,{passive:true});
 
     /* All external destinations open separately from the site. */
     document.querySelectorAll('#stluxe-tanem-v13 a[href]').forEach(a=>{
