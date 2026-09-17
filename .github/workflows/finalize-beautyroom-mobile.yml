@@ -1,0 +1,105 @@
+name: Finalize Beauty Room mobile
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/finalize-beautyroom-mobile.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove stale STLuxe content and validate client build
+        run: |
+          python3 - <<'PY'
+          import re, pathlib
+          p=pathlib.Path('mobile-beautyroom-current.js')
+          src=p.read_text(encoding='utf-8')
+
+          reviews=[
+            ('Aurélie Vagharchak','Excellent service! The team is truly professional and welcoming. I had such a nice and peaceful time. Highly recommended for a high-quality manicure and pedicure'),
+            ('Nathalie Nalbandian','Visited Esmeralda to get my nails done for a wedding in Armenia. I found her on Yandex maps as a visitor from America. She did a wonderful job with the Russian gel manicure and pedicure. Cute little beauty salon. I recommend!'),
+            ('Анастасия Франкони','Супер уютный небольшой салон. Сделали прекрасный маникюр (гель-лак) и педикюр. В процессе поняла, что хочу еще и брови, мастер нашла время, чтобы все сразу успеть! Все качественно и красиво! Стоимость приятная. К сожалению поздно узнала, что в салоне работает массажист-врач. В следующий раз обязательно и на массаж запишусь. Определённо рекомендую к визиту, но записывайтесь хотя бы за день.'),
+            ('Shushan Abrahamyan','Great atmosphere and a very cozy salon. The staff are professional, friendly, and attentive. I was very satisfied with the service and would definitely recommend this salon'),
+            ('Leyla Medetova','В восторге от обслуживания и сервиса 🔥 Особенно от хозяйки, приятная женщина и профессионал своего дела! Записывалась на маникюр и педикюр, очень качественно! 10 из 10. Рекомендую. Цены тоже удивили, в соотношении цены и качества! Внутри салона атмосферно, чисто и уютно🤍 желаю салону процветания и успехов!'),
+            ('DE GUZMAN, RICA MAE S.','Highly recommended! The nail technician was gentle, detailed, and really knew what she was doing. The salon was clean and relaxing too. I love my beautiful nails now😍🫶🏻'),
+            ('Lilith Gulanyan','Очень довольна обслуживанием, теплый прием, лучшие топ мастера 👍 вкусное угощение ..кофе'),
+            ('Ксения Курбатова','Делала маникюр и педикюр. Всё очень понравилось. Уютно, чисто, мастер просто супер. Спасибо'),
+            ('Anne Madsen','Мы с подругой сделали стрижку, маникюр и педикюр, и очень довольны результатом. Персонал сделал все возможное, чтобы мы чувствовали себя желанными гостями, был невероятно дружелюбен и создал уютную атмосферу. Несмотря на то, что мы не говорим по-армянски, и общение было ограничено, нам было очень приятно там находиться. Если мы когда-нибудь снова приедем в Ереван, обязательно вернемся в этот салон🌸 Большое спасибо!!')
+          ]
+          base_services=[
+            ('nails','Педикюр'),('brows','Процедуры для бровей'),('hair','Свадебные прически'),('brows','Тридинг бровей'),('depilation','Удаление волос нитью'),('hair','Укладка волос'),('other','Прокалывание ушей'),('depilation','Шугаринг'),('hair','Стрижка волос'),('depilation','Электроэпиляция игловая'),('hair','Окрашивание волос'),('hair','Уход за волосами восстановление повреждённых волос'),('hair','Спа процедура для волос'),('nails','Наращивание ногтей'),('nails','Маникюр + покрытие гельлак'),('nails','Маникюр + покрытие лак'),('nails','Парафинотерапия для рук'),('face','Карбокси терапия'),('face','Ультразвуковая чистка лица'),('depilation','Восковая эпиляция'),('brows','Коррекция формы бровей'),('hair','Косы'),('brows','Ламинирование бровей'),('brows','Ламинирование ресниц'),('makeup','Макияж'),('nails','Маникюр'),('massage','Массаж'),('hair','Мытье головы шампунем и кондиционирование'),('hair','Наращивание волос'),('brows','Наращивание ресниц')
+          ]
+          base_services_code="  const services=[\n"+",\n".join("    [%r,%r,'Записаться']"%(cat,title) for cat,title in base_services)+"\n  ];"
+          base_works=[
+            ('interior_reception_02.webp','salon','Интерьер Beauty Room by Esmeralda'),
+            ('manicure_french_soft_pink_design_04.webp','nails','Маникюр Beauty Room by Esmeralda'),
+            ('manicure_burgundy_long_glitter_09.webp','nails','Маникюр Beauty Room by Esmeralda'),
+            ('hair_layered_brunette_02.webp','hair','Работа с волосами Beauty Room by Esmeralda'),
+            ('hair_blonde_layers_03.webp','hair','Работа с волосами Beauty Room by Esmeralda'),
+            ('makeup_evening_01.webp','makeup','Макияж Beauty Room by Esmeralda')
+          ]
+          base_works_code="  const works=[\n"+",\n".join("    {src:%r,cat:%r,alt:%r}"%x for x in base_works)+"\n  ];"
+          base_reviews_code="  const reviews=[\n"+",\n".join("    {name:%r,text:%r}"%r for r in reviews)+"\n  ];"
+          base_masters=[
+            ('nails','Nail-мастер','Маникюр · педикюр','N',['nails']),
+            ('hair','Парикмахер','Волосы · укладки','В',['hair']),
+            ('brows','Бровист / Lash-мастер','Брови · ресницы','Б',['brows']),
+            ('cosmetology','Косметолог','Косметология','К',['face']),
+            ('depilation','Мастер эпиляции','Эпиляция','Э',['depilation']),
+            ('makeup','Визажист','Макияж','М',['makeup']),
+            ('massage','Массажист','Массаж','М',['massage'])
+          ]
+          base_masters_code="  const masters=[\n"+",\n".join("    {id:%r,name:%r,category:%r,initial:%r,about:'',cats:%r}"%x for x in base_masters)+"\n  ];"
+
+          src,n1=re.subn(r"  const services=\[.*?\n  \];\n\n  const works=",base_services_code+"\n\n  const works=",src,count=1,flags=re.S)
+          src,n2=re.subn(r"  const works=\[.*?\n  \];\n\n  // Только короткие",base_works_code+"\n\n  // Только короткие",src,count=1,flags=re.S)
+          src,n3=re.subn(r"  const reviews=\[.*?\n  \];\n\n  const masters=",base_reviews_code+"\n\n  const masters=",src,count=1,flags=re.S)
+          src,n4=re.subn(r"  const masters=\[.*?\n  \];\n\n  const font=",base_masters_code+"\n\n  const font=",src,count=1,flags=re.S)
+          if not all((n1,n2,n3,n4)): raise SystemExit(f'base replacement failed: {n1,n2,n3,n4}')
+
+          src=src.replace("const serviceTabs=[['all','Все'],['nails','Ногти'],['hair','Волосы'],['face','Косметология'],['brows','Брови'],['depilation','Депиляция']];","const serviceTabs=[['all','Все'],['nails','Ногти'],['hair','Волосы'],['brows','Брови и ресницы'],['face','Косметология'],['depilation','Эпиляция'],['makeup','Макияж'],['massage','Массаж'],['other','Другое']];")
+          src=src.replace("const galleryTabs=[['all','Все'],['salon','Салон'],['nails','Ногти'],['hair','Волосы']];","const galleryTabs=[['all','Все'],['salon','Салон'],['nails','Ногти'],['hair','Волосы'],['makeup','Макияж']];")
+          src=src.replace("'Sалон':","'Салон':")
+          src=src.replace('assets/images/nails-pink.webp','manicure_french_soft_pink_design_04.webp').replace('assets/images/nails-green.webp','manicure_burgundy_long_glitter_09.webp').replace('assets/images/nails-light.webp','manicure_nude_almond_02.webp').replace('assets/images/hair-style.webp','hair_layered_brunette_02.webp')
+          src=src.replace('Ногти, волосы, косметология и другие направления — в одном пространстве на улице Победы.','Маникюр, волосы, брови, макияж и другие направления — в одном пространстве в Ереване.')
+          src=src.replace('Ереван · Победы, 16','Ереван · Zavarian St 1/5')
+          src=src.replace('Beauty Room находится в Ивантеевке на улице Победы, 16. Без выходных, салон работает ежедневно с 09:00 до 20:00.','Beauty Room by Esmeralda находится в Ереване, Zavarian St 1/5. Салон работает ежедневно с 09:00 до 20:00.')
+          src=re.sub(r'<button class="tn13-final-secondary" type="button" disabled style="background:transparent">.*?MAX</button>','',src,count=1,flags=re.S)
+          src=src.replace('<div class="tn13-section-head"><div><p class="tn13-kicker">Услуги</p><h2>Выберите<br>услугу</h2></div><p class="tn13-section-note">Цена указана там, где она подтверждена</p></div>','<div class="tn13-section-head"><div><p class="tn13-kicker">Услуги</p><h2>Выберите<br>услугу</h2></div></div>')
+          src=src.replace('<small>${s[2]}</small>','').replace('<b>${s[2]}</b><button type="button" data-book>Записаться →</button>','<button type="button" data-book>Записаться →</button>')
+
+          # Exact later/mobile layer must stay clean and valid.
+          if "'Sалон':" in src: raise SystemExit('latin S gallery typo remains')
+          bad=['assets/images/','1 700 ₽','Ольга К.','Мама Рита','Елизавета С.','Оксана Семина','Татьяна — мастер Beauty Room','Мария — косметолог Beauty Room','Ивантеевке','Победы, 16','const BEAUTY ROOM']
+          for token in bad:
+              if token in src: raise SystemExit('stale token remains: '+token)
+          if 'const STLUXE_V23_REFINED=true;' not in src: raise SystemExit('technical STLUXE identifier changed')
+          if src.count('Nathalie Nalbandian') < 2: raise SystemExit('real reviews missing')
+          p.write_text(src,encoding='utf-8')
+
+          index=pathlib.Path('index.html').read_text(encoding='utf-8')
+          index=re.sub(r'<script[^>]+src="mobile-beautyroom-current\.js[^\"]*"[^>]*></script>','',index)
+          index=index.replace('</body>','<script defer src="mobile-beautyroom-current.js?v=20260917-client-final"></script>\n</body>')
+          pathlib.Path('index.html').write_text(index,encoding='utf-8')
+          PY
+
+          node --check mobile-beautyroom-current.js
+          test "$(grep -o 'mobile-beautyroom-current.js' index.html | wc -l)" -eq 1
+          grep -q "Beauty Room by Esmeralda находится в Ереване" mobile-beautyroom-current.js
+          grep -q "Nathalie Nalbandian" mobile-beautyroom-current.js
+          grep -q "manicure_french_soft_pink_design_04.webp" mobile-beautyroom-current.js
+          grep -q "hair_layered_brunette_02.webp" mobile-beautyroom-current.js
+          grep -q "makeup_evening_01.webp" mobile-beautyroom-current.js
+          grep -q "interior_reception_02.webp" mobile-beautyroom-current.js
+
+          git config user.name "tanem"
+          git config user.email "melikyan.mac@gmail.com"
+          git add index.html mobile-beautyroom-current.js
+          git commit -m "Finalize Beauty Room mobile client build"
+          git push
