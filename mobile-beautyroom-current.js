@@ -5,7 +5,7 @@
   if(!window.matchMedia || !window.matchMedia('(max-width:767px)').matches) return;
 
   const PHONE='+37493873617';
-  const WHATSAPP_URL='https://www.instagram.com/beautyroom_by_esmeralda/';
+  const WHATSAPP_URL='viber://chat?number=%2B37493873617';
   const YANDEX='https://www.google.com/maps/place/Beauty+Room+by+Esmeralda/@40.1673067,44.5124793,17z/';
   const YANDEX_REVIEWS='https://www.google.com/maps/place/Beauty+Room+by+Esmeralda/@40.1673067,44.5124793,17z/';
   const ADDRESS='Zavarian St 1/5, Yerevan';
@@ -68,14 +68,10 @@
   ];
 
   const masters=[
-    {id:'nails',name:'Nail-мастер',category:'Маникюр · педикюр',initial:'N',about:'',cats:['nails']},
-    {id:'hair',name:'Парикмахер',category:'Волосы · укладки',initial:'В',about:'',cats:['hair']},
-    {id:'brows',name:'Бровист / Lash-мастер',category:'Брови · ресницы',initial:'Б',about:'',cats:['brows']},
-    {id:'cosmetology',name:'Косметолог',category:'Косметология',initial:'К',about:'',cats:['face']},
-    {id:'depilation',name:'Мастер эпиляции',category:'Эпиляция',initial:'Э',about:'',cats:['depilation']},
-    {id:'makeup',name:'Визажист',category:'Макияж',initial:'М',about:'',cats:['makeup']},
-    {id:'massage',name:'Массажист',category:'Массаж',initial:'М',about:'',cats:['massage']}
-  ];
+  {id:'nails',name:'Nail-мастер',category:'Маникюр · педикюр',initial:'N',about:'',cats:['nails']},
+  {id:'hair',name:'Парикмахер',category:'Волосы · укладки',initial:'В',about:'',cats:['hair']},
+  {id:'cosmetology',name:'Косметолог',category:'Косметология',initial:'К',about:'',cats:['face']}
+];
 
   const font=document.createElement('link');
   font.rel='stylesheet';
@@ -253,7 +249,7 @@
         <p class="tn13-final-copy">Beauty Room by Esmeralda находится в Ереване, Zavarian St 1/5. Салон работает ежедневно с 09:00 до 20:00.</p>
         <div class="tn13-final-actions">
           <button class="tn13-final-cta" type="button" data-book><span>Записаться в Beauty Room</span><span>→</span></button>
-          <div class="tn13-final-secondary-row"><a class="tn13-final-secondary" href="${WHATSAPP_URL}" target="_blank" rel="noopener"><svg class="tn50-brand-svg" aria-hidden="true"><use href="#stl-icon-whatsapp"/></svg>Instagram</a><a class="tn13-final-secondary" href="tel:${PHONE}"><svg aria-hidden="true"><use href="#stl-icon-phone"/></svg>Позвонить</a><a class="tn13-final-secondary" href="${YANDEX}" target="_blank" rel="noopener">Google Maps</a></div>
+          <div class="tn13-final-secondary-row"><a class="tn13-final-secondary" href="${WHATSAPP_URL}" target="_blank" rel="noopener"><svg class="tn50-brand-svg" aria-hidden="true"><use href="#stl-icon-whatsapp"/></svg>Viber</a><a class="tn13-final-secondary" href="tel:${PHONE}"><svg aria-hidden="true"><use href="#stl-icon-phone"/></svg>Позвонить</a><a class="tn13-final-secondary" href="${YANDEX}" target="_blank" rel="noopener">Google Maps</a></div>
         </div>
         <iframe class="tn13-map" loading="lazy" src="https://www.google.com/maps?q=40.1673067,44.5124793&z=16&output=embed" title="Карта Beauty Room"></iframe>
         <div class="tn13-final-facts"><span><strong>09–20</strong><small>ежедневно</small></span><span><strong>5,0</strong><small>рейтинг</small></span><span><strong>30</strong><small>услуг</small></span></div>
@@ -267,7 +263,7 @@
     <div class="tn13-overlay" id="tn13Gallery"><div class="tn13-gallery-head"><button class="tn13-back" id="tn13GalleryClose" type="button">←</button><div class="tn13-gallery-title">Галерея Beauty Room</div><div class="tn13-gallery-sub">Салон · ногти · волосы · макияж</div></div><div class="tn13-gallery-tabs" id="tn13GalleryTabs"></div><div class="tn13-gallery-list" id="tn13GalleryList"></div></div>
 
     <div class="tn13-sheet" id="tn13MasterSheet"><div class="tn13-panel"><button class="tn13-close" id="tn13MasterClose" type="button">×</button><div id="tn13MasterBody"></div></div></div>
-    <div class="tn13-sheet" id="tn13BookSheet" role="dialog" aria-modal="true" aria-labelledby="tn50BookTitle"><div class="tn13-panel"><button class="tn13-close" id="tn13BookClose" type="button" aria-label="Закрыть">×</button><p class="tn13-kicker">Запись</p><h2 class="tn50-book-title" id="tn50BookTitle">Как вам удобнее записаться?</h2><p class="tn50-book-copy">Выберите удобный способ связи.</p><div class="tn50-book-options"><a class="tn50-book-option" href="tel:${PHONE}"><span class="tn50-book-icon phone"><svg aria-hidden="true"><use href="#stl-icon-phone"/></svg></span><span><strong>Телефон</strong></span><span class="tn50-book-arrow">→</span></a><a class="tn50-book-option" href="${WHATSAPP_URL}" target="_blank" rel="noopener"><span class="tn50-book-icon whatsapp"><svg aria-hidden="true"><use href="#stl-icon-whatsapp"/></svg></span><span><strong>Instagram</strong></span><span class="tn50-book-arrow">→</span></a></div></div></div>
+    <div class="tn13-sheet" id="tn13BookSheet" role="dialog" aria-modal="true" aria-labelledby="tn50BookTitle"><div class="tn13-panel"><button class="tn13-close" id="tn13BookClose" type="button" aria-label="Закрыть">×</button><p class="tn13-kicker">Запись</p><h2 class="tn50-book-title" id="tn50BookTitle">Как вам удобнее записаться?</h2><p class="tn50-book-copy">Выберите удобный способ связи.</p><div class="tn50-book-options"><a class="tn50-book-option" href="tel:${PHONE}"><span class="tn50-book-icon phone"><svg aria-hidden="true"><use href="#stl-icon-phone"/></svg></span><span><strong>Телефон</strong></span><span class="tn50-book-arrow">→</span></a><a class="tn50-book-option" href="${WHATSAPP_URL}"><span class="tn50-book-icon viber-generic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5.5h14v10H9l-4 3v-13Z"/></svg></span><span><strong>Viber</strong></span><span class="tn50-book-arrow">→</span></a></div></div></div>
   `;
   document.body.appendChild(root);
 
@@ -325,7 +321,7 @@ const YANDEX_RU='https://www.google.com/maps/place/Beauty+Room+by+Esmeralda/@40.
 const YANDEX_REVIEWS='https://www.google.com/maps/place/Beauty+Room+by+Esmeralda/@40.1673067,44.5124793,17z/';
 const ROUTE='https://www.google.com/maps/place/Beauty+Room+by+Esmeralda/@40.1673067,44.5124793,17z/';
 const PHONE='+37493873617';
-const WHATSAPP_URL='https://www.instagram.com/beautyroom_by_esmeralda/';
+const WHATSAPP_URL='viber://chat?number=%2B37493873617';
 
 const SERVICES=[
 {cat:'Маникюр',title:'Педикюр',price:'',desc:''},
@@ -413,13 +409,9 @@ const REVIEW_DATA=[
 ['Anne Madsen','Мы с подругой сделали стрижку, маникюр и педикюр, и очень довольны результатом. Персонал сделал все возможное, чтобы мы чувствовали себя желанными гостями, был невероятно дружелюбен и создал уютную атмосферу. Несмотря на то, что мы не говорим по-армянски, и общение было ограничено, нам было очень приятно там находиться. Если мы когда-нибудь снова приедем в Ереван, обязательно вернемся в этот салон🌸 Большое спасибо!!']
 ];
 const MASTERS=[
-{id:'nails',name:'Nail-мастер',role:'Маникюр · педикюр',about:'',cats:['Маникюр'],work:['manicure_french_soft_pink_design_04.webp', 'manicure_burgundy_long_glitter_09.webp', 'manicure_nude_almond_02.webp', 'manicure_white_almond_03.webp', 'manicure_black_short_06.webp'],reviewNames:[]},
-{id:'hair',name:'Парикмахер',role:'Волосы · укладки',about:'',cats:['Волосы'],work:['hair_layered_brunette_02.webp', 'hair_blonde_layers_03.webp', 'hair_long_waves_05.webp', 'hair_braids_box_04.webp', 'hair_sleek_straight_01.webp'],reviewNames:[]},
-{id:'brows',name:'Бровист / Lash-мастер',role:'Брови · ресницы',about:'',cats:['Брови и ресницы'],work:[],reviewNames:[]},
-{id:'cosmetology',name:'Косметолог',role:'Косметология',about:'',cats:['Косметология'],work:[],reviewNames:[]},
-{id:'depilation',name:'Мастер эпиляции',role:'Эпиляция',about:'',cats:['Эпиляция'],work:[],reviewNames:[]},
-{id:'makeup',name:'Визажист',role:'Макияж',about:'',cats:['Макияж'],work:['makeup_evening_01.webp', 'makeup_soft_pink_02.webp', 'makeup_glow_03.webp'],reviewNames:[]},
-{id:'massage',name:'Массажист',role:'Массаж',about:'',cats:['Массаж'],work:[],reviewNames:[]}
+{id:'nails',name:'Nail-мастер',role:'Маникюр · педикюр',about:'',cats:['Маникюр'],work:['manicure_french_soft_pink_design_04.webp','manicure_burgundy_long_glitter_09.webp','manicure_nude_almond_02.webp'],reviewNames:[]},
+{id:'hair',name:'Парикмахер',role:'Волосы · укладки',about:'',cats:['Волосы'],work:['hair_layered_brunette_02.webp','hair_blonde_layers_03.webp','hair_long_waves_05.webp'],reviewNames:[]},
+{id:'cosmetology',name:'Косметолог',role:'Косметология',about:'',cats:['Косметология'],work:[],reviewNames:[]}
 ];
 const MASTER_AVATAR='<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="23" r="11" fill="currentColor"></circle><path d="M12 56c2.7-11.4 10-17 20-17s17.3 5.6 20 17" fill="currentColor"></path></svg>';
 
@@ -456,6 +448,78 @@ const css=document.createElement('style'); css.id='stluxe-final-v22-style'; css.
 `;
 document.head.appendChild(css);
 
+const requestedFixStyle=document.createElement('style');
+requestedFixStyle.id='beautyroom-requested-mobile-fixes';
+requestedFixStyle.textContent=`
+@media(max-width:767px){
+  #stluxe-tanem-v13 .tn13-hero{height:100svh!important;min-height:0!important;max-height:none!important}
+  .tn22-card{display:flex!important;flex-direction:column!important;padding-bottom:max(14px,env(safe-area-inset-bottom))!important}
+  .tn22-cta{margin-top:auto!important}
+  .tn22-worklink{margin-top:10px!important}
+  #tn13Portfolio .tn22-port{padding-top:58px!important}
+
+  .tn22-view-gallery{position:absolute;z-index:7;left:50%;bottom:14px;transform:translateX(-50%);height:42px;padding:0 18px;border:1px solid rgba(255,255,255,.34);border-radius:999px;background:rgba(22,18,16,.74);backdrop-filter:blur(12px);color:#fff!important;font:600 11px/1 'Manrope',Arial,sans-serif;white-space:nowrap;box-shadow:0 10px 30px rgba(0,0,0,.22)}
+  .tn22-viewer:not([data-source="portfolio"]) .tn22-view-gallery{display:none!important}
+
+  #tn13Services{background:#2f2926!important;color:#f7f3f0!important;border-color:rgba(255,255,255,.08)!important}
+  #tn13Services .tn22-kicker{color:#b8ada7!important}
+  #tn13Services h2,#tn13Services .tn31-service-name{color:#f7f3f0!important}
+  #tn13Services .tn31-cats{color:#f7f3f0!important}
+  #tn13Services .tn31-cat{border-color:rgba(255,255,255,.18)!important;color:#cfc5bf!important}
+  #tn13Services .tn31-cat.active{background:#8b7167!important;border-color:#8b7167!important;color:#fff!important}
+  #tn13Services .tn31-service-list{border-color:rgba(255,255,255,.16)!important}
+  #tn13Services .tn31-service-row{border-color:rgba(255,255,255,.14)!important}
+  #tn13Services .tn31-service-detail{color:#b9ada7!important}
+  #tn13Services .tn31-service-book{color:#d8b7aa!important}
+  #tn13Services .tn31-service-more{border-color:rgba(255,255,255,.22)!important;background:rgba(255,255,255,.06)!important;color:#f4eeea!important}
+  #tn13Services .tn31-service-more span:last-child{color:#d2c7c0!important}
+
+  #tn13Team{background:#2f2926!important;color:#f7f3f0!important}
+  #tn13Team .tn22-kicker,#tn13Team .tn42-team-hint{color:#b8ada7!important}
+  #tn13Team h2{color:#f7f3f0!important}
+  #tn13Team .tn22-team-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important;overflow:visible!important;padding-bottom:0!important}
+  #tn13Team .tn22-master-card{width:auto!important;min-width:0!important;flex:none!important;color:#f7f3f0!important}
+  #tn13Team .tn22-master-circle{background:linear-gradient(145deg,#806b61,#5b4a43)!important;color:#e6d8d0!important;border:1px solid rgba(255,255,255,.1)!important}
+  #tn13Team .tn22-master-name{color:#f7f3f0!important;font-size:17px!important;white-space:nowrap!important}
+  #tn13Team .tn22-master-role{display:none!important}
+  #tn13Team .tn42-team-hint{display:none!important}
+
+  #tn13Reviews .tn30-review-stage{gap:12px!important}
+  #tn13Reviews .tn30-review-card{height:184px!important;min-height:184px!important;overflow:hidden!important}
+  #tn13Reviews .tn30-review-card p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden}
+
+  #tn13Visit{background:#2f2926!important;color:#f7f3f0!important;border-radius:0!important}
+  #tn13Visit .tn22-kicker{color:#b8ada7!important}
+  #tn13Visit h2{color:#f7f3f0!important}
+  #tn13Visit .tn22-status{min-height:34px!important;padding:8px 11px!important;border:1px solid rgba(255,255,255,.16)!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:6px!important;color:#f7f3f0!important;background:rgba(255,255,255,.06)!important}
+  #tn13Visit .tn22-status svg{width:14px!important;height:14px!important;stroke:currentColor!important}
+  #tn13Visit .tn22-status.open{background:#2e4133!important;border-color:#4d6752!important;color:#a9d5b0!important}
+  #tn13Visit .tn22-status.closed{background:#493336!important;border-color:#65474b!important;color:#d59a9f!important}
+  #tn13Visit .tn22-contact{grid-template-columns:42px minmax(0,1fr)!important;gap:11px!important;background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.13)!important;color:#f7f3f0!important}
+  #tn13Visit .tn22-contact-icon{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;justify-self:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08)}
+  #tn13Visit .tn22-contact-icon svg{width:20px!important;height:20px!important;fill:none!important;stroke:#f0e8e3!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+  #tn13Visit .tn22-contact strong{color:#f7f3f0!important}
+  #tn13Visit .tn22-contact>span:last-child>span{color:#c7bbb4!important}
+  #tn13Visit .tn22-mapwrap{background:#423a36!important}
+  #tn13Visit .tn22-call{border-color:rgba(255,255,255,.22)!important;color:#f7f3f0!important}
+  #tn13Visit .tn22-route{background:#f4ede8!important;color:#2b2522!important}
+  #tn13Visit .tn22-footer{background:#171513!important}
+
+  .tn50-book-icon.viber-generic{background:#f1edf7!important;color:#67507f!important}
+}
+@media(max-width:767px) and (max-height:720px){
+  .tn22-media{height:330px!important}
+  .tn22-card{top:304px!important;padding-top:14px!important}
+  .tn22-title{font-size:43px!important}
+  .tn22-sub{margin:8px 0 10px!important}
+  .tn22-copy{font-size:12.5px!important;line-height:1.32!important}
+  .tn37-hero-info{margin-top:11px!important}
+  .tn22-cta{height:44px!important}
+  .tn22-worklink{height:42px!important;margin-top:8px!important}
+}
+`;
+document.head.appendChild(requestedFixStyle);
+
 const $=s=>root.querySelector(s); const $$=s=>[...root.querySelectorAll(s)];
 const book=()=>{const s=$('#tn13BookSheet');if(s){s.classList.add('open');document.body.style.overflow='hidden'}};
 
@@ -475,7 +539,7 @@ const finishHeroGesture=e=>{if(heroPointer===null)return;const dx=e.clientX-hero
 heroMedia.addEventListener('pointerup',finishHeroGesture);heroMedia.addEventListener('pointercancel',()=>{heroPointer=null;heroMoved=false});
 
 // VIEWER
-const viewer=document.createElement('div');viewer.className='tn22-viewer';viewer.innerHTML=`<div class="tn22-viewer-frame"><div class="tn23-viewer-hint">Разведите двумя пальцами, чтобы увеличить</div><div class="tn22-viewer-top"><div class="tn22-viewer-actions"><button class="tn22-vbtn tn22-view-close" type="button" aria-label="Закрыть">×</button></div></div><div class="tn42-viewer-canvas"><img class="tn22-viewer-img" alt=""></div><button class="tn22-navbtn tn22-prev" type="button">‹</button><button class="tn22-navbtn tn22-next" type="button">›</button><div class="tn23-viewer-foot"><span class="tn23-viewer-label">Фото Beauty Room</span><span class="tn22-viewer-count">01 / 01</span></div></div>`;root.appendChild(viewer);
+const viewer=document.createElement('div');viewer.className='tn22-viewer';viewer.innerHTML=`<div class="tn22-viewer-frame"><div class="tn23-viewer-hint">Разведите двумя пальцами, чтобы увеличить</div><div class="tn22-viewer-top"><div class="tn22-viewer-actions"><button class="tn22-vbtn tn22-view-close" type="button" aria-label="Закрыть">×</button></div></div><div class="tn42-viewer-canvas"><img class="tn22-viewer-img" alt=""></div><button class="tn22-navbtn tn22-prev" type="button">‹</button><button class="tn22-navbtn tn22-next" type="button">›</button><div class="tn23-viewer-foot"><span class="tn23-viewer-label">Фото Beauty Room</span><span class="tn22-viewer-count">01 / 01</span></div><button class="tn22-view-gallery" type="button">Открыть галерею</button></div>`;root.appendChild(viewer);
 let viewerItems=[],viewerIndex=0; const vFrame=viewer.querySelector('.tn22-viewer-frame'),vCanvas=viewer.querySelector('.tn42-viewer-canvas'),vImg=viewer.querySelector('.tn22-viewer-img'),vCount=viewer.querySelector('.tn22-viewer-count'),vPrev=viewer.querySelector('.tn22-prev'),vNext=viewer.querySelector('.tn22-next');
 let sx=0,sy=0,viewerScale=1,viewerX=0,viewerY=0,pinchStart=0,pinchBaseScale=1,panStartX=0,panStartY=0,gestureHadPinch=false;
 const pinchDist=e=>Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);
@@ -483,9 +547,9 @@ function clampViewerPan(){if(viewerScale<=1){viewerX=0;viewerY=0;return}const ma
 function applyViewerTransform(){clampViewerPan();vImg.style.transform=`translate3d(${viewerX}px,${viewerY}px,0) scale(${viewerScale})`}
 function resetViewerTransform(){viewerScale=1;viewerX=0;viewerY=0;pinchStart=0;pinchBaseScale=1;applyViewerTransform()}
 function paintViewer(){const it=viewerItems[viewerIndex];if(!it)return;vImg.src=it.src;vImg.alt=it.alt||'';vCount.textContent=`${String(viewerIndex+1).padStart(2,'0')} из ${String(viewerItems.length).padStart(2,'0')}`;resetViewerTransform();vPrev.hidden=viewerItems.length<2;vNext.hidden=viewerItems.length<2;}
-function openViewer(items,index=0){viewerItems=Array.isArray(items)?items:[];if(!viewerItems.length)return;viewerIndex=Math.max(0,Math.min(index,viewerItems.length-1));paintViewer();viewer.classList.add('open');document.body.style.overflow='hidden'}
+function openViewer(items,index=0,source='gallery'){viewerItems=Array.isArray(items)?items:[];if(!viewerItems.length)return;viewer.dataset.source=source;viewerIndex=Math.max(0,Math.min(index,viewerItems.length-1));paintViewer();viewer.classList.add('open');document.body.style.overflow='hidden'}
 function closeViewer(){viewer.classList.remove('open');resetViewerTransform();if(!$('#tn13Gallery').classList.contains('open')&&!masterPage.classList.contains('open'))document.body.style.overflow=''}
-vPrev.onclick=()=>{viewerIndex=(viewerIndex-1+viewerItems.length)%viewerItems.length;paintViewer()};vNext.onclick=()=>{viewerIndex=(viewerIndex+1)%viewerItems.length;paintViewer()};viewer.querySelector('.tn22-view-close').onclick=closeViewer;viewer.addEventListener('click',e=>{if(e.target===viewer)closeViewer()});
+vPrev.onclick=()=>{viewerIndex=(viewerIndex-1+viewerItems.length)%viewerItems.length;paintViewer()};vNext.onclick=()=>{viewerIndex=(viewerIndex+1)%viewerItems.length;paintViewer()};viewer.querySelector('.tn22-view-close').onclick=closeViewer;viewer.querySelector('.tn22-view-gallery').onclick=()=>{closeViewer();openGallery('Ногти')};viewer.addEventListener('click',e=>{if(e.target===viewer)closeViewer()});
 vCanvas.addEventListener('touchstart',e=>{if(e.touches.length===2){e.preventDefault();gestureHadPinch=true;pinchStart=pinchDist(e);pinchBaseScale=viewerScale}else if(e.touches.length===1){sx=e.touches[0].clientX;sy=e.touches[0].clientY;panStartX=viewerX;panStartY=viewerY}},{passive:false});
 vCanvas.addEventListener('touchmove',e=>{if(e.touches.length===2&&pinchStart){e.preventDefault();viewerScale=Math.max(1,Math.min(4,pinchBaseScale*(pinchDist(e)/pinchStart)));if(viewerScale<=1.01){viewerScale=1;viewerX=0;viewerY=0}applyViewerTransform()}else if(e.touches.length===1&&viewerScale>1){e.preventDefault();viewerX=panStartX+(e.touches[0].clientX-sx);viewerY=panStartY+(e.touches[0].clientY-sy);applyViewerTransform()}},{passive:false});
 vCanvas.addEventListener('touchend',e=>{if(e.touches.length<2)pinchStart=0;if(e.touches.length===0){if(!gestureHadPinch&&viewerScale===1&&viewerItems.length>1&&e.changedTouches.length){const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.15)(dx<0?vNext:vPrev).click()}gestureHadPinch=false;if(viewerScale<=1.01)resetViewerTransform()}},{passive:false});
@@ -505,7 +569,7 @@ function updateSectionNav(){navRaf=0;const heroPassed=hero.getBoundingClientRect
 window.addEventListener('scroll',()=>{if(!navRaf)navRaf=requestAnimationFrame(updateSectionNav)},{passive:true});window.addEventListener('resize',updateSectionNav,{passive:true});requestAnimationFrame(updateSectionNav);
 
 // PORTFOLIO
-const port=$('#tn13Portfolio');port.innerHTML=`<div class="tn22-port"><p class="tn22-kicker">Портфолио</p><h2>Наши работы</h2><div class="tn22-port-grid">${PORTFOLIO.map((x,i)=>`<button class="tn22-photo" type="button" data-pi="${i}"><img src="${x.src}" alt="${x.alt}"></button>`).join('')}</div><button class="tn22-port-all" type="button">Смотреть все работы <span>→</span></button></div>`;port.querySelectorAll('[data-pi]').forEach(b=>b.onclick=()=>openViewer(PORTFOLIO,+b.dataset.pi));port.querySelector('.tn22-port-all').onclick=()=>openGallery('Ногти');
+const port=$('#tn13Portfolio');port.innerHTML=`<div class="tn22-port"><p class="tn22-kicker">Портфолио</p><h2>Наши работы</h2><div class="tn22-port-grid">${PORTFOLIO.map((x,i)=>`<button class="tn22-photo" type="button" data-pi="${i}"><img src="${x.src}" alt="${x.alt}"></button>`).join('')}</div><button class="tn22-port-all" type="button">Смотреть все работы <span>→</span></button></div>`;port.querySelectorAll('[data-pi]').forEach(b=>b.onclick=()=>openViewer(PORTFOLIO,+b.dataset.pi,'portfolio'));port.querySelector('.tn22-port-all').onclick=()=>openGallery('Ногти');
 
 // SERVICES
 const serv=$('#tn13Services');let serviceCat='Маникюр',servicesExpanded=false;
@@ -547,10 +611,10 @@ const reviewInitial=n=>([...String(n).trim()][0]||'S').toUpperCase();
 const reviewHref=r=>`${YANDEX_REVIEWS}#:~:text=${encodeURIComponent(r[1])}`;
 const reviewCard=r=>`<a class="tn30-review-card" href="${reviewHref(r)}" target="_blank" rel="noopener"><div class="tn30-review-head"><span class="tn30-review-avatar">${reviewInitial(r[0])}</span><span><strong class="tn30-review-name">${r[0]}</strong><span class="tn30-review-meta">Google Maps</span></span></div><p>${r[1]}</p><span class="tn30-review-open">Подробнее →</span></a>`;
 const reviewLanes=[0,1,2].map(row=>REAL_REVIEW_DATA.filter((_,i)=>i%3===row));
-reviews.innerHTML=`<div class="tn30-reviews"><p class="tn22-kicker">Отзывы</p><h2>Что говорят о нас</h2><div class="tn30-score"><strong>5,0</strong><div class="tn30-stars">★★★★★</div><div class="tn30-count">86 отзывов на Google Maps</div></div><div class="tn30-review-stage">${reviewLanes.map((lane,i)=>{const loop=[lane[lane.length-1],...lane,lane[0]];return `<div class="tn30-lane" data-lane="${i}"><div class="tn30-track">${loop.map(reviewCard).join('')}</div></div>`}).join('')}</div><a class="tn30-review-all" href="${YANDEX_REVIEWS}" target="_blank" rel="noopener">Смотреть все отзывы →</a></div>`;
+reviews.innerHTML=`<div class="tn30-reviews"><p class="tn22-kicker">Отзывы</p><h2>Что говорят о нас</h2><div class="tn30-score"><strong>5,0</strong><div class="tn30-stars">★★★★★</div><div class="tn30-count">19 отзывов · Google Maps</div></div><div class="tn30-review-stage">${reviewLanes.map((lane,i)=>{const loop=[lane[lane.length-1],...lane,lane[0]];return `<div class="tn30-lane" data-lane="${i}"><div class="tn30-track">${loop.map(reviewCard).join('')}</div></div>`}).join('')}</div><a class="tn30-review-all" href="${YANDEX_REVIEWS}" target="_blank" rel="noopener">Смотреть все отзывы →</a></div>`;
 const reviewStage=reviews.querySelector('.tn30-review-stage'),reviewTracks=[...reviews.querySelectorAll('.tn30-track')];
 let reviewIndex=1,reviewPauseTimer=0,reviewMotionTimer=0,reviewDragging=false,reviewMoved=false,reviewSuppressClick=false,reviewStartX=0,reviewStartY=0,reviewDx=0;
-const reviewGap=12,reviewDuration=780,reviewGroupCount=5;
+const reviewGap=12,reviewDuration=780,reviewGroupCount=Math.max(1,...reviewLanes.map(l=>l.length));
 function reviewMetrics(){const lane=reviews.querySelector('.tn30-lane'),card=reviews.querySelector('.tn30-review-card');const width=card?card.getBoundingClientRect().width:0;return {step:width+reviewGap,edge:lane?Math.max(0,(lane.clientWidth-width)/2):26}}
 function paintReviewTracks(animated,drag=0){const {step,edge}=reviewMetrics();reviewTracks.forEach(t=>{t.style.transition=animated?`transform ${reviewDuration}ms cubic-bezier(.22,.66,.24,1)`:'none';t.style.transform=`translate3d(${edge-reviewIndex*step+drag}px,0,0)`})}
 function scheduleReviews(){clearTimeout(reviewPauseTimer);reviewPauseTimer=setTimeout(()=>moveReviews(reviewIndex+1),4000)}
@@ -564,8 +628,13 @@ function finishReviewDrag(e){if(!reviewDragging)return;reviewDragging=false;revi
 reviewStage.addEventListener('pointerup',finishReviewDrag);reviewStage.addEventListener('pointercancel',finishReviewDrag);reviewStage.addEventListener('click',e=>{if(reviewSuppressClick){e.preventDefault();e.stopPropagation();reviewSuppressClick=false}},true);
 
 // VISIT
-const visit=$('#tn13Visit');const pin=`<svg viewBox="0 0 24 24"><path d="M12 21s6-5.3 6-11a6 6 0 1 0-12 0c0 5.7 6 11 6 11Z"/><circle cx="12" cy="10" r="2.2"/></svg>`,ph=`<span class="tn50-book-icon phone"><svg aria-hidden="true"><use href="#stl-icon-phone"/></svg></span>`,clock=`<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3.2 1.8"/></svg>`;
-visit.innerHTML=`<div class="tn22-visit"><div class="tn22-visit-head"><p class="tn22-kicker">Контакты</p><span class="tn22-status" id="tn22Status">${clock}<span class="tn22-status-text"></span></span></div><h2>Ждём вас</h2><div class="tn22-contact-grid"><a class="tn22-contact" href="${YANDEX_RU}" target="_blank" rel="noopener">${pin}<span><strong>Ереван, Zavarian St 1/5</strong><span>Открыть в Google Maps</span></span></a><a class="tn22-contact" href="tel:${PHONE}">${ph}<span><strong>+374 93 873617</strong><span>Нажмите, чтобы позвонить</span></span></a><a class="tn22-contact" href="${WHATSAPP_URL}" target="_blank" rel="noopener"><span class="tn50-book-icon whatsapp"><svg class="tn50-brand-svg" aria-hidden="true"><use href="#stl-icon-whatsapp"/></svg></span><span><strong>Instagram</strong><span>Написать в салон</span></span></a><div class="tn22-contact">${clock}<span><strong>Ежедневно 09:00–20:00</strong><span>Без выходных</span></span></div></div><div class="tn22-mapwrap"><div class="tn22-map-skeleton">Загружаем карту…</div><iframe title="Карта Beauty Room" loading="eager" src="https://www.google.com/maps?q=40.1673067,44.5124793&z=16&output=embed"></iframe></div><div class="tn22-visit-actions"><a class="tn22-visit-btn tn22-call" href="tel:${PHONE}">Позвонить</a><a class="tn22-visit-btn tn22-route" href="${ROUTE}" target="_blank" rel="noopener">Построить маршрут</a></div><a class="tn22-footer" href="https://tanem.ru/" target="_blank" rel="noopener"><strong>TANEM.ru</strong><span>Цифровой офис для салонов красоты</span></a></div>`;
+const visit=$('#tn13Visit');
+const iconPin=`<span class="tn22-contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.3 6-11a6 6 0 1 0-12 0c0 5.7 6 11 6 11Z"/><circle cx="12" cy="10" r="2.2"/></svg></span>`;
+const iconPhone=`<span class="tn22-contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h3l1.3 4-2 1.5c1 2 2.6 3.6 4.6 4.6l1.5-2L19 13.5v3c0 1.1-.9 2-2 2C10.4 18.5 5.5 13.6 5.5 7A2 2 0 0 1 7 4Z"/></svg></span>`;
+const iconMessage=`<span class="tn22-contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5h14v10H9l-4 3v-13Z"/></svg></span>`;
+const iconClock=`<span class="tn22-contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3.2 1.8"/></svg></span>`;
+const statusClock=`<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3.2 1.8"/></svg>`;
+visit.innerHTML=`<div class="tn22-visit"><div class="tn22-visit-head"><p class="tn22-kicker">Контакты</p><span class="tn22-status" id="tn22Status">${statusClock}<span class="tn22-status-text"></span></span></div><h2>Ждём вас</h2><div class="tn22-contact-grid"><a class="tn22-contact" href="${YANDEX_RU}" target="_blank" rel="noopener">${iconPin}<span><strong>Ереван, Zavarian St 1/5</strong><span>Открыть в Google Maps</span></span></a><a class="tn22-contact" href="tel:${PHONE}">${iconPhone}<span><strong>+374 93 873617</strong><span>Нажмите, чтобы позвонить</span></span></a><a class="tn22-contact" href="${WHATSAPP_URL}">${iconMessage}<span><strong>Viber</strong><span>Написать в салон</span></span></a><div class="tn22-contact">${iconClock}<span><strong>Ежедневно 09:00–20:00</strong><span>Без выходных</span></span></div></div><div class="tn22-mapwrap"><div class="tn22-map-skeleton">Загружаем карту…</div><iframe title="Карта Beauty Room" loading="eager" src="https://www.google.com/maps?q=40.1673067,44.5124793&z=16&output=embed"></iframe></div><div class="tn22-visit-actions"><a class="tn22-visit-btn tn22-call" href="tel:${PHONE}">Позвонить</a><a class="tn22-visit-btn tn22-route" href="${ROUTE}" target="_blank" rel="noopener">Построить маршрут</a></div><a class="tn22-footer" href="https://tanem.ru/" target="_blank" rel="noopener"><strong>TANEM.ru</strong><span>Цифровой офис для салонов красоты</span></a></div>`;
 const map=visit.querySelector('.tn22-mapwrap'),iframe=map.querySelector('iframe');iframe.addEventListener('load',()=>map.classList.add('loaded'));setTimeout(()=>map.classList.add('loaded'),5000);
 function status(){const parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Yerevan',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());const get=t=>parts.find(x=>x.type===t)?.value||'';const mins=(+get('hour'))*60+(+get('minute'));const open=mins>=540&&mins<1200;const el=visit.querySelector('#tn22Status'),txt=el.querySelector('.tn22-status-text');txt.textContent=open?'Открыто до 20:00':'Закрыто до 09:00';el.className='tn22-status '+(open?'open':'closed');const hs=hero.querySelector('.tn50-hero-status');if(hs){const main=hs.querySelector('.tn50-hero-status-main'),sub=hs.querySelector('.tn50-hero-status-sub');main.textContent=open?'Открыто':'Закрыто';sub.textContent=open?'до 20:00':'до 09:00';hs.classList.toggle('open',open);hs.classList.toggle('closed',!open)}}status();setInterval(status,60000);
 
