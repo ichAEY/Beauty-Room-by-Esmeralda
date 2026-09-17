@@ -12,20 +12,29 @@
     style.textContent=`
     @media(max-width:767px){
       /* HERO: current STLuxe geometry, Beauty Room colors only. */
-      #stluxe-tanem-v13 .tn13-hero{height:744px!important;min-height:744px!important;padding:0!important;background:linear-gradient(180deg,#f8f4ee 0%,#f8f4ee 90%,#f7f2eb 100%)!important;position:relative!important;overflow:hidden!important}
-      .tn22-media{top:52px!important;height:372px!important}
-      .tn22-card{top:343px!important;bottom:0!important;height:auto!important;display:block!important;padding:20px 20px 24px!important;border-radius:13px 13px 0 0!important}
-      .tn22-cta{width:min(100%,330px)!important;height:50px!important;margin:18px auto 0!important;border-radius:8px!important;background:#715b53!important;color:#fff!important;transition:transform .14s ease,background .14s ease!important}
+      #stluxe-tanem-v13 .tn13-hero{height:744px!important;min-height:744px!important;max-height:none!important;padding:0!important;background:linear-gradient(180deg,#f8f4ee 0%,#f8f4ee 90%,#f7f2eb 100%)!important;position:relative!important;overflow:hidden!important}
+      .tn22-media{position:absolute!important;top:52px!important;left:0!important;right:0!important;height:372px!important;min-height:0!important;overflow:hidden!important}
+      .tn22-card{position:absolute!important;z-index:8!important;top:343px!important;left:15px!important;right:15px!important;bottom:0!important;height:auto!important;display:block!important;padding:20px 20px 24px!important;border-radius:13px 13px 0 0!important;text-align:center!important}
+      .tn22-title{margin:0!important;font:500 49px/.88 'Cormorant Garamond',Georgia,serif!important;letter-spacing:.18em!important;text-indent:.18em!important;text-transform:uppercase!important}
+      .tn22-sub{margin:12px 0 17px!important;font:500 10.5px/1 'Manrope',Arial,sans-serif!important;letter-spacing:.38em!important;text-indent:.38em!important;text-transform:uppercase!important;color:#635d58!important}
+      .tn22-copy{margin:0 auto!important;width:270px!important;max-width:100%!important;font:400 14px/1.38 'Manrope',Arial,sans-serif!important;color:#33302d!important}
+      .tn37-hero-info{width:min(100%,330px)!important;margin:18px auto 0!important;display:grid!important;grid-template-columns:1fr 1px 1.18fr!important;align-items:center!important;gap:12px!important;text-align:left!important}
+      .tn37-info-divider{width:1px!important;height:42px!important}
+      .tn37-info{grid-template-columns:40px minmax(0,1fr)!important;gap:9px!important}
+      .tn37-info-icon{width:40px!important;height:40px!important}
+      .tn37-info-copy{font:400 10.5px/1.28 'Manrope',Arial,sans-serif!important}
+      .tn37-info-copy strong{font:500 11.5px/1.1 'Manrope',Arial,sans-serif!important}
+      .tn22-cta{display:flex!important;width:min(100%,330px)!important;height:50px!important;margin:18px auto 0!important;align-items:center!important;justify-content:center!important;gap:12px!important;border:0!important;border-radius:8px!important;background:#715b53!important;color:#fff!important;font:500 14px/1 'Manrope',Arial,sans-serif!important;transition:transform .14s ease,background .14s ease!important}
       .tn22-cta:active{transform:translateY(1px) scale(.992)!important;background:#654f48!important}
-      .tn22-worklink{width:min(100%,330px)!important;height:48px!important;margin:10px auto 0!important;border-radius:8px!important;border:1px solid rgba(113,91,83,.38)!important;background:#efe7e1!important;color:#2f2926!important;transition:transform .14s ease,background .14s ease,color .14s ease!important}
+      .tn22-worklink{display:flex!important;width:min(100%,330px)!important;height:48px!important;margin:10px auto 0!important;align-items:center!important;justify-content:center!important;gap:11px!important;border-radius:8px!important;border:1px solid rgba(113,91,83,.38)!important;background:#efe7e1!important;color:#2f2926!important;text-decoration:none!important;font:500 13px/1 'Manrope',Arial,sans-serif!important;transition:transform .14s ease,background .14s ease,color .14s ease!important}
       .tn22-worklink:active{transform:translateY(2px) scale(.988)!important;background:#715b53!important;color:#fff!important;border-color:#715b53!important}
 
       /* SERVICES: same dark block, with proper edge spacing for category chips. */
       #tn13Services{background:#242424!important;color:#f3f3f3!important;border-color:rgba(255,255,255,.08)!important}
       #tn13Services .tn22-kicker{color:#bdbdbd!important}
       #tn13Services h2,#tn13Services .tn31-service-name{color:#f5f5f5!important}
-      #tn13Services .tn31-cats-wrap{margin:25px -25px 0!important}
-      #tn13Services .tn31-cats{padding:0 25px 11px!important;scroll-padding-inline:25px!important;box-sizing:border-box!important}
+      #tn13Services .tn31-cats-wrap{position:relative!important;margin:25px -25px 0!important}
+      #tn13Services .tn31-cats{display:flex!important;align-items:center!important;gap:8px!important;overflow-x:auto!important;padding:0 25px 11px!important;scroll-padding-inline:25px!important;box-sizing:border-box!important}
       #tn13Services .tn31-cat{border-color:rgba(255,255,255,.20)!important;color:#d2d2d2!important;background:rgba(255,255,255,.03)!important}
       #tn13Services .tn31-cat.active{background:#e7e7e7!important;border-color:#e7e7e7!important;color:#202020!important}
       #tn13Services .tn31-service-list{border-color:rgba(255,255,255,.16)!important}
@@ -69,7 +78,7 @@
       #tn13Reviews .tn30-review-open{display:block!important;margin-top:11px!important;font:500 9.5px/1 'Manrope',Arial,sans-serif!important;color:#655b54!important}
       #tn13Reviews .tn30-review-all{display:flex!important;align-items:center!important;justify-content:center!important;margin:28px 22px 0!important;height:46px!important;border:1px solid rgba(66,55,49,.18)!important;border-radius:7px!important;color:#2f2a26!important;text-decoration:none!important;font:500 10.5px/1 'Manrope',Arial,sans-serif!important;letter-spacing:.15em!important;text-transform:uppercase!important;background:rgba(255,255,255,.18)!important}
 
-      /* Preserve the approved Beauty Room contact block; only the TANEM footer is copied exactly from STLuxe. */
+      /* Preserve approved contacts; copy the current STLuxe TANEM footer exactly. */
       #tn13Visit .tn22-footer{margin:28px -24px 0!important;height:76px!important;background:#171513!important;color:#fff!important;display:flex!important;align-items:center!important;justify-content:space-between!important;padding:0 24px!important;text-decoration:none!important;border:0!important}
       #tn13Visit .tn22-footer strong{font:500 23px/1 'Cormorant Garamond',Georgia,serif!important;color:#fff!important}
       #tn13Visit .tn22-footer span{max-width:185px!important;text-align:right!important;font:400 10px/1.35 'Manrope',Arial,sans-serif!important;color:#d6cec8!important}
