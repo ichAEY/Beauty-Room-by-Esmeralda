@@ -20,7 +20,8 @@
       .tn22-title{margin:0!important;font:500 49px/.88 'Cormorant Garamond',Georgia,serif!important;letter-spacing:.18em!important;text-indent:.18em!important;text-transform:uppercase!important}
       .tn22-sub{margin:12px 0 17px!important;font:500 10.5px/1 'Manrope',Arial,sans-serif!important;letter-spacing:.38em!important;text-indent:.38em!important;text-transform:uppercase!important;color:#635d58!important}
       .tn22-copy{display:none!important}
-      .tn37-hero-info{width:min(100%,330px)!important;margin:26px auto 0!important;display:grid!important;grid-template-columns:1fr 1px 1.18fr!important;align-items:center!important;gap:12px!important;text-align:left!important}
+      /* Drop only the lower hero information/buttons by ~0.3 cm; title/subtitle stay fixed. */
+      .tn37-hero-info{width:min(100%,330px)!important;margin:37px auto 0!important;display:grid!important;grid-template-columns:1fr 1px 1.18fr!important;align-items:center!important;gap:12px!important;text-align:left!important}
       .tn37-info-divider{width:1px!important;height:42px!important}
       .tn37-info{grid-template-columns:40px minmax(0,1fr)!important;gap:9px!important}
       .tn37-info-icon{width:40px!important;height:40px!important}
@@ -35,12 +36,12 @@
       #tn13Portfolio{min-height:824px!important}
       #tn13Portfolio .tn22-port{padding-top:22px!important}
 
-      /* SERVICES — fixed, real 25px breathing room at both horizontal ends. */
+      /* SERVICES — exact STLuxe edge spacing: 25px visible gutter on both ends. */
       #tn13Services{background:#242424!important;color:#f3f3f3!important;border-color:rgba(255,255,255,.08)!important}
       #tn13Services .tn22-kicker{color:#bdbdbd!important}
       #tn13Services h2,#tn13Services .tn31-service-name{color:#f5f5f5!important}
-      #tn13Services .tn31-cats-wrap{position:relative!important;margin:25px 0 0!important}
-      #tn13Services .tn31-cats{display:flex!important;align-items:center!important;gap:8px!important;overflow-x:auto!important;padding:0 0 11px!important;scroll-padding-inline:0!important;box-sizing:border-box!important}
+      #tn13Services .tn31-cats-wrap{position:relative!important;margin:25px -25px 0!important}
+      #tn13Services .tn31-cats{display:flex!important;align-items:center!important;gap:8px!important;overflow-x:auto!important;padding:0 25px 11px!important;scroll-padding-inline:25px!important;box-sizing:border-box!important}
       #tn13Services .tn31-cats:before,#tn13Services .tn31-cats:after{display:none!important;content:none!important}
       #tn13Services .tn31-cat{border-color:rgba(255,255,255,.20)!important;color:#d2d2d2!important;background:rgba(255,255,255,.03)!important}
       #tn13Services .tn31-cat.active{background:#e7e7e7!important;border-color:#e7e7e7!important;color:#202020!important}
