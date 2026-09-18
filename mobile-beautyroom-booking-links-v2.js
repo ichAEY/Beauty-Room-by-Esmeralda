@@ -171,7 +171,7 @@
       document.body.style.right='0';
       document.body.style.width='100%';
       document.body.style.overflow='hidden';
-      document.body.style.touchAction='none';
+      document.body.style.touchAction='';
       return;
     }
     if(!shouldLock && pageLocked){
@@ -193,7 +193,7 @@
 
   function syncPageLock(root){
     if(!root) return;
-    const active=!!root.querySelector('#tn13BookSheet.open,#tn13Gallery.open,#tn13MasterSheet.open,.tn22-viewer.open');
+    const active=!!root.querySelector('#tn13BookSheet.open,#tn13Gallery.open,#tn13Gallery.closing,#tn13MasterSheet.open,.tn22-master-page.open,.tn22-master-page.closing,.tn22-viewer.open');
     setPageLock(active);
   }
 
