@@ -250,11 +250,23 @@
     style.textContent=[
       '@media(max-width:767px){',
       '#stluxe-tanem-v13 .br-lang-switch{position:absolute;z-index:66;top:0;right:57px;height:52px;display:flex;align-items:center;gap:3px;font-family:Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}',
-      '#stluxe-tanem-v13 .br-lang-switch button{border:0;background:transparent;padding:0 2px;min-width:20px;height:32px;color:#8b817b;font:600 9px/1 Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;letter-spacing:.04em;-webkit-tap-highlight-color:transparent}',
+      '#stluxe-tanem-v13 .br-lang-switch button{border:0;background:transparent;padding:0 3px;min-width:27px;height:36px;color:#8b817b;font:600 11.5px/1 Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;letter-spacing:.035em;-webkit-tap-highlight-color:transparent}',
       '#stluxe-tanem-v13 .br-lang-switch button.active{color:#171513}',
-      '#stluxe-tanem-v13 .br-lang-switch .sep{color:#c7bbb3;font-size:8px;line-height:1;pointer-events:none}',
+      '#stluxe-tanem-v13 .br-lang-switch .sep{color:#c7bbb3;font-size:10px;line-height:1;pointer-events:none}',
       '#stluxe-tanem-v13 .br-lang-switch button:active{transform:scale(.92)}',
-      '@media(max-width:360px){#stluxe-tanem-v13 .br-lang-switch{right:52px;gap:1px}#stluxe-tanem-v13 .br-lang-switch button{min-width:18px;padding:0 1px;font-size:8.5px}}',
+      '@media(max-width:360px){#stluxe-tanem-v13 .br-lang-switch{right:52px;gap:1px}#stluxe-tanem-v13 .br-lang-switch button{min-width:23px;padding:0 1px;font-size:10.5px}}',
+      'body[data-br-lang="hy"] #tn13Portfolio .tn22-port h2{font-size:38px!important;line-height:1!important;letter-spacing:-.035em!important;max-width:100%!important;overflow-wrap:anywhere!important}',
+      'body[data-br-lang="hy"] #tn13Services .tn31-services h2{font-size:39px!important;line-height:1!important;letter-spacing:-.035em!important;white-space:normal!important;max-width:100%!important;overflow-wrap:anywhere!important}',
+      'body[data-br-lang="hy"] #tn13Services .tn31-service-row{grid-template-columns:minmax(0,1fr) 92px!important;gap:10px!important}',
+      'body[data-br-lang="hy"] #tn13Services .tn31-service-copy{min-width:0!important}',
+      'body[data-br-lang="hy"] #tn13Services .tn31-service-name{font-weight:500!important;line-height:1.2!important;max-width:100%!important;overflow-wrap:anywhere!important;word-break:normal!important;-webkit-line-clamp:3!important}',
+      'body[data-br-lang="hy"] #tn13Services .tn31-service-detail{white-space:normal!important;overflow-wrap:anywhere!important}',
+      'body[data-br-lang="hy"] #tn13Visit h2{font-size:39px!important;line-height:1!important;white-space:nowrap!important;letter-spacing:-.035em!important}',
+      'body[data-br-lang="hy"] #tn13Visit .tn22-contact:last-child strong{font-size:13.2px!important;white-space:nowrap!important}',
+      'body[data-br-lang="hy"] #tn13Visit .tn22-contact:last-child>span:last-child>span{font-size:8.8px!important;white-space:nowrap!important}',
+      'body[data-br-lang="hy"] #tn13Visit .tn22-route{font-size:11.5px!important;white-space:nowrap!important}',
+      '#stluxe-tanem-v13 .tn22-master-top{display:grid!important;grid-template-columns:40px minmax(0,1fr) 40px!important;align-items:center!important}',
+      '#stluxe-tanem-v13 .tn22-master-brand{text-align:center!important;justify-self:center!important;max-width:100%!important;font-size:14px!important;letter-spacing:.12em!important;white-space:nowrap!important}',
       '}'
     ].join('');
     document.head.appendChild(style);
@@ -297,6 +309,22 @@
       if(currentLang==='hy') credit.innerHTML='Ստեղծված է <strong>TANEM.ru</strong>-ում';
       else if(currentLang==='en') credit.innerHTML='Created with <strong>TANEM.ru</strong>';
       else credit.innerHTML='Создано в <strong>TANEM.ru</strong>';
+    }
+
+    var masterBrand=root.querySelector('.tn22-master-brand');
+    if(masterBrand) masterBrand.textContent='Beauty Room';
+
+    if(currentLang==='hy'){
+      var team=root.querySelector('#tn13Team');
+      var masterPage=root.querySelector('.tn22-master-page');
+      if(team){
+        translateTree(team,'en');
+        translateAttributes(team,'en');
+      }
+      if(masterPage){
+        translateTree(masterPage,'en');
+        translateAttributes(masterPage,'en');
+      }
     }
   }
 
