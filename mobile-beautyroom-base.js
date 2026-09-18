@@ -84,7 +84,7 @@
   @media(max-width:767px){
     html,body{margin:0!important;padding:0!important;min-height:100%!important;background:#f6f1eb!important;color:#2f2926!important;overflow-x:hidden!important;-webkit-font-smoothing:antialiased!important;scrollbar-width:none}
     html::-webkit-scrollbar,body::-webkit-scrollbar{display:none}
-    body>*:not(#stluxe-tanem-v13):not(script):not(style):not(link){display:none!important}
+    body.br-app-ready>.mobile,body.br-app-ready>.desktop{display:none!important}
     #stluxe-tanem-v13{--ink:#2f2926;--soft:#6e625c;--paper:#f6f1eb;--paper2:#fbf8f4;--taupe:#8b7167;--taupe-dark:#715b53;--line:rgba(65,52,47,.13);display:block;width:100%;min-height:100dvh;overflow:clip;background:var(--paper);color:var(--ink);font-family:"Manrope",Arial,sans-serif;font-weight:400}
     #stluxe-tanem-v13 *{box-sizing:border-box}
     #stluxe-tanem-v13 button,#stluxe-tanem-v13 a{font:inherit;-webkit-tap-highlight-color:transparent;color:inherit}
@@ -677,4 +677,12 @@ const about=document.createElement('section');
 about.id='tn38About';
 about.innerHTML=`<div class="tn42-about"><p class="tn42-kicker">О нас</p><div class="tn42-card"><div class="tn42-photo"><img src="interior_reception_02.webp" alt="Beauty Room" loading="lazy"><div class="tn42-rating"><span class="tn42-rating-star">★</span><strong>5,0</strong><span>рейтинг салона</span></div></div><div class="tn42-body"><p class="tn42-lead">Beauty Room by Esmeralda — салон красоты в Ереване.</p><p class="tn42-copy">Маникюр, волосы, брови и ресницы, макияж, косметология, эпиляция и массаж — в одном пространстве.</p><div class="tn42-facts"><div class="tn42-fact">Мастера разных направлений</div><div class="tn42-fact">Комфортная атмосфера</div><div class="tn42-fact">Индивидуальный подход</div></div></div></div></div>`;
 services.insertAdjacentElement('afterend',about);
+})();
+
+/* Reveal the enhanced site only after the complete bundle has initialized. */
+(()=>{
+  const root=document.getElementById('stluxe-tanem-v13');
+  if(!root) return;
+  root.dataset.brAppReady='1';
+  document.body.classList.add('br-app-ready');
 })();
