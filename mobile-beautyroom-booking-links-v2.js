@@ -176,6 +176,8 @@
     }
     if(!shouldLock && pageLocked){
       pageLocked=false;
+      const previousScrollBehavior=document.documentElement.style.scrollBehavior;
+      document.documentElement.style.scrollBehavior='auto';
       document.documentElement.style.overflow='';
       document.body.style.position='';
       document.body.style.top='';
@@ -184,7 +186,8 @@
       document.body.style.width='';
       document.body.style.overflow='';
       document.body.style.touchAction='';
-      window.scrollTo(0,lockedScrollY);
+      window.scrollTo({top:lockedScrollY,left:0,behavior:'auto'});
+      requestAnimationFrame(()=>{document.documentElement.style.scrollBehavior=previousScrollBehavior});
     }
   }
 
