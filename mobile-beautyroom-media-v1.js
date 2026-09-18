@@ -94,28 +94,17 @@
     media.dataset.brVideoReady='1';
     media.classList.add('br-video-media');
     media.setAttribute('aria-label','Видео Beauty Room by Esmeralda');
-    media.innerHTML='<video class="br-hero-video" muted loop playsinline webkit-playsinline preload="none" poster="interior_reception_02.webp"></video>';
+    media.innerHTML='<video class="br-hero-video" muted autoplay loop playsinline webkit-playsinline preload="metadata" poster="interior_reception_02.webp" src="'+VIDEO_SRC+'"></video>';
     const video=media.querySelector('video');
     if(video){
       video.muted=true;
       video.defaultMuted=true;
-      let started=false;
       const tryPlay=()=>{const p=video.play();if(p&&typeof p.catch==='function')p.catch(()=>{});};
-      const startVideo=()=>{
-        if(started)return;
-        started=true;
-        video.src=VIDEO_SRC;
-        video.preload='metadata';
-        video.load();
-        if(video.readyState>=2) tryPlay();
-        else video.addEventListener('canplay',tryPlay,{once:true});
-      };
-      const queueVideo=()=>{
-        if('requestIdleCallback' in window) window.requestIdleCallback(startVideo,{timeout:2600});
-        else window.setTimeout(startVideo,2200);
-      };
-      window.setTimeout(queueVideo,1700);
-      document.addEventListener('visibilitychange',()=>{if(!document.hidden){startVideo();tryPlay();}});
+      video.addEventListener('loadeddata',tryPlay,{once:true});
+      video.addEventListener('canplay',tryPlay,{once:true});
+      window.requestAnimationFrame(tryPlay);
+      document.addEventListener('visibilitychange',()=>{if(!document.hidden) tryPlay()});
+      document.addEventListener('pointerdown',tryPlay,{once:true,passive:true});
     }
   }
 
@@ -163,10 +152,6 @@
     applyAbout(root);
     removeDropText(root);
     openExternalLinks(root);
-    if(!root.dataset.brDropObserver){
-      root.dataset.brDropObserver='1';
-      new MutationObserver(()=>removeDropText(root)).observe(root,{childList:true,subtree:true,characterData:true});
-    }
     return true;
   }
 
