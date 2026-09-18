@@ -3,10 +3,10 @@
   'use strict';
   if(!window.matchMedia || !window.matchMedia('(max-width:767px)').matches) return;
 
-  const INTRO_SRC='5510CCD5-5C94-4E02-902E-6A9620CFE294.png';
-  const BRAND_SRC='F5234283-E9CF-4CD8-9316-C7C23D18F594.png';
-  const ABOUT_SRC='1ED7696C-34A0-417B-8294-A2CD4A249E09.png';
-  const VIDEO_SRC='SaveClip.App_AQMAwV91MkTpBiNct73I425uzlW_h6abP65-n07hUj4AwohUq5WlrKaE3TMQPtiaQvi2o_TdNi1Of7laSvuKsDXA3ykliQBk9mqD10k.mp4';
+  const INTRO_SRC='intro-logo.webp';
+  const BRAND_SRC='header-logo.webp';
+  const ABOUT_SRC='about-salon.webp';
+  const VIDEO_SRC='hero-video-optimized.mp4';
 
   function ensureStyle(){
     if(document.getElementById('beautyroom-media-assets-v1')) return;
@@ -26,7 +26,7 @@
           visibility:visible!important;
           pointer-events:auto!important;
           animation:none!important;
-          transition:opacity 1.08s ease,filter 1.08s cubic-bezier(.22,.72,.28,1),transform 1.08s cubic-bezier(.22,.72,.28,1)!important;
+          transition:opacity .85s ease,filter .85s cubic-bezier(.22,.72,.28,1),transform .85s cubic-bezier(.22,.72,.28,1)!important;
           filter:blur(0)!important;
           transform:scale(1)!important;
           overflow:hidden!important;
@@ -125,17 +125,17 @@
     if(!intro || intro.dataset.brMediaReady==='1') return;
     intro.dataset.brMediaReady='1';
     intro.className='tn13-intro br-media-intro';
-    intro.innerHTML='<img class="br-intro-image" src="'+INTRO_SRC+'" alt="Beauty Room by Esmeralda">';
+    intro.innerHTML='<img class="br-intro-image" src="'+INTRO_SRC+'" alt="Beauty Room by Esmeralda" decoding="async" fetchpriority="high">';
     document.documentElement.style.overflow='hidden';
     document.body.style.overflow='hidden';
 
     requestAnimationFrame(()=>requestAnimationFrame(()=>{
-      window.setTimeout(()=>intro.classList.add('br-intro-out'),1550);
+      window.setTimeout(()=>intro.classList.add('br-intro-out'),820);
       window.setTimeout(()=>{
         intro.classList.add('br-intro-hidden');
         document.documentElement.style.overflow='';
         if(!root.querySelector('.tn13-sheet.open,.tn13-overlay.open,.tn22-viewer.open')) document.body.style.overflow='';
-      },2820);
+      },1740);
     }));
   }
 
@@ -145,7 +145,7 @@
     brand.dataset.brLogoReady='1';
     brand.classList.add('br-logo-brand');
     brand.setAttribute('aria-label','Beauty Room by Esmeralda');
-    brand.innerHTML='<img src="'+BRAND_SRC+'" alt="Beauty Room by Esmeralda">';
+    brand.innerHTML='<img src="'+BRAND_SRC+'" alt="Beauty Room by Esmeralda" decoding="async">';
   }
 
   function applyHeroVideo(root){
@@ -154,15 +154,24 @@
     media.dataset.brVideoReady='1';
     media.classList.add('br-video-media');
     media.setAttribute('aria-label','Видео Beauty Room by Esmeralda');
-    media.innerHTML='<video class="br-hero-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="interior_reception_02.webp"><source src="'+VIDEO_SRC+'" type="video/mp4"></video>';
+    media.innerHTML='<video class="br-hero-video" muted loop playsinline webkit-playsinline preload="none" poster="interior_reception_02.webp"></video>';
     const video=media.querySelector('video');
     if(video){
       video.muted=true;
       video.defaultMuted=true;
+      let started=false;
       const tryPlay=()=>{const p=video.play();if(p&&typeof p.catch==='function')p.catch(()=>{});};
-      if(video.readyState>=2) tryPlay();
-      else video.addEventListener('canplay',tryPlay,{once:true});
-      document.addEventListener('visibilitychange',()=>{if(!document.hidden) tryPlay();});
+      const startVideo=()=>{
+        if(started)return;
+        started=true;
+        video.src=VIDEO_SRC;
+        video.preload='metadata';
+        video.load();
+        if(video.readyState>=2) tryPlay();
+        else video.addEventListener('canplay',tryPlay,{once:true});
+      };
+      window.setTimeout(startVideo,900);
+      document.addEventListener('visibilitychange',()=>{if(!document.hidden){startVideo();tryPlay();}});
     }
   }
 
