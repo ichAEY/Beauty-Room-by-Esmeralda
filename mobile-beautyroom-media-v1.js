@@ -25,11 +25,15 @@
           opacity:1!important;
           visibility:visible!important;
           pointer-events:auto!important;
-          animation:none!important;
+          animation:brIntroSafetyExit 1.65s cubic-bezier(.22,.72,.28,1) forwards!important;
           transition:opacity .85s ease,filter .85s cubic-bezier(.22,.72,.28,1),transform .85s cubic-bezier(.22,.72,.28,1)!important;
           filter:blur(0)!important;
           transform:scale(1)!important;
           overflow:hidden!important;
+        }
+        @keyframes brIntroSafetyExit{
+          0%,48%{opacity:1;filter:blur(0);transform:scale(1);visibility:visible;pointer-events:auto}
+          100%{opacity:0;filter:blur(18px);transform:scale(1.055);visibility:hidden;pointer-events:none}
         }
         #stluxe-tanem-v13 #tn13Intro.br-media-intro.br-intro-out{
           opacity:0!important;
@@ -126,17 +130,29 @@
     intro.dataset.brMediaReady='1';
     intro.className='tn13-intro br-media-intro';
     intro.innerHTML='<img class="br-intro-image" src="'+INTRO_SRC+'" alt="Beauty Room by Esmeralda" decoding="async" fetchpriority="high">';
-    document.documentElement.style.overflow='hidden';
-    document.body.style.overflow='hidden';
 
-    requestAnimationFrame(()=>requestAnimationFrame(()=>{
-      window.setTimeout(()=>intro.classList.add('br-intro-out'),820);
-      window.setTimeout(()=>{
-        intro.classList.add('br-intro-hidden');
-        document.documentElement.style.overflow='';
-        if(!root.querySelector('.tn13-sheet.open,.tn13-overlay.open,.tn22-viewer.open')) document.body.style.overflow='';
-      },1740);
-    }));
+    let finished=false;
+    const finishIntro=()=>{
+      if(finished) return;
+      finished=true;
+      intro.classList.add('br-intro-out','br-intro-hidden');
+      intro.setAttribute('aria-hidden','true');
+      if(intro.parentNode) intro.parentNode.removeChild(intro);
+    };
+
+    /*
+      Do not lock document scrolling here. Older Safari versions can suspend the
+      first animation frame while restoring a tab, leaving the splash and the
+      overflow lock in place forever. CSS closes the splash independently; the
+      timers and lifecycle listeners below are redundant safety exits.
+    */
+    window.setTimeout(()=>intro.classList.add('br-intro-out'),780);
+    window.setTimeout(finishIntro,1680);
+    intro.addEventListener('animationend',finishIntro,{once:true});
+    window.addEventListener('pageshow',()=>window.setTimeout(finishIntro,1680),{once:true});
+    document.addEventListener('visibilitychange',()=>{
+      if(!document.hidden) window.setTimeout(finishIntro,120);
+    },{once:true});
   }
 
   function applyBrand(root){
@@ -170,7 +186,11 @@
         if(video.readyState>=2) tryPlay();
         else video.addEventListener('canplay',tryPlay,{once:true});
       };
-      window.setTimeout(startVideo,900);
+      const queueVideo=()=>{
+        if('requestIdleCallback' in window) window.requestIdleCallback(startVideo,{timeout:2600});
+        else window.setTimeout(startVideo,2200);
+      };
+      window.setTimeout(queueVideo,1700);
       document.addEventListener('visibilitychange',()=>{if(!document.hidden){startVideo();tryPlay();}});
     }
   }
