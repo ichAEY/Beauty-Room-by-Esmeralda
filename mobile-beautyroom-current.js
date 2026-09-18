@@ -65,8 +65,8 @@
       #tn13Team .tn22-team{padding:42px 28px 38px!important;overflow:hidden!important}
       #tn13Team .tn22-kicker{color:#bdbdbd!important}
       #tn13Team h2{font-size:40px!important;color:#f5f5f5!important}
-      #tn13Team .tn22-team-grid{display:flex!important;grid-template-columns:none!important;gap:14px!important;margin:30px 0 0!important;padding:0 0 8px!important;overflow-x:auto!important;overflow-y:hidden!important;overscroll-behavior-inline:contain!important;-webkit-overflow-scrolling:touch!important;scroll-snap-type:x proximity!important;scrollbar-width:none!important}
-      #tn13Team .tn22-master-card{flex:0 0 136px!important;width:auto!important;min-width:136px!important;scroll-snap-align:start!important;border:0!important;background:none!important;padding:0!important;text-align:center!important;color:#f5f5f5!important}
+      #tn13Team .tn22-team-grid{display:flex!important;grid-template-columns:none!important;gap:14px!important;margin:30px 0 0!important;padding:0 0 8px!important;overflow-x:auto!important;overflow-y:hidden!important;overscroll-behavior-x:contain!important;overscroll-behavior-y:auto!important;touch-action:pan-x pan-y!important;-webkit-overflow-scrolling:touch!important;scroll-snap-type:x proximity!important;scrollbar-width:none!important}
+      #tn13Team .tn22-master-card{flex:0 0 136px!important;width:auto!important;min-width:136px!important;scroll-snap-align:start!important;border:0!important;background:none!important;padding:0!important;text-align:center!important;color:#f5f5f5!important;touch-action:manipulation!important}
       #tn13Team .tn22-master-circle{width:100%!important;aspect-ratio:1/1!important;border-radius:50%!important;display:grid!important;place-items:center!important;background:linear-gradient(145deg,#4a4542,#34302e)!important;overflow:hidden!important;color:#d8d0ca!important;border:1px solid rgba(255,255,255,.08)!important}
       #tn13Team .tn22-master-name{display:block!important;margin-top:11px!important;font:500 20px/1 'Cormorant Garamond',Georgia,serif!important;color:#f5f5f5!important;white-space:normal!important}
       #tn13Team .tn22-master-role{display:block!important;margin-top:5px!important;font:400 10px/1.3 'Manrope',Arial,sans-serif!important;color:#bdb5b0!important}
@@ -182,7 +182,7 @@
 
       const viewport=reviewsRoot.querySelector('.br-review-viewport');
       const track=reviewsRoot.querySelector('.br-review-track');
-      let pageIndex=1,startX=0,startY=0,dx=0,dragging=false,moved=false,autoTimer=0;
+      let pageIndex=1,startX=0,startY=0,dx=0,dragging=false,moved=false,autoTimer=0,gestureAxis=null,capturedPointer=null;
       const total=groups.length;
       const gap=12;
       const metrics=()=>{
@@ -219,17 +219,30 @@
         clearTimeout(autoTimer);
         dragging=true;
         moved=false;
+        gestureAxis=null;
+        capturedPointer=null;
         dx=0;
         startX=e.clientX;
         startY=e.clientY;
-        viewport.classList.add('dragging');
-        try{viewport.setPointerCapture(e.pointerId)}catch(_){}
       });
       viewport.addEventListener('pointermove',e=>{
         if(!dragging)return;
         const x=e.clientX-startX,y=e.clientY-startY;
-        if(!moved&&Math.abs(x)<6)return;
-        if(!moved&&Math.abs(y)>Math.abs(x))return;
+        if(!gestureAxis){
+          if(Math.max(Math.abs(x),Math.abs(y))<7)return;
+          if(Math.abs(y)>Math.abs(x)){
+            gestureAxis='vertical';
+            dragging=false;
+            viewport.classList.remove('dragging');
+            schedule();
+            return;
+          }
+          gestureAxis='horizontal';
+          viewport.classList.add('dragging');
+          capturedPointer=e.pointerId;
+          try{viewport.setPointerCapture(e.pointerId)}catch(_){}
+        }
+        if(gestureAxis!=='horizontal')return;
         moved=true;
         dx=x;
         paint(false,dx);
@@ -238,7 +251,9 @@
         if(!dragging)return;
         dragging=false;
         viewport.classList.remove('dragging');
-        try{viewport.releasePointerCapture(e.pointerId)}catch(_){}
+        if(capturedPointer!==null){try{viewport.releasePointerCapture(capturedPointer)}catch(_){}}
+        capturedPointer=null;
+        gestureAxis=null;
         const {step}=metrics();
         if(moved&&Math.abs(dx)>Math.min(70,step*.16)) pageIndex+=dx<0?1:-1;
         pageIndex=Math.max(0,Math.min(total+1,pageIndex));
