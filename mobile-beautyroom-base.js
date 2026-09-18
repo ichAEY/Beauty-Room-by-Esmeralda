@@ -170,8 +170,6 @@
   const galleryTabs=[['all','Все'],['salon','Салон'],['nails','Ногти'],['hair','Волосы'],['makeup','Макияж']];
 
   root.innerHTML=`
-    <div class="tn13-intro" id="tn13Intro"><div class="tn13-intro-inner"><div class="tn13-intro-name">Beauty Room</div><div class="tn13-intro-line"></div><div class="tn13-intro-small">beauty salon · TANEM</div></div></div>
-
     <header class="tn13-hero" id="tn13Top">
       <div class="tn13-shell">
         <div class="tn13-topbar">
