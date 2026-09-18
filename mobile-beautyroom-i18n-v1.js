@@ -290,6 +290,16 @@
     });
   }
 
+  function applySpecials(){
+    if(!root) return;
+    var credit=root.querySelector('.br-tanem-copy');
+    if(credit){
+      if(currentLang==='hy') credit.innerHTML='Ստեղծված է <strong>TANEM.ru</strong>-ում';
+      else if(currentLang==='en') credit.innerHTML='Created with <strong>TANEM.ru</strong>';
+      else credit.innerHTML='Создано в <strong>TANEM.ru</strong>';
+    }
+  }
+
   function updateMeta(){
     var m=meta[currentLang]||meta.hy;
     document.documentElement.lang=currentLang;
@@ -305,6 +315,7 @@
     translateTree(root,currentLang);
     translateAttributes(root,currentLang);
     updateSwitcher();
+    applySpecials();
     updateMeta();
     document.body.dataset.brLang=currentLang;
   }
@@ -343,7 +354,7 @@
         var heroStatus=root.querySelector('.tn50-hero-status');
         if(statusRoot) translateTree(statusRoot,currentLang);
         if(heroStatus) translateTree(heroStatus,currentLang);
-      },5000);
+      },1000);
     },80);
   }
 
