@@ -1,4 +1,4 @@
-/* Beauty Room desktop build — hero block. Mobile bundle is intentionally untouched. */
+/* Esmeralda desktop — STLuxe reference build. Mobile bundle is intentionally untouched. */
 (function(){
   'use strict';
   if(!window.matchMedia || !window.matchMedia('(min-width:768px)').matches) return;
