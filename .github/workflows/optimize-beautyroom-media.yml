@@ -50,4 +50,6 @@ jobs:
           git config user.email "melikyan.mac@gmail.com"
           git add intro-logo.webp header-logo.webp about-salon.webp hero-video-optimized.mp4
           git commit -m "Add lightweight mobile media assets" || exit 0
+          git fetch origin main
+          git rebase origin/main
           git push
