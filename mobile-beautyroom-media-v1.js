@@ -26,7 +26,7 @@
           visibility:visible!important;
           pointer-events:auto!important;
           animation:none!important;
-          transition:opacity .78s ease,filter .78s cubic-bezier(.22,.72,.28,1),transform .78s cubic-bezier(.22,.72,.28,1)!important;
+          transition:opacity 1.08s ease,filter 1.08s cubic-bezier(.22,.72,.28,1),transform 1.08s cubic-bezier(.22,.72,.28,1)!important;
           filter:blur(0)!important;
           transform:scale(1)!important;
           overflow:hidden!important;
@@ -43,13 +43,13 @@
         }
         #stluxe-tanem-v13 #tn13Intro .br-intro-image{
           display:block!important;
-          width:min(76vw,330px)!important;
-          max-width:330px!important;
-          max-height:54svh!important;
+          width:min(50vw,220px)!important;
+          max-width:220px!important;
+          max-height:38svh!important;
           height:auto!important;
           object-fit:contain!important;
           opacity:1!important;
-          transform:translateY(-1.5vh)!important;
+          transform:none!important;
           user-select:none!important;
           -webkit-user-drag:none!important;
         }
@@ -61,14 +61,14 @@
           justify-content:flex-start!important;
           height:52px!important;
           width:auto!important;
-          max-width:145px!important;
+          max-width:250px!important;
           overflow:visible!important;
         }
         #stluxe-tanem-v13 .tn22-brand.br-logo-brand img{
           display:block!important;
           width:auto!important;
-          height:34px!important;
-          max-width:138px!important;
+          height:64px!important;
+          max-width:235px!important;
           object-fit:contain!important;
           object-position:left center!important;
           filter:none!important;
@@ -130,12 +130,12 @@
     document.body.style.overflow='hidden';
 
     requestAnimationFrame(()=>requestAnimationFrame(()=>{
-      window.setTimeout(()=>intro.classList.add('br-intro-out'),1180);
+      window.setTimeout(()=>intro.classList.add('br-intro-out'),1550);
       window.setTimeout(()=>{
         intro.classList.add('br-intro-hidden');
         document.documentElement.style.overflow='';
         if(!root.querySelector('.tn13-sheet.open,.tn13-overlay.open,.tn22-viewer.open')) document.body.style.overflow='';
-      },2020);
+      },2820);
     }));
   }
 
@@ -176,6 +176,21 @@
     img.loading='lazy';
   }
 
+
+  function removeDropText(scope){
+    const root=scope||document.body;
+    if(!root) return;
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+    const nodes=[];
+    while(walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(node=>{
+      const value=node.nodeValue||'';
+      if(/drop\s*n/i.test(value)){
+        node.nodeValue=value.replace(/drop\s*n(?:\s+drop\s*n)?/gi,'').trim();
+      }
+    });
+  }
+
   function openExternalLinks(root){
     root.querySelectorAll('a[href]').forEach(a=>{
       const href=(a.getAttribute('href')||'').trim();
@@ -194,7 +209,12 @@
     applyBrand(root);
     applyHeroVideo(root);
     applyAbout(root);
+    removeDropText(root);
     openExternalLinks(root);
+    if(!root.dataset.brDropObserver){
+      root.dataset.brDropObserver='1';
+      new MutationObserver(()=>removeDropText(root)).observe(root,{childList:true,subtree:true,characterData:true});
+    }
     return true;
   }
 
