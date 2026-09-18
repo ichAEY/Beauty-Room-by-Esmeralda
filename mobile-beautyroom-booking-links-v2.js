@@ -119,8 +119,8 @@
 
       const href=(a.getAttribute('href')||'').trim();
       if(/^https?:\/\//i.test(href)){
-        a.setAttribute('target','_blank');
-        a.setAttribute('rel','noopener noreferrer');
+        if(a.getAttribute('target')!=='_blank') a.setAttribute('target','_blank');
+        if(a.getAttribute('rel')!=='noopener noreferrer') a.setAttribute('rel','noopener noreferrer');
       }
     });
   }
@@ -137,7 +137,8 @@
     const phoneOption=[...sheet.querySelectorAll('.tn50-book-option')].find(a=>(a.textContent||'').toLowerCase().includes('телефон'));
     if(phoneOption){
       const phoneIcon=phoneOption.querySelector('.tn50-book-icon');
-      if(phoneIcon){
+      if(phoneIcon && phoneIcon.dataset.brPhoneReady!=='1'){
+        phoneIcon.dataset.brPhoneReady='1';
         phoneIcon.classList.add('phone');
         phoneIcon.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h3l1.3 4-2 1.5c1 2 2.6 3.6 4.6 4.6l1.5-2L19 13.5v3c0 1.1-.9 2-2 2C10.4 18.5 5.5 13.6 5.5 7A2 2 0 0 1 7 4Z"/></svg>';
       }
@@ -146,9 +147,9 @@
     sheet.querySelectorAll('.tn50-book-option').forEach(a=>{
       const label=(a.textContent||'').toLowerCase();
       if(label.includes('viber')){
-        a.href=VIBER_URL;
-        a.target='_blank';
-        a.rel='noopener noreferrer';
+        if(a.getAttribute('href')!==VIBER_URL) a.setAttribute('href',VIBER_URL);
+        if(a.getAttribute('target')!=='_blank') a.setAttribute('target','_blank');
+        if(a.getAttribute('rel')!=='noopener noreferrer') a.setAttribute('rel','noopener noreferrer');
       }
     });
 
@@ -206,12 +207,8 @@
 
     if(!root.dataset.brExternalObserver){
       root.dataset.brExternalObserver='1';
-      const observer=new MutationObserver(()=>{
-        patchBooking(root);
-        forceExternalLinks(root);
-        syncPageLock(root);
-      });
-      observer.observe(root,{childList:true,subtree:true,attributes:true,attributeFilter:['href','class']});
+      const observer=new MutationObserver(()=>syncPageLock(root));
+      observer.observe(root,{subtree:true,attributes:true,attributeFilter:['class']});
     }
     return true;
   }
