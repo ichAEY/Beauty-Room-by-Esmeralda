@@ -301,6 +301,80 @@
         a.setAttribute('rel','noopener');
       }
     });
+
+    /* Gallery photo viewer — isolated from legacy gallery/viewer handlers. */
+    if(!document.getElementById('br-gallery-photo-viewer')){
+      const viewerStyle=document.createElement('style');
+      viewerStyle.id='br-gallery-photo-viewer-style';
+      viewerStyle.textContent=`
+        #br-gallery-photo-viewer{position:fixed;z-index:2147483647;inset:0;display:none;align-items:center;justify-content:center;padding:58px 22px 52px;background:rgba(20,16,14,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);touch-action:pan-y}
+        #br-gallery-photo-viewer.open{display:flex}
+        #br-gallery-photo-viewer .brgv-image{display:block;max-width:100%;max-height:calc(100dvh - 110px);width:auto;height:auto;object-fit:contain;border-radius:12px;user-select:none;-webkit-user-drag:none}
+        #br-gallery-photo-viewer .brgv-close{position:absolute;top:max(14px,env(safe-area-inset-top));right:16px;width:42px;height:42px;border:1px solid rgba(255,255,255,.24);border-radius:50%;background:rgba(255,255,255,.08);color:#fff;font:300 28px/1 Arial,sans-serif}
+        #br-gallery-photo-viewer .brgv-prev,#br-gallery-photo-viewer .brgv-next{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:70px;border:0;background:transparent;color:#fff;font:300 42px/1 Arial,sans-serif}
+        #br-gallery-photo-viewer .brgv-prev{left:2px}
+        #br-gallery-photo-viewer .brgv-next{right:2px}
+        #br-gallery-photo-viewer .brgv-count{position:absolute;left:0;right:0;bottom:max(18px,env(safe-area-inset-bottom));text-align:center;color:rgba(255,255,255,.78);font:500 11px/1 Manrope,Arial,sans-serif;letter-spacing:.06em}
+      `;
+      document.head.appendChild(viewerStyle);
+
+      const galleryViewer=document.createElement('div');
+      galleryViewer.id='br-gallery-photo-viewer';
+      galleryViewer.setAttribute('aria-hidden','true');
+      galleryViewer.innerHTML='<button class="brgv-close" type="button" aria-label="Закрыть">×</button><button class="brgv-prev" type="button" aria-label="Предыдущее фото">‹</button><img class="brgv-image" alt=""><button class="brgv-next" type="button" aria-label="Следующее фото">›</button><div class="brgv-count"></div>';
+      document.body.appendChild(galleryViewer);
+
+      const galleryImage=galleryViewer.querySelector('.brgv-image');
+      const galleryCount=galleryViewer.querySelector('.brgv-count');
+      const galleryPrev=galleryViewer.querySelector('.brgv-prev');
+      const galleryNext=galleryViewer.querySelector('.brgv-next');
+      let galleryImages=[];
+      let galleryIndex=0;
+
+      const paintGalleryViewer=()=>{
+        const item=galleryImages[galleryIndex];
+        if(!item) return;
+        galleryImage.src=item.src;
+        galleryImage.alt=item.alt||'Beauty Room';
+        galleryCount.textContent=(galleryIndex+1)+' / '+galleryImages.length;
+        const many=galleryImages.length>1;
+        galleryPrev.style.display=many?'block':'none';
+        galleryNext.style.display=many?'block':'none';
+      };
+      const openGalleryViewer=(img)=>{
+        const gallery=document.querySelector('#stluxe-tanem-v13 #tn13Gallery');
+        galleryImages=gallery?[...gallery.querySelectorAll('.tn22-gallery-tile img')].map(x=>({src:x.currentSrc||x.src,alt:x.alt||''})):[];
+        const src=img.currentSrc||img.src;
+        galleryIndex=Math.max(0,galleryImages.findIndex(x=>x.src===src));
+        if(!galleryImages.length) galleryImages=[{src:src,alt:img.alt||''}];
+        paintGalleryViewer();
+        galleryViewer.classList.add('open');
+        galleryViewer.setAttribute('aria-hidden','false');
+        document.body.style.overflow='hidden';
+      };
+      const closeGalleryViewer=()=>{
+        galleryViewer.classList.remove('open');
+        galleryViewer.setAttribute('aria-hidden','true');
+        const gallery=document.querySelector('#stluxe-tanem-v13 #tn13Gallery');
+        document.body.style.overflow=gallery&&gallery.classList.contains('open')?'hidden':'';
+      };
+      galleryPrev.onclick=e=>{e.stopPropagation();galleryIndex=(galleryIndex-1+galleryImages.length)%galleryImages.length;paintGalleryViewer()};
+      galleryNext.onclick=e=>{e.stopPropagation();galleryIndex=(galleryIndex+1)%galleryImages.length;paintGalleryViewer()};
+      galleryViewer.querySelector('.brgv-close').onclick=e=>{e.stopPropagation();closeGalleryViewer()};
+      galleryViewer.addEventListener('click',e=>{if(e.target===galleryViewer)closeGalleryViewer()});
+      document.addEventListener('keydown',e=>{if(!galleryViewer.classList.contains('open'))return;if(e.key==='Escape')closeGalleryViewer();else if(e.key==='ArrowLeft')galleryPrev.click();else if(e.key==='ArrowRight')galleryNext.click()});
+
+      /* Capture phase deliberately bypasses old gallery handlers. */
+      document.addEventListener('click',e=>{
+        const tile=e.target.closest&&e.target.closest('#stluxe-tanem-v13 #tn13Gallery .tn22-gallery-tile[data-gi]');
+        if(!tile) return;
+        const img=tile.querySelector('img');
+        if(!img) return;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        openGalleryViewer(img);
+      },true);
+    }
   };
   base.onerror=()=>console.error('Beauty Room mobile base failed to load');
   document.head.appendChild(base);
