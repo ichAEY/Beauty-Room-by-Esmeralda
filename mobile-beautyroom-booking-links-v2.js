@@ -25,6 +25,17 @@
           opacity:1!important;
           visibility:visible!important;
           pointer-events:auto!important;
+          z-index:700!important;
+          overscroll-behavior:contain!important;
+          touch-action:none!important;
+        }
+        #stluxe-tanem-v13 #tn13BookSheet.open .tn13-panel{
+          touch-action:pan-y!important;
+        }
+        #stluxe-tanem-v13 #tn13Gallery.open{
+          z-index:700!important;
+          overscroll-behavior:contain!important;
+          touch-action:pan-y!important;
         }
         #stluxe-tanem-v13 #tn13BookSheet .tn13-panel{
           transform:translate3d(0,104%,0)!important;
@@ -34,23 +45,6 @@
         }
         #stluxe-tanem-v13 #tn13BookSheet.open .tn13-panel{
           transform:translate3d(0,0,0)!important;
-        }
-
-        /* Small phone illustration in the booking card. */
-        #stluxe-tanem-v13 .br-book-phone-art{
-          width:88px!important;
-          height:118px!important;
-          margin:0 auto 14px!important;
-          border-radius:24px!important;
-          display:grid!important;
-          place-items:center!important;
-          background:linear-gradient(145deg,#eadfd5,#d8c8bb)!important;
-          box-shadow:0 12px 28px rgba(77,59,50,.10)!important;
-        }
-        #stluxe-tanem-v13 .br-book-phone-art svg{
-          width:58px!important;
-          height:86px!important;
-          display:block!important;
         }
 
         /* Phone/Viber choices: oval, filled beige, no decorative looping animation. */
@@ -136,23 +130,17 @@
     if(!sheet) return false;
 
     const panel=sheet.querySelector('.tn13-panel');
-    if(panel && !panel.querySelector('.br-book-phone-art')){
-      const art=document.createElement('div');
-      art.className='br-book-phone-art';
-      art.setAttribute('aria-hidden','true');
-      art.innerHTML=`
-        <svg viewBox="0 0 64 92" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="10" y="3" width="44" height="86" rx="12" fill="#F8F3EF" stroke="#8A6E62" stroke-width="1.6"/>
-          <rect x="15" y="11" width="34" height="61" rx="7" fill="#E8D9CE"/>
-          <circle cx="32" cy="80" r="3" fill="#8A6E62"/>
-          <path d="M23 34.5C26 29.5 29.5 27 32 27C34.5 27 38 29.5 41 34.5" stroke="#8A6E62" stroke-width="1.7" stroke-linecap="round"/>
-          <path d="M22 43H42" stroke="#8A6E62" stroke-width="1.7" stroke-linecap="round"/>
-          <text x="32" y="55" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#6E554B">BEAUTY</text>
-          <text x="32" y="63" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#6E554B">ROOM</text>
-        </svg>`;
-      const kicker=panel.querySelector('.tn13-kicker');
-      if(kicker) kicker.insertAdjacentElement('afterend',art);
-      else panel.prepend(art);
+    if(panel){
+      panel.querySelectorAll('.br-book-phone-art').forEach(el=>el.remove());
+    }
+
+    const phoneOption=[...sheet.querySelectorAll('.tn50-book-option')].find(a=>(a.textContent||'').toLowerCase().includes('телефон'));
+    if(phoneOption){
+      const phoneIcon=phoneOption.querySelector('.tn50-book-icon');
+      if(phoneIcon){
+        phoneIcon.classList.add('phone');
+        phoneIcon.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h3l1.3 4-2 1.5c1 2 2.6 3.6 4.6 4.6l1.5-2L19 13.5v3c0 1.1-.9 2-2 2C10.4 18.5 5.5 13.6 5.5 7A2 2 0 0 1 7 4Z"/></svg>';
+      }
     }
 
     sheet.querySelectorAll('.tn50-book-option').forEach(a=>{
@@ -167,6 +155,44 @@
     return true;
   }
 
+
+  let pageLocked=false;
+  let lockedScrollY=0;
+
+  function setPageLock(shouldLock){
+    if(shouldLock && !pageLocked){
+      pageLocked=true;
+      lockedScrollY=window.scrollY||window.pageYOffset||0;
+      document.documentElement.style.overflow='hidden';
+      document.body.style.position='fixed';
+      document.body.style.top='-'+lockedScrollY+'px';
+      document.body.style.left='0';
+      document.body.style.right='0';
+      document.body.style.width='100%';
+      document.body.style.overflow='hidden';
+      document.body.style.touchAction='none';
+      return;
+    }
+    if(!shouldLock && pageLocked){
+      pageLocked=false;
+      document.documentElement.style.overflow='';
+      document.body.style.position='';
+      document.body.style.top='';
+      document.body.style.left='';
+      document.body.style.right='';
+      document.body.style.width='';
+      document.body.style.overflow='';
+      document.body.style.touchAction='';
+      window.scrollTo(0,lockedScrollY);
+    }
+  }
+
+  function syncPageLock(root){
+    if(!root) return;
+    const active=!!root.querySelector('#tn13BookSheet.open,#tn13Gallery.open,#tn13MasterSheet.open,.tn22-viewer.open');
+    setPageLock(active);
+  }
+
   function apply(){
     ensureStyle();
     forceExternalLinks(document);
@@ -176,14 +202,16 @@
 
     patchBooking(root);
     forceExternalLinks(root);
+    syncPageLock(root);
 
     if(!root.dataset.brExternalObserver){
       root.dataset.brExternalObserver='1';
       const observer=new MutationObserver(()=>{
         patchBooking(root);
         forceExternalLinks(root);
+        syncPageLock(root);
       });
-      observer.observe(root,{childList:true,subtree:true,attributes:true,attributeFilter:['href']});
+      observer.observe(root,{childList:true,subtree:true,attributes:true,attributeFilter:['href','class']});
     }
     return true;
   }
