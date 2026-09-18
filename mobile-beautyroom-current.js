@@ -4,7 +4,7 @@
   if(!window.matchMedia || !window.matchMedia('(max-width:767px)').matches) return;
 
   const base=document.createElement('script');
-  base.src='mobile-beautyroom-base.js?v=20260918-gallery-v5';
+  base.src='mobile-beautyroom-base.js?v=20260918-overlay-v1';
   base.async=false;
   base.onload=()=>{
     const style=document.createElement('style');
