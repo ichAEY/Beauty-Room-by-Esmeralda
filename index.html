@@ -64,7 +64,22 @@ document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(viewer.cla
 })();
 </script>
 
-<script defer src="mobile-beautyroom-current.js?v=20260918-performance-v2"></script>
+<script>
+(()=>{
+  if(!window.matchMedia||!window.matchMedia('(max-width:767px)').matches)return;
+  let queued=false;
+  const removeStuckIntro=()=>document.getElementById('tn13Intro')?.remove();
+  const observer=new MutationObserver(()=>{
+    if(queued||!document.getElementById('tn13Intro'))return;
+    queued=true;
+    window.setTimeout(removeStuckIntro,1900);
+    observer.disconnect();
+  });
+  observer.observe(document.body,{childList:true,subtree:true});
+  window.setTimeout(removeStuckIntro,2600);
+})();
+</script>
+<script defer src="mobile-beautyroom-current.js?v=20260918-intro-fix-v1"></script>
 <script defer src="mobile-beautyroom-booking-links-v2.js?v=20260918-2"></script>
-<script defer src="mobile-beautyroom-media-v1.js?v=20260918-performance-v2"></script>
+<script defer src="mobile-beautyroom-media-v1.js?v=20260918-intro-fix-v1"></script>
 </body></html>
