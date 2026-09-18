@@ -120,7 +120,7 @@
       const label=(a.textContent||'').trim().toLowerCase();
 
       if(/^viber:/i.test(raw) || label.includes('viber')){
-        a.setAttribute('href',VIBER_URL);
+        if(raw!==VIBER_URL) a.setAttribute('href',VIBER_URL);
       }
 
       const href=(a.getAttribute('href')||'').trim();
