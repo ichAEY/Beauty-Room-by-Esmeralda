@@ -110,7 +110,7 @@
       }
       .std-header-brand-main{
         font:500 31px/.9 "Cormorant Garamond",Georgia,serif;
-        letter-spacing:.105em;
+        letter-spacing:.075em;
         text-transform:uppercase;
       }
       .std-header-brand-sub{
@@ -144,6 +144,7 @@
         display:flex;
         align-items:center;
         gap:25px;
+        transform:translateX(38px);
       }
       .std-phone{
         margin-left:0;
@@ -182,7 +183,7 @@
       .std-hero{
         position:relative;
         display:grid;
-        grid-template-columns:46.89% 53.11%;
+        grid-template-columns:48.5% 51.5%;
         height:calc(100svh - 80px);
         min-height:760px;
         margin:0;
@@ -204,17 +205,21 @@
       .std-hero-copy:before{
         content:'';
         position:absolute;
-        left:-76px;
-        bottom:-54px;
-        width:160px;
-        height:520px;
-        opacity:.33;
-        filter:blur(11px);
+        left:-42px;
+        bottom:-26px;
+        width:230px;
+        height:570px;
+        opacity:.60;
+        filter:blur(6px);
+        transform:rotate(-7deg);
         background:
-          radial-gradient(ellipse at 50% 18%,rgba(72,96,65,.82) 0 9%,transparent 10%),
-          radial-gradient(ellipse at 30% 38%,rgba(76,105,68,.72) 0 11%,transparent 12%),
-          radial-gradient(ellipse at 70% 52%,rgba(83,112,74,.64) 0 10%,transparent 11%),
-          radial-gradient(ellipse at 42% 73%,rgba(72,98,65,.58) 0 12%,transparent 13%);
+          radial-gradient(ellipse 34px 76px at 34% 13%,rgba(65,91,58,.88) 0 54%,transparent 58%),
+          radial-gradient(ellipse 32px 70px at 69% 24%,rgba(77,104,67,.84) 0 54%,transparent 58%),
+          radial-gradient(ellipse 36px 78px at 26% 39%,rgba(63,92,56,.80) 0 54%,transparent 58%),
+          radial-gradient(ellipse 31px 72px at 72% 50%,rgba(78,108,69,.77) 0 54%,transparent 58%),
+          radial-gradient(ellipse 37px 82px at 30% 65%,rgba(67,97,60,.72) 0 54%,transparent 58%),
+          radial-gradient(ellipse 32px 74px at 69% 78%,rgba(76,105,66,.68) 0 54%,transparent 58%),
+          linear-gradient(79deg,transparent 46%,rgba(69,90,62,.62) 47% 49%,transparent 50%);
         pointer-events:none;
       }
       .std-copy-inner{
@@ -233,7 +238,7 @@
       .std-logo{
         margin:0;
         font-family:"Cormorant Garamond",Georgia,serif;
-        font-size:94px;
+        font-size:clamp(62px,5.1vw,82px);
         line-height:.84;
         font-weight:500;
         letter-spacing:.105em;
@@ -241,6 +246,7 @@
         text-transform:uppercase;
         text-align:center;
         color:#211d1a;
+        white-space:nowrap;
       }
       .std-logo-sub{
         margin:24px 0 37px;
@@ -353,18 +359,27 @@
       .std-scroll-hint{
         position:absolute;
         right:-88px;
-        bottom:28px;
+        bottom:30px;
         display:flex;
         flex-direction:column;
         align-items:center;
         gap:8px;
+        padding:10px 15px 8px;
+        border-radius:999px;
         color:#65564e;
+        background:rgba(237,228,221,.48);
+        box-shadow:0 0 28px 22px rgba(237,228,221,.48);
+        backdrop-filter:blur(5px);
         font:600 10px/1 "Manrope",Arial,sans-serif;
         letter-spacing:.34em;
         text-transform:uppercase;
-        z-index:3;
+        z-index:6;
+        animation:stdScrollHintFloat 2.8s ease-in-out infinite;
+        will-change:transform;
       }
       .std-scroll-hint span{font-size:22px;line-height:1;letter-spacing:0;font-weight:300}
+      @keyframes stdScrollHintFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+      @media(prefers-reduced-motion:reduce){.std-scroll-hint{animation:none!important}}
       .std-hero-photo{
         position:relative;
         min-width:0;
@@ -373,12 +388,31 @@
         overflow:hidden;
         background:#e7ddd4;
       }
+      .std-hero-photo video,
       .std-hero-photo img{
+        position:absolute;
+        inset:0;
         width:100%;
         height:100%;
         object-fit:cover;
         object-position:center center;
         display:block;
+        border:0;
+        margin:0;
+        padding:0;
+        background:#e7ddd4;
+      }
+      .std-hero-photo video{pointer-events:none}
+      .std-hero:after{
+        content:'';
+        position:absolute;
+        z-index:5;
+        left:0;
+        right:0;
+        bottom:0;
+        height:86px;
+        pointer-events:none;
+        background:linear-gradient(180deg,rgba(239,231,224,0) 0%,rgba(239,231,224,.28) 45%,#f0e8e1 100%);
       }
 
       .std-portfolio{
@@ -387,10 +421,9 @@
         min-height:auto;
         padding:46px 42px 46px;
         background:
-          radial-gradient(520px 360px at -7% 108%,rgba(139,92,184,.115) 0%,rgba(139,92,184,.072) 30%,rgba(139,92,184,.028) 52%,transparent 74%),
-          radial-gradient(520px 350px at 107% -8%,rgba(139,92,184,.105) 0%,rgba(139,92,184,.064) 30%,rgba(139,92,184,.024) 52%,transparent 74%),
-          radial-gradient(900px 460px at 50% 50%,rgba(255,255,255,.52),transparent 78%),
-          #fbfbfb;
+          radial-gradient(620px 430px at -8% 96%,rgba(176,145,128,.10) 0%,transparent 70%),
+          radial-gradient(620px 420px at 108% 2%,rgba(190,159,142,.08) 0%,transparent 70%),
+          linear-gradient(180deg,#f0e8e1 0%,#f4ede7 34%,#f7f2ed 100%);
         color:#17171a;
       }
       .std-portfolio:before,
@@ -407,14 +440,14 @@
         height:420px;
         left:-210px;
         bottom:-165px;
-        background:radial-gradient(circle,rgba(141,88,188,.22) 0%,rgba(141,88,188,.12) 38%,rgba(141,88,188,.04) 62%,transparent 78%);
+        background:radial-gradient(circle,rgba(169,132,112,.13) 0%,rgba(169,132,112,.07) 38%,rgba(169,132,112,.025) 62%,transparent 78%);
       }
       .std-portfolio:after{
         width:560px;
         height:420px;
         right:-210px;
         top:-165px;
-        background:radial-gradient(circle,rgba(141,88,188,.20) 0%,rgba(141,88,188,.11) 38%,rgba(141,88,188,.035) 62%,transparent 78%);
+        background:radial-gradient(circle,rgba(178,142,122,.12) 0%,rgba(178,142,122,.065) 38%,rgba(178,142,122,.022) 62%,transparent 78%);
       }
       .std-portfolio-inner{
         position:relative;
@@ -482,9 +515,9 @@
         height:76px;
         margin:42px auto 0;
         padding:0 28px;
-        border:1px solid #d8cbe8;
+        border:1px solid #d8c8bd;
         border-radius:13px;
-        background:linear-gradient(180deg,#f6f0fc 0%,#efe5fa 100%);
+        background:linear-gradient(180deg,#faf6f2 0%,#f1e7e0 100%);
         color:#2a2530;
         display:flex;
         align-items:center;
@@ -493,13 +526,13 @@
         font:500 18px/1 "Manrope",Arial,sans-serif;
         position:static;
         left:auto;
-        box-shadow:0 8px 22px rgba(120,84,156,.08);
+        box-shadow:0 8px 22px rgba(116,84,68,.07);
         transition:background .18s ease,transform .18s ease,box-shadow .18s ease;
       }
       .std-portfolio-more:hover{
-        background:linear-gradient(180deg,#f8f3fd 0%,#f2e8fb 100%);
+        background:linear-gradient(180deg,#fcf8f5 0%,#f3e9e2 100%);
         transform:translateY(-1px);
-        box-shadow:0 10px 26px rgba(120,84,156,.12);
+        box-shadow:0 10px 26px rgba(116,84,68,.10);
       }
 
       .std-services{
@@ -1513,13 +1546,13 @@
         .std-header-brand-main{font-size:27px}
         .std-nav{gap:20px}
         .std-nav a{font-size:13px}
-        .std-header-right{gap:12px}
+        .std-header-right{gap:12px;transform:translateX(12px)}
         .std-phone{width:auto;font-size:14px}
         .std-header-book{width:132px;min-width:132px;padding:0 18px}
-        .std-hero{grid-template-columns:47% 53%}
+        .std-hero{grid-template-columns:49% 51%}
         .std-hero-copy{padding-inline:28px}
         .std-copy-inner{width:min(100%,430px);margin-top:92px}
-        .std-logo{font-size:74px}
+        .std-logo{font-size:58px;letter-spacing:.055em;white-space:nowrap}
         .std-logo-sub{font-size:11px;margin-left:0}
         .std-tagline{font-size:21px}
         .std-meta{gap:14px}
@@ -1566,7 +1599,7 @@
       <div class="std-hero-copy">
         <div class="std-copy-inner">
           <p class="std-hero-kicker">Салон красоты</p>
-          <h1 class="std-logo">BEAUTY<br>ROOM</h1>
+          <h1 class="std-logo">BEAUTY ROOM</h1>
           <div class="std-logo-sub">by Esmeralda</div>
 
           <p class="std-tagline">Салон красоты в самом сердце<br>Еревана.</p>
@@ -1604,7 +1637,9 @@
       </div>
 
       <div class="std-hero-photo">
-        <img src="desktop-hero-reference.webp" alt="Интерьер Beauty Room by Esmeralda">
+        <video id="stdHeroVideo" muted autoplay loop playsinline webkit-playsinline preload="metadata" poster="interior_reception_02.webp" aria-label="Видео Beauty Room by Esmeralda">
+          <source src="hero-video-optimized.mp4" type="video/mp4">
+        </video>
       </div>
     </section>
 
@@ -1874,6 +1909,17 @@
     </div>
   `;
   document.body.appendChild(root);
+
+  const heroVideo=document.getElementById('stdHeroVideo');
+  if(heroVideo){
+    heroVideo.muted=true;
+    heroVideo.defaultMuted=true;
+    const tryHeroVideo=()=>{const p=heroVideo.play();if(p&&typeof p.catch==='function')p.catch(()=>{})};
+    heroVideo.addEventListener('loadeddata',tryHeroVideo,{once:true});
+    heroVideo.addEventListener('canplay',tryHeroVideo,{once:true});
+    requestAnimationFrame(tryHeroVideo);
+    document.addEventListener('visibilitychange',()=>{if(!document.hidden)tryHeroVideo()});
+  }
 
   const bookBtn=document.getElementById('stdBookBtn');
   const bookOverlay=document.getElementById('stdBookOverlay');
