@@ -1,0 +1,51 @@
+name: Optimize Beauty Room Media Once
+
+on:
+  push:
+    paths:
+      - '.github/workflows/optimize-beautyroom-media.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare tools
+        run: |
+          python -m pip install --quiet pillow
+          ffmpeg -version | head -1
+
+      - name: Optimize images
+        run: |
+          python - <<'PY'
+          from PIL import Image
+          jobs = [
+              ('5510CCD5-5C94-4E02-902E-6A9620CFE294.png','intro-logo.webp',(520,520),82),
+              ('F5234283-E9CF-4CD8-9316-C7C23D18F594.png','header-logo.webp',(520,220),84),
+              ('1ED7696C-34A0-417B-8294-A2CD4A249E09.png','about-salon.webp',(900,900),80),
+          ]
+          for src,dst,box,q in jobs:
+              im=Image.open(src)
+              if im.mode not in ('RGB','RGBA'):
+                  im=im.convert('RGBA' if 'A' in im.getbands() else 'RGB')
+              im.thumbnail(box,Image.Resampling.LANCZOS)
+              im.save(dst,'WEBP',quality=q,method=6,exact=True)
+              print(dst, im.size)
+          PY
+
+      - name: Optimize hero video
+        run: |
+          ffmpeg -y             -i 'SaveClip.App_AQMAwV91MkTpBiNct73I425uzlW_h6abP65-n07hUj4AwohUq5WlrKaE3TMQPtiaQvi2o_TdNi1Of7laSvuKsDXA3ykliQBk9mqD10k.mp4'             -an -map_metadata -1             -vf "scale='min(720,iw)':-2:force_original_aspect_ratio=decrease,fps=30"             -c:v libx264 -preset medium -crf 30 -pix_fmt yuv420p             -movflags +faststart             hero-video-optimized.mp4
+          ls -lh intro-logo.webp header-logo.webp about-salon.webp hero-video-optimized.mp4
+
+      - name: Commit optimized media
+        run: |
+          git config user.name "tanem"
+          git config user.email "melikyan.mac@gmail.com"
+          git add intro-logo.webp header-logo.webp about-salon.webp hero-video-optimized.mp4
+          git commit -m "Add lightweight mobile media assets" || exit 0
+          git push
