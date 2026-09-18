@@ -3,7 +3,6 @@
   'use strict';
   if(!window.matchMedia || !window.matchMedia('(max-width:767px)').matches) return;
 
-  const INTRO_SRC='intro-logo.webp';
   const BRAND_SRC='header-logo.webp';
   const ABOUT_SRC='about-salon.webp';
   const VIDEO_SRC='hero-video-optimized.mp4';
@@ -14,50 +13,6 @@
     style.id='beautyroom-media-assets-v1';
     style.textContent=`
       @media(max-width:767px){
-        /* Intro splash: real salon logo/image, then a soft blur-away reveal. */
-        #stluxe-tanem-v13 #tn13Intro.br-media-intro{
-          display:grid!important;
-          position:fixed!important;
-          z-index:9999!important;
-          inset:0!important;
-          place-items:center!important;
-          background:#f8f4ee!important;
-          opacity:1!important;
-          visibility:visible!important;
-          pointer-events:auto!important;
-          animation:brIntroSafetyExit 1.65s cubic-bezier(.22,.72,.28,1) forwards!important;
-          transition:opacity .85s ease,filter .85s cubic-bezier(.22,.72,.28,1),transform .85s cubic-bezier(.22,.72,.28,1)!important;
-          filter:blur(0)!important;
-          transform:scale(1)!important;
-          overflow:hidden!important;
-        }
-        @keyframes brIntroSafetyExit{
-          0%,48%{opacity:1;filter:blur(0);transform:scale(1);visibility:visible;pointer-events:auto}
-          100%{opacity:0;filter:blur(18px);transform:scale(1.055);visibility:hidden;pointer-events:none}
-        }
-        #stluxe-tanem-v13 #tn13Intro.br-media-intro.br-intro-out{
-          opacity:0!important;
-          filter:blur(18px)!important;
-          transform:scale(1.055)!important;
-          pointer-events:none!important;
-        }
-        #stluxe-tanem-v13 #tn13Intro.br-media-intro.br-intro-hidden{
-          display:none!important;
-          visibility:hidden!important;
-        }
-        #stluxe-tanem-v13 #tn13Intro .br-intro-image{
-          display:block!important;
-          width:min(50vw,220px)!important;
-          max-width:220px!important;
-          max-height:38svh!important;
-          height:auto!important;
-          object-fit:contain!important;
-          opacity:1!important;
-          transform:none!important;
-          user-select:none!important;
-          -webkit-user-drag:none!important;
-        }
-
         /* Top-left text is replaced by the supplied logo asset. */
         #stluxe-tanem-v13 .tn22-brand.br-logo-brand{
           display:flex!important;
@@ -122,37 +77,6 @@
       }
     `;
     document.head.appendChild(style);
-  }
-
-  function applyIntro(root){
-    const intro=root.querySelector('#tn13Intro');
-    if(!intro || intro.dataset.brMediaReady==='1') return;
-    intro.dataset.brMediaReady='1';
-    intro.className='tn13-intro br-media-intro';
-    intro.innerHTML='<img class="br-intro-image" src="'+INTRO_SRC+'" alt="Beauty Room by Esmeralda" decoding="async" fetchpriority="high">';
-
-    let finished=false;
-    const finishIntro=()=>{
-      if(finished) return;
-      finished=true;
-      intro.classList.add('br-intro-out','br-intro-hidden');
-      intro.setAttribute('aria-hidden','true');
-      if(intro.parentNode) intro.parentNode.removeChild(intro);
-    };
-
-    /*
-      Do not lock document scrolling here. Older Safari versions can suspend the
-      first animation frame while restoring a tab, leaving the splash and the
-      overflow lock in place forever. CSS closes the splash independently; the
-      timers and lifecycle listeners below are redundant safety exits.
-    */
-    window.setTimeout(()=>intro.classList.add('br-intro-out'),780);
-    window.setTimeout(finishIntro,1680);
-    intro.addEventListener('animationend',finishIntro,{once:true});
-    window.addEventListener('pageshow',()=>window.setTimeout(finishIntro,1680),{once:true});
-    document.addEventListener('visibilitychange',()=>{
-      if(!document.hidden) window.setTimeout(finishIntro,120);
-    },{once:true});
   }
 
   function applyBrand(root){
@@ -234,7 +158,6 @@
     ensureStyle();
     const root=document.getElementById('stluxe-tanem-v13');
     if(!root) return false;
-    applyIntro(root);
     applyBrand(root);
     applyHeroVideo(root);
     applyAbout(root);
