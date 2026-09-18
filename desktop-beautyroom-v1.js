@@ -93,31 +93,32 @@
         align-items:center;
         position:relative;
         z-index:20;
-        padding:0 98px;
-        border-bottom:1px solid rgba(76,61,53,.08);
-        background:rgba(250,247,243,.98);
+        padding:0 100px;
+        border-bottom:0;
+        background:#f6f0ec;
       }
       .std-header-brand{
         display:flex;
         flex-direction:column;
         align-items:center;
         justify-content:center;
-        min-width:240px;
+        width:242px;
+        min-width:242px;
         color:#211d1a!important;
         text-decoration:none!important;
         line-height:1;
       }
       .std-header-brand-main{
         font:500 31px/.9 "Cormorant Garamond",Georgia,serif;
-        letter-spacing:.13em;
+        letter-spacing:.105em;
         text-transform:uppercase;
       }
       .std-header-brand-sub{
         margin-top:8px;
-        font:600 10px/1 "Manrope",Arial,sans-serif;
-        letter-spacing:.38em;
+        font:600 9px/1 "Manrope",Arial,sans-serif;
+        letter-spacing:.39em;
         text-transform:uppercase;
-        color:#6f625b;
+        color:#5f534d;
       }
       .std-nav{
         position:absolute;
@@ -126,11 +127,11 @@
         transform:translate(-50%,-50%);
         display:flex;
         align-items:center;
-        gap:38px;
+        gap:37px;
         white-space:nowrap;
       }
       .std-nav a{
-        font-size:15px;
+        font-size:14px;
         font-weight:500;
         line-height:1;
         color:#211d1a!important;
@@ -142,7 +143,7 @@
         margin-left:auto;
         display:flex;
         align-items:center;
-        gap:24px;
+        gap:25px;
       }
       .std-phone{
         margin-left:0;
@@ -156,7 +157,7 @@
         background:transparent;
         color:#211d1a!important;
         box-shadow:none;
-        font-size:17px;
+        font-size:16px;
         font-weight:500;
         letter-spacing:0;
         text-shadow:none;
@@ -165,26 +166,27 @@
       .std-phone svg{width:21px;height:21px;flex:0 0 21px}
       .std-header-book{
         height:47px;
-        min-width:158px;
-        padding:0 24px;
+        width:159px;
+        min-width:159px;
+        padding:0 22px;
         border:0;
         border-radius:999px;
-        background:#9a7866;
+        background:#9c7967;
         color:#fff!important;
         font:500 15px/1 "Manrope",Arial,sans-serif!important;
-        box-shadow:0 8px 20px rgba(104,78,65,.15);
-        transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+        box-shadow:none;
+        transition:transform .18s ease,background .18s ease;
       }
       .std-header-book:hover{transform:translateY(-1px);background:#8f6d5c;box-shadow:0 10px 24px rgba(104,78,65,.20)}
 
       .std-hero{
         position:relative;
         display:grid;
-        grid-template-columns:46.8% 53.2%;
+        grid-template-columns:46.89% 53.11%;
         height:calc(100svh - 80px);
-        min-height:740px;
+        min-height:760px;
         margin:0;
-        background:#efe8e2;
+        background:#eae0d9;
         overflow:hidden;
       }
       .std-hero-copy{
@@ -192,30 +194,47 @@
         min-width:0;
         display:flex;
         justify-content:center;
-        align-items:center;
-        padding:38px 48px 70px;
+        align-items:flex-start;
+        padding:0 48px;
         background:
-          radial-gradient(520px 420px at 8% 96%,rgba(178,144,126,.10),transparent 74%),
-          radial-gradient(440px 360px at 92% 5%,rgba(255,255,255,.58),transparent 74%),
-          linear-gradient(180deg,#faf6f1 0%,#f5eee8 100%);
+          radial-gradient(620px 460px at 60% 58%,rgba(255,255,255,.20),transparent 72%),
+          radial-gradient(380px 300px at 88% 2%,rgba(255,255,255,.22),transparent 72%),
+          linear-gradient(120deg,#ebe1da 0%,#e7dcd4 58%,#eee6df 100%);
+      }
+      .std-hero-copy:before{
+        content:'';
+        position:absolute;
+        left:-76px;
+        bottom:-54px;
+        width:160px;
+        height:520px;
+        opacity:.33;
+        filter:blur(11px);
+        background:
+          radial-gradient(ellipse at 50% 18%,rgba(72,96,65,.82) 0 9%,transparent 10%),
+          radial-gradient(ellipse at 30% 38%,rgba(76,105,68,.72) 0 11%,transparent 12%),
+          radial-gradient(ellipse at 70% 52%,rgba(83,112,74,.64) 0 10%,transparent 11%),
+          radial-gradient(ellipse at 42% 73%,rgba(72,98,65,.58) 0 12%,transparent 13%);
+        pointer-events:none;
       }
       .std-copy-inner{
         width:min(100%,470px);
-        transform:translateY(-10px);
+        margin-top:110px;
+        transform:none;
         text-align:center;
       }
       .std-hero-kicker{
-        margin:0 0 31px;
+        margin:0 0 34px;
         font:600 12px/1 "Manrope",Arial,sans-serif;
-        letter-spacing:.42em;
+        letter-spacing:.43em;
         text-transform:uppercase;
-        color:#9d7b6d;
+        color:#9b7768;
       }
       .std-logo{
         margin:0;
         font-family:"Cormorant Garamond",Georgia,serif;
-        font-size:91px;
-        line-height:.88;
+        font-size:94px;
+        line-height:.84;
         font-weight:500;
         letter-spacing:.105em;
         text-indent:.105em;
@@ -224,27 +243,27 @@
         color:#211d1a;
       }
       .std-logo-sub{
-        margin:18px 0 40px;
+        margin:24px 0 37px;
         font-family:"Manrope",Arial,sans-serif;
-        font-size:13px;
+        font-size:12px;
         line-height:1;
         font-weight:600;
-        letter-spacing:.42em;
-        text-indent:.42em;
+        letter-spacing:.43em;
+        text-indent:.43em;
         text-align:center;
-        color:#5f514a;
+        color:#4f443f;
         text-transform:uppercase;
         white-space:nowrap;
       }
       .std-tagline{
-        margin:0 auto 34px;
+        margin:0 auto 38px;
         max-width:455px;
         font-family:"Manrope",Arial,sans-serif;
         font-size:24px;
-        line-height:1.38;
+        line-height:1.36;
         font-weight:400;
-        letter-spacing:-.02em;
-        color:#2e2825;
+        letter-spacing:-.022em;
+        color:#2d2724;
         text-align:center;
       }
       .std-meta{
@@ -253,7 +272,7 @@
         gap:24px;
         align-items:center;
         justify-content:center;
-        margin-bottom:34px;
+        margin-bottom:32px;
       }
       .std-meta-divider{width:1px;height:64px;background:rgba(75,61,54,.18)}
       .std-meta-item{
@@ -264,14 +283,14 @@
         min-width:0;
       }
       .std-meta-icon{
-        width:58px;
-        height:58px;
-        flex:0 0 58px;
+        width:59px;
+        height:59px;
+        flex:0 0 59px;
         display:grid;
         place-items:center;
-        border:1px solid rgba(75,61,54,.18);
+        border:1px solid rgba(75,61,54,.16);
         border-radius:50%;
-        background:rgba(255,255,255,.26);
+        background:rgba(255,255,255,.12);
         color:#2b2623;
       }
       .std-meta-icon svg{width:25px;height:25px}
@@ -289,7 +308,7 @@
       .std-actions{display:grid;gap:14px}
       .std-btn{
         width:100%;
-        height:68px;
+        height:69px;
         border-radius:11px;
         display:flex;
         align-items:center;
@@ -297,8 +316,8 @@
         gap:18px;
         font-size:17px;
         font-weight:500;
-        border:1px solid rgba(126,95,79,.48);
-        background:rgba(255,255,255,.12);
+        border:1px solid rgba(126,95,79,.46);
+        background:rgba(255,255,255,.08);
         color:#332c28!important;
         transition:transform .15s ease,box-shadow .15s ease,background .15s ease;
       }
@@ -311,8 +330,8 @@
         overflow:hidden;
         border-color:#9a7866;
         color:#fff!important;
-        background:#9a7866;
-        box-shadow:0 8px 22px rgba(104,78,65,.17);
+        background:#9c7967;
+        box-shadow:none;
       }
       .std-btn-primary:after{
         content:'';
@@ -333,8 +352,8 @@
       .std-sparkles{width:25px;height:25px;position:relative;display:inline-grid;place-items:center;font-size:25px;line-height:1}
       .std-scroll-hint{
         position:absolute;
-        right:44px;
-        bottom:24px;
+        right:-88px;
+        bottom:28px;
         display:flex;
         flex-direction:column;
         align-items:center;
@@ -343,6 +362,7 @@
         font:600 10px/1 "Manrope",Arial,sans-serif;
         letter-spacing:.34em;
         text-transform:uppercase;
+        z-index:3;
       }
       .std-scroll-hint span{font-size:22px;line-height:1;letter-spacing:0;font-weight:300}
       .std-hero-photo{
@@ -1489,23 +1509,23 @@
 
       @media(max-width:1180px){
         .std-header{padding:0 30px}
-        .std-header-brand{min-width:190px}
+        .std-header-brand{width:190px;min-width:190px}
         .std-header-brand-main{font-size:27px}
         .std-nav{gap:20px}
         .std-nav a{font-size:13px}
         .std-header-right{gap:12px}
         .std-phone{width:auto;font-size:14px}
-        .std-header-book{min-width:132px;padding:0 18px}
+        .std-header-book{width:132px;min-width:132px;padding:0 18px}
         .std-hero{grid-template-columns:47% 53%}
         .std-hero-copy{padding-inline:28px}
-        .std-copy-inner{width:min(100%,430px)}
+        .std-copy-inner{width:min(100%,430px);margin-top:92px}
         .std-logo{font-size:74px}
         .std-logo-sub{font-size:11px;margin-left:0}
         .std-tagline{font-size:21px}
         .std-meta{gap:14px}
         .std-meta-icon{width:52px;height:52px;flex-basis:52px}
         .std-meta-text{font-size:14px}
-        .std-scroll-hint{right:25px}
+        .std-scroll-hint{right:-68px}
       }
     }
   `;
@@ -1584,7 +1604,7 @@
       </div>
 
       <div class="std-hero-photo">
-        <img src="interior_reception_02.webp" alt="Ресепшен Beauty Room">
+        <img src="desktop-hero-reference.webp" alt="Интерьер Beauty Room by Esmeralda">
       </div>
     </section>
 
