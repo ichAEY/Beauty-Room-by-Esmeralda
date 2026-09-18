@@ -1684,7 +1684,7 @@
 
             <a class="std-contact-card" href="tel:${PHONE}">
               <span class="std-contact-card-icon std-contact-brand-icon phone">
-                <svg aria-hidden="true"><use href="#stl-icon-phone"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h3l1.3 4-2 1.5c1 2 2.6 3.6 4.6 4.6l1.5-2L19 13.5v3c0 1.1-.9 2-2 2C10.4 18.5 5.5 13.6 5.5 7A2 2 0 0 1 7 4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
               <span class="std-contact-card-copy">
                 <strong class="std-contact-card-title">+374 93 873617</strong>
@@ -1694,7 +1694,7 @@
 
             <a class="std-contact-card" href="${WHATSAPP_URL}" target="_blank" rel="noopener">
               <span class="std-contact-card-icon std-contact-brand-icon viber">
-                <svg aria-hidden="true"><use href="#stl-icon-viber"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5h14v10H9l-4 3v-13Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.5 9.2c.8 2.2 2.1 3.5 4.3 4.3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
               </span>
               <span class="std-contact-card-copy">
                 <strong class="std-contact-card-title">Viber</strong>
@@ -1704,7 +1704,7 @@
 
             <div class="std-contact-card static">
               <span class="std-contact-card-icon std-contact-brand-icon max">
-                <svg aria-hidden="true"><use href="#stl-icon-max"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v10M8.5 10h7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
               </span>
               <span class="std-contact-card-copy">
                 <strong class="std-contact-card-title">Beauty Room</strong>
