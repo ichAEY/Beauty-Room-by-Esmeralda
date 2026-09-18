@@ -642,7 +642,7 @@ function status(){const parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Ye
 const sticky=$('#tn13Sticky');if(sticky){sticky.innerHTML=`<strong>Доступно ${SERVICES.length} услуг</strong><button type="button">Записаться</button>`;sticky.querySelector('button').onclick=book}
 
 // keyboard / old overlays
-const oldMaster=$('#tn13MasterSheet');if(oldMaster)oldMaster.style.display='none';document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(viewer.classList.contains('open'))closeViewer();else if(masterPage.classList.contains('open')){masterPage.classList.remove('open');document.body.style.overflow=''}else if(teamSheet.classList.contains('open')){teamSheet.classList.remove('open');document.body.style.overflow=''}else if(gallery.classList.contains('open'))closeGallery()});
+const oldMaster=$('#tn13MasterSheet');if(oldMaster)oldMaster.style.display='none';document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(viewer.classList.contains('open'))closeViewer();else if(masterPage.classList.contains('open'))closeMaster();else if(teamSheet.classList.contains('open'))teamSheet.classList.remove('open');else if(gallery.classList.contains('open'))closeGallery()});
 })();
 
 (function(){
