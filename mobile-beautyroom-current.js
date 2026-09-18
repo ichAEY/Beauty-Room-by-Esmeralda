@@ -4,7 +4,7 @@
   if(!window.matchMedia || !window.matchMedia('(max-width:767px)').matches) return;
 
   const base=document.createElement('script');
-  base.src='mobile-beautyroom-base.js?v=20260918-performance-v1';
+  base.src='mobile-beautyroom-base.js?v=20260918-intro-fix-v2';
   base.async=false;
   base.onload=()=>{
     const style=document.createElement('style');
