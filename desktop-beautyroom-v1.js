@@ -1624,6 +1624,11 @@
   desktopCtaStackCss.textContent="\n@media(min-width:768px){\n  /* Buttons only: stacked; each button takes the previous combined two-button width. */\n  .std-actions{\n    display:grid!important;\n    grid-template-columns:1fr!important;\n    width:min(100%,540px)!important;\n    gap:11px!important;\n  }\n  .std-actions .std-btn{\n    width:100%!important;\n    min-width:0!important;\n    height:62px!important;\n    padding:0 28px!important;\n    font-size:16px!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  .std-actions{width:min(100%,500px)!important}\n  .std-actions .std-btn{\n    width:100%!important;\n    height:58px!important;\n    padding:0 26px!important;\n    font-size:15px!important;\n  }\n}\n";
   document.head.appendChild(desktopCtaStackCss);
 
+  const desktopCtaExactCss=document.createElement('style');
+  desktopCtaExactCss.id='esmeralda-desktop-cta-exact-v10';
+  desktopCtaExactCss.textContent="\n@media(min-width:768px){\n  /* Exact CTA structure only: first button above second, same full width. */\n  #esmeraldaDesktopTop .std-actions{\n    display:flex!important;\n    flex-direction:column!important;\n    align-items:stretch!important;\n    justify-content:flex-start!important;\n    width:540px!important;\n    max-width:calc(100% - 72px)!important;\n    gap:12px!important;\n  }\n  #esmeraldaDesktopTop .std-actions > #stdBookBtn,\n  #esmeraldaDesktopTop .std-actions > a.std-btn{\n    display:flex!important;\n    flex:0 0 auto!important;\n    width:100%!important;\n    max-width:none!important;\n    min-width:0!important;\n    box-sizing:border-box!important;\n    height:62px!important;\n    margin:0!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  #esmeraldaDesktopTop .std-actions{\n    width:500px!important;\n    max-width:calc(100% - 52px)!important;\n  }\n  #esmeraldaDesktopTop .std-actions > #stdBookBtn,\n  #esmeraldaDesktopTop .std-actions > a.std-btn{height:58px!important}\n}\n";
+  document.head.appendChild(desktopCtaExactCss);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
