@@ -2390,25 +2390,61 @@
     },{passive:false});
   }
 
-  // Desktop master pages: same separate-overlay idea as the mobile version.
+  // Desktop master pages: mobile structure adapted to a wide screen.
   const masterOverlay=document.getElementById('stdMasterOverlay');
   const masterPageContent=document.getElementById('stdMasterPageContent');
   const masterPageClose=document.getElementById('stdMasterPageClose');
   const masterPageBook=document.getElementById('stdMasterPageBook');
   let activeDesktopMaster=null;
+  let activeDesktopMasterTab='Профиль';
 
   function desktopMasterServices(master){
     return (master.cats||[]).flatMap(cat=>(SERVICE_DATA[cat]||[]).map(item=>({cat,item})));
   }
-  function paintDesktopMaster(master){
+  function desktopMasterAbout(master){
+    const map={
+      nails:'Маникюр и педикюр. Аккуратная работа и внимание к деталям.',
+      hair:'Стрижки, окрашивание, укладки и уход за волосами.',
+      cosmetology:'Косметология и профессиональный уход за кожей.',
+      brows:'Брови и ресницы — форма, ламинирование и уход.'
+    };
+    return map[master.id]||'Специалист Beauty Room по своему направлению.';
+  }
+  function paintDesktopMasterTab(){
+    const target=masterPageContent.querySelector('.std-master-tab-content');
+    if(!target||!activeDesktopMaster)return;
+    const master=activeDesktopMaster;
     const items=desktopMasterServices(master);
     const works=master.work||[];
-    masterPageContent.innerHTML='<div class="std-master-profile"><div class="std-master-avatar">'+TEAM_AVATAR+'</div><h2>'+master.name+'</h2><p>'+master.role+'</p><div class="std-master-profile-rating"><b>★★★★★</b> · Beauty Room</div></div><div class="std-master-page-grid"><section class="std-master-page-block"><h3>Услуги</h3>'+(items.length?items.map(({cat,item})=>'<div class="std-master-page-service"><strong>'+item[0]+'</strong><span>'+cat+'</span></div>').join(''):'<p class="std-master-page-empty">Услуги уточняются при записи.</p>')+'</section><section class="std-master-page-block"><h3>Работы</h3>'+(works.length?'<div class="std-master-page-works">'+works.map(src=>'<img src="'+src+'" alt="'+master.name+'" loading="lazy">').join('')+'</div>':'<p class="std-master-page-empty">Работы этого направления можно посмотреть в общей галерее Beauty Room.</p>')+'</section></div>';
+    if(activeDesktopMasterTab==='Профиль'){
+      target.innerHTML='<h3>О мастере</h3><p class="std-master-about-copy">'+desktopMasterAbout(master)+'</p>';
+    }else if(activeDesktopMasterTab==='Услуги'){
+      target.innerHTML='<section class="std-master-page-block"><h3>Услуги</h3>'+(items.length?items.map(({cat,item})=>'<div class="std-master-page-service"><strong>'+item[0]+'</strong><span>'+cat+'</span></div>').join(''):'<p class="std-master-page-empty">Пока нет данных об услугах.</p>')+'</section>';
+    }else if(activeDesktopMasterTab==='Портфолио'){
+      target.innerHTML='<section class="std-master-page-block"><h3>Портфолио</h3>'+(works.length?'<div class="std-master-page-works">'+works.map((src,i)=>'<button class="std-master-page-work" type="button" data-master-work="'+i+'"><img src="'+src+'" alt="'+master.name+'" loading="lazy"></button>').join('')+'</div>':'<p class="std-master-page-empty">Пока нет фото.</p>')+'</section>';
+      target.querySelectorAll('[data-master-work]').forEach(btn=>btn.onclick=()=>{
+        const list=works.map(src=>({src,alt:master.name}));
+        openDesktopViewer(list,Number(btn.dataset.masterWork)||0,'gallery');
+      });
+    }else{
+      target.innerHTML='<section class="std-master-page-block"><h3>Отзывы</h3><p class="std-master-page-empty">Пока нет отзывов.</p></section>';
+    }
+  }
+  function paintDesktopMaster(master){
+    masterPageContent.innerHTML='<div class="std-master-profile"><div class="std-master-avatar">'+TEAM_AVATAR+'</div><h2>'+master.name+'</h2><p>'+master.role+'</p><div class="std-master-profile-rating"><b>★★★★★</b> · Beauty Room</div><div class="std-master-profile-cats">'+(master.cats||[]).map(cat=>'<span>'+cat+'</span>').join('')+'</div></div><div class="std-master-tabs">'+['Профиль','Услуги','Портфолио','Отзывы'].map(tab=>'<button type="button" data-master-tab="'+tab+'" class="'+(tab===activeDesktopMasterTab?'active':'')+'">'+tab+'</button>').join('')+'</div><div class="std-master-tab-content"></div>';
+    masterPageContent.querySelectorAll('[data-master-tab]').forEach(btn=>btn.onclick=()=>{
+      activeDesktopMasterTab=btn.dataset.masterTab;
+      masterPageContent.querySelectorAll('[data-master-tab]').forEach(x=>x.classList.toggle('active',x===btn));
+      paintDesktopMasterTab();
+    });
+    paintDesktopMasterTab();
   }
   function openDesktopMaster(master){
     activeDesktopMaster=master;
+    activeDesktopMasterTab='Профиль';
     paintDesktopMaster(master);
     masterOverlay.classList.add('open');
+    masterOverlay.scrollTop=0;
     document.body.style.overflow='hidden';
   }
   function closeDesktopMaster(){
