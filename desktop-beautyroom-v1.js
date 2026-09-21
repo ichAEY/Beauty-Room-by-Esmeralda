@@ -2219,8 +2219,8 @@
     const priceText=price||'Записаться';
     return '<button class="std-service-card-ref" type="button" data-service-book><strong class="std-service-card-title-ref">'+title+'</strong>'+(variants.length?'<span class="std-service-card-detail-ref">'+variants.map(v=>v[0]+(v[1]?' · '+v[1]:'')).join(' · ')+'</span>':(detail?'<span class="std-service-card-detail-ref">'+detail+'</span>':''))+'<span class="std-service-card-bottom-ref"><span>'+meta+'</span><b>'+priceText+'</b></span></button>';
   }
-  function desktopServiceGroup(category,items,showHeading){
-    return '<section class="std-service-category-ref">'+(showHeading?'<div class="std-service-category-heading-ref"><span>'+category+'</span><i aria-hidden="true"></i></div>':'')+'<div class="std-service-grid-ref">'+items.map(item=>desktopServiceCard(item,category)).join('')+'</div></section>';
+  function desktopServiceAllRow(entry){
+    return '<button class="std-service-all-row" type="button" data-service-book><span class="std-service-all-copy"><strong class="std-service-all-title">'+entry.item[0]+'</strong><span class="std-service-all-cat">'+entry.cat+'</span></span><span class="std-service-all-action">Записаться →</span></button>';
   }
   function renderDesktopServices(){
     serviceTabs.innerHTML=DESKTOP_SERVICE_TABS.map(cat=>'<button class="std-service-tab'+(cat===activeServiceCategory?' active':'')+'" type="button" data-service-category="'+cat+'">'+cat+'</button>').join('');
@@ -2231,28 +2231,31 @@
     });
 
     if(activeServiceCategory==='Все'){
-      serviceList.innerHTML=SERVICE_CATEGORIES.map(cat=>{
-        const all=SERVICE_DATA[cat]||[];
-        const shown=desktopServicesExpanded?all:all.slice(0,2);
-        return shown.length?desktopServiceGroup(cat,shown,true):'';
-      }).join('');
-      const total=SERVICE_CATEGORIES.reduce((sum,cat)=>sum+(SERVICE_DATA[cat]?.length||0),0);
-      const shownCount=SERVICE_CATEGORIES.reduce((sum,cat)=>sum+Math.min(2,SERVICE_DATA[cat]?.length||0),0);
-      const remaining=Math.max(0,total-shownCount);
-      serviceMore.hidden=remaining===0&&desktopServicesExpanded===false;
+      const allEntries=SERVICE_CATEGORIES.flatMap(cat=>(SERVICE_DATA[cat]||[]).map(item=>({cat,item})));
+      const preview=SERVICE_CATEGORIES.flatMap(cat=>(SERVICE_DATA[cat]||[]).slice(0,2).map(item=>({cat,item})));
+      const shown=desktopServicesExpanded?allEntries:preview;
+      serviceList.innerHTML='<div class="std-service-all-grid">'+shown.map(desktopServiceAllRow).join('')+'</div>';
+      const remaining=Math.max(0,allEntries.length-preview.length);
+      serviceMore.hidden=allEntries.length<=preview.length;
       serviceMoreText.textContent=desktopServicesExpanded?'Свернуть':('Показать ещё '+remaining+' '+desktopServiceWord(remaining));
       serviceMoreArrow.textContent=desktopServicesExpanded?'↑':'↓';
-      servicesCount.textContent='Все категории · '+total+' позиций';
+      servicesCount.textContent='Все категории · '+allEntries.length+' позиций';
     }else{
       const all=SERVICE_DATA[activeServiceCategory]||[];
-      serviceList.innerHTML=desktopServiceGroup(activeServiceCategory,all,false);
+      serviceList.innerHTML='<div class="std-service-grid-ref">'+all.map(item=>desktopServiceCard(item,activeServiceCategory)).join('')+'</div>';
       serviceMore.hidden=true;
+      serviceMoreText.textContent='';
+      serviceMoreArrow.textContent='↓';
       servicesCount.textContent=activeServiceCategory+' · '+all.length+' '+desktopServiceWord(all.length);
     }
 
     serviceList.querySelectorAll('[data-service-book]').forEach(btn=>btn.onclick=openDesktopBooking);
   }
-  serviceMore.onclick=()=>{desktopServicesExpanded=!desktopServicesExpanded;renderDesktopServices();};
+  serviceMore.onclick=()=>{
+    if(activeServiceCategory!=='Все')return;
+    desktopServicesExpanded=!desktopServicesExpanded;
+    renderDesktopServices();
+  };
   renderDesktopServices();
 
   let tabsDragging=false,tabsStartX=0,tabsStartScroll=0;
