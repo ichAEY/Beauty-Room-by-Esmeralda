@@ -1614,6 +1614,11 @@
   luxuryHeroTrueCenterCss.textContent="\n@media(min-width:768px){\n  /* One source of truth: left pane ends exactly where the video begins. */\n  .std-hero{--hero-video-start:46.5%}\n  .std-copy-inner{\n    left:0!important;\n    width:var(--hero-video-start)!important;\n    padding-left:36px!important;\n    padding-right:36px!important;\n    transform:none!important;\n    align-items:center!important;\n    text-align:center!important;\n  }\n  .std-copy-inner > *{margin-left:auto!important;margin-right:auto!important}\n  .std-hero-kicker,.std-logo,.std-logo-sub,.std-tagline{text-align:center!important}\n  .std-meta{justify-content:center!important;justify-items:center!important}\n  .std-meta-item{justify-content:center!important}\n}\n@media(min-width:768px) and (max-width:1180px){\n  .std-hero{--hero-video-start:48%}\n  .std-copy-inner{\n    width:var(--hero-video-start)!important;\n    padding-left:26px!important;\n    padding-right:26px!important;\n    transform:none!important;\n  }\n}\n";
   document.head.appendChild(luxuryHeroTrueCenterCss);
 
+  const desktopCtaSizeOnlyCss=document.createElement('style');
+  desktopCtaSizeOnlyCss.id='esmeralda-desktop-cta-size-only-v8';
+  desktopCtaSizeOnlyCss.textContent="\n@media(min-width:768px){\n  /* CTA size only. Do not alter hero positioning/layout. */\n  .std-actions .std-btn{\n    height:62px!important;\n    padding:0 28px!important;\n    font-size:16px!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  .std-actions .std-btn{\n    height:58px!important;\n    padding:0 26px!important;\n    font-size:15px!important;\n  }\n}\n";
+  document.head.appendChild(desktopCtaSizeOnlyCss);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
