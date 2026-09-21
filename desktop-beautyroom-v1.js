@@ -1629,6 +1629,11 @@
   desktopCtaExactCss.textContent="\n@media(min-width:768px){\n  /* Exact CTA structure only: first button above second, same full width. */\n  #esmeraldaDesktopTop .std-actions{\n    display:flex!important;\n    flex-direction:column!important;\n    align-items:stretch!important;\n    justify-content:flex-start!important;\n    width:540px!important;\n    max-width:calc(100% - 72px)!important;\n    gap:12px!important;\n  }\n  #esmeraldaDesktopTop .std-actions > #stdBookBtn,\n  #esmeraldaDesktopTop .std-actions > a.std-btn{\n    display:flex!important;\n    flex:0 0 auto!important;\n    width:100%!important;\n    max-width:none!important;\n    min-width:0!important;\n    box-sizing:border-box!important;\n    height:62px!important;\n    margin:0!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  #esmeraldaDesktopTop .std-actions{\n    width:500px!important;\n    max-width:calc(100% - 52px)!important;\n  }\n  #esmeraldaDesktopTop .std-actions > #stdBookBtn,\n  #esmeraldaDesktopTop .std-actions > a.std-btn{height:58px!important}\n}\n";
   document.head.appendChild(desktopCtaExactCss);
 
+  const desktopCopyDownOnlyCss=document.createElement('style');
+  desktopCopyDownOnlyCss.id='esmeralda-desktop-copy-down-only-v13';
+  desktopCopyDownOnlyCss.textContent="\n@media(min-width:768px){\n  /* Position only: move the existing left mini-block lower as one intact unit.\n     Header is outside .std-hero, so center within the hero's remaining vertical area. */\n  #esmeraldaDesktopTop .std-copy-inner{\n    top:50%!important;\n    bottom:auto!important;\n    height:auto!important;\n    padding-top:0!important;\n    padding-bottom:0!important;\n    transform:translateY(-50%)!important;\n  }\n}\n";
+  document.head.appendChild(desktopCopyDownOnlyCss);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
