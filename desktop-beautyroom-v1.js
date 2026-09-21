@@ -1666,7 +1666,7 @@
 
   const desktopReferenceBackground3Css=document.createElement('style');
   desktopReferenceBackground3Css.id='esmeralda-desktop-reference-background-v25';
-  desktopReferenceBackground3Css.textContent="\n@media(min-width:768px){\n  /* Reference-specific left edge shadow: visible warm vertical vignette fading inward. */\n  #esmeraldaDesktopTop.std-hero{\n    background:\n      radial-gradient(ellipse 185px 610px at -1% 43%,rgba(83,57,45,.22) 0%,rgba(105,74,58,.135) 25%,rgba(133,96,76,.065) 48%,transparent 76%),\n      radial-gradient(ellipse 360px 640px at 101% 70%,rgba(119,84,67,.105) 0%,rgba(151,112,91,.045) 34%,transparent 76%),\n      radial-gradient(ellipse 720px 500px at 35% 45%,rgba(255,255,255,.52) 0%,rgba(255,255,255,.22) 48%,transparent 78%),\n      linear-gradient(102deg,#f7f1ea 0%,#f8f4ee 47%,#f3ebe4 100%)!important;\n  }\n}\n";
+  desktopReferenceBackground3Css.textContent="\n@media(min-width:768px){\n  /* Reference-specific left edge shadow: visible warm vertical vignette fading inward. */\n  #esmeraldaDesktopTop.std-hero{\n    background:\n      radial-gradient(ellipse 185px 610px at -1% 43%,rgba(83,57,45,.24) 0%,rgba(105,74,58,.15) 25%,rgba(133,96,76,.065) 48%,transparent 76%),\n      radial-gradient(ellipse 360px 640px at 101% 70%,rgba(119,84,67,.105) 0%,rgba(151,112,91,.045) 34%,transparent 76%),\n      radial-gradient(ellipse 720px 500px at 35% 45%,rgba(255,255,255,.52) 0%,rgba(255,255,255,.22) 48%,transparent 78%),\n      linear-gradient(102deg,#f3ebe3 0%,#f4eee7 47%,#eee3da 100%)!important;\n  }\n}\n";
   document.head.appendChild(desktopReferenceBackground3Css);
 
   const desktopLangUnderBrandCss=document.createElement('style');
