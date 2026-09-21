@@ -1631,13 +1631,18 @@
 
   const desktopCopyDownOnlyCss=document.createElement('style');
   desktopCopyDownOnlyCss.id='esmeralda-desktop-copy-down-only-v13';
-  desktopCopyDownOnlyCss.textContent="\n@media(min-width:768px){\n  /* Position only: move the existing left mini-block lower as one intact unit.\n     Header is outside .std-hero, so center within the hero's remaining vertical area. */\n  #esmeraldaDesktopTop .std-copy-inner{\n    top:calc(50% + 36px - 2cm)!important;\n    bottom:auto!important;\n    height:auto!important;\n    padding-top:0!important;\n    padding-bottom:0!important;\n    transform:translateY(-50%)!important;\n  }\n}\n";
+  desktopCopyDownOnlyCss.textContent="\n@media(min-width:768px){\n  /* Position only: move the existing left mini-block lower as one intact unit.\n     Header is outside .std-hero, so center within the hero's remaining vertical area. */\n  #esmeraldaDesktopTop .std-copy-inner{\n    top:calc(50% + 36px - 2.5cm)!important;\n    bottom:auto!important;\n    height:auto!important;\n    padding-top:0!important;\n    padding-bottom:0!important;\n    transform:translateY(-50%)!important;\n  }\n}\n";
   document.head.appendChild(desktopCopyDownOnlyCss);
 
   const desktopDetailTuneCss=document.createElement('style');
   desktopDetailTuneCss.id='esmeralda-desktop-detail-tune-v18';
   desktopDetailTuneCss.textContent="\n@media(min-width:768px){\n  /* Requested detail changes only. */\n  #esmeraldaDesktopTop .std-hero-kicker{\n    width:min(100%,540px)!important;\n    text-align:left!important;\n    align-self:center!important;\n  }\n  #esmeraldaDesktopTop .std-logo-sub{\n    font-size:13.2px!important;\n  }\n  #esmeraldaDesktopTop .std-meta-text{\n    font-size:16.05px!important;\n  }\n  #esmeraldaDesktopTop .std-actions > #stdBookBtn,\n  #esmeraldaDesktopTop .std-actions > a.std-btn{\n    height:66.34px!important;\n    font-size:17.12px!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  #esmeraldaDesktopTop .std-logo-sub{font-size:15.4px!important}\n  #esmeraldaDesktopTop .std-meta-text{font-size:13.91px!important}\n  #esmeraldaDesktopTop .std-actions > #stdBookBtn,\n  #esmeraldaDesktopTop .std-actions > a.std-btn{\n    height:62.06px!important;\n    font-size:16.05px!important;\n  }\n}\n";
   document.head.appendChild(desktopDetailTuneCss);
+
+  const desktopDetailTune2Css=document.createElement('style');
+  desktopDetailTune2Css.id='esmeralda-desktop-detail-tune-v19';
+  desktopDetailTune2Css.textContent="\n@media(min-width:768px){\n  #esmeraldaDesktopTop .std-hero-kicker{\n    width:min(100%,540px)!important;\n    box-sizing:border-box!important;\n    text-align:left!important;\n    align-self:center!important;\n    margin-left:auto!important;\n    margin-right:auto!important;\n  }\n  #esmeraldaDesktopTop .std-logo-sub{font-size:14.52px!important}\n  #esmeraldaDesktopTop .std-meta-text{font-size:17.1735px!important}\n  #esmeraldaDesktopTop .std-actions > #stdBookBtn,\n  #esmeraldaDesktopTop .std-actions > a.std-btn{\n    height:70.9838px!important;\n    font-size:18.3184px!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  #esmeraldaDesktopTop .std-hero-kicker{width:min(100%,500px)!important}\n  #esmeraldaDesktopTop .std-logo-sub{font-size:16.94px!important}\n  #esmeraldaDesktopTop .std-meta-text{font-size:14.8837px!important}\n  #esmeraldaDesktopTop .std-actions > #stdBookBtn,\n  #esmeraldaDesktopTop .std-actions > a.std-btn{\n    height:66.4042px!important;\n    font-size:17.1735px!important;\n  }\n}\n";
+  document.head.appendChild(desktopDetailTune2Css);
 
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
