@@ -1681,6 +1681,10 @@
   desktopLangCardCss.id='esmeralda-desktop-lang-card-v36';
   desktopLangCardCss.textContent="\n@media(min-width:768px){\n  .std-lang-switch-under-brand{\n    box-sizing:border-box!important;\n    padding:4px 10px 4px 8px!important;\n    height:38px!important;\n    border:1px solid rgba(72,68,65,.16)!important;\n    border-radius:13px!important;\n    background:rgba(105,105,105,.13)!important;\n    box-shadow:0 6px 18px rgba(55,48,44,.07),inset 0 1px 0 rgba(255,255,255,.38)!important;\n    backdrop-filter:blur(9px)!important;\n    -webkit-backdrop-filter:blur(9px)!important;\n  }\n  .std-lang-switch-under-brand:before{\n    margin-right:6px!important;\n  }\n}\n";
   document.head.appendChild(desktopLangCardCss);
+  const desktopInteractionPolishCss=document.createElement('style');
+  desktopInteractionPolishCss.id='esmeralda-desktop-interaction-polish-v37';
+  desktopInteractionPolishCss.textContent="\n@media(min-width:768px){\n  /* Header tone integrated with the hero. */\n  .std-header{\n    background:rgba(239,230,221,.92)!important;\n    border-bottom:1px solid rgba(103,82,70,.10)!important;\n    box-shadow:0 7px 24px rgba(73,55,46,.035)!important;\n  }\n\n  /* Language control: 1mm lower, clear hover and selected state. */\n  .std-lang-switch-under-brand{transform:translateY(.1cm)!important}\n  .std-lang-switch-under-brand button{\n    position:relative!important;\n    border-radius:7px!important;\n    transition:background .18s ease,color .18s ease,font-weight .18s ease,transform .18s ease!important;\n  }\n  .std-lang-switch-under-brand button:hover{\n    background:rgba(64,58,54,.08)!important;\n    color:#201c1a!important;\n    transform:translateY(-1px)!important;\n  }\n  .std-lang-switch-under-brand button.active{\n    background:rgba(61,55,51,.14)!important;\n    color:#171412!important;\n    font-weight:700!important;\n    box-shadow:inset 0 0 0 1px rgba(56,49,45,.08)!important;\n  }\n\n  /* Minimal navigation hover. */\n  .std-nav a{position:relative!important;transition:color .18s ease!important}\n  .std-nav a:after{\n    content:\"\"!important;\n    position:absolute!important;\n    left:50%!important;\n    right:50%!important;\n    bottom:-7px!important;\n    height:1px!important;\n    background:currentColor!important;\n    opacity:.65!important;\n    transition:left .2s ease,right .2s ease!important;\n  }\n  .std-nav a:hover:after{left:0!important;right:0!important}\n\n  /* Give the hero sentence a distinct editorial face without loading a new asset. */\n  #esmeraldaDesktopTop .std-tagline{\n    font-family:\"Cormorant Garamond\",Georgia,serif!important;\n    font-weight:500!important;\n    letter-spacing:.005em!important;\n    font-style:italic!important;\n  }\n}\n";
+  document.head.appendChild(desktopInteractionPolishCss);
 
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
@@ -2515,19 +2519,6 @@
   masterOverlay.addEventListener('click',e=>{if(e.target===masterOverlay)closeDesktopMaster()});
   masterPageBook.addEventListener('click',()=>{closeDesktopMaster();openDesktopBooking()});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&masterOverlay.classList.contains('open'))closeDesktopMaster()});
-
-  const desktopHero=document.getElementById('esmeraldaDesktopTop');
-  const desktopPortfolio=document.getElementById('esmeraldaDesktopPortfolio');
-  let heroWheelAssistLocked=false;
-  if(desktopHero&&desktopPortfolio){
-    desktopHero.addEventListener('wheel',e=>{
-      if(e.deltaY<=18||window.scrollY>12||heroWheelAssistLocked)return;
-      e.preventDefault();
-      heroWheelAssistLocked=true;
-      desktopPortfolio.scrollIntoView({behavior:'smooth',block:'start'});
-      window.setTimeout(()=>{heroWheelAssistLocked=false},760);
-    },{passive:false});
-  }
 
   const DESKTOP_LANG_STORAGE='beautyroom-language';
   const DESKTOP_I18N_ROWS=[
