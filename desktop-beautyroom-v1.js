@@ -1646,7 +1646,7 @@
 
   const desktopDetailTune3Css=document.createElement('style');
   desktopDetailTune3Css.id='esmeralda-desktop-detail-tune-v20';
-  desktopDetailTune3Css.textContent="\n@media(min-width:768px){\n  #esmeraldaDesktopTop .std-hero-kicker{\n    width:100%!important;\n    text-align:center!important;\n    align-self:center!important;\n  }\n  #esmeraldaDesktopTop .std-logo{\n    font-size:93%!important;\n  }\n  #esmeraldaDesktopTop .std-logo-sub{\n    font-size:15.5364px!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  #esmeraldaDesktopTop .std-logo-sub{\n    font-size:18.1258px!important;\n  }\n}\n";
+  desktopDetailTune3Css.textContent="\n@media(min-width:768px){\n  #esmeraldaDesktopTop .std-hero-kicker{\n    width:100%!important;\n    text-align:center!important;\n    align-self:center!important;\n  }\n  #esmeraldaDesktopTop .std-logo{\n    font-size:inherit!important;\n  }\n  #esmeraldaDesktopTop .std-logo-sub{\n    font-size:15.5364px!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  #esmeraldaDesktopTop .std-logo-sub{\n    font-size:18.1258px!important;\n  }\n}\n";
   document.head.appendChild(desktopDetailTune3Css);
 
   const desktopDetailTune4Css=document.createElement('style');
