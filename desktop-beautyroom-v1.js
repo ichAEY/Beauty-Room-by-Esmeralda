@@ -1685,6 +1685,10 @@
   desktopInteractionPolishCss.id='esmeralda-desktop-interaction-polish-v37';
   desktopInteractionPolishCss.textContent="\n@media(min-width:768px){\n  /* Header tone integrated with the hero. */\n  .std-header{\n    background:rgba(239,230,221,.92)!important;\n    border-bottom:1px solid rgba(103,82,70,.10)!important;\n    box-shadow:0 7px 24px rgba(73,55,46,.035)!important;\n  }\n\n  /* Language control: 1mm lower, clear hover and selected state. */\n  .std-lang-switch-under-brand{transform:translateY(.1cm)!important}\n  .std-lang-switch-under-brand button{\n    position:relative!important;\n    border-radius:7px!important;\n    transition:background .18s ease,color .18s ease,font-weight .18s ease,transform .18s ease!important;\n  }\n  .std-lang-switch-under-brand button:hover{\n    background:rgba(64,58,54,.08)!important;\n    color:#201c1a!important;\n    transform:translateY(-1px)!important;\n  }\n  .std-lang-switch-under-brand button.active{\n    background:rgba(61,55,51,.14)!important;\n    color:#171412!important;\n    font-weight:700!important;\n    box-shadow:inset 0 0 0 1px rgba(56,49,45,.08)!important;\n  }\n\n  /* Minimal navigation hover. */\n  .std-nav a{position:relative!important;transition:color .18s ease!important}\n  .std-nav a:after{\n    content:\"\"!important;\n    position:absolute!important;\n    left:50%!important;\n    right:50%!important;\n    bottom:-7px!important;\n    height:1px!important;\n    background:currentColor!important;\n    opacity:.65!important;\n    transition:left .2s ease,right .2s ease!important;\n  }\n  .std-nav a:hover:after{left:0!important;right:0!important}\n\n  /* Give the hero sentence a distinct editorial face without loading a new asset. */\n  #esmeraldaDesktopTop .std-tagline{\n    font-family:\"Cormorant Garamond\",Georgia,serif!important;\n    font-weight:500!important;\n    letter-spacing:.005em!important;\n    font-style:italic!important;\n  }\n}\n";
   document.head.appendChild(desktopInteractionPolishCss);
+  const desktopFinalPolishCss=document.createElement('style');
+  desktopFinalPolishCss.id='esmeralda-desktop-final-polish-v38';
+  desktopFinalPolishCss.textContent="\n@media(min-width:768px){\n  .std-lang-switch-under-brand button.active{\n    background:rgba(61,55,51,.075)!important;\n    box-shadow:inset 0 0 0 1px rgba(56,49,45,.045)!important;\n    font-weight:650!important;\n  }\n  .std-lang-switch-under-brand .sep{\n    color:rgba(43,38,35,.42)!important;\n    font-weight:400!important;\n  }\n  .std-nav a{color:#332d29!important}\n  .std-nav a:hover{color:#1f1b19!important}\n  html,body{scroll-snap-type:none!important;overscroll-behavior-y:auto!important}\n}\n";
+  document.head.appendChild(desktopFinalPolishCss);
 
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
@@ -1694,7 +1698,7 @@
         <span class="std-header-brand-main">Beauty Room</span>
         <span class="std-header-brand-sub">by Esmeralda</span>
       </a>
-      <div class="std-lang-switch std-lang-switch-under-brand" role="group" aria-label="Language"><button type="button" data-desktop-lang="hy">HY</button><span class="sep">/</span><button type="button" data-desktop-lang="ru">RU</button><span class="sep">/</span><button type="button" data-desktop-lang="en">EN</button></div>
+      <div class="std-lang-switch std-lang-switch-under-brand" role="group" aria-label="Language"><button type="button" data-desktop-lang="ru">RU</button><span class="sep">|</span><button type="button" data-desktop-lang="en">EN</button><span class="sep">|</span><button type="button" data-desktop-lang="hy">HY</button></div>
       <nav class="std-nav" aria-label="Основная навигация">
         <a href="#esmeraldaDesktopServices">Услуги</a>
         <a href="#esmeraldaDesktopPortfolio">Наши работы</a>
@@ -2433,10 +2437,10 @@
       }
     },true);
     desktopReviewsViewport.addEventListener('wheel',e=>{
-      const horizontal=Math.abs(e.deltaX)>Math.abs(e.deltaY);
-      if(!horizontal&&!e.shiftKey)return;
+      const horizontal=Math.abs(e.deltaX)>Math.abs(e.deltaY)&&Math.abs(e.deltaX)>2;
+      if(!horizontal)return;
       e.preventDefault();
-      const delta=horizontal?e.deltaX:e.deltaY;
+      const delta=e.deltaX;
       reviewX-=delta;
       if(reviewCycle>0){
         while(reviewX<=-reviewCycle)reviewX+=reviewCycle;
