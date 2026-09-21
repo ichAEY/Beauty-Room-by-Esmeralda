@@ -1649,6 +1649,11 @@
   desktopDetailTune3Css.textContent="\n@media(min-width:768px){\n  #esmeraldaDesktopTop .std-hero-kicker{\n    width:100%!important;\n    text-align:center!important;\n    align-self:center!important;\n  }\n  #esmeraldaDesktopTop .std-logo{\n    font-size:93%!important;\n  }\n  #esmeraldaDesktopTop .std-logo-sub{\n    font-size:15.5364px!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  #esmeraldaDesktopTop .std-logo-sub{\n    font-size:18.1258px!important;\n  }\n}\n";
   document.head.appendChild(desktopDetailTune3Css);
 
+  const desktopDetailTune4Css=document.createElement('style');
+  desktopDetailTune4Css.id='esmeralda-desktop-detail-tune-v21';
+  desktopDetailTune4Css.textContent="\n@media(min-width:768px){\n  /* Center kicker against the actual BEAUTY ROOM text box, not the whole left column. */\n  #esmeraldaDesktopTop .std-logo{\n    font-size:clamp(59.52px,4.9755vw,81.84px)!important;\n  }\n  #esmeraldaDesktopTop .std-hero-kicker{\n    width:max-content!important;\n    max-width:100%!important;\n    align-self:center!important;\n    margin-left:auto!important;\n    margin-right:auto!important;\n    text-align:center!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  #esmeraldaDesktopTop .std-logo{\n    font-size:clamp(48.36px,4.743vw,61.38px)!important;\n  }\n}\n";
+  document.head.appendChild(desktopDetailTune4Css);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
