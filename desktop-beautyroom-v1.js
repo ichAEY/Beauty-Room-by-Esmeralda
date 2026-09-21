@@ -2461,13 +2461,178 @@
   masterPageBook.addEventListener('click',()=>{closeDesktopMaster();openDesktopBooking()});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&masterOverlay.classList.contains('open'))closeDesktopMaster()});
 
+  const DESKTOP_LANG_STORAGE='beautyroom-language';
+  const DESKTOP_I18N_ROWS=[
+    ['Услуги','Ծառայություններ','Services'],['Наши работы','Մեր աշխատանքները','Our work'],['О нас','Մեր մասին','About us'],
+    ['Отзывы','Կարծիքներ','Reviews'],['Контакты','Կոնտակտներ','Contacts'],['Салон красоты','Գեղեցկության սրահ','Beauty salon'],
+    ['Салон красоты в самом сердце Еревана.','Գեղեցկության սրահ Երևանի սրտում։','A beauty salon in the heart of Yerevan.'],
+    ['Записаться','Ամրագրել','Book now'],['Записаться →','Ամրագրել →','Book now →'],['Смотреть работы','Դիտել աշխատանքները','View our work'],
+    ['Портфолио','Պորտֆոլիո','Portfolio'],['Смотреть все работы','Դիտել բոլոր աշխատանքները','View all work'],
+    ['Открыть галерею','Բացել պատկերասրահը','Open gallery'],['Галерея','Պատկերասրահ','Gallery'],
+    ['Ногти','Եղունգներ','Nails'],['Волосы','Մազեր','Hair'],['Брови и ресницы','Հոնքեր և թարթիչներ','Brows & lashes'],
+    ['Косметология','Կոսմետոլոգիա','Cosmetology'],['Эпиляция','Էպիլյացիա','Hair removal'],['Макияж','Դիմահարդարում','Makeup'],
+    ['Массаж','Մերսում','Massage'],['Другое','Այլ','Other'],['Все','Բոլորը','All'],
+    ['Услуги и цены','Ծառայություններ և գներ','Services & prices'],['Выберите услугу','Ընտրեք ծառայությունը','Choose a service'],
+    ['Выберите направление и нужную процедуру. Запись открывается в отдельной плашке, а все услуги собраны в одной понятной структуре.','Ընտրեք ուղղությունն ու անհրաժեշտ ծառայությունը։ Բոլոր ծառայությունները հավաքված են մեկ պարզ կառուցվածքում։','Choose a category and service. Everything is organized in one clear structure.'],
+    ['Свернуть','Փակել ցանկը','Show less'],['О салоне','Սրահի մասին','About the salon'],
+    ['Beauty Room by Esmeralda — салон красоты в Ереване.','Beauty Room by Esmeralda — գեղեցկության սրահ Երևանում։','Beauty Room by Esmeralda — a beauty salon in Yerevan.'],
+    ['Здесь можно спокойно выбрать нужные процедуры и доверить уход мастерам разных направлений. Мы ценим аккуратную работу, комфорт и внимательное отношение к каждому гостю.','Այստեղ կարող եք հանգիստ ընտրել անհրաժեշտ ծառայությունները և ձեր խնամքը վստահել տարբեր ուղղությունների մասնագետների։ Մենք կարևորում ենք կոկիկ աշխատանքը, հարմարավետությունն ու յուրաքանչյուր հյուրի նկատմամբ ուշադիր վերաբերմունքը։','Here you can comfortably choose the services you need and trust your care to specialists in different fields. We value precise work, comfort and attentive service for every guest.'],
+    ['Несколько направлений в одном салоне','Մի քանի ուղղություն մեկ սրահում','Several services in one salon'],
+    ['Комфортная атмосфера','Հարմարավետ մթնոլորտ','Comfortable atmosphere'],['Индивидуальный подход','Անհատական մոտեցում','Personal approach'],
+    ['Наша команда','Մեր թիմը','Our team'],['Мастера Beauty Room','Beauty Room-ի մասնագետները','Beauty Room specialists'],
+    ['Нажмите на мастера, чтобы открыть отдельную страницу специалиста.','Ընտրեք մասնագետին՝ նրա էջը բացելու համար։','Select a specialist to open their profile.'],
+    ['Nail-мастер','Մատնահարդարման վարպետ','Nail specialist'],['Парикмахер','Վարսահարդար','Hair stylist'],['Косметолог','Կոսմետոլոգ','Cosmetologist'],
+    ['Brow & Lash-мастер','Հոնքերի և թարթիչների վարպետ','Brow & lash specialist'],
+    ['Маникюр · педикюр','Մատնահարդարում · ոտնահարդարում','Manicure · pedicure'],['Волосы · укладки','Մազեր · հարդարում','Hair · styling'],
+    ['Что говорят о нас','Ինչ են ասում մեր մասին','What clients say about us'],['Отзывы на Google Maps','Կարծիքներ Google Maps-ում','Reviews on Google Maps'],
+    ['Смотреть все отзывы →','Դիտել բոլոր կարծիքները →','View all reviews →'],['Ждём вас','Սպասում ենք ձեզ','We look forward to seeing you'],
+    ['Армения · открыть в Google Maps','Հայաստան · բացել Google Maps-ում','Armenia · open in Google Maps'],
+    ['Нажмите, чтобы позвонить','Սեղմեք զանգահարելու համար','Click to call'],['Написать в салон','Գրել սրահին','Message the salon'],
+    ['Ежедневно 09:00–20:00','Ամեն օր՝ 09:00–20:00','Daily 09:00–20:00'],['Без выходных','Առանց հանգստյան օրերի','Open every day'],
+    ['Цифровой офис для салонов красоты','Թվային գրասենյակ գեղեցկության սրահների համար','Digital office for beauty salons'],
+    ['Запись','Ամրագրում','Booking'],['Как вам удобнее записаться?','Ինչպե՞ս է ձեզ հարմար ամրագրել։','How would you like to book?'],
+    ['Выберите удобный способ связи.','Ընտրեք ձեզ հարմար կապի տարբերակը։','Choose the most convenient way to contact us.'],
+    ['Телефон','Հեռախոս','Phone'],['Открыть','Բացել','Open'],['Профиль','Պրոֆիլ','Profile'],['О мастере','Մասնագետի մասին','About the specialist'],
+    ['Пока нет данных об услугах.','Ծառայությունների մասին տվյալներ դեռ չկան։','No service information yet.'],
+    ['Пока нет фото.','Լուսանկարներ դեռ չկան։','No photos yet.'],['Пока нет отзывов.','Կարծիքներ դեռ չկան։','No reviews yet.'],
+    ['Маникюр и педикюр. Аккуратная работа и внимание к деталям.','Մատնահարդարում և ոտնահարդարում։ Կոկիկ աշխատանք և ուշադրություն մանրուքներին։','Manicure and pedicure with careful attention to detail.'],
+    ['Стрижки, окрашивание, укладки и уход за волосами.','Սանրվածք, ներկում, հարդարում և մազերի խնամք։','Haircuts, coloring, styling and hair care.'],
+    ['Косметология и профессиональный уход за кожей.','Կոսմետոլոգիա և մասնագիտական մաշկի խնամք։','Cosmetology and professional skin care.'],
+    ['Брови и ресницы — форма, ламинирование и уход.','Հոնքեր և թարթիչներ՝ ձևավորում, լամինացիա և խնամք։','Brows and lashes — shaping, lamination and care.'],
+    ['Педикюр','Ոտնահարդարում','Pedicure'],['Наращивание ногтей','Եղունգների երկարացում','Nail extensions'],
+    ['Маникюр + покрытие гель-лак','Մատնահարդարում + գել-լաք','Manicure + gel polish'],['Маникюр + покрытие лак','Մատնահարդարում + լաք','Manicure + nail polish'],
+    ['Парафинотерапия для рук','Ձեռքերի պարաֆինաթերապիա','Paraffin hand treatment'],['Маникюр','Մատնահարդարում','Manicure'],
+    ['Свадебные прически','Հարսանեկան սանրվածքներ','Bridal hairstyles'],['Укладка волос','Մազերի հարդարում','Hair styling'],
+    ['Стрижка волос','Մազերի կտրում','Haircut'],['Окрашивание волос','Մազերի ներկում','Hair coloring'],['Уход за волосами','Մազերի խնամք','Hair care'],
+    ['Спа-процедура для волос','ՍՊԱ խնամք մազերի համար','Hair spa treatment'],['Косы','Հյուսքեր','Braids'],['Наращивание волос','Մազերի երկարացում','Hair extensions'],
+    ['Процедуры для бровей','Հոնքերի խնամքի ծառայություններ','Brow treatments'],['Тридинг бровей','Հոնքերի թրիդինգ','Brow threading'],
+    ['Коррекция формы бровей','Հոնքերի ձևի շտկում','Brow shaping'],['Ламинирование бровей','Հոնքերի լամինացիա','Brow lamination'],
+    ['Ламинирование ресниц','Թարթիչների լամինացիա','Lash lamination'],['Наращивание ресниц','Թարթիչների երկարացում','Eyelash extensions'],
+    ['Карбокси-терапия','Կարբոքսիթերապիա','Carboxytherapy'],['Ультразвуковая чистка лица','Դեմքի ուլտրաձայնային մաքրում','Ultrasonic facial cleansing'],
+    ['Удаление волос нитью','Մազահեռացում թելով','Threading hair removal'],['Шугаринг','Շուգարինգ','Sugaring'],
+    ['Электроэпиляция игловая','Ասեղային էլեկտրոէպիլյացիա','Needle electrolysis'],['Восковая эпиляция','Մոմային էպիլյացիա','Waxing'],
+    ['Прокалывание ушей','Ականջների ծակում','Ear piercing'],
+    ['Открыто','Բաց է','Open'],['Закрыто','Փակ է','Closed'],['до 20:00','մինչև 20:00','until 20:00'],['до 09:00','մինչև 09:00','until 09:00'],
+    ['Открыто до 20:00','Բաց է մինչև 20:00','Open until 20:00'],['Закрыто до 09:00','Փակ է մինչև 09:00','Closed until 09:00']
+  ];
+  const desktopLangIndex={ru:0,hy:1,en:2};
+  const desktopDirect={};
+  DESKTOP_I18N_ROWS.forEach(row=>desktopDirect[row[0]]=row);
+
+  function desktopDetectLanguage(){
+    try{
+      const saved=localStorage.getItem(DESKTOP_LANG_STORAGE);
+      if(/^(hy|ru|en)$/.test(saved||''))return saved;
+    }catch(_){}
+    const list=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'']).map(x=>String(x).toLowerCase());
+    for(const value of list){
+      if(value.startsWith('hy'))return 'hy';
+      if(value.startsWith('ru'))return 'ru';
+      if(value.startsWith('en'))return 'en';
+    }
+    return 'hy';
+  }
+  let currentDesktopLang=desktopDetectLanguage();
+
+  function desktopDynamicTranslation(source,lang){
+    let m=source.match(/^Показать ещё (\d+) (?:услугу|услуги|услуг)$/);
+    if(m)return lang==='hy'?'Ցույց տալ ևս '+m[1]+' ծառայություն':lang==='en'?'Show '+m[1]+' more services':source;
+    m=source.match(/^Все категории · (\d+) позиций$/);
+    if(m)return lang==='hy'?'Բոլոր բաժինները · '+m[1]+' ծառայություն':lang==='en'?'All categories · '+m[1]+' services':source;
+    return null;
+  }
+  function desktopTrText(source,lang=currentDesktopLang){
+    const row=desktopDirect[source];
+    if(row)return row[desktopLangIndex[lang]];
+    const dyn=desktopDynamicTranslation(source,lang);
+    return dyn===null?source:dyn;
+  }
+  function desktopCanTranslate(source){return !!desktopDirect[source]||desktopDynamicTranslation(source,'ru')!==null}
+  function desktopSkipText(node){
+    const el=node.parentElement;
+    if(!el)return true;
+    if(el.closest('.std-lang-switch,.std-review-text'))return true;
+    return /^(SCRIPT|STYLE|NOSCRIPT)$/.test(el.tagName);
+  }
+  function translateDesktopTree(scope,lang=currentDesktopLang){
+    if(!scope)return;
+    const walker=document.createTreeWalker(scope,NodeFilter.SHOW_TEXT);
+    const nodes=[];
+    while(walker.nextNode())nodes.push(walker.currentNode);
+    nodes.forEach(node=>{
+      if(desktopSkipText(node))return;
+      const raw=node.nodeValue||'',trimmed=raw.trim();
+      if(!trimmed)return;
+      let canonical=node.__desktopI18nCanonical;
+      if(!canonical&&desktopCanTranslate(trimmed)){
+        canonical=trimmed;
+        node.__desktopI18nCanonical=canonical;
+      }
+      if(!canonical)return;
+      const leading=(raw.match(/^\s*/)||[''])[0],trailing=(raw.match(/\s*$/)||[''])[0];
+      node.nodeValue=leading+desktopTrText(canonical,lang)+trailing;
+    });
+  }
+  function updateDesktopLangSwitcher(){
+    root.querySelectorAll('.std-lang-switch [data-desktop-lang]').forEach(btn=>{
+      const active=btn.dataset.desktopLang===currentDesktopLang;
+      btn.classList.toggle('active',active);
+      btn.setAttribute('aria-pressed',active?'true':'false');
+    });
+  }
+  function applyDesktopLanguage(){
+    translateDesktopTree(root,currentDesktopLang);
+    updateDesktopLangSwitcher();
+    document.documentElement.lang=currentDesktopLang;
+    document.documentElement.dir='ltr';
+    document.body.dataset.brLang=currentDesktopLang;
+    const titles={ru:'Beauty Room by Esmeralda — Ереван',hy:'Beauty Room by Esmeralda — Երևան',en:'Beauty Room by Esmeralda — Yerevan'};
+    document.title=titles[currentDesktopLang]||titles.hy;
+  }
+  root.querySelectorAll('.std-lang-switch [data-desktop-lang]').forEach(btn=>btn.addEventListener('click',()=>{
+    currentDesktopLang=btn.dataset.desktopLang;
+    try{localStorage.setItem(DESKTOP_LANG_STORAGE,currentDesktopLang)}catch(_){}
+    applyDesktopLanguage();
+  }));
+  const desktopLangObserver=new MutationObserver(records=>{
+    records.forEach(record=>record.addedNodes.forEach(node=>{
+      if(node.nodeType===Node.TEXT_NODE)translateDesktopTree(node.parentElement,currentDesktopLang);
+      else if(node.nodeType===Node.ELEMENT_NODE)translateDesktopTree(node,currentDesktopLang);
+    }));
+  });
+  desktopLangObserver.observe(root,{childList:true,subtree:true});
+  applyDesktopLanguage();
+
+  const revealSections=[...root.querySelectorAll('.std-portfolio,.std-services,.std-about,.std-team,.std-reviews,.std-contact')];
+  revealSections.forEach(el=>el.classList.add('std-section-reveal'));
+  if('IntersectionObserver' in window){
+    const revealObserver=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },{threshold:.09,rootMargin:'0px 0px -5% 0px'});
+    revealSections.forEach(el=>revealObserver.observe(el));
+  }else{
+    revealSections.forEach(el=>el.classList.add('in-view'));
+  }
+
   function updateStatus(){
     const parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Yerevan',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
     const hour=Number(parts.find(p=>p.type==='hour')?.value||0),minute=Number(parts.find(p=>p.type==='minute')?.value||0),mins=hour*60+minute,isOpen=mins>=540&&mins<1200;
     const main=document.getElementById('stdStatusMain'),sub=document.getElementById('stdStatusSub');
-    if(main&&sub){main.textContent=isOpen?'Открыто':'Закрыто';sub.textContent=isOpen?'до 20:00':'до 09:00';main.style.color=isOpen?'#3f8750':'#a45e64'}
+    if(main&&sub){
+      main.textContent=desktopTrText(isOpen?'Открыто':'Закрыто');
+      sub.textContent=desktopTrText(isOpen?'до 20:00':'до 09:00');
+      main.style.color=isOpen?'#3f8750':'#a45e64';
+    }
     const contactStatus=document.getElementById('stdContactStatus'),contactStatusText=document.getElementById('stdContactStatusText');
-    if(contactStatus&&contactStatusText){contactStatusText.textContent=isOpen?'Открыто до 20:00':'Закрыто до 09:00';contactStatus.classList.toggle('open',isOpen)}
+    if(contactStatus&&contactStatusText){
+      contactStatusText.textContent=desktopTrText(isOpen?'Открыто до 20:00':'Закрыто до 09:00');
+      contactStatus.classList.toggle('open',isOpen);
+    }
   }
   updateStatus();
   setInterval(updateStatus,60000);
