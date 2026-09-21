@@ -2236,10 +2236,10 @@
 
     if(variants.length){
       const variantText=variants.map(v=>v[0]+(v[1]?' · '+v[1]:'')).join(' · ');
-      return '<button class="ofm-service-card has-description" type="button" data-service-book><span class="ofm-service-card-body"><strong class="ofm-service-card-title">'+title+'</strong><span class="ofm-service-description">'+variantText+'</span><span class="ofm-service-time">'+category+'</span><b class="ofm-service-action">'+action+'</b></span></button>';
+      return '<button class="ofm-service-card has-description" type="button" data-service-book><span class="ofm-service-card-body"><strong class="ofm-service-card-title">'+title+'</strong><span class="ofm-service-description">'+variantText+'</span>'+(time?'<span class="ofm-service-time">'+time+'</span>':'')+'<b class="ofm-service-action">'+action+'</b></span></button>';
     }
 
-    return '<button class="ofm-service-card'+(description?' has-description':'')+'" type="button" data-service-book><span class="ofm-service-card-body"><strong class="ofm-service-card-title">'+title+'</strong>'+(description?'<span class="ofm-service-description">'+description+'</span>':'')+'<span class="ofm-service-time">'+category+'</span><b class="ofm-service-action">'+action+'</b></span></button>';
+    return '<button class="ofm-service-card'+(description?' has-description':'')+'" type="button" data-service-book><span class="ofm-service-card-body"><strong class="ofm-service-card-title">'+title+'</strong>'+(description?'<span class="ofm-service-description">'+description+'</span>':'')+(time?'<span class="ofm-service-time">'+time+'</span>':'')+'<b class="ofm-service-action">'+action+'</b></span></button>';
   }
 
   function getVisibleServiceGroups(){
