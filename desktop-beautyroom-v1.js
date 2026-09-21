@@ -1619,6 +1619,11 @@
   desktopCtaSizeOnlyCss.textContent="\n@media(min-width:768px){\n  /* CTA size only. Do not alter hero positioning/layout. */\n  .std-actions .std-btn{\n    height:62px!important;\n    padding:0 28px!important;\n    font-size:16px!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  .std-actions .std-btn{\n    height:58px!important;\n    padding:0 26px!important;\n    font-size:15px!important;\n  }\n}\n";
   document.head.appendChild(desktopCtaSizeOnlyCss);
 
+  const desktopCtaStackCss=document.createElement('style');
+  desktopCtaStackCss.id='esmeralda-desktop-cta-stack-v9';
+  desktopCtaStackCss.textContent="\n@media(min-width:768px){\n  /* Buttons only: stacked; each button takes the previous combined two-button width. */\n  .std-actions{\n    display:grid!important;\n    grid-template-columns:1fr!important;\n    width:min(100%,540px)!important;\n    gap:11px!important;\n  }\n  .std-actions .std-btn{\n    width:100%!important;\n    min-width:0!important;\n    height:62px!important;\n    padding:0 28px!important;\n    font-size:16px!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  .std-actions{width:min(100%,500px)!important}\n  .std-actions .std-btn{\n    width:100%!important;\n    height:58px!important;\n    padding:0 26px!important;\n    font-size:15px!important;\n  }\n}\n";
+  document.head.appendChild(desktopCtaStackCss);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
