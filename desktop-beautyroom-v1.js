@@ -1644,6 +1644,11 @@
   desktopDetailTune2Css.textContent="\n@media(min-width:768px){\n  #esmeraldaDesktopTop .std-hero-kicker{\n    width:min(100%,540px)!important;\n    box-sizing:border-box!important;\n    text-align:left!important;\n    align-self:center!important;\n    margin-left:auto!important;\n    margin-right:auto!important;\n  }\n  #esmeraldaDesktopTop .std-logo-sub{font-size:14.52px!important}\n  #esmeraldaDesktopTop .std-meta-text{font-size:17.1735px!important}\n  #esmeraldaDesktopTop .std-actions > #stdBookBtn,\n  #esmeraldaDesktopTop .std-actions > a.std-btn{\n    height:70.9838px!important;\n    font-size:18.3184px!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  #esmeraldaDesktopTop .std-hero-kicker{width:min(100%,500px)!important}\n  #esmeraldaDesktopTop .std-logo-sub{font-size:16.94px!important}\n  #esmeraldaDesktopTop .std-meta-text{font-size:14.8837px!important}\n  #esmeraldaDesktopTop .std-actions > #stdBookBtn,\n  #esmeraldaDesktopTop .std-actions > a.std-btn{\n    height:66.4042px!important;\n    font-size:17.1735px!important;\n  }\n}\n";
   document.head.appendChild(desktopDetailTune2Css);
 
+  const desktopDetailTune3Css=document.createElement('style');
+  desktopDetailTune3Css.id='esmeralda-desktop-detail-tune-v20';
+  desktopDetailTune3Css.textContent="\n@media(min-width:768px){\n  #esmeraldaDesktopTop .std-hero-kicker{\n    width:100%!important;\n    text-align:center!important;\n    align-self:center!important;\n  }\n  #esmeraldaDesktopTop .std-logo{\n    font-size:93%!important;\n  }\n  #esmeraldaDesktopTop .std-logo-sub{\n    font-size:15.5364px!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  #esmeraldaDesktopTop .std-logo-sub{\n    font-size:18.1258px!important;\n  }\n}\n";
+  document.head.appendChild(desktopDetailTune3Css);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
