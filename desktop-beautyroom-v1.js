@@ -1629,6 +1629,11 @@
   desktopCtaExactCss.textContent="\n@media(min-width:768px){\n  /* Exact CTA structure only: first button above second, same full width. */\n  #esmeraldaDesktopTop .std-actions{\n    display:flex!important;\n    flex-direction:column!important;\n    align-items:stretch!important;\n    justify-content:flex-start!important;\n    width:540px!important;\n    max-width:calc(100% - 72px)!important;\n    gap:12px!important;\n  }\n  #esmeraldaDesktopTop .std-actions > #stdBookBtn,\n  #esmeraldaDesktopTop .std-actions > a.std-btn{\n    display:flex!important;\n    flex:0 0 auto!important;\n    width:100%!important;\n    max-width:none!important;\n    min-width:0!important;\n    box-sizing:border-box!important;\n    height:62px!important;\n    margin:0!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  #esmeraldaDesktopTop .std-actions{\n    width:500px!important;\n    max-width:calc(100% - 52px)!important;\n  }\n  #esmeraldaDesktopTop .std-actions > #stdBookBtn,\n  #esmeraldaDesktopTop .std-actions > a.std-btn{height:58px!important}\n}\n";
   document.head.appendChild(desktopCtaExactCss);
 
+  const desktopLogoMinus7Css=document.createElement('style');
+  desktopLogoMinus7Css.id='esmeralda-desktop-logo-minus7-v11';
+  desktopLogoMinus7Css.textContent="@media(min-width:768px){#esmeraldaDesktopTop .std-logo{font-size:calc(1em * .93)!important}}";
+  document.head.appendChild(desktopLogoMinus7Css);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
