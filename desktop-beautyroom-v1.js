@@ -1634,6 +1634,11 @@
   desktopLogoMinus7Css.textContent="@media(min-width:768px){#esmeraldaDesktopTop .std-logo{font-size:calc(1em * .93)!important}}";
   document.head.appendChild(desktopLogoMinus7Css);
 
+  const desktopHeroVerticalCenterCss=document.createElement('style');
+  desktopHeroVerticalCenterCss.id='esmeralda-desktop-hero-vertical-center-v12';
+  desktopHeroVerticalCenterCss.textContent="\n@media(min-width:768px){\n  /* Move the entire left hero composition as one unit:\n     vertically centered between the bottom of the header/menu and the bottom of the hero. */\n  #esmeraldaDesktopTop .std-copy-inner{\n    top:80px!important;\n    height:calc(100% - 80px)!important;\n    padding-top:0!important;\n    padding-bottom:0!important;\n    justify-content:center!important;\n  }\n}\n";
+  document.head.appendChild(desktopHeroVerticalCenterCss);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
