@@ -1584,6 +1584,12 @@
   document.head.appendChild(desktopRebuildCss);
 
 
+  const desktopFinishCss=document.createElement('style');
+  desktopFinishCss.id='esmeralda-desktop-finish-v1';
+  desktopFinishCss.textContent="\n@media(min-width:768px){\n  html,body{scroll-behavior:auto!important;overscroll-behavior-y:auto!important}\n  .std-hero{height:calc(100dvh - 80px)!important;min-height:0!important}\n  .std-hero-copy{min-height:0!important}\n  .std-hero-frame{min-height:0!important}\n  #esmeraldaDesktopPortfolio,#esmeraldaDesktopServices,#esmeraldaDesktopAbout,#esmeraldaDesktopTeam,#esmeraldaDesktopReviews,#esmeraldaDesktopContacts{scroll-margin-top:80px!important}\n}\n@media(min-width:768px) and (max-height:820px){\n  .std-hero-frame{margin-top:18px!important}\n  .std-copy-inner{margin-top:72px!important;width:min(100% - 56px,540px)!important}\n  .std-hero-kicker{margin-bottom:20px!important}\n  .std-logo-sub{margin-bottom:22px!important}\n  .std-tagline{margin-bottom:22px!important;font-size:21px!important}\n  .std-meta{margin-bottom:20px!important}\n  .std-meta-icon{width:52px!important;height:52px!important;flex-basis:52px!important}\n  .std-btn{height:58px!important}\n  .std-scroll-hint{bottom:14px!important}\n  .std-scroll-circle{width:46px!important;height:46px!important}\n}\n";
+  document.head.appendChild(desktopFinishCss);
+
+
 
 
 
@@ -1756,7 +1762,6 @@
         <div class="std-team-track" id="stdTeamTrack">
           ${TEAM_MASTERS.map(master=>`
             <button class="std-master" type="button" data-desktop-master="${master.id}">
-              <span class="std-master-arrow" aria-hidden="true">↗</span>
               <div class="std-master-avatar">${TEAM_AVATAR}</div>
               <strong class="std-master-name">${master.name}</strong>
               <span class="std-master-role">${master.role}</span>
