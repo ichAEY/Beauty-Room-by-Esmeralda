@@ -1955,14 +1955,32 @@
   const galleryBrowserGrid=document.getElementById('stdGalleryBrowserGrid');
   const gallery=document.getElementById('stdGallery');
   const galleryStage=document.querySelector('.std-gallery-stage');
+  const galleryCanvas=document.querySelector('.std-gallery-canvas');
   const galleryImage=document.getElementById('stdGalleryImage');
   const galleryCount=document.getElementById('stdGalleryCount');
+  const galleryViewAll=document.getElementById('stdViewGallery');
   let galleryCategory='Ногти';
   let galleryItems=PORTFOLIO.slice();
   let galleryIndex=0;
-  let galleryDragStartX=0;
-  let galleryDragging=false;
+  let galleryScale=1,galleryX=0,galleryY=0;
+  let galleryDragStartX=0,galleryDragStartY=0,galleryPanStartX=0,galleryPanStartY=0,galleryDragging=false;
+  let galleryPinchStart=0,galleryPinchBase=1,galleryHadPinch=false;
 
+  function clampDesktopViewer(){
+    if(galleryScale<=1){galleryX=0;galleryY=0;return}
+    const maxX=(galleryScale-1)*galleryCanvas.clientWidth*.5;
+    const maxY=(galleryScale-1)*galleryCanvas.clientHeight*.5;
+    galleryX=Math.max(-maxX,Math.min(maxX,galleryX));
+    galleryY=Math.max(-maxY,Math.min(maxY,galleryY));
+  }
+  function applyDesktopViewerTransform(){
+    clampDesktopViewer();
+    galleryImage.style.transform='translate3d('+galleryX+'px,'+galleryY+'px,0) scale('+galleryScale+')';
+  }
+  function resetDesktopViewer(){
+    galleryScale=1;galleryX=0;galleryY=0;galleryPinchStart=0;galleryPinchBase=1;
+    applyDesktopViewerTransform();
+  }
   function paintGallery(){
     const item=galleryItems[galleryIndex];
     if(!item)return;
@@ -1971,9 +1989,12 @@
     galleryCount.textContent=String(galleryIndex+1).padStart(2,'0')+' / '+String(galleryItems.length).padStart(2,'0');
     document.getElementById('stdGalleryPrev').hidden=galleryItems.length<2;
     document.getElementById('stdGalleryNext').hidden=galleryItems.length<2;
+    resetDesktopViewer();
   }
-  function openDesktopViewer(items,index=0){
+  function openDesktopViewer(items,index=0,source='gallery'){
     galleryItems=Array.isArray(items)&&items.length?items:PORTFOLIO.slice();
+    gallery.dataset.source=source;
+    galleryViewAll.hidden=source!=='portfolio';
     galleryIndex=Math.max(0,Math.min(index,galleryItems.length-1));
     paintGallery();
     gallery.classList.add('open');
@@ -1981,6 +2002,7 @@
   }
   function closeDesktopViewer(){
     gallery.classList.remove('open');
+    resetDesktopViewer();
     if(!galleryBrowser.classList.contains('open')&&!document.getElementById('stdPriceViewer').classList.contains('open'))document.body.style.overflow='';
   }
   function moveDesktopGallery(step){
@@ -1999,13 +2021,14 @@
       renderDesktopGalleryBrowser();
     });
     galleryBrowserGrid.querySelectorAll('[data-gallery-item]').forEach(btn=>btn.onclick=()=>{
-      openDesktopViewer(items,Number(btn.dataset.galleryItem)||0);
+      openDesktopViewer(items,Number(btn.dataset.galleryItem)||0,'gallery');
     });
   }
   function openDesktopGalleryBrowser(cat='Ногти'){
     galleryCategory=Object.prototype.hasOwnProperty.call(DESKTOP_GALLERY_GROUPS,cat)?cat:'Ногти';
     renderDesktopGalleryBrowser();
     galleryBrowser.classList.add('open');
+    galleryBrowser.scrollTop=0;
     document.body.style.overflow='hidden';
   }
   function closeDesktopGalleryBrowser(){
@@ -2014,31 +2037,88 @@
   }
 
   document.querySelectorAll('.std-work').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      openDesktopViewer(PORTFOLIO,Number(btn.dataset.portfolioIndex)||0);
-    });
+    btn.addEventListener('click',()=>openDesktopViewer(PORTFOLIO,Number(btn.dataset.portfolioIndex)||0,'portfolio'));
   });
   document.getElementById('stdOpenGallery').addEventListener('click',()=>openDesktopGalleryBrowser('Ногти'));
   document.getElementById('stdGalleryBrowserBack').addEventListener('click',closeDesktopGalleryBrowser);
   document.getElementById('stdGalleryClose').addEventListener('click',closeDesktopViewer);
   document.getElementById('stdGalleryPrev').addEventListener('click',()=>moveDesktopGallery(-1));
   document.getElementById('stdGalleryNext').addEventListener('click',()=>moveDesktopGallery(1));
+  galleryViewAll.addEventListener('click',()=>{closeDesktopViewer();openDesktopGalleryBrowser('Ногти')});
   gallery.addEventListener('click',e=>{if(e.target===gallery)closeDesktopViewer()});
 
+  galleryStage.addEventListener('wheel',e=>{
+    if(!gallery.classList.contains('open'))return;
+    e.preventDefault();
+    const delta=e.deltaY<0?.18:-.18;
+    galleryScale=Math.max(1,Math.min(4,galleryScale+delta));
+    if(galleryScale<=1.01)galleryScale=1;
+    applyDesktopViewerTransform();
+  },{passive:false});
+  galleryCanvas.addEventListener('dblclick',e=>{
+    e.preventDefault();
+    galleryScale=galleryScale>1?1:2;
+    if(galleryScale===1){galleryX=0;galleryY=0}
+    applyDesktopViewerTransform();
+  });
+
   galleryStage.addEventListener('pointerdown',e=>{
-    if(e.target.closest('.std-gallery-nav'))return;
-    galleryDragStartX=e.clientX;
+    if(e.pointerType==='touch'||e.target.closest('.std-gallery-nav,.std-view-gallery'))return;
     galleryDragging=true;
+    galleryDragStartX=e.clientX;galleryDragStartY=e.clientY;
+    galleryPanStartX=galleryX;galleryPanStartY=galleryY;
     try{galleryStage.setPointerCapture(e.pointerId)}catch(_){}
   });
+  galleryStage.addEventListener('pointermove',e=>{
+    if(!galleryDragging||e.pointerType==='touch')return;
+    if(galleryScale>1){
+      galleryX=galleryPanStartX+(e.clientX-galleryDragStartX);
+      galleryY=galleryPanStartY+(e.clientY-galleryDragStartY);
+      applyDesktopViewerTransform();
+    }
+  });
   galleryStage.addEventListener('pointerup',e=>{
-    if(!galleryDragging)return;
+    if(!galleryDragging||e.pointerType==='touch')return;
     galleryDragging=false;
-    const dx=e.clientX-galleryDragStartX;
+    const dx=e.clientX-galleryDragStartX,dy=e.clientY-galleryDragStartY;
     try{galleryStage.releasePointerCapture(e.pointerId)}catch(_){}
-    if(Math.abs(dx)>55)moveDesktopGallery(dx<0?1:-1);
+    if(galleryScale===1&&Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.1)moveDesktopGallery(dx<0?1:-1);
   });
   galleryStage.addEventListener('pointercancel',()=>{galleryDragging=false});
+
+  const pinchDistance=e=>Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);
+  galleryCanvas.addEventListener('touchstart',e=>{
+    if(e.touches.length===2){
+      e.preventDefault();galleryHadPinch=true;galleryPinchStart=pinchDistance(e);galleryPinchBase=galleryScale;
+    }else if(e.touches.length===1){
+      galleryDragStartX=e.touches[0].clientX;galleryDragStartY=e.touches[0].clientY;
+      galleryPanStartX=galleryX;galleryPanStartY=galleryY;
+    }
+  },{passive:false});
+  galleryCanvas.addEventListener('touchmove',e=>{
+    if(e.touches.length===2&&galleryPinchStart){
+      e.preventDefault();
+      galleryScale=Math.max(1,Math.min(4,galleryPinchBase*(pinchDistance(e)/galleryPinchStart)));
+      applyDesktopViewerTransform();
+    }else if(e.touches.length===1&&galleryScale>1){
+      e.preventDefault();
+      galleryX=galleryPanStartX+(e.touches[0].clientX-galleryDragStartX);
+      galleryY=galleryPanStartY+(e.touches[0].clientY-galleryDragStartY);
+      applyDesktopViewerTransform();
+    }
+  },{passive:false});
+  galleryCanvas.addEventListener('touchend',e=>{
+    if(e.touches.length<2)galleryPinchStart=0;
+    if(e.touches.length===0){
+      if(!galleryHadPinch&&galleryScale===1&&galleryItems.length>1&&e.changedTouches.length){
+        const dx=e.changedTouches[0].clientX-galleryDragStartX;
+        const dy=e.changedTouches[0].clientY-galleryDragStartY;
+        if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.15)moveDesktopGallery(dx<0?1:-1);
+      }
+      galleryHadPinch=false;
+      if(galleryScale<=1.01)resetDesktopViewer();
+    }
+  },{passive:false});
 
   document.addEventListener('keydown',e=>{if(bookOverlay.classList.contains('open')&&e.key==='Escape'){closeDesktopBooking();return}});
   document.addEventListener('keydown',e=>{
