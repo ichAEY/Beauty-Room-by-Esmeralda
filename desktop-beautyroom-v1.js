@@ -1669,6 +1669,11 @@
   desktopReferenceBackground3Css.textContent="\n@media(min-width:768px){\n  /* Reference-specific left edge shadow: visible warm vertical vignette fading inward. */\n  #esmeraldaDesktopTop.std-hero{\n    background:\n      radial-gradient(ellipse 185px 610px at -1% 43%,rgba(83,57,45,.22) 0%,rgba(105,74,58,.135) 25%,rgba(133,96,76,.065) 48%,transparent 76%),\n      radial-gradient(ellipse 360px 640px at 101% 70%,rgba(119,84,67,.105) 0%,rgba(151,112,91,.045) 34%,transparent 76%),\n      radial-gradient(ellipse 720px 500px at 35% 45%,rgba(255,255,255,.52) 0%,rgba(255,255,255,.22) 48%,transparent 78%),\n      linear-gradient(102deg,#f7f1ea 0%,#f8f4ee 47%,#f3ebe4 100%)!important;\n  }\n}\n";
   document.head.appendChild(desktopReferenceBackground3Css);
 
+  const desktopLangUnderBrandCss=document.createElement('style');
+  desktopLangUnderBrandCss.id='esmeralda-desktop-lang-under-brand-v28';
+  desktopLangUnderBrandCss.textContent="\n@media(min-width:768px){\n  .std-header{position:relative!important}\n  .std-lang-switch-under-brand{\n    position:absolute!important;\n    left:36px!important;\n    top:65px!important;\n    height:30px!important;\n    z-index:20!important;\n    display:flex!important;\n    align-items:center!important;\n    gap:4px!important;\n    padding:0!important;\n  }\n  .std-lang-switch-placeholder{display:none!important}\n}\n@media(min-width:768px) and (max-width:1180px){\n  .std-lang-switch-under-brand{left:26px!important}\n}\n";
+  document.head.appendChild(desktopLangUnderBrandCss);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
@@ -1677,6 +1682,7 @@
         <span class="std-header-brand-main">Beauty Room</span>
         <span class="std-header-brand-sub">by Esmeralda</span>
       </a>
+      <div class="std-lang-switch std-lang-switch-under-brand" role="group" aria-label="Language"><button type="button" data-desktop-lang="hy">HY</button><span class="sep">/</span><button type="button" data-desktop-lang="ru">RU</button><span class="sep">/</span><button type="button" data-desktop-lang="en">EN</button></div>
       <nav class="std-nav" aria-label="Основная навигация">
         <a href="#esmeraldaDesktopServices">Услуги</a>
         <a href="#esmeraldaDesktopPortfolio">Наши работы</a>
@@ -1685,7 +1691,7 @@
         <a href="#esmeraldaDesktopContacts">Контакты</a>
       </nav>
       <div class="std-header-right">
-        <div class="std-lang-switch" role="group" aria-label="Language"><button type="button" data-desktop-lang="hy">HY</button><span class="sep">/</span><button type="button" data-desktop-lang="ru">RU</button><span class="sep">/</span><button type="button" data-desktop-lang="en">EN</button></div>
+        <div class="std-lang-switch std-lang-switch-placeholder" aria-hidden="true"></div>
         <a class="std-phone" href="tel:${PHONE}" aria-label="Позвонить в Beauty Room">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.83 16.57a1 1 0 0 0 1.21-.3l.36-.47A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.47.35a1 1 0 0 0-.29 1.23 14 14 0 0 0 6.39 6.39Z" fill="currentColor"/></svg>
           <span>+374 93 873617</span>
