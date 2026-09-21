@@ -1670,8 +1670,8 @@
   document.head.appendChild(desktopReferenceBackground3Css);
 
   const desktopLangUnderBrandCss=document.createElement('style');
-  desktopLangUnderBrandCss.id='esmeralda-desktop-lang-under-brand-v28';
-  desktopLangUnderBrandCss.textContent="\n@media(min-width:768px){\n  .std-header{position:relative!important;overflow:visible!important}\n  .std-lang-switch-under-brand{\n    position:absolute!important;\n    left:36px!important;\n    top:65px!important;\n    height:30px!important;\n    z-index:20!important;\n    display:flex!important;\n    align-items:center!important;\n    gap:4px!important;\n    padding:0!important;\n  }\n  .std-lang-switch-placeholder{display:none!important}\n}\n@media(min-width:768px) and (max-width:1180px){\n  .std-lang-switch-under-brand{left:26px!important}\n}\n";
+  desktopLangUnderBrandCss.id='esmeralda-desktop-lang-right-brand-v30';
+  desktopLangUnderBrandCss.textContent="\n@media(min-width:768px){\n  .std-header{position:relative!important;overflow:visible!important}\n  .std-lang-switch-under-brand{\n    position:static!important;\n    order:0!important;\n    height:42px!important;\n    z-index:auto!important;\n    display:flex!important;\n    align-items:center!important;\n    gap:4px!important;\n    padding:0 4px!important;\n    margin-left:20px!important;\n    margin-right:0!important;\n  }\n  .std-lang-switch-under-brand button{\n    min-width:28px!important;\n    height:34px!important;\n    padding:0 3px!important;\n    font-size:13px!important;\n    font-weight:500!important;\n    letter-spacing:0!important;\n  }\n  .std-lang-switch-under-brand .sep{font-size:13px!important}\n  .std-lang-switch-placeholder{display:none!important}\n}\n@media(min-width:768px) and (max-width:1180px){\n  .std-lang-switch-under-brand{margin-left:14px!important;gap:2px!important}\n  .std-lang-switch-under-brand button{min-width:25px!important;font-size:13px!important}\n}\n";
   document.head.appendChild(desktopLangUnderBrandCss);
 
   const root=document.createElement('div');
