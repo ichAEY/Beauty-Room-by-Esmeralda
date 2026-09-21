@@ -38,8 +38,6 @@
     'Макияж':[{src:'makeup_evening_01.webp',alt:'Макияж Beauty Room by Esmeralda'},{src:'makeup_soft_pink_02.webp',alt:'Макияж Beauty Room by Esmeralda'},{src:'makeup_glow_03.webp',alt:'Макияж Beauty Room by Esmeralda'}]
   };
   const DESKTOP_GALLERY=Object.values(DESKTOP_GALLERY_GROUPS).flat().map(x=>x.src);
-  const PRICE_PAGES=['manicure_french_soft_pink_design_04.webp','hair_layered_brunette_02.webp','makeup_evening_01.webp'];
-  const SERVICE_PRICE_PAGE={'Маникюр':0,'Волосы':1,'Макияж':2};
   const SERVICE_DATA={
     'Маникюр':[['Педикюр','','',[],''],['Наращивание ногтей','','',[],''],['Маникюр + покрытие гель-лак','','',[],''],['Маникюр + покрытие лак','','',[],''],['Парафинотерапия для рук','','',[],''],['Маникюр','','',[],'']],
     'Волосы':[['Свадебные прически','','',[],''],['Укладка волос','','',[],''],['Стрижка волос','','',[],''],['Окрашивание волос','','',[],''],['Уход за волосами','','',[],''],['Спа-процедура для волос','','',[],''],['Косы','','',[],''],['Наращивание волос','','',[],'']],
@@ -1580,10 +1578,12 @@
   desktopSyncCss.textContent="\n@media(min-width:768px){\n  #esmeralda-desktop-v1{\n    --br-bg:#f8f4ee;--br-light:#f7f2eb;--br-warm:#e9e2da;--br-dark:#2f2926;\n    --br-ink:#171513;--br-soft:#746c66;--br-taupe:#8b7167;--br-line:rgba(62,51,44,.12);\n    background:var(--br-bg)!important;color:var(--br-ink)!important\n  }\n  .std-portfolio-title,.std-services-title,.std-about-title,#esmeraldaDesktopTeam .std-team-title,\n  #esmeraldaDesktopReviews .std-reviews-title,.std-contact-title{\n    margin-top:14px!important;font:500 clamp(54px,4.35vw,68px)/.94 \"Cormorant Garamond\",Georgia,serif!important;\n    letter-spacing:-.035em!important\n  }\n  .std-portfolio-kicker,.std-services-kicker,.std-about-kicker,#esmeraldaDesktopTeam .std-team-kicker,\n  #esmeraldaDesktopReviews .std-reviews-kicker,.std-contact-kicker{\n    font:600 12px/1 \"Manrope\",Arial,sans-serif!important;letter-spacing:.26em!important;text-transform:uppercase!important\n  }\n\n  .std-header{background:#f8f4ee!important;border-bottom:1px solid rgba(62,51,44,.06)!important}\n  .std-header-right{gap:17px!important}\n  .std-lang-switch{height:42px;display:flex;align-items:center;gap:4px;padding:0 4px}\n  .std-lang-switch button{min-width:28px;height:34px;padding:0 3px;border:0;background:transparent;color:#8b817b;\n    font:600 11px/1 \"Manrope\",Arial,sans-serif!important;letter-spacing:.04em}\n  .std-lang-switch button.active{color:#171513!important}.std-lang-switch .sep{color:#c7bbb3;font-size:10px;pointer-events:none}\n\n  .std-copy-inner{width:min(100%,560px)!important;transform:translateY(38px)!important}\n  .std-hero-kicker{font-size:14px!important;letter-spacing:.40em!important;margin-bottom:31px!important}\n  .std-logo{max-width:100%!important;font-size:clamp(54px,4.15vw,70px)!important;letter-spacing:.055em!important;white-space:nowrap!important}\n  .std-logo-sub{font-size:14px!important;letter-spacing:.40em!important;margin-top:20px!important}\n  .std-tagline{font-size:25px!important;line-height:1.38!important;max-width:500px!important}\n  .std-meta-text{font-size:16px!important;line-height:1.42!important}\n  .std-actions{gap:12px!important}.std-btn{height:66px!important;font-size:16px!important;border-radius:8px!important}\n  .std-scroll-hint{right:-88px!important;color:#fff!important;background:rgba(50,42,38,.78)!important;\n    border:1px solid rgba(255,255,255,.13)!important;box-shadow:0 12px 34px rgba(36,29,26,.20)!important;backdrop-filter:blur(7px)!important}\n  .std-scroll-hint span{color:#fff!important}\n\n  .std-portfolio{padding:82px 42px 78px!important;background:#f7f2eb!important;color:#171513!important}\n  .std-portfolio-inner{width:min(calc(100% - 24px),1400px)!important}\n  .std-portfolio-kicker{color:#746c66!important}.std-portfolio-title{color:#171513!important}\n  .std-portfolio-copy{margin-top:17px!important;color:#746c66!important;font-size:15px!important;line-height:1.55!important}\n  .std-portfolio-more{width:min(100%,520px)!important;height:56px!important;margin:34px auto 0!important;\n    border:1px solid rgba(64,52,46,.18)!important;border-radius:10px!important;background:transparent!important;color:#1a1715!important;\n    box-shadow:none!important;font:500 14px/1 \"Manrope\",Arial,sans-serif!important;gap:12px!important}\n  .std-portfolio-more:hover{background:rgba(255,255,255,.32)!important;box-shadow:none!important;transform:translateY(-1px)!important}\n\n  .std-gallery-browser{background:#f7f2eb!important;color:#171513!important}\n  .std-gallery-browser-shell{width:min(100%,1320px)!important;padding:32px 42px 60px!important;background:#f7f2eb!important}\n  .std-gallery-browser-back{width:46px!important;height:46px!important;border:0!important;border-radius:0!important;background:transparent!important;\n    box-shadow:none!important;color:#171513!important;font:300 36px/1 Arial,sans-serif!important}\n  .std-gallery-browser-title strong{font:500 clamp(54px,4vw,64px)/.9 \"Cormorant Garamond\",Georgia,serif!important;color:#171513!important}\n  .std-gallery-browser-title span{margin-top:9px!important;color:#746c66!important;font-size:11px!important}\n  .std-gallery-browser-tab{height:43px!important;padding:0 18px!important;border-color:rgba(55,44,39,.12)!important;background:transparent!important;color:#6f655f!important}\n  .std-gallery-browser-tab.active{background:#171513!important;border-color:#171513!important;color:#fff!important}\n  .std-gallery-browser-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:9px!important;margin-top:20px!important}\n  .std-gallery-browser-tile{aspect-ratio:1/1!important;border-radius:11px!important}\n\n  .std-gallery{z-index:450!important;padding:22px!important;background:rgba(27,20,20,.90)!important;backdrop-filter:blur(9px)!important}\n  .std-gallery-stage{width:min(calc(100vw - 130px),980px)!important;height:min(78dvh,760px)!important;max-height:none!important;touch-action:none!important;overflow:visible!important}\n  .std-gallery-canvas{position:absolute;inset:0;overflow:hidden;border-radius:14px;background:#151312;box-shadow:0 18px 54px rgba(0,0,0,.28);touch-action:none}\n  .std-gallery-image{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;\n    object-fit:contain!important;border-radius:0!important;box-shadow:none!important;transform:translate3d(0,0,0) scale(1);transform-origin:center;will-change:transform}\n  .std-gallery-hint{position:absolute;top:-35px;left:0;color:rgba(255,255,255,.66);font:400 10px/1 \"Manrope\",Arial,sans-serif}\n  .std-gallery-nav{width:34px!important;height:54px!important;border:0!important;background:transparent!important;font-size:39px!important}\n  .std-gallery-prev{left:-48px!important}.std-gallery-next{right:-48px!important}\n  .std-gallery-count{bottom:-32px!important;font-size:10px!important;color:#fff!important}\n  .std-view-gallery{position:absolute;left:50%;bottom:-54px;transform:translateX(-50%);height:42px;padding:0 18px;\n    border:1px solid rgba(255,255,255,.34);border-radius:999px;background:rgba(22,18,16,.74);backdrop-filter:blur(12px);\n    color:#fff!important;font:600 11px/1 \"Manrope\",Arial,sans-serif!important;white-space:nowrap}\n  .std-gallery:not([data-source=\"portfolio\"]) .std-view-gallery{display:none!important}\n\n  .std-services{min-height:0!important;padding:88px 0 94px!important;background:#2f2926!important;color:#f7f3f0!important}\n  .std-services-inner{width:min(calc(100% - 96px),1360px)!important;margin:0 auto!important;display:block!important}\n  .std-services-head-ref{display:grid!important;grid-template-columns:minmax(340px,.88fr) minmax(360px,1.12fr)!important;align-items:end!important;gap:68px!important}\n  .std-services-kicker{color:#b8ada7!important}.std-services-title{color:#f7f3f0!important}\n  .std-services-intro{max-width:570px!important;margin:0 0 5px!important;color:#b9ada7!important;font-size:15px!important;line-height:1.65!important}\n  .std-price-legacy{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%)!important}\n  .std-service-tabs{width:100%!important;margin:34px 0 0!important;padding:0 0 8px!important;display:flex!important;gap:8px!important;\n    overflow-x:auto!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;\n    -webkit-mask-image:none!important;mask-image:none!important}\n  .std-service-tab{flex:0 0 auto!important;min-height:38px!important;padding:0 16px!important;border:1px solid rgba(255,255,255,.18)!important;\n    border-radius:999px!important;background:transparent!important;color:#cfc5bf!important;font-size:11px!important;font-weight:500!important}\n  .std-service-tab:hover{transform:translateY(-2px)!important;background:rgba(255,255,255,.06)!important}\n  .std-service-tab.active{background:#8b7167!important;border-color:#8b7167!important;color:#fff!important;box-shadow:none!important}\n  .std-service-list{display:block!important;width:100%!important;margin-top:24px!important;border:0!important}\n  .std-service-grid-ref{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}\n  .std-service-grid-ref:after{display:none!important}\n  .std-service-card-ref{position:relative!important;display:flex!important;min-height:142px!important;flex-direction:column!important;\n    padding:23px 68px 20px 23px!important;border:1px solid rgba(255,255,255,.12)!important;border-radius:17px!important;\n    background:rgba(255,255,255,.045)!important;box-shadow:none!important;color:#f7f3f0!important;text-align:left!important}\n  .std-service-card-ref:after{position:absolute!important;top:20px!important;right:18px!important;display:grid!important;width:38px!important;height:38px!important;\n    place-items:center!important;border:1px solid rgba(255,255,255,.16)!important;border-radius:50%!important;background:rgba(255,255,255,.06)!important;\n    color:#d8b7aa!important;content:\"↗\"!important;font:500 15px/1 \"Manrope\",Arial,sans-serif!important}\n  .std-service-card-ref:hover{transform:translateY(-3px)!important;border-color:rgba(255,255,255,.22)!important;background:rgba(255,255,255,.07)!important;box-shadow:none!important}\n  .std-service-card-title-ref{color:#f7f3f0!important;font:500 clamp(23px,1.55vw,27px)/1.08 \"Cormorant Garamond\",Georgia,serif!important}\n  .std-service-card-detail-ref{margin-top:9px!important;color:#b9ada7!important;font-size:11px!important;line-height:1.5!important}\n  .std-service-card-bottom-ref{display:flex!important;align-items:end!important;justify-content:space-between!important;gap:12px!important;margin-top:auto!important;padding-top:20px!important}\n  .std-service-card-bottom-ref span{display:inline-flex!important;min-height:25px!important;align-items:center!important;padding:0 9px!important;border-radius:999px!important;background:rgba(255,255,255,.07)!important;color:#c9bdb6!important;font-size:9px!important}\n  .std-service-card-bottom-ref b{color:#f7f3f0!important;font:500 17px/1 \"Cormorant Garamond\",Georgia,serif!important}\n  .std-service-all-grid{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:50px}\n  .std-service-all-grid:after{content:\"\";position:absolute;top:0;bottom:0;left:50%;width:1px;background:rgba(255,255,255,.13);transform:translateX(-.5px)}\n  .std-service-all-row{min-height:92px;padding:20px 5px;border:0;border-bottom:1px solid rgba(255,255,255,.14);background:transparent;\n    color:#f7f3f0!important;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;text-align:left}\n  .std-service-all-title{display:block;color:#f7f3f0;font:500 24px/1.08 \"Cormorant Garamond\",Georgia,serif}\n  .std-service-all-cat{display:block;margin-top:7px;color:#a99e98;font:500 9.5px/1 \"Manrope\",Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}\n  .std-service-all-action{color:#d8b7aa;font:500 11px/1 \"Manrope\",Arial,sans-serif;white-space:nowrap}\n  .std-service-more{width:min(100%,390px)!important;height:52px!important;margin:28px auto 0!important;border:1px solid rgba(255,255,255,.22)!important;\n    border-radius:8px!important;background:rgba(255,255,255,.06)!important;color:#f4eeea!important}\n  .std-service-more[hidden]{display:none!important}.std-services-count{margin-top:13px!important;text-align:center!important;color:#938984!important;font-size:10px!important}\n\n  .std-about{min-height:0!important;padding:88px 70px 96px!important;background:#f7f2eb!important;color:#171513!important}\n  .std-about-inner{width:min(100%,1360px)!important;margin:0 auto!important}.std-about-kicker{color:#88786e!important}.std-about-title{color:#171513!important}\n  .std-about-grid{margin-top:38px!important;padding:18px!important;display:grid!important;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr)!important;\n    gap:54px!important;align-items:stretch!important;border:1px solid rgba(66,55,49,.11)!important;border-radius:28px!important;background:#eee7df!important;\n    box-shadow:0 14px 34px rgba(47,37,31,.08)!important}\n  .std-about-visual{height:auto!important;min-height:500px!important;border-radius:20px!important;overflow:hidden!important;box-shadow:none!important;order:0!important}\n  .std-about-visual:after{background:none!important}.std-about-visual img{filter:none!important;object-fit:cover!important}\n  .std-about-rating{left:18px!important;bottom:18px!important;height:42px!important;padding:0 14px!important;background:rgba(18,17,16,.72)!important;color:#fff!important;border-color:rgba(255,255,255,.28)!important}\n  .std-about-rating strong,.std-about-rating span{color:#fff!important}\n  .std-about-copy{padding:38px 34px 34px 0!important;display:flex!important;flex-direction:column!important;justify-content:center!important}\n  .std-about-lead{margin:0!important;max-width:670px!important;color:#1d1a18!important;font:500 clamp(31px,2.55vw,40px)/1.12 \"Cormorant Garamond\",Georgia,serif!important;letter-spacing:-.025em!important}\n  .std-about-text{max-width:660px!important;margin:23px 0 0!important;color:#58504a!important;font-size:15px!important;line-height:1.68!important}\n  .std-about-facts{display:grid!important;grid-template-columns:1fr!important;gap:0!important;margin-top:29px!important;border-top:1px solid rgba(66,55,49,.12)!important}\n  .std-about-fact{min-height:57px!important;padding:0!important;border:0!important;border-bottom:1px solid rgba(66,55,49,.12)!important;border-radius:0!important;background:transparent!important;\n    display:flex!important;align-items:center!important;justify-content:flex-start!important;text-align:left!important}\n  .std-about-fact strong{color:#2b2724!important;font:500 16px/1.2 \"Manrope\",Arial,sans-serif!important;white-space:nowrap!important}\n\n  #esmeraldaDesktopTeam.std-team{min-height:0!important;padding:84px 70px 88px!important;background:#2f2926!important;color:#f7f3f0!important}\n  #esmeraldaDesktopTeam .std-team-inner{width:min(100%,1360px)!important}#esmeraldaDesktopTeam .std-team-kicker{color:#b8ada7!important}\n  #esmeraldaDesktopTeam .std-team-title{color:#f7f3f0!important}#esmeraldaDesktopTeam .std-team-subtitle{margin-top:14px!important;color:#b9ada7!important;font-size:14px!important}\n  #esmeraldaDesktopTeam .std-team-track{display:grid!important;width:100%!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:28px!important;margin-top:42px!important;overflow:visible!important;padding:0!important}\n  #esmeraldaDesktopTeam .std-master{position:relative!important;display:block!important;width:100%!important;min-width:0!important;padding:20px 12px 22px!important;\n    border:1px solid rgba(255,255,255,.10)!important;border-radius:18px!important;background:rgba(255,255,255,.035)!important;color:#f7f3f0!important;text-align:center!important}\n  #esmeraldaDesktopTeam .std-master-arrow{position:absolute!important;top:13px!important;right:13px!important;width:34px!important;height:34px!important;border:1px solid rgba(255,255,255,.14)!important;\n    border-radius:50%!important;background:rgba(255,255,255,.05)!important;color:#d8b7aa!important;display:grid!important;place-items:center!important}\n  #esmeraldaDesktopTeam .std-master-avatar{width:min(100%,176px)!important;height:auto!important;aspect-ratio:1!important;margin:0 auto!important;border-radius:50%!important;\n    background:linear-gradient(145deg,#806b61,#5b4a43)!important;color:#e6d8d0!important;border:1px solid rgba(255,255,255,.10)!important}\n  #esmeraldaDesktopTeam .std-master-name{margin-top:17px!important;color:#f7f3f0!important;font-size:27px!important}\n  #esmeraldaDesktopTeam .std-master-role{margin-top:6px!important;color:#c5b9b2!important;font-size:11px!important}\n  .std-master-cats{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:13px}\n  .std-master-cat{display:inline-flex;min-height:25px;align-items:center;padding:0 9px;border:1px solid rgba(255,255,255,.11);border-radius:999px;color:#d8cdc6;font:500 9px/1 \"Manrope\",Arial,sans-serif}\n\n  #esmeraldaDesktopReviews.std-reviews{height:auto!important;min-height:0!important;padding:82px 0 70px!important;background:#e9e2da!important;color:#171513!important}\n  #esmeraldaDesktopReviews .std-reviews-head{width:min(calc(100% - 96px),1360px)!important;margin:0 auto!important;text-align:center!important}\n  #esmeraldaDesktopReviews .std-reviews-kicker{color:#746c66!important}#esmeraldaDesktopReviews .std-reviews-title{color:#171513!important}\n  #esmeraldaDesktopReviews .std-reviews-score{margin-top:34px!important}#esmeraldaDesktopReviews .std-reviews-score>strong{font:500 78px/.82 \"Cormorant Garamond\",Georgia,serif!important;color:#171513!important}\n  #esmeraldaDesktopReviews .std-reviews-stars{margin-top:17px!important;font-size:27px!important;color:#b78d4f!important}\n  #esmeraldaDesktopReviews .std-reviews-count{margin-top:13px!important;color:#716862!important;font-size:13px!important}\n  #esmeraldaDesktopReviews .std-review-card{height:270px!important;min-height:270px!important;padding:25px!important;border-color:rgba(66,55,49,.15)!important;border-radius:13px!important;background:rgba(255,255,255,.34)!important}\n  #esmeraldaDesktopReviews .std-review-text{margin-top:22px!important;color:#4f4843!important;font-size:14px!important;line-height:1.5!important;display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:5!important;overflow:hidden!important}\n\n  .std-contact{min-height:0!important;padding:82px 70px 46px!important;background:#2f2926!important;color:#f7f3f0!important}\n  .std-contact-inner{width:min(100%,1360px)!important;grid-template-columns:500px minmax(0,1fr)!important;gap:42px!important}\n  .std-contact-kicker{color:#b8ada7!important}.std-contact-title{color:#f7f3f0!important;margin-bottom:32px!important}.std-contact-right{padding-top:94px!important}\n  .std-contact-card{min-height:76px!important;border-color:rgba(255,255,255,.13)!important;background:rgba(255,255,255,.06)!important;color:#f7f3f0!important}\n  .std-contact-card:hover{border-color:rgba(255,255,255,.22)!important;background:rgba(255,255,255,.085)!important}\n  .std-contact-card-title{color:#f7f3f0!important;font-size:21px!important}.std-contact-card-sub{color:#c7bbb4!important;font-size:11px!important}.std-contact-card-icon{color:#f0e8e3!important}\n  .std-contact-map{height:430px!important;border:1px solid rgba(255,255,255,.12)!important;border-radius:18px!important;overflow:hidden!important;background:#423a36!important}\n  .std-contact-status{border-color:rgba(255,255,255,.16)!important;background:#493336!important;color:#d59a9f!important}\n  .std-contact-status.open{background:#2e4133!important;border-color:#4d6752!important;color:#a9d5b0!important}\n  .std-contact-bottom{margin-top:34px!important;display:flex!important;justify-content:center!important}\n  .std-contact-brand{width:min(100%,480px)!important;min-height:76px!important;padding:0 24px!important;border-radius:14px!important;background:#171513!important;color:#fff!important;\n    display:flex!important;align-items:center!important;justify-content:space-between!important;gap:24px!important;box-shadow:none!important;text-decoration:none!important}\n  .std-contact-brand strong{font:500 23px/1 \"Cormorant Garamond\",Georgia,serif!important;color:#fff!important;white-space:nowrap}\n  .std-contact-brand-text{max-width:220px!important;text-align:right!important;color:#d6cec8!important;font:400 10px/1.35 \"Manrope\",Arial,sans-serif!important}\n\n  .std-master-page-close{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}\n  .std-master-profile-cats{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin-top:12px}\n  .std-master-profile-cats span{display:inline-flex;min-height:28px;align-items:center;padding:0 10px;border:1px solid rgba(61,49,43,.12);border-radius:999px;color:#71665f;font-size:10px}\n  .std-master-tabs{display:flex!important;justify-content:center!important;gap:7px!important;margin:24px auto 0!important;overflow-x:auto!important}\n  .std-master-tabs button{height:42px!important;padding:0 17px!important;border:1px solid rgba(61,49,43,.12)!important;border-radius:999px!important;background:transparent!important;color:#615851!important;font-size:11px!important}\n  .std-master-tabs button.active{background:#171513!important;color:#fff!important;border-color:#171513!important}\n  .std-master-tab-content{margin-top:28px!important}.std-master-tab-content h3{margin:0 0 14px!important;font:500 31px/1 \"Cormorant Garamond\",Georgia,serif!important}\n  .std-master-about-copy{max-width:660px;margin:0 auto;color:#514a45;font-size:13px;line-height:1.65;text-align:center}\n  .std-master-page-works{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}\n  .std-master-page-work{border:0;padding:0;background:none}.std-master-page-work img{width:100%!important;aspect-ratio:1.15!important;object-fit:cover!important;border-radius:11px!important}\n\n  .std-section-reveal{opacity:0;transform:translate3d(0,28px,0);transition:opacity .72s ease,transform .82s cubic-bezier(.16,1,.3,1)}\n  .std-section-reveal.in-view{opacity:1;transform:none}\n  @media(prefers-reduced-motion:reduce){.std-section-reveal{opacity:1!important;transform:none!important;transition:none!important}}\n\n  @media(max-width:1180px){\n    .std-header{padding:0 30px!important}.std-nav{gap:19px!important}.std-header-right{gap:9px!important}.std-phone{font-size:14px!important}\n    .std-lang-switch{gap:1px}.std-lang-switch button{min-width:23px;font-size:10px!important}\n    .std-services-inner{width:min(calc(100% - 56px),1360px)!important}.std-services-head-ref{gap:40px!important}\n    .std-about{padding-left:42px!important;padding-right:42px!important}.std-about-grid{gap:36px!important}.std-about-copy{padding-right:18px!important}\n    #esmeraldaDesktopTeam.std-team{padding-left:42px!important;padding-right:42px!important}#esmeraldaDesktopTeam .std-team-track{gap:16px!important}\n    .std-contact{padding-left:42px!important;padding-right:42px!important}.std-contact-inner{grid-template-columns:430px minmax(0,1fr)!important}\n    .std-about-fact strong{font-size:14px!important}\n  }\n  @media(max-width:930px){\n    .std-nav{display:none!important}.std-services-head-ref{grid-template-columns:1fr!important;gap:20px!important}\n    .std-service-grid-ref,.std-service-all-grid{grid-template-columns:1fr!important}.std-service-all-grid:after{display:none!important}\n    .std-about-grid{grid-template-columns:1fr!important}.std-about-visual{min-height:390px!important}.std-about-copy{padding:24px 18px 30px!important}\n    #esmeraldaDesktopTeam .std-team-track{grid-template-columns:repeat(2,minmax(0,1fr))!important}\n    .std-contact-inner{grid-template-columns:1fr!important}.std-contact-right{padding-top:0!important}.std-contact-map{height:360px!important}\n    .std-gallery-browser-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}\n  }\n}";
   document.head.appendChild(desktopSyncCss);
 
-  const onlyMastersServiceCss=document.createElement('style');
-  onlyMastersServiceCss.id='esmeralda-only-masters-services-v1';
-  onlyMastersServiceCss.textContent="\n@media(min-width:768px){\n  #esmeraldaDesktopServices{\n    position:relative!important;\n    min-height:0!important;\n    padding:96px 0 106px!important;\n    overflow:visible!important;\n    color:#f7f3f0!important;\n  }\n  #esmeraldaDesktopServices .ofm-services-shell{\n    position:relative!important;\n    width:min(calc(100% - 96px),1360px)!important;\n    margin:0 auto!important;\n    display:grid!important;\n    grid-template-columns:minmax(280px,.74fr) minmax(650px,1.55fr)!important;\n    column-gap:clamp(52px,6vw,96px)!important;\n    align-items:start!important;\n  }\n\n  #esmeraldaDesktopServices .ofm-price-head{\n    position:sticky!important;\n    top:108px!important;\n    grid-column:1!important;\n    align-self:start!important;\n    width:100%!important;\n    padding:4px clamp(24px,3vw,48px) 0 0!important;\n    text-align:left!important;\n  }\n  #esmeraldaDesktopServices .ofm-price-head::after{\n    position:absolute!important;\n    top:0!important;\n    right:0!important;\n    width:1px!important;\n    height:min(72vh,660px)!important;\n    background:linear-gradient(180deg,transparent,rgba(255,255,255,.20) 10%,rgba(255,255,255,.12) 86%,transparent)!important;\n    content:\"\"!important;\n  }\n  #esmeraldaDesktopServices .ofm-kicker{\n    margin:0!important;\n    color:#b8ada7!important;\n    font:600 12px/1 \"Manrope\",Arial,sans-serif!important;\n    letter-spacing:.26em!important;\n    text-transform:uppercase!important;\n  }\n  #esmeraldaDesktopServices .ofm-title{\n    margin:12px 0 0!important;\n    color:#f7f3f0!important;\n    font:500 clamp(49px,4.1vw,64px)/.94 \"Cormorant Garamond\",Georgia,serif!important;\n    letter-spacing:-.035em!important;\n    white-space:nowrap!important;\n  }\n  #esmeraldaDesktopServices .ofm-intro{\n    display:block!important;\n    max-width:340px!important;\n    margin:26px 0 0!important;\n    color:#b9ada7!important;\n    font-size:13px!important;\n    line-height:1.72!important;\n  }\n\n  #esmeraldaDesktopServices .ofm-services-main{\n    grid-column:2!important;\n    min-width:0!important;\n  }\n  #esmeraldaDesktopServices .ofm-tabs-ribbon-wrap{\n    width:100%!important;\n    padding:0 0 16px!important;\n    overflow:visible!important;\n  }\n  #esmeraldaDesktopServices .ofm-tabs{\n    width:calc(100% + 32px)!important;\n    margin:-10px -16px -16px!important;\n    padding:10px 16px 16px!important;\n    overflow:visible!important;\n    box-sizing:border-box!important;\n  }\n  #esmeraldaDesktopServices .ofm-tabs-track{\n    display:grid!important;\n    width:100%!important;\n    min-width:100%!important;\n    grid-template-columns:repeat(5,minmax(0,1fr))!important;\n    gap:10px!important;\n    padding:5px 0 18px!important;\n    box-sizing:border-box!important;\n  }\n  #esmeraldaDesktopServices .ofm-tab{\n    width:100%!important;\n    min-width:0!important;\n    min-height:54px!important;\n    padding:0 12px!important;\n    border:1px solid rgba(255,255,255,.16)!important;\n    border-radius:15px!important;\n    background:rgba(255,255,255,.055)!important;\n    color:#d6cbc5!important;\n    box-shadow:0 10px 22px rgba(0,0,0,.08)!important;\n    font:600 11px/1.15 \"Manrope\",Arial,sans-serif!important;\n    transition:transform 180ms ease,border-color 180ms ease,box-shadow 180ms ease,background 180ms ease!important;\n  }\n  #esmeraldaDesktopServices .ofm-tab:not(.is-active):hover,\n  #esmeraldaDesktopServices .ofm-tab:not(.is-active):focus-visible{\n    border-color:rgba(255,255,255,.28)!important;\n    background:rgba(255,255,255,.09)!important;\n    box-shadow:0 12px 25px rgba(0,0,0,.11)!important;\n    transform:translateY(-2px)!important;\n  }\n  #esmeraldaDesktopServices .ofm-tab.is-active{\n    border-color:#8b7167!important;\n    background:#8b7167!important;\n    color:#fff!important;\n    box-shadow:0 14px 30px rgba(0,0,0,.16)!important;\n  }\n  #esmeraldaDesktopServices .ofm-tab.is-active:hover{\n    background:#96796d!important;\n    transform:translateY(-2px)!important;\n  }\n\n  #esmeraldaDesktopServices .ofm-service-groups{\n    width:100%!important;\n    min-width:0!important;\n    margin-top:-4px!important;\n  }\n  #esmeraldaDesktopServices .ofm-service-category + .ofm-service-category{\n    margin-top:34px!important;\n  }\n  #esmeraldaDesktopServices .ofm-service-category-heading{\n    display:flex!important;\n    min-height:30px!important;\n    align-items:center!important;\n    gap:12px!important;\n    margin:0 0 12px!important;\n    color:#d9c6bd!important;\n    font-size:12px!important;\n    font-weight:600!important;\n    letter-spacing:.12em!important;\n    text-transform:uppercase!important;\n  }\n  #esmeraldaDesktopServices .ofm-service-category-heading::before{\n    width:34px!important;\n    height:1px!important;\n    flex:0 0 34px!important;\n    background:rgba(216,183,170,.42)!important;\n    content:\"\"!important;\n  }\n  #esmeraldaDesktopServices .ofm-service-category-heading i{\n    height:1px!important;\n    flex:1 1 auto!important;\n    background:linear-gradient(90deg,rgba(216,183,170,.30),transparent)!important;\n  }\n  #esmeraldaDesktopServices .ofm-service-category-list{\n    display:grid!important;\n    width:100%!important;\n    gap:12px!important;\n  }\n\n  #esmeraldaDesktopServices .ofm-service-card{\n    position:relative!important;\n    display:block!important;\n    width:100%!important;\n    min-width:0!important;\n    min-height:116px!important;\n    padding:20px 22px!important;\n    overflow:hidden!important;\n    border:1px solid rgba(79,60,53,.105)!important;\n    border-radius:20px!important;\n    background:rgba(255,253,250,.96)!important;\n    box-shadow:0 10px 26px rgba(0,0,0,.08)!important;\n    color:#2d2825!important;\n    text-align:left!important;\n    text-decoration:none!important;\n    transition:transform 200ms ease,border-color 200ms ease,box-shadow 200ms ease,background 200ms ease!important;\n  }\n  #esmeraldaDesktopServices .ofm-service-card:hover,\n  #esmeraldaDesktopServices .ofm-service-card:focus-visible{\n    border-color:rgba(117,82,72,.25)!important;\n    background:#fffdf9!important;\n    box-shadow:0 16px 35px rgba(0,0,0,.12)!important;\n    transform:translateY(-3px)!important;\n  }\n  #esmeraldaDesktopServices .ofm-service-card-body{\n    display:grid!important;\n    min-height:74px!important;\n    grid-template-columns:minmax(0,1fr) 112px 150px!important;\n    grid-template-rows:auto auto!important;\n    column-gap:18px!important;\n    align-items:center!important;\n  }\n  #esmeraldaDesktopServices .ofm-service-card-title{\n    grid-column:1!important;\n    grid-row:1 / 3!important;\n    align-self:center!important;\n    padding-right:8px!important;\n    color:#2d2825!important;\n    font:500 clamp(23px,1.7vw,29px)/1.04 \"Cormorant Garamond\",Georgia,serif!important;\n  }\n  #esmeraldaDesktopServices .ofm-service-card.has-description .ofm-service-card-title{\n    grid-row:1!important;\n    align-self:end!important;\n  }\n  #esmeraldaDesktopServices .ofm-service-description{\n    display:none!important;\n    grid-column:1!important;\n    grid-row:2!important;\n    max-width:95%!important;\n    margin:7px 0 0!important;\n    color:#756b65!important;\n    font-size:11px!important;\n    line-height:1.5!important;\n  }\n  #esmeraldaDesktopServices .ofm-service-card.has-description .ofm-service-description{\n    display:block!important;\n  }\n  #esmeraldaDesktopServices .ofm-service-time{\n    grid-column:2!important;\n    grid-row:1 / 3!important;\n    align-self:center!important;\n    justify-self:start!important;\n    color:#8a7c75!important;\n    font-size:9.5px!important;\n    font-weight:600!important;\n    white-space:nowrap!important;\n  }\n  #esmeraldaDesktopServices .ofm-service-time::before{\n    margin-right:5px!important;\n    color:#a07d71!important;\n    content:\"◷\"!important;\n    font-size:10px!important;\n  }\n  #esmeraldaDesktopServices .ofm-service-action{\n    grid-column:3!important;\n    grid-row:1 / 3!important;\n    align-self:center!important;\n    justify-self:end!important;\n    width:150px!important;\n    min-width:150px!important;\n    color:#6f554d!important;\n    font:600 18px/1 \"Cormorant Garamond\",Georgia,serif!important;\n    text-align:right!important;\n    white-space:nowrap!important;\n  }\n\n  #esmeraldaDesktopServices .ofm-more-services{\n    display:flex!important;\n    width:300px!important;\n    min-height:56px!important;\n    margin:28px 0 0 auto!important;\n    align-items:center!important;\n    justify-content:center!important;\n    gap:10px!important;\n    border:1px solid rgba(255,255,255,.18)!important;\n    border-radius:10px!important;\n    background:rgba(255,255,255,.055)!important;\n    color:#eee5e0!important;\n    font:600 11px/1 \"Manrope\",Arial,sans-serif!important;\n    transition:background .18s ease,border-color .18s ease,transform .18s ease!important;\n  }\n  #esmeraldaDesktopServices .ofm-more-services:hover{\n    border-color:rgba(255,255,255,.27)!important;\n    background:rgba(255,255,255,.09)!important;\n    transform:translateY(-1px)!important;\n  }\n  #esmeraldaDesktopServices .ofm-more-services svg{\n    transition:transform .2s ease!important;\n  }\n  #esmeraldaDesktopServices .ofm-more-services.is-open svg{\n    transform:rotate(180deg)!important;\n  }\n  #esmeraldaDesktopServices .ofm-more-services[hidden]{\n    display:none!important;\n  }\n\n  #esmeraldaDesktopServices.std-section-reveal.in-view .ofm-tabs-ribbon-wrap{\n    animation:ofm-service-enter .68s cubic-bezier(.22,.72,.22,1) .08s both!important;\n  }\n  #esmeraldaDesktopServices.std-section-reveal.in-view .ofm-service-groups{\n    animation:ofm-service-enter .78s cubic-bezier(.22,.72,.22,1) .18s both!important;\n  }\n  #esmeraldaDesktopServices.std-section-reveal.in-view .ofm-service-card{\n    animation:ofm-card-enter .58s cubic-bezier(.22,.72,.22,1) both!important;\n  }\n  #esmeraldaDesktopServices.std-section-reveal.in-view .ofm-service-card:nth-child(2){animation-delay:.05s!important}\n  #esmeraldaDesktopServices.std-section-reveal.in-view .ofm-service-card:nth-child(3){animation-delay:.10s!important}\n  #esmeraldaDesktopServices.std-section-reveal.in-view .ofm-service-card:nth-child(4){animation-delay:.15s!important}\n  #esmeraldaDesktopServices.std-section-reveal.in-view .ofm-service-card:nth-child(5){animation-delay:.20s!important}\n  #esmeraldaDesktopServices.std-section-reveal.in-view .ofm-service-card:nth-child(6){animation-delay:.25s!important}\n\n  @media(max-width:1199px){\n    #esmeraldaDesktopServices .ofm-services-shell{\n      width:min(calc(100% - 56px),1360px)!important;\n      grid-template-columns:minmax(255px,.68fr) minmax(0,1.52fr)!important;\n      column-gap:34px!important;\n    }\n    #esmeraldaDesktopServices .ofm-price-head{top:96px!important}\n    #esmeraldaDesktopServices .ofm-title{font-size:47px!important}\n    #esmeraldaDesktopServices .ofm-service-card-body{\n      grid-template-columns:minmax(0,1fr) 98px 132px!important;\n      column-gap:14px!important;\n    }\n    #esmeraldaDesktopServices .ofm-service-action{\n      width:132px!important;\n      min-width:132px!important;\n      font-size:17px!important;\n    }\n  }\n  @media(max-width:930px){\n    #esmeraldaDesktopServices{padding:78px 0 84px!important}\n    #esmeraldaDesktopServices .ofm-services-shell{\n      grid-template-columns:1fr!important;\n      row-gap:30px!important;\n    }\n    #esmeraldaDesktopServices .ofm-price-head{\n      position:relative!important;\n      top:auto!important;\n      grid-column:1!important;\n      padding:0!important;\n    }\n    #esmeraldaDesktopServices .ofm-price-head::after{display:none!important}\n    #esmeraldaDesktopServices .ofm-intro{max-width:620px!important}\n    #esmeraldaDesktopServices .ofm-services-main{grid-column:1!important}\n    #esmeraldaDesktopServices .ofm-tabs-track{grid-template-columns:repeat(3,minmax(0,1fr))!important}\n    #esmeraldaDesktopServices .ofm-service-card-body{\n      grid-template-columns:minmax(0,1fr) 88px 116px!important;\n      column-gap:12px!important;\n    }\n    #esmeraldaDesktopServices .ofm-service-action{\n      width:116px!important;\n      min-width:116px!important;\n      font-size:16px!important;\n    }\n  }\n}\n@keyframes ofm-service-enter{\n  from{opacity:0;transform:translate3d(0,22px,0)}\n  to{opacity:1;transform:translate3d(0,0,0)}\n}\n@keyframes ofm-card-enter{\n  from{opacity:0;transform:translate3d(0,14px,0)}\n  to{opacity:1;transform:translate3d(0,0,0)}\n}\n@media(min-width:768px) and (prefers-reduced-motion:reduce){\n  #esmeraldaDesktopServices.std-section-reveal.in-view .ofm-tabs-ribbon-wrap,\n  #esmeraldaDesktopServices.std-section-reveal.in-view .ofm-service-groups,\n  #esmeraldaDesktopServices.std-section-reveal.in-view .ofm-service-card{\n    animation:none!important;\n  }\n}\n";
-  document.head.appendChild(onlyMastersServiceCss);
+  const desktopRebuildCss=document.createElement('style');
+  desktopRebuildCss.id='esmeralda-desktop-rebuild-v2';
+  desktopRebuildCss.textContent="\n@media(min-width:768px){\n  html,body{\n    scroll-behavior:smooth!important;\n    overscroll-behavior-y:auto!important;\n  }\n\n  /* HERO — desktop version of the approved mobile framed card. */\n  .std-hero{\n    height:calc(100dvh - 80px)!important;\n    min-height:700px!important;\n    background:#eae0d9!important;\n  }\n  .std-hero-copy{\n    position:relative!important;\n    align-items:stretch!important;\n    justify-content:center!important;\n    padding:0 24px!important;\n    overflow:visible!important;\n  }\n  .std-hero-frame{\n    position:relative!important;\n    z-index:2!important;\n    width:min(100%,660px)!important;\n    height:100%!important;\n    margin:30px auto 0!important;\n    border:1px solid rgba(70,55,48,.10)!important;\n    border-bottom:0!important;\n    border-radius:24px 24px 0 0!important;\n    background:linear-gradient(180deg,rgba(249,246,241,.985) 0%,rgba(249,246,241,.985) 82%,rgba(247,242,235,.93) 100%)!important;\n    box-shadow:0 -2px 18px rgba(47,37,31,.09),0 -1px 4px rgba(47,37,31,.05)!important;\n    display:flex!important;\n    justify-content:center!important;\n    overflow:visible!important;\n  }\n  .std-hero-frame:after{\n    content:\"\"!important;\n    position:absolute!important;\n    z-index:4!important;\n    left:-26px!important;\n    right:-26px!important;\n    bottom:-2px!important;\n    height:150px!important;\n    background:linear-gradient(180deg,rgba(240,232,225,0) 0%,rgba(240,232,225,.60) 48%,#f0e8e1 90%,#f0e8e1 100%)!important;\n    pointer-events:none!important;\n  }\n  .std-copy-inner{\n    position:relative!important;\n    z-index:5!important;\n    width:min(100% - 64px,560px)!important;\n    margin-top:116px!important;\n    transform:none!important;\n  }\n  .std-scroll-hint{\n    position:absolute!important;\n    z-index:7!important;\n    left:50%!important;\n    right:auto!important;\n    bottom:24px!important;\n    transform:translateX(-50%)!important;\n    display:flex!important;\n    flex-direction:column!important;\n    align-items:center!important;\n    gap:9px!important;\n    padding:0!important;\n    border:0!important;\n    border-radius:0!important;\n    background:transparent!important;\n    box-shadow:none!important;\n    backdrop-filter:none!important;\n    color:#65564e!important;\n    text-decoration:none!important;\n    animation:none!important;\n  }\n  .std-scroll-label{\n    display:block!important;\n    color:#7d6d65!important;\n    font:600 9px/1 \"Manrope\",Arial,sans-serif!important;\n    letter-spacing:.30em!important;\n    text-transform:uppercase!important;\n    white-space:nowrap!important;\n  }\n  .std-scroll-circle{\n    display:grid!important;\n    width:54px!important;\n    height:54px!important;\n    place-items:center!important;\n    border:1px solid rgba(255,255,255,.24)!important;\n    border-radius:50%!important;\n    background:#715b53!important;\n    color:#fff!important;\n    box-shadow:0 12px 28px rgba(74,54,47,.22)!important;\n    font:300 24px/1 Arial,sans-serif!important;\n    letter-spacing:0!important;\n    animation:stdScrollCircleFloat 2.5s ease-in-out infinite!important;\n  }\n  @keyframes stdScrollCircleFloat{\n    0%,100%{transform:translateY(0)}\n    50%{transform:translateY(5px)}\n  }\n  @media(prefers-reduced-motion:reduce){\n    .std-scroll-circle{animation:none!important}\n  }\n\n  /* CURRENT SHABLON-FOR-ONLY-MASTERS: SERVICES STRUCTURE.\n     Only the palette below is changed to Esmeralda's dark services colors. */\n  #esmeraldaDesktopServices.mct-prices{\n    overflow:hidden!important;\n    padding:96px 0 104px!important;\n    background:#2f2926!important;\n    color:#f7f3f0!important;\n  }\n  #esmeraldaDesktopServices.mct-prices>.mct-shell{\n    position:relative!important;\n    display:grid!important;\n    width:min(calc(100% - 96px),1360px)!important;\n    margin:0 auto!important;\n    grid-template-columns:minmax(285px,.72fr) minmax(0,1.58fr)!important;\n    column-gap:clamp(46px,5.5vw,82px)!important;\n    align-items:start!important;\n  }\n  #esmeraldaDesktopServices .mct-price-head{\n    position:sticky!important;\n    top:108px!important;\n    display:block!important;\n    grid-column:1!important;\n    width:100%!important;\n    padding:0 clamp(22px,2.7vw,40px) 0 0!important;\n    text-align:left!important;\n    transform:translate(-1.5cm,-3cm)!important;\n  }\n  #esmeraldaDesktopServices .mct-price-head:after{\n    position:absolute!important;\n    top:4px!important;\n    right:-1.6cm!important;\n    width:1px!important;\n    height:min(72vh,660px)!important;\n    background:linear-gradient(180deg,transparent,rgba(255,255,255,.20) 10%,rgba(255,255,255,.12) 86%,transparent)!important;\n    content:\"\"!important;\n  }\n  #esmeraldaDesktopServices .mct-section-kicker{\n    margin:0!important;\n    color:#b8ada7!important;\n    font:600 12px/1 \"Manrope\",Arial,sans-serif!important;\n    letter-spacing:.24em!important;\n    text-transform:uppercase!important;\n  }\n  #esmeraldaDesktopServices .mct-price-head h2{\n    width:auto!important;\n    margin:12px 0 0!important;\n    color:#f7f3f0!important;\n    font:500 clamp(49.5px,4.125vw,63.8px)/.94 \"Cormorant Garamond\",Georgia,serif!important;\n    letter-spacing:-.035em!important;\n    white-space:nowrap!important;\n  }\n  #esmeraldaDesktopServices .mct-price-head>span{\n    display:block!important;\n    width:auto!important;\n    max-width:374px!important;\n    margin:26px 0 0!important;\n    color:#b9ada7!important;\n    font-size:14.3px!important;\n    line-height:1.72!important;\n  }\n  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{\n    grid-column:2!important;\n    width:100%!important;\n    min-width:0!important;\n    margin:0 0 12px!important;\n    padding:24px 0 16px!important;\n    overflow:visible!important;\n  }\n  #esmeraldaDesktopServices .mct-tabs{\n    width:calc(100% + 32px)!important;\n    margin:-10px -16px -16px!important;\n    padding:10px 16px 16px!important;\n    overflow-x:auto!important;\n    overflow-y:hidden!important;\n    scrollbar-width:none!important;\n    overscroll-behavior-x:contain!important;\n    scroll-snap-type:x proximity!important;\n    box-sizing:border-box!important;\n  }\n  #esmeraldaDesktopServices .mct-tabs::-webkit-scrollbar{display:none!important}\n  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap.is-many .mct-tabs-track{\n    display:flex!important;\n    width:max-content!important;\n    min-width:100%!important;\n    flex-wrap:nowrap!important;\n    gap:10px!important;\n    padding:5px 6px 18px!important;\n    box-sizing:border-box!important;\n  }\n  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap.is-many .mct-tab,\n  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap.is-many .mct-tab-all{\n    display:inline-flex!important;\n    width:auto!important;\n    min-width:max-content!important;\n    min-height:56px!important;\n    flex:0 0 auto!important;\n    align-items:center!important;\n    justify-content:center!important;\n    padding:0 28px!important;\n    border:1px solid rgba(255,255,255,.18)!important;\n    border-radius:14px!important;\n    background:rgba(255,255,255,.045)!important;\n    color:#cfc5bf!important;\n    box-shadow:0 10px 22px rgba(0,0,0,.08)!important;\n    font:600 14px/1 \"Manrope\",Arial,sans-serif!important;\n    white-space:nowrap!important;\n    scroll-snap-align:start!important;\n    transition:transform 180ms ease,border-color 180ms ease,box-shadow 180ms ease,background 180ms ease!important;\n  }\n  #esmeraldaDesktopServices .mct-tab:not(.is-active):hover{\n    border-color:rgba(255,255,255,.28)!important;\n    background:rgba(255,255,255,.08)!important;\n    transform:translateY(-2px)!important;\n  }\n  #esmeraldaDesktopServices .mct-tab.is-active{\n    border-color:#8b7167!important;\n    background:#8b7167!important;\n    color:#fff!important;\n    box-shadow:0 14px 30px rgba(0,0,0,.16)!important;\n  }\n  #esmeraldaDesktopServices .dct-service-groups{\n    grid-column:2!important;\n    width:100%!important;\n    min-width:0!important;\n    margin-top:-1cm!important;\n  }\n  #esmeraldaDesktopServices .dct-service-category+.dct-service-category{\n    margin-top:30px!important;\n  }\n  #esmeraldaDesktopServices .dct-service-category-heading{\n    display:flex!important;\n    min-height:30px!important;\n    align-items:center!important;\n    gap:12px!important;\n    margin:0 0 10px!important;\n    color:#d8b7aa!important;\n    font-size:13px!important;\n    font-weight:600!important;\n    letter-spacing:.12em!important;\n    text-transform:uppercase!important;\n  }\n  #esmeraldaDesktopServices .dct-service-category-heading:before{\n    width:34px!important;\n    height:1px!important;\n    flex:0 0 34px!important;\n    background:rgba(216,183,170,.38)!important;\n    content:\"\"!important;\n  }\n  #esmeraldaDesktopServices .dct-service-category-heading i{\n    height:1px!important;\n    flex:1 1 auto!important;\n    background:linear-gradient(90deg,rgba(216,183,170,.26),transparent)!important;\n  }\n  #esmeraldaDesktopServices .dct-service-category-list{\n    display:grid!important;\n    width:100%!important;\n    gap:11px!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card,\n  #esmeraldaDesktopServices .dct-service-card.has-description{\n    position:relative!important;\n    display:block!important;\n    width:100%!important;\n    min-height:104px!important;\n    padding:18px 24px!important;\n    overflow:hidden!important;\n    border:1px solid rgba(255,255,255,.12)!important;\n    border-radius:20px!important;\n    background:rgba(255,255,255,.045)!important;\n    box-shadow:0 10px 26px rgba(0,0,0,.06)!important;\n    color:#f7f3f0!important;\n    text-align:left!important;\n    text-decoration:none!important;\n    transition:transform 200ms ease,border-color 200ms ease,box-shadow 200ms ease,background 200ms ease!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card:hover{\n    border-color:rgba(255,255,255,.23)!important;\n    background:rgba(255,255,255,.075)!important;\n    box-shadow:0 16px 35px rgba(0,0,0,.10)!important;\n    transform:translateY(-3px)!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card:not(.has-variants) .dct-service-card-body{\n    display:grid!important;\n    min-height:68px!important;\n    grid-template-columns:minmax(0,1fr) 112px 150px!important;\n    grid-template-rows:1fr!important;\n    align-items:center!important;\n    column-gap:18px!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card:not(.has-variants) .dct-service-card-title{\n    grid-column:1!important;\n    grid-row:1!important;\n    align-self:center!important;\n    margin:0!important;\n    color:#f7f3f0!important;\n    font:500 clamp(24px,1.8vw,30px)/1.04 \"Cormorant Garamond\",Georgia,serif!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card:not(.has-variants).has-description .dct-service-card-body{\n    min-height:84px!important;\n    grid-template-rows:auto auto!important;\n    align-content:center!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card:not(.has-variants).has-description .dct-service-card-title{\n    grid-row:1!important;\n    align-self:end!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card-description{\n    grid-column:1!important;\n    grid-row:2!important;\n    align-self:start!important;\n    max-width:95%!important;\n    margin:7px 0 0!important;\n    color:#b9ada7!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card-description.is-empty{display:none!important}\n  #esmeraldaDesktopServices .dct-service-card-description p{\n    margin:0!important;\n    color:#b9ada7!important;\n    font-size:11.5px!important;\n    line-height:1.48!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card:not(.has-variants) .dct-service-card-meta{\n    display:contents!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card-meta>small{\n    grid-column:2!important;\n    grid-row:1!important;\n    align-self:center!important;\n    justify-self:start!important;\n    display:inline-flex!important;\n    min-height:30px!important;\n    align-items:center!important;\n    padding:0 10px!important;\n    border:1px solid rgba(255,255,255,.10)!important;\n    border-radius:999px!important;\n    background:rgba(255,255,255,.06)!important;\n    color:#c9bdb6!important;\n    font-size:11px!important;\n    font-weight:650!important;\n    white-space:nowrap!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card-meta>small:before{\n    margin-right:6px!important;\n    content:\"◷\"!important;\n    font-size:12px!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card-meta>b{\n    grid-column:3!important;\n    grid-row:1!important;\n    align-self:center!important;\n    justify-self:end!important;\n    width:150px!important;\n    min-width:150px!important;\n    color:#f7f3f0!important;\n    font:600 23px/1 \"Cormorant Garamond\",Georgia,serif!important;\n    text-align:right!important;\n    white-space:nowrap!important;\n  }\n  #esmeraldaDesktopServices .mct-more-services{\n    display:flex!important;\n    grid-column:2!important;\n    width:320px!important;\n    min-height:58px!important;\n    margin:26px auto 0!important;\n    align-items:center!important;\n    justify-content:center!important;\n    gap:9px!important;\n    border:1px solid rgba(255,255,255,.22)!important;\n    border-radius:10px!important;\n    background:rgba(255,255,255,.06)!important;\n    color:#f4eeea!important;\n    font:600 13px/1 \"Manrope\",Arial,sans-serif!important;\n  }\n  #esmeraldaDesktopServices .mct-more-services[hidden]{display:none!important}\n  #esmeraldaDesktopServices .mct-more-services svg{transition:transform .2s ease!important}\n  #esmeraldaDesktopServices .mct-more-services.is-open svg{transform:rotate(180deg)!important}\n  #esmeraldaDesktopServices .mct-more-services-mobile-copy{display:none!important}\n  #esmeraldaDesktopServices .mct-more-services-desktop-copy{display:inline!important}\n\n  /* CURRENT SHABLON-FOR-ONLY-MASTERS: ABOUT STRUCTURE. */\n  #esmeraldaDesktopAbout.mct-about{\n    padding:84px 0 88px!important;\n    background:radial-gradient(circle at 88% 18%,rgba(193,158,145,.13),transparent 31%),linear-gradient(180deg,#f8f3ef 0%,#f4ebe5 100%)!important;\n    color:#171513!important;\n  }\n  #esmeraldaDesktopAbout>.mct-shell{\n    width:min(calc(100% - 96px),1360px)!important;\n    margin:0 auto!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-head{\n    display:flex!important;\n    align-items:end!important;\n    justify-content:space-between!important;\n    gap:24px!important;\n  }\n  #esmeraldaDesktopAbout .mct-section-kicker{\n    margin:0!important;\n    color:#88786e!important;\n    font:600 12px/1 \"Manrope\",Arial,sans-serif!important;\n    letter-spacing:.22em!important;\n    text-transform:uppercase!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-head h2{\n    margin:13px 0 0!important;\n    color:#171513!important;\n    font:500 clamp(54px,4.35vw,68px)/.94 \"Cormorant Garamond\",Georgia,serif!important;\n    letter-spacing:-.035em!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-monogram{\n    color:rgba(113,91,83,.22)!important;\n    font:500 76px/.8 \"Cormorant Garamond\",Georgia,serif!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-card{\n    display:grid!important;\n    grid-template-columns:minmax(360px,.84fr) minmax(500px,1.16fr)!important;\n    height:clamp(600px,43vw,640px)!important;\n    min-height:0!important;\n    margin-top:28px!important;\n    overflow:hidden!important;\n    border:1px solid rgba(85,64,57,.10)!important;\n    border-radius:28px!important;\n    background:rgba(255,253,250,.80)!important;\n    box-shadow:0 18px 48px rgba(67,50,44,.075)!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-portrait-wrap{\n    position:relative!important;\n    height:100%!important;\n    min-height:540px!important;\n    overflow:hidden!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-portrait{\n    width:100%!important;\n    height:100%!important;\n    margin:0!important;\n    overflow:hidden!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-portrait img{\n    display:block!important;\n    width:100%!important;\n    height:100%!important;\n    object-fit:cover!important;\n    object-position:center 20%!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-copy{\n    display:flex!important;\n    flex-direction:column!important;\n    justify-content:center!important;\n    padding:clamp(34px,3.6vw,52px)!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-lead{\n    margin:0 0 12px!important;\n    color:#1d1a18!important;\n    font:500 clamp(30px,2.5vw,38px)/1.15 \"Cormorant Garamond\",Georgia,serif!important;\n    letter-spacing:-.025em!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-copy>p:not(.mct-about-lead){\n    margin:8px 0 0!important;\n    color:#58504a!important;\n    font-size:13.5px!important;\n    line-height:1.62!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-list{display:none!important}\n  #esmeraldaDesktopAbout .dct-about-amenities{\n    display:block!important;\n    margin-top:24px!important;\n    padding-top:20px!important;\n    border-top:1px solid rgba(83,63,55,.11)!important;\n  }\n  #esmeraldaDesktopAbout .dct-about-amenities-head{\n    display:flex!important;\n    align-items:center!important;\n    justify-content:space-between!important;\n    gap:22px!important;\n  }\n  #esmeraldaDesktopAbout .dct-about-amenities-head>span{\n    color:#716a66!important;\n    font-size:10px!important;\n  }\n  #esmeraldaDesktopAbout .dct-about-amenities-grid{\n    display:grid!important;\n    grid-template-columns:repeat(3,minmax(0,1fr))!important;\n    margin-top:16px!important;\n  }\n  #esmeraldaDesktopAbout .dct-about-amenities-grid article{\n    min-width:0!important;\n    padding:3px 15px 0 0!important;\n  }\n  #esmeraldaDesktopAbout .dct-about-amenities-grid article+article{\n    padding-left:15px!important;\n    border-left:1px solid rgba(83,63,55,.10)!important;\n  }\n  #esmeraldaDesktopAbout .dct-about-amenities-grid strong,\n  #esmeraldaDesktopAbout .dct-about-amenities-grid span{display:block!important}\n  #esmeraldaDesktopAbout .dct-about-amenities-grid strong{\n    color:#373331!important;\n    font:600 22px/1.08 \"Cormorant Garamond\",Georgia,serif!important;\n  }\n  #esmeraldaDesktopAbout .dct-about-amenities-grid span{\n    margin-top:5px!important;\n    color:#716a66!important;\n    font-size:9.5px!important;\n    line-height:1.42!important;\n  }\n\n  /* TEAM — remove card containers; keep only circular master icons + copy. */\n  #esmeraldaDesktopTeam .std-team-track{\n    gap:42px!important;\n  }\n  #esmeraldaDesktopTeam .std-master{\n    position:relative!important;\n    display:block!important;\n    width:100%!important;\n    min-width:0!important;\n    padding:0!important;\n    border:0!important;\n    border-radius:0!important;\n    background:transparent!important;\n    box-shadow:none!important;\n    color:#f7f3f0!important;\n    text-align:center!important;\n  }\n  #esmeraldaDesktopTeam .std-master-arrow{display:none!important}\n  #esmeraldaDesktopTeam .std-master-avatar{\n    width:min(100%,188px)!important;\n    height:auto!important;\n    aspect-ratio:1!important;\n    margin:0 auto!important;\n    border-radius:50%!important;\n    background:linear-gradient(145deg,#806b61,#5b4a43)!important;\n    border:1px solid rgba(255,255,255,.08)!important;\n    box-shadow:none!important;\n  }\n  #esmeraldaDesktopTeam .std-master-name{\n    margin-top:17px!important;\n  }\n  #esmeraldaDesktopTeam .std-master-cats{\n    margin-top:9px!important;\n    gap:8px!important;\n  }\n  #esmeraldaDesktopTeam .std-master-cat{\n    min-height:0!important;\n    padding:0!important;\n    border:0!important;\n    border-radius:0!important;\n    background:transparent!important;\n    color:#bdb5b0!important;\n    font-size:10px!important;\n  }\n\n  /* REVIEWS — restore the approved pre-rebuild PC proportions and stable marquee. */\n  #esmeraldaDesktopReviews.std-reviews{\n    position:relative!important;\n    box-sizing:border-box!important;\n    width:100%!important;\n    height:auto!important;\n    min-height:760px!important;\n    overflow:hidden!important;\n    padding:65px 0 52px!important;\n    background:#e9e2da!important;\n    color:#171513!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-head{\n    width:min(calc(100% - 128px),1408px)!important;\n    margin:0 auto!important;\n    text-align:center!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-kicker{\n    margin:0!important;\n    color:#746c66!important;\n    font:500 17px/1 \"Manrope\",Arial,sans-serif!important;\n    letter-spacing:.30em!important;\n    text-transform:uppercase!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-title{\n    margin:22px 0 0!important;\n    color:#151517!important;\n    font:500 76px/.92 \"Cormorant Garamond\",Georgia,serif!important;\n    letter-spacing:-.035em!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-score{margin-top:44px!important;text-align:center!important}\n  #esmeraldaDesktopReviews .std-reviews-score>strong{\n    display:block!important;\n    margin:0!important;\n    color:#151517!important;\n    font:500 88px/.78 \"Cormorant Garamond\",Georgia,serif!important;\n    letter-spacing:-.045em!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-stars{\n    display:block!important;\n    margin-top:21px!important;\n    color:#b78d4f!important;\n    font-size:34px!important;\n    line-height:1!important;\n    letter-spacing:6px!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-count{\n    margin-top:20px!important;\n    color:#716862!important;\n    font:400 18px/1 \"Manrope\",Arial,sans-serif!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-viewport{\n    position:relative!important;\n    box-sizing:border-box!important;\n    width:100%!important;\n    margin-top:35px!important;\n    padding:0 64px 4px!important;\n    overflow:hidden!important;\n    cursor:grab!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-loop{\n    display:flex!important;\n    align-items:stretch!important;\n    gap:16px!important;\n    width:max-content!important;\n    will-change:transform!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-set{\n    display:flex!important;\n    flex:0 0 auto!important;\n    align-items:stretch!important;\n    gap:16px!important;\n  }\n  #esmeraldaDesktopReviews .std-review-card{\n    box-sizing:border-box!important;\n    flex:0 0 459px!important;\n    width:459px!important;\n    height:320px!important;\n    min-width:459px!important;\n    min-height:320px!important;\n    max-width:none!important;\n    padding:31px 30px 28px!important;\n    border:1px solid rgba(66,55,49,.15)!important;\n    border-radius:12px!important;\n    background:rgba(255,255,255,.34)!important;\n    color:#19191b!important;\n    text-decoration:none!important;\n    box-shadow:none!important;\n  }\n  #esmeraldaDesktopReviews .std-review-head{\n    display:grid!important;\n    grid-template-columns:70px minmax(0,1fr)!important;\n    gap:24px!important;\n    align-items:center!important;\n  }\n  #esmeraldaDesktopReviews .std-review-avatar{\n    width:70px!important;\n    height:70px!important;\n    border-radius:50%!important;\n    display:grid!important;\n    place-items:center!important;\n    background:#d7cec6!important;\n    border:1px solid rgba(66,55,49,.10)!important;\n    color:#514943!important;\n    font:500 32px/1 \"Cormorant Garamond\",Georgia,serif!important;\n  }\n  #esmeraldaDesktopReviews .std-review-name{\n    display:block!important;\n    margin:0!important;\n    color:#2a2522!important;\n    font:600 25px/1 \"Cormorant Garamond\",Georgia,serif!important;\n  }\n  #esmeraldaDesktopReviews .std-review-meta{\n    display:block!important;\n    margin-top:7px!important;\n    color:#818087!important;\n    font:500 11px/1 \"Manrope\",Arial,sans-serif!important;\n    letter-spacing:.13em!important;\n    text-transform:uppercase!important;\n  }\n  #esmeraldaDesktopReviews .std-review-stars{\n    display:block!important;\n    margin-top:8px!important;\n    color:#b78d4f!important;\n    font-size:16px!important;\n    line-height:1!important;\n    letter-spacing:1.5px!important;\n  }\n  #esmeraldaDesktopReviews .std-review-text{\n    display:-webkit-box!important;\n    margin:31px 0 0!important;\n    min-height:95px!important;\n    overflow:hidden!important;\n    color:#4f4843!important;\n    font:400 16px/1.52 \"Manrope\",Arial,sans-serif!important;\n    -webkit-box-orient:vertical!important;\n    -webkit-line-clamp:4!important;\n  }\n  #esmeraldaDesktopReviews .std-review-more{\n    display:block!important;\n    margin-top:18px!important;\n    color:#67666c!important;\n    font:400 12px/1 \"Manrope\",Arial,sans-serif!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-actions{\n    display:flex!important;\n    justify-content:center!important;\n    margin-top:27px!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-all{\n    width:458px!important;\n    height:55px!important;\n    border:1px solid rgba(66,55,49,.18)!important;\n    border-radius:7px!important;\n    background:rgba(255,255,255,.18)!important;\n    display:flex!important;\n    align-items:center!important;\n    justify-content:center!important;\n    color:#242327!important;\n    font:500 14px/1 \"Manrope\",Arial,sans-serif!important;\n    letter-spacing:.14em!important;\n    text-transform:uppercase!important;\n  }\n\n  /* CONTACTS — clear desktop adaptation of current mobile contact block. */\n  #esmeraldaDesktopContacts.std-contact{\n    padding:82px 70px 0!important;\n    background:#2f2926!important;\n    color:#f7f3f0!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-inner{\n    display:block!important;\n    width:min(100%,1360px)!important;\n    margin:0 auto!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-head{\n    display:flex!important;\n    align-items:flex-end!important;\n    justify-content:space-between!important;\n    gap:28px!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-kicker{color:#b8ada7!important}\n  #esmeraldaDesktopContacts .std-contact-title{\n    margin:14px 0 0!important;\n    color:#f7f3f0!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-status{\n    position:static!important;\n    display:inline-flex!important;\n    min-height:38px!important;\n    align-items:center!important;\n    gap:7px!important;\n    padding:8px 12px!important;\n    border:1px solid rgba(255,255,255,.16)!important;\n    border-radius:999px!important;\n    background:#493336!important;\n    color:#d59a9f!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-status.open{\n    background:#2e4133!important;\n    border-color:#4d6752!important;\n    color:#a9d5b0!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-body{\n    display:grid!important;\n    grid-template-columns:minmax(420px,.9fr) minmax(0,1.1fr)!important;\n    gap:34px!important;\n    margin-top:34px!important;\n    align-items:stretch!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-list{\n    display:grid!important;\n    gap:10px!important;\n    margin:0!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-card{\n    min-height:76px!important;\n    grid-template-columns:46px minmax(0,1fr)!important;\n    gap:13px!important;\n    padding:13px 15px!important;\n    border:1px solid rgba(255,255,255,.13)!important;\n    border-radius:14px!important;\n    background:rgba(255,255,255,.06)!important;\n    color:#f7f3f0!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-card-icon{\n    width:40px!important;\n    height:40px!important;\n    display:grid!important;\n    place-items:center!important;\n    border-radius:50%!important;\n    background:rgba(255,255,255,.08)!important;\n    color:#f0e8e3!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-card-title{\n    color:#f7f3f0!important;\n    font:500 19px/1.15 \"Cormorant Garamond\",Georgia,serif!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-card-sub{\n    margin-top:5px!important;\n    color:#c7bbb4!important;\n    font-size:10.5px!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-right{\n    display:flex!important;\n    flex-direction:column!important;\n    padding:0!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-map{\n    height:100%!important;\n    min-height:334px!important;\n    border:1px solid rgba(255,255,255,.12)!important;\n    border-radius:18px!important;\n    overflow:hidden!important;\n    background:#423a36!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-actions{\n    display:grid!important;\n    grid-template-columns:1fr 1.15fr!important;\n    gap:10px!important;\n    margin-top:12px!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-action-btn{\n    height:50px!important;\n    border-radius:10px!important;\n    display:flex!important;\n    align-items:center!important;\n    justify-content:center!important;\n    text-decoration:none!important;\n    font:500 12px/1 \"Manrope\",Arial,sans-serif!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-call{\n    border:1px solid rgba(255,255,255,.22)!important;\n    color:#f7f3f0!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-route{\n    background:#f4ede8!important;\n    color:#2b2522!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-bottom{\n    width:calc(100% + 140px)!important;\n    margin:42px -70px 0!important;\n    display:block!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-brand{\n    width:100%!important;\n    min-height:96px!important;\n    padding:12px 24px!important;\n    border:0!important;\n    border-radius:0!important;\n    background:#11100f!important;\n    color:#fff!important;\n    display:flex!important;\n    flex-direction:column!important;\n    align-items:center!important;\n    justify-content:center!important;\n    gap:8px!important;\n    box-shadow:none!important;\n  }\n  #esmeraldaDesktopContacts .br-tanem-mark{\n    width:30px!important;\n    height:30px!important;\n    border:1px solid rgba(255,255,255,.42)!important;\n    border-radius:8px!important;\n    display:grid!important;\n    place-items:center!important;\n    color:#fff!important;\n    font:500 21px/1 \"Cormorant Garamond\",Georgia,serif!important;\n  }\n  #esmeraldaDesktopContacts .br-tanem-copy{\n    display:block!important;\n    color:#cfc8c4!important;\n    font:400 10px/1.2 \"Manrope\",Arial,sans-serif!important;\n    text-align:center!important;\n  }\n  #esmeraldaDesktopContacts .br-tanem-copy strong{\n    display:inline!important;\n    color:#fff!important;\n    font:500 15px/1 \"Cormorant Garamond\",Georgia,serif!important;\n  }\n\n  @media(max-width:1199px){\n    #esmeraldaDesktopServices.mct-prices>.mct-shell{\n      width:min(calc(100% - 56px),1360px)!important;\n      grid-template-columns:minmax(255px,.68fr) minmax(0,1.52fr)!important;\n      column-gap:34px!important;\n    }\n    #esmeraldaDesktopServices .mct-price-head{\n      top:96px!important;\n    }\n    #esmeraldaDesktopServices .mct-price-head h2{font-size:47.3px!important}\n    #esmeraldaDesktopServices .dct-service-card:not(.has-variants) .dct-service-card-body{\n      grid-template-columns:minmax(0,1fr) 98px 132px!important;\n      column-gap:14px!important;\n    }\n    #esmeraldaDesktopServices .dct-service-card-meta>b{\n      width:132px!important;\n      min-width:132px!important;\n    }\n    #esmeraldaDesktopAbout>.mct-shell{\n      width:min(calc(100% - 56px),1360px)!important;\n    }\n    #esmeraldaDesktopAbout .mct-about-card{\n      grid-template-columns:minmax(330px,.84fr) minmax(0,1.16fr)!important;\n    }\n    #esmeraldaDesktopContacts.std-contact{padding-left:42px!important;padding-right:42px!important}\n    #esmeraldaDesktopContacts .std-contact-bottom{\n      width:calc(100% + 84px)!important;\n      margin-left:-42px!important;\n      margin-right:-42px!important;\n    }\n  }\n  @media(max-width:930px){\n    .std-hero-frame{margin-top:18px!important}\n    .std-copy-inner{width:min(100% - 44px,540px)!important;margin-top:90px!important}\n\n    #esmeraldaDesktopServices.mct-prices>.mct-shell{\n      grid-template-columns:1fr!important;\n      row-gap:26px!important;\n    }\n    #esmeraldaDesktopServices .mct-price-head{\n      position:relative!important;\n      top:auto!important;\n      grid-column:1!important;\n      padding:0!important;\n      transform:none!important;\n    }\n    #esmeraldaDesktopServices .mct-price-head:after{display:none!important}\n    #esmeraldaDesktopServices .mct-tabs-ribbon-wrap,\n    #esmeraldaDesktopServices .dct-service-groups,\n    #esmeraldaDesktopServices .mct-more-services{grid-column:1!important}\n    #esmeraldaDesktopServices .dct-service-groups{margin-top:0!important}\n\n    #esmeraldaDesktopAbout .mct-about-card{\n      grid-template-columns:1fr!important;\n      height:auto!important;\n    }\n    #esmeraldaDesktopAbout .mct-about-portrait-wrap{min-height:390px!important}\n    #esmeraldaDesktopAbout .dct-about-amenities-grid{grid-template-columns:1fr!important;gap:12px!important}\n    #esmeraldaDesktopAbout .dct-about-amenities-grid article+article{padding-left:0!important;border-left:0!important}\n\n    #esmeraldaDesktopContacts .std-contact-body{grid-template-columns:1fr!important}\n    #esmeraldaDesktopContacts .std-contact-map{min-height:330px!important}\n  }\n}\n";
+  document.head.appendChild(desktopRebuildCss);
+
+
 
 
 
@@ -1614,7 +1614,8 @@
 
     <section class="std-hero" id="esmeraldaDesktopTop" aria-label="Beauty Room">
       <div class="std-hero-copy">
-        <div class="std-copy-inner">
+        <div class="std-hero-frame">
+          <div class="std-copy-inner">
           <p class="std-hero-kicker">Салон красоты</p>
           <h1 class="std-logo">BEAUTY ROOM</h1>
           <div class="std-logo-sub">by Esmeralda</div>
@@ -1649,8 +1650,9 @@
               <span>Смотреть работы</span>
             </a>
           </div>
+          </div>
+          <a class="std-scroll-hint" href="#esmeraldaDesktopPortfolio" aria-label="Листайте вниз"><span class="std-scroll-label">Листайте вниз</span><span class="std-scroll-circle" aria-hidden="true">↓</span></a>
         </div>
-        <div class="std-scroll-hint" aria-hidden="true">Листайте вниз <span>↓</span></div>
       </div>
 
       <div class="std-hero-photo">
@@ -1674,60 +1676,68 @@
       </div>
     </section>
 
-    <section class="std-services ofm-prices" id="esmeraldaDesktopServices" aria-labelledby="stdServicesTitle">
-      <div class="ofm-services-shell">
-        <div class="ofm-price-head">
-          <p class="ofm-kicker">Услуги и цены</p>
-          <h2 class="ofm-title" id="stdServicesTitle">Выберите услугу</h2>
-          <span class="ofm-intro">Выберите направление и нужную процедуру. Нажмите на услугу, чтобы выбрать удобный способ записи.</span>
+    <section class="mct-prices" id="esmeraldaDesktopServices" aria-labelledby="stdServicesTitle">
+      <div class="mct-shell">
+        <div class="mct-price-head">
+          <p class="mct-section-kicker">Услуги и цены</p>
+          <h2 id="stdServicesTitle">Выберите услугу</h2>
+          <span>Выберите направление и нужную процедуру. Нажмите на услугу, чтобы выбрать удобный способ записи.</span>
         </div>
 
-        <div class="ofm-services-main">
-          <div class="ofm-tabs-ribbon-wrap">
-            <div class="ofm-tabs" role="tablist" aria-label="Категории услуг">
-              <div class="ofm-tabs-track" id="stdServiceTabs"></div>
-            </div>
-          </div>
-
-          <div class="ofm-service-groups" id="stdServiceList"></div>
-
-          <button class="ofm-more-services" id="stdServiceMore" type="button" aria-expanded="false">
-            <span id="stdServiceMoreText"></span>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </div>
-
-        <div class="std-price-legacy" aria-hidden="true">
-          <div class="std-price-wrap">
-            <div class="std-price-card">
-              <img id="stdPriceImage" src="${PRICE_PAGES[0]}" alt="">
-              <span class="std-price-count" id="stdPriceCount"></span>
-              <button id="stdPricePrev" type="button">‹</button>
-              <button id="stdPriceNext" type="button">›</button>
-            </div>
-            <div id="stdPriceDots"></div>
-            <button id="stdPriceOpen" type="button">Открыть</button>
+        <div class="mct-tabs-ribbon-wrap is-many">
+          <div class="mct-tabs mct-tabs-scroll is-many" role="tablist" aria-label="Категории услуг">
+            <div class="mct-tabs-track" id="stdServiceTabs"></div>
           </div>
         </div>
+
+        <div class="dct-service-groups" id="stdServiceList" aria-label="Услуги по категориям на компьютере"></div>
+
+        <button class="mct-more-services" id="stdServiceMore" type="button" aria-expanded="false">
+          <span class="mct-more-services-mobile-copy" id="stdServiceMoreTextMobile"></span>
+          <span class="mct-more-services-desktop-copy" id="stdServiceMoreText"></span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
       </div>
     </section>
 
-    <section class="std-about" id="esmeraldaDesktopAbout" aria-labelledby="stdAboutTitle">
-      <div class="std-about-inner">
-        <p class="std-about-kicker">О нас</p>
-        <h2 class="std-about-title" id="stdAboutTitle">О салоне</h2>
-        <div class="std-about-grid">
-          <div class="std-about-visual">
-            <img src="about-salon.webp" alt="Beauty Room by Esmeralda" loading="lazy">
-            <div class="std-about-rating"><span class="std-about-rating-star" aria-hidden="true">★</span><strong>5,0</strong><span>рейтинг салона</span></div>
+    <section class="mct-about" id="esmeraldaDesktopAbout" aria-labelledby="stdAboutTitle">
+      <div class="mct-shell">
+        <div class="mct-about-head">
+          <div>
+            <p class="mct-section-kicker">О нас</p>
+            <h2 id="stdAboutTitle">О салоне</h2>
           </div>
-          <div class="std-about-copy">
-            <p class="std-about-lead">Beauty Room by Esmeralda — салон красоты в Ереване.</p>
-            <p class="std-about-text">Здесь можно спокойно выбрать нужные процедуры и доверить уход мастерам разных направлений. Мы ценим аккуратную работу, комфорт и внимательное отношение к каждому гостю.</p>
-            <div class="std-about-facts">
-              <div class="std-about-fact"><strong>Несколько направлений в одном салоне</strong></div>
-              <div class="std-about-fact"><strong>Комфортная атмосфера</strong></div>
-              <div class="std-about-fact"><strong>Индивидуальный подход</strong></div>
+          <span class="mct-about-monogram" aria-hidden="true">E</span>
+        </div>
+
+        <div class="mct-about-card">
+          <div class="mct-about-portrait-wrap">
+            <figure class="mct-about-portrait">
+              <img src="about-salon.webp" alt="Beauty Room by Esmeralda" loading="lazy">
+            </figure>
+          </div>
+
+          <div class="mct-about-copy">
+            <p class="mct-about-lead">Beauty Room by Esmeralda — салон красоты в Ереване.</p>
+            <p>Здесь можно спокойно выбрать нужные процедуры и доверить уход мастерам разных направлений.</p>
+            <p>Мы ценим аккуратную работу, комфорт и внимательное отношение к каждому гостю.</p>
+
+            <ul class="mct-about-list">
+              <li>Несколько направлений в одном салоне</li>
+              <li>Комфортная атмосфера</li>
+              <li>Индивидуальный подход</li>
+            </ul>
+
+            <div class="dct-about-amenities">
+              <div class="dct-about-amenities-head">
+                <p class="mct-section-kicker">О салоне</p>
+                <span>Всё необходимое для комфортного визита</span>
+              </div>
+              <div class="dct-about-amenities-grid">
+                <article><strong>Разные направления</strong><span>Маникюр, волосы, брови, косметология и другие услуги.</span></article>
+                <article><strong>Комфорт</strong><span>Спокойная атмосфера и внимательное отношение к каждому гостю.</span></article>
+                <article><strong>Прямая запись</strong><span>Связь с салоном по телефону или Viber без лишних шагов.</span></article>
+              </div>
             </div>
           </div>
         </div>
@@ -1812,70 +1822,62 @@
 
     <section class="std-contact" id="esmeraldaDesktopContacts" aria-labelledby="stdContactTitle">
       <div class="std-contact-inner">
-        <div class="std-contact-status" id="stdContactStatus">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3.2 1.8"></path></svg>
-          <span id="stdContactStatusText">Закрыто до 10:00</span>
+        <div class="std-contact-head">
+          <div>
+            <p class="std-contact-kicker">Контакты</p>
+            <h2 class="std-contact-title" id="stdContactTitle">Ждём вас</h2>
+          </div>
+          <div class="std-contact-status" id="stdContactStatus">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3.2 1.8"></path></svg>
+            <span id="stdContactStatusText">Закрыто до 09:00</span>
+          </div>
         </div>
 
-        <div class="std-contact-left">
-          <p class="std-contact-kicker">Контакты</p>
-          <h2 class="std-contact-title" id="stdContactTitle">Ждём вас</h2>
-
+        <div class="std-contact-body">
           <div class="std-contact-list">
             <a class="std-contact-card" href="${YANDEX_RU}" target="_blank" rel="noopener">
               <span class="std-contact-card-icon">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6.5-5.4 6.5-11a6.5 6.5 0 1 0-13 0c0 5.6 6.5 11 6.5 11Z"></path><circle cx="12" cy="10" r="2.2"></circle></svg>
               </span>
-              <span class="std-contact-card-copy">
-                <strong class="std-contact-card-title">Ереван, Zavarian St 1/5</strong>
-                <span class="std-contact-card-sub">Армения · открыть в Google Maps</span>
-              </span>
+              <span class="std-contact-card-copy"><strong class="std-contact-card-title">Ереван, Zavarian St 1/5</strong><span class="std-contact-card-sub">Армения · открыть в Google Maps</span></span>
             </a>
 
             <a class="std-contact-card" href="tel:${PHONE}">
-              <span class="std-contact-card-icon std-contact-brand-icon phone">
+              <span class="std-contact-card-icon">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h3l1.3 4-2 1.5c1 2 2.6 3.6 4.6 4.6l1.5-2L19 13.5v3c0 1.1-.9 2-2 2C10.4 18.5 5.5 13.6 5.5 7A2 2 0 0 1 7 4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
-              <span class="std-contact-card-copy">
-                <strong class="std-contact-card-title">+374 93 873617</strong>
-                <span class="std-contact-card-sub">Нажмите, чтобы позвонить</span>
-              </span>
+              <span class="std-contact-card-copy"><strong class="std-contact-card-title">+374 93 873617</strong><span class="std-contact-card-sub">Нажмите, чтобы позвонить</span></span>
             </a>
 
             <a class="std-contact-card" href="${WHATSAPP_URL}" target="_blank" rel="noopener">
-              <span class="std-contact-card-icon std-contact-brand-icon viber">
+              <span class="std-contact-card-icon">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5h14v10H9l-4 3v-13Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.5 9.2c.8 2.2 2.1 3.5 4.3 4.3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
               </span>
-              <span class="std-contact-card-copy">
-                <strong class="std-contact-card-title">Viber</strong>
-                <span class="std-contact-card-sub">Написать в салон</span>
-              </span>
+              <span class="std-contact-card-copy"><strong class="std-contact-card-title">Viber</strong><span class="std-contact-card-sub">Написать в салон</span></span>
             </a>
 
             <div class="std-contact-card static">
               <span class="std-contact-card-icon">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3.2 1.8"></path></svg>
               </span>
-              <span class="std-contact-card-copy">
-                <strong class="std-contact-card-title">Ежедневно 09:00–20:00</strong>
-                <span class="std-contact-card-sub">Без выходных</span>
-              </span>
+              <span class="std-contact-card-copy"><strong class="std-contact-card-title">Ежедневно 09:00–20:00</strong><span class="std-contact-card-sub">Без выходных</span></span>
             </div>
           </div>
-        </div>
 
-        <div class="std-contact-right">
-          <div class="std-contact-map">
-            <iframe title="Карта Beauty Room" loading="eager" src="https://www.google.com/maps?q=40.1673067,44.5124793&z=16&output=embed"></iframe>
+          <div class="std-contact-right">
+            <div class="std-contact-map"><iframe title="Карта Beauty Room" loading="eager" src="https://www.google.com/maps?q=40.1673067,44.5124793&z=16&output=embed"></iframe></div>
+            <div class="std-contact-actions">
+              <a class="std-contact-action-btn std-contact-call" href="tel:${PHONE}">Позвонить</a>
+              <a class="std-contact-action-btn std-contact-route" href="${ROUTE}" target="_blank" rel="noopener">Построить маршрут</a>
+            </div>
           </div>
-
         </div>
       </div>
 
       <div class="std-contact-bottom">
         <a class="std-contact-brand" href="https://tanem.ru/" target="_blank" rel="noopener">
-          <strong>TANEM.ru</strong>
-          <span class="std-contact-brand-text">Цифровой офис для салонов красоты</span>
+          <span class="br-tanem-mark">T</span>
+          <span class="br-tanem-copy">Создано в <strong>TANEM.ru</strong></span>
         </a>
       </div>
     </section>
@@ -1913,16 +1915,6 @@
         </div>
         <div class="std-gallery-browser-tabs" id="stdGalleryBrowserTabs"></div>
         <div class="std-gallery-browser-grid" id="stdGalleryBrowserGrid"></div>
-      </div>
-    </div>
-
-    <div class="std-price-viewer" id="stdPriceViewer" role="dialog" aria-modal="true" aria-label="Примеры работ Beauty Room">
-      <button class="std-price-viewer-close" id="stdPriceViewerClose" type="button" aria-label="Закрыть">×</button>
-      <div class="std-price-viewer-stage">
-        <button class="std-price-viewer-nav std-price-viewer-prev" id="stdPriceViewerPrev" type="button" aria-label="Предыдущая страница">‹</button>
-        <img class="std-price-viewer-img" id="stdPriceViewerImage" src="" alt="Примеры работ Beauty Room">
-        <button class="std-price-viewer-nav std-price-viewer-next" id="stdPriceViewerNext" type="button" aria-label="Следующая страница">›</button>
-        <span class="std-price-viewer-count" id="stdPriceViewerCount"></span>
       </div>
     </div>
 
@@ -2014,7 +2006,7 @@
   function closeDesktopViewer(){
     gallery.classList.remove('open');
     resetDesktopViewer();
-    if(!galleryBrowser.classList.contains('open')&&!document.getElementById('stdPriceViewer').classList.contains('open'))document.body.style.overflow='';
+    if(!galleryBrowser.classList.contains('open'))document.body.style.overflow='';
   }
   function moveDesktopGallery(step){
     if(galleryItems.length<2)return;
@@ -2044,7 +2036,7 @@
   }
   function closeDesktopGalleryBrowser(){
     galleryBrowser.classList.remove('open');
-    if(!gallery.classList.contains('open')&&!document.getElementById('stdPriceViewer').classList.contains('open'))document.body.style.overflow='';
+    if(!gallery.classList.contains('open'))document.body.style.overflow='';
   }
 
   document.querySelectorAll('.std-work').forEach(btn=>{
@@ -2141,72 +2133,7 @@
     }
     if(galleryBrowser.classList.contains('open')&&e.key==='Escape')closeDesktopGalleryBrowser();
   });
-  document.addEventListener('keydown',e=>{
-    const pv=document.getElementById('stdPriceViewer');
-    if(!pv||!pv.classList.contains('open'))return;
-    if(e.key==='Escape')closePriceViewer();
-    if(e.key==='ArrowLeft')movePricePage(-1);
-    if(e.key==='ArrowRight')movePricePage(1);
-  });
 
-  let pricePageIndex=0;
-  const priceImage=document.getElementById('stdPriceImage');
-  const priceCount=document.getElementById('stdPriceCount');
-  const priceDots=document.getElementById('stdPriceDots');
-  const priceViewer=document.getElementById('stdPriceViewer');
-  const priceViewerImage=document.getElementById('stdPriceViewerImage');
-  const priceViewerCount=document.getElementById('stdPriceViewerCount');
-  const priceViewerStage=document.querySelector('.std-price-viewer-stage');
-  let priceDragStartX=0;
-  let priceDragging=false;
-
-  function paintPricePages(){
-    priceImage.src=PRICE_PAGES[pricePageIndex];
-    priceImage.alt='Примеры работ Beauty Room, страница '+(pricePageIndex+1);
-    priceCount.textContent=(pricePageIndex+1)+' / '+PRICE_PAGES.length;
-    priceDots.innerHTML=PRICE_PAGES.map((_,i)=>'<button class="std-price-dot'+(i===pricePageIndex?' active':'')+'" type="button" data-price-dot="'+i+'" aria-label="Страница '+(i+1)+'"></button>').join('');
-    priceDots.querySelectorAll('[data-price-dot]').forEach(btn=>btn.onclick=()=>{pricePageIndex=Number(btn.dataset.priceDot);paintPricePages();});
-    if(priceViewer.classList.contains('open')){
-      priceViewerImage.src=PRICE_PAGES[pricePageIndex];
-      priceViewerCount.textContent=(pricePageIndex+1)+' / '+PRICE_PAGES.length;
-    }
-  }
-  function movePricePage(step){
-    pricePageIndex=(pricePageIndex+step+PRICE_PAGES.length)%PRICE_PAGES.length;
-    paintPricePages();
-  }
-  function openPriceViewer(){
-    priceViewerImage.src=PRICE_PAGES[pricePageIndex];
-    priceViewerCount.textContent=(pricePageIndex+1)+' / '+PRICE_PAGES.length;
-    priceViewer.classList.add('open');
-    document.body.style.overflow='hidden';
-  }
-  function closePriceViewer(){
-    priceViewer.classList.remove('open');
-    document.body.style.overflow='';
-  }
-  document.getElementById('stdPricePrev').onclick=()=>movePricePage(-1);
-  document.getElementById('stdPriceNext').onclick=()=>movePricePage(1);
-  document.getElementById('stdPriceOpen').onclick=openPriceViewer;
-  document.getElementById('stdPriceViewerClose').onclick=closePriceViewer;
-  document.getElementById('stdPriceViewerPrev').onclick=()=>movePricePage(-1);
-  document.getElementById('stdPriceViewerNext').onclick=()=>movePricePage(1);
-  priceViewer.addEventListener('click',e=>{if(e.target===priceViewer)closePriceViewer();});
-  priceViewerStage.addEventListener('pointerdown',e=>{
-    if(e.target.closest('.std-price-viewer-nav'))return;
-    priceDragStartX=e.clientX;
-    priceDragging=true;
-    try{priceViewerStage.setPointerCapture(e.pointerId)}catch(_){}
-  });
-  priceViewerStage.addEventListener('pointerup',e=>{
-    if(!priceDragging)return;
-    priceDragging=false;
-    const dx=e.clientX-priceDragStartX;
-    try{priceViewerStage.releasePointerCapture(e.pointerId)}catch(_){}
-    if(Math.abs(dx)>55)movePricePage(dx<0?1:-1);
-  });
-  priceViewerStage.addEventListener('pointercancel',()=>{priceDragging=false});
-  paintPricePages();
 
   const SERVICE_PREVIEW_LIMIT=7;
   let activeServiceCategory='Все';
@@ -2215,6 +2142,7 @@
   const serviceList=document.getElementById('stdServiceList');
   const serviceMore=document.getElementById('stdServiceMore');
   const serviceMoreText=document.getElementById('stdServiceMoreText');
+  const serviceMoreTextMobile=document.getElementById('stdServiceMoreTextMobile');
   const DESKTOP_SERVICE_TABS=['Все',...SERVICE_CATEGORIES];
 
   function desktopServiceWord(n){
@@ -2224,32 +2152,43 @@
     return 'услуг';
   }
 
-  function ofmServiceCard(item,category){
+  function templateServiceCard(item){
     const title=item[0];
     const price=item[1]||'';
-    const detail=item[2]||'';
+    const description=item[2]||item[4]||'';
     const variants=item[3]||[];
-    const note=item[4]||'';
-    const description=detail||note||'';
-    const time='';
-    const action=price||'Записаться →';
+    const hasVariants=variants.length>0;
+    const action=price||'Записаться';
 
-    if(variants.length){
-      const variantText=variants.map(v=>v[0]+(v[1]?' · '+v[1]:'')).join(' · ');
-      return '<button class="ofm-service-card has-description" type="button" data-service-book><span class="ofm-service-card-body"><strong class="ofm-service-card-title">'+title+'</strong><span class="ofm-service-description">'+variantText+'</span>'+(time?'<span class="ofm-service-time">'+time+'</span>':'')+'<b class="ofm-service-action">'+action+'</b></span></button>';
+    if(hasVariants){
+      return '<button class="dct-service-card has-variants'+(description?' has-description':'')+'" type="button" data-service-book>'+
+        '<span class="dct-service-card-body">'+
+          '<strong class="dct-service-card-title">'+title+'</strong>'+
+          '<div class="dct-service-card-description '+(description?'has-copy':'is-empty')+'">'+(description?'<p>'+description+'</p>':'')+'</div>'+
+          '<div class="dct-service-card-variants">'+variants.map(v=>
+            '<div class="dct-service-card-variant"><span>'+v[0]+'</span><span class="dct-service-card-variant-meta">'+(v[1]?'<small>'+v[1]+'</small>':'')+'<b>'+(v[2]||action)+'</b></span></div>'
+          ).join('')+'</div>'+
+        '</span>'+
+      '</button>';
     }
 
-    return '<button class="ofm-service-card'+(description?' has-description':'')+'" type="button" data-service-book><span class="ofm-service-card-body"><strong class="ofm-service-card-title">'+title+'</strong>'+(description?'<span class="ofm-service-description">'+description+'</span>':'')+(time?'<span class="ofm-service-time">'+time+'</span>':'')+'<b class="ofm-service-action">'+action+'</b></span></button>';
+    return '<button class="dct-service-card'+(description?' has-description':'')+'" type="button" data-service-book>'+
+      '<span class="dct-service-card-body">'+
+        '<strong class="dct-service-card-title">'+title+'</strong>'+
+        '<div class="dct-service-card-description '+(description?'has-copy':'is-empty')+'">'+(description?'<p>'+description+'</p>':'')+'</div>'+
+        '<div class="dct-service-card-meta"><b>'+action+'</b></div>'+
+      '</span>'+
+    '</button>';
   }
 
-  function getVisibleServiceGroups(){
+  function currentTemplateServiceState(){
     const groups=activeServiceCategory==='Все'
       ? SERVICE_CATEGORIES.map(cat=>({id:cat,label:cat,services:SERVICE_DATA[cat]||[]}))
-      : [{id:activeServiceCategory,label:activeServiceCategory,services:SERVICE_DATA[activeServiceCategory]||[]}];
+      : SERVICE_CATEGORIES.filter(cat=>cat===activeServiceCategory).map(cat=>({id:cat,label:cat,services:SERVICE_DATA[cat]||[]}));
 
-    const total=groups.reduce((sum,g)=>sum+g.services.length,0);
+    const total=groups.reduce((sum,group)=>sum+group.services.length,0);
     if(desktopServicesExpanded||total<=SERVICE_PREVIEW_LIMIT){
-      return {groups,total,hidden:0};
+      return {groups,total,hidden:Math.max(total-SERVICE_PREVIEW_LIMIT,0)};
     }
 
     let remaining=SERVICE_PREVIEW_LIMIT;
@@ -2257,14 +2196,14 @@
       const services=group.services.slice(0,Math.max(remaining,0));
       remaining-=services.length;
       return {...group,services};
-    }).filter(group=>group.services.length);
+    }).filter(group=>group.services.length>0);
 
     return {groups:visible,total,hidden:Math.max(total-SERVICE_PREVIEW_LIMIT,0)};
   }
 
   function renderDesktopServices(){
     serviceTabs.innerHTML=DESKTOP_SERVICE_TABS.map(cat=>
-      '<button class="ofm-tab'+(cat===activeServiceCategory?' is-active':'')+'" type="button" role="tab" aria-selected="'+(cat===activeServiceCategory?'true':'false')+'" data-service-category="'+cat+'">'+cat+'</button>'
+      '<button class="mct-tab'+(cat==='Все'?' mct-tab-all':'')+(cat===activeServiceCategory?' is-active':'')+'" type="button" role="tab" aria-selected="'+(cat===activeServiceCategory?'true':'false')+'" data-service-category="'+cat+'">'+cat+'</button>'
     ).join('');
 
     serviceTabs.querySelectorAll('[data-service-category]').forEach(btn=>btn.onclick=()=>{
@@ -2273,23 +2212,25 @@
       renderDesktopServices();
     });
 
-    const state=getVisibleServiceGroups();
+    const state=currentTemplateServiceState();
     serviceList.innerHTML=state.groups.map(group=>{
       const heading=activeServiceCategory==='Все'
-        ? '<div class="ofm-service-category-heading"><span>'+group.label+'</span><i aria-hidden="true"></i></div>'
+        ? '<div class="dct-service-category-heading"><span>'+group.label+'</span><i aria-hidden="true"></i></div>'
         : '';
-      return '<section class="ofm-service-category">'+heading+'<div class="ofm-service-category-list">'+group.services.map(item=>ofmServiceCard(item,group.label)).join('')+'</div></section>';
+      return '<section class="dct-service-category">'+heading+'<div class="dct-service-category-list">'+group.services.map(templateServiceCard).join('')+'</div></section>';
     }).join('');
 
     serviceList.querySelectorAll('[data-service-book]').forEach(btn=>btn.onclick=openDesktopBooking);
 
-    const hiddenCount=desktopServicesExpanded?0:state.hidden;
     serviceMore.hidden=state.total<=SERVICE_PREVIEW_LIMIT;
     serviceMore.classList.toggle('is-open',desktopServicesExpanded);
     serviceMore.setAttribute('aria-expanded',desktopServicesExpanded?'true':'false');
-    serviceMoreText.textContent=desktopServicesExpanded
+
+    const copy=desktopServicesExpanded
       ? 'Свернуть услуги'
-      : ('Открыть ещё '+hiddenCount+' '+desktopServiceWord(hiddenCount));
+      : ('Открыть ещё '+state.hidden+' '+desktopServiceWord(state.hidden));
+    serviceMoreText.textContent=copy;
+    serviceMoreTextMobile.textContent=copy;
 
     if(typeof applyDesktopLanguage==='function') requestAnimationFrame(applyDesktopLanguage);
   }
@@ -2479,6 +2420,19 @@
   masterPageBook.addEventListener('click',()=>{closeDesktopMaster();openDesktopBooking()});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&masterOverlay.classList.contains('open'))closeDesktopMaster()});
 
+  const desktopHero=document.getElementById('esmeraldaDesktopTop');
+  const desktopPortfolio=document.getElementById('esmeraldaDesktopPortfolio');
+  let heroWheelAssistLocked=false;
+  if(desktopHero&&desktopPortfolio){
+    desktopHero.addEventListener('wheel',e=>{
+      if(e.deltaY<=18||window.scrollY>12||heroWheelAssistLocked)return;
+      e.preventDefault();
+      heroWheelAssistLocked=true;
+      desktopPortfolio.scrollIntoView({behavior:'smooth',block:'start'});
+      window.setTimeout(()=>{heroWheelAssistLocked=false},760);
+    },{passive:false});
+  }
+
   const DESKTOP_LANG_STORAGE='beautyroom-language';
   const DESKTOP_I18N_ROWS=[
     ['Услуги','Ծառայություններ','Services'],['Наши работы','Մեր աշխատանքները','Our work'],['О нас','Մեր մասին','About us'],
@@ -2507,7 +2461,7 @@
     ['Армения · открыть в Google Maps','Հայաստան · բացել Google Maps-ում','Armenia · open in Google Maps'],
     ['Нажмите, чтобы позвонить','Սեղմեք զանգահարելու համար','Click to call'],['Написать в салон','Գրել սրահին','Message the salon'],
     ['Ежедневно 09:00–20:00','Ամեն օր՝ 09:00–20:00','Daily 09:00–20:00'],['Без выходных','Առանց հանգստյան օրերի','Open every day'],
-    ['Цифровой офис для салонов красоты','Թվային գրասենյակ գեղեցկության սրահների համար','Digital office for beauty salons'],
+    ['Цифровой офис для салонов красоты','Թվային գրասենյակ գեղեցկության սրահների համար','Digital office for beauty salons'],['Создано в','Ստեղծված է','Created in'],['Позвонить','Զանգահարել','Call'],['Построить маршрут','Կառուցել երթուղի','Get directions'],['Всё необходимое для комфортного визита','Ամեն ինչ հարմարավետ այցի համար','Everything for a comfortable visit'],['Разные направления','Տարբեր ուղղություններ','Different services'],['Комфорт','Հարմարավետություն','Comfort'],['Прямая запись','Ուղիղ ամրագրում','Direct booking'],
     ['Запись','Ամրագրում','Booking'],['Как вам удобнее записаться?','Ինչպե՞ս է ձեզ հարմար ամրագրել։','How would you like to book?'],
     ['Выберите удобный способ связи.','Ընտրեք ձեզ հարմար կապի տարբերակը։','Choose the most convenient way to contact us.'],
     ['Телефон','Հեռախոս','Phone'],['Открыть','Բացել','Open'],['Профиль','Պրոֆիլ','Profile'],['О мастере','Մասնագետի մասին','About the specialist'],
@@ -2628,13 +2582,13 @@
   desktopLangObserver.observe(root,{childList:true,subtree:true});
   applyDesktopLanguage();
 
-  const revealSections=[...root.querySelectorAll('.std-portfolio,.std-services,.std-about,.std-team,.std-reviews,.std-contact')];
+  const revealSections=[...root.querySelectorAll('.std-portfolio,.mct-prices,.mct-about,.std-team,.std-reviews,.std-contact')];
   revealSections.forEach(el=>el.classList.add('std-section-reveal'));
   if('IntersectionObserver' in window){
     const revealObserver=new IntersectionObserver(entries=>{
       entries.forEach(entry=>{
         if(entry.isIntersecting){
-          entry.target.classList.add('in-view');
+          entry.target.classList.add('in-view','is-visible');
           revealObserver.unobserve(entry.target);
         }
       });
