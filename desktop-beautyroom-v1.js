@@ -1598,6 +1598,7 @@
         <a href="#esmeraldaDesktopContacts">Контакты</a>
       </nav>
       <div class="std-header-right">
+        <div class="std-lang-switch" role="group" aria-label="Language"><button type="button" data-desktop-lang="hy">HY</button><span class="sep">/</span><button type="button" data-desktop-lang="ru">RU</button><span class="sep">/</span><button type="button" data-desktop-lang="en">EN</button></div>
         <a class="std-phone" href="tel:${PHONE}" aria-label="Позвонить в Beauty Room">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.83 16.57a1 1 0 0 0 1.21-.3l.36-.47A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.47.35a1 1 0 0 0-.29 1.23 14 14 0 0 0 6.39 6.39Z" fill="currentColor"/></svg>
           <span>+374 93 873617</span>
@@ -1613,7 +1614,7 @@
           <h1 class="std-logo">BEAUTY ROOM</h1>
           <div class="std-logo-sub">by Esmeralda</div>
 
-          <p class="std-tagline">Салон красоты в самом сердце<br>Еревана.</p>
+          <p class="std-tagline">Салон красоты в самом сердце Еревана.</p>
 
           <div class="std-meta">
             <div class="std-meta-item">
@@ -1649,7 +1650,7 @@
 
       <div class="std-hero-photo">
         <video id="stdHeroVideo" muted autoplay loop playsinline webkit-playsinline preload="metadata" poster="interior_reception_02.webp" aria-label="Видео Beauty Room by Esmeralda">
-          <source src="hero-video-optimized.mp4" type="video/mp4">
+          <source src="SaveClip.App_AQMAwV91MkTpBiNct73I425uzlW_h6abP65-n07hUj4AwohUq5WlrKaE3TMQPtiaQvi2o_TdNi1Of7laSvuKsDXA3ykliQBk9mqD10k.mp4" type="video/mp4">
         </video>
       </div>
     </section>
@@ -1664,7 +1665,7 @@
         <div class="std-portfolio-grid">
           ${PORTFOLIO.map((item,i)=>`<button class="std-work" type="button" data-portfolio-index="${i}" aria-label="Открыть фотографию"><img src="${item.src}" alt="${item.alt}" loading="${i<4?'eager':'lazy'}"></button>`).join('')}
         </div>
-        <button class="std-portfolio-more" id="stdOpenGallery" type="button">Открыть галерею <span aria-hidden="true">→</span></button>
+        <button class="std-portfolio-more" id="stdOpenGallery" type="button">Смотреть все работы <span aria-hidden="true">→</span></button>
       </div>
     </section>
 
@@ -1703,19 +1704,20 @@
     <section class="std-about" id="esmeraldaDesktopAbout" aria-labelledby="stdAboutTitle">
       <div class="std-about-inner">
         <p class="std-about-kicker">О нас</p>
+        <h2 class="std-about-title" id="stdAboutTitle">О салоне</h2>
         <div class="std-about-grid">
-          <div class="std-about-copy">
-            <h2 class="std-about-lead" id="stdAboutTitle">Beauty Room —<br>всё для красоты<br>в одном месте.</h2>
-            <p class="std-about-text">Маникюр, волосы, брови, ресницы, косметология и другие направления собраны в одном салоне в Ереване. Можно спокойно выбрать нужную процедуру и записаться напрямую.</p>
-            <div class="std-about-facts">
-              <div class="std-about-fact"><strong>Несколько направлений</strong><span>в одном салоне</span></div>
-              <div class="std-about-fact"><strong>Комфортная атмосфера</strong><span>без лишней суеты</span></div>
-              <div class="std-about-fact"><strong>Прямая запись</strong><span>телефон или Viber</span></div>
-            </div>
-          </div>
           <div class="std-about-visual">
             <img src="about-salon.webp" alt="Beauty Room by Esmeralda" loading="lazy">
             <div class="std-about-rating"><span class="std-about-rating-star" aria-hidden="true">★</span><strong>5,0</strong><span>рейтинг салона</span></div>
+          </div>
+          <div class="std-about-copy">
+            <p class="std-about-lead">Beauty Room by Esmeralda — салон красоты в Ереване.</p>
+            <p class="std-about-text">Здесь можно спокойно выбрать нужные процедуры и доверить уход мастерам разных направлений. Мы ценим аккуратную работу, комфорт и внимательное отношение к каждому гостю.</p>
+            <div class="std-about-facts">
+              <div class="std-about-fact"><strong>Несколько направлений в одном салоне</strong></div>
+              <div class="std-about-fact"><strong>Комфортная атмосфера</strong></div>
+              <div class="std-about-fact"><strong>Индивидуальный подход</strong></div>
+            </div>
           </div>
         </div>
       </div>
@@ -1737,6 +1739,7 @@
               <div class="std-master-avatar">${TEAM_AVATAR}</div>
               <strong class="std-master-name">${master.name}</strong>
               <span class="std-master-role">${master.role}</span>
+              <span class="std-master-cats">${master.cats.map(cat=>'<span class="std-master-cat">'+cat+'</span>').join('')}</span>
             </button>
           `).join('')}
         </div>
@@ -1860,8 +1863,8 @@
 
       <div class="std-contact-bottom">
         <a class="std-contact-brand" href="https://tanem.ru/" target="_blank" rel="noopener">
-          <span class="std-contact-brand-mark">T</span>
-          <span class="std-contact-brand-text">Создано в TANEM.ru</span>
+          <strong>TANEM.ru</strong>
+          <span class="std-contact-brand-text">Цифровой офис для салонов красоты</span>
         </a>
       </div>
     </section>
@@ -1915,10 +1918,12 @@
     <div class="std-gallery" id="stdGallery" role="dialog" aria-modal="true" aria-label="Галерея Beauty Room">
       <button class="std-gallery-close" id="stdGalleryClose" type="button" aria-label="Закрыть">×</button>
       <div class="std-gallery-stage">
+        <div class="std-gallery-hint">Колесо или двойной клик — увеличить</div>
+        <div class="std-gallery-canvas"><img class="std-gallery-image" id="stdGalleryImage" src="" alt="Фотография Beauty Room"></div>
         <button class="std-gallery-nav std-gallery-prev" id="stdGalleryPrev" type="button" aria-label="Предыдущее фото">‹</button>
-        <img class="std-gallery-image" id="stdGalleryImage" src="" alt="Фотография Beauty Room">
         <button class="std-gallery-nav std-gallery-next" id="stdGalleryNext" type="button" aria-label="Следующее фото">›</button>
         <span class="std-gallery-count" id="stdGalleryCount"></span>
+        <button class="std-view-gallery" id="stdViewGallery" type="button">Открыть галерею</button>
       </div>
     </div>
   `;
