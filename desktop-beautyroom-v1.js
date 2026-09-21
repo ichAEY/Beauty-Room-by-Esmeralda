@@ -1631,7 +1631,7 @@
 
   const desktopCopyDownOnlyCss=document.createElement('style');
   desktopCopyDownOnlyCss.id='esmeralda-desktop-copy-down-only-v13';
-  desktopCopyDownOnlyCss.textContent="\n@media(min-width:768px){\n  /* Position only: move the existing left mini-block lower as one intact unit.\n     Header is outside .std-hero, so center within the hero's remaining vertical area. */\n  #esmeraldaDesktopTop .std-copy-inner{\n    top:50%!important;\n    bottom:auto!important;\n    height:auto!important;\n    padding-top:0!important;\n    padding-bottom:0!important;\n    transform:translateY(-50%)!important;\n  }\n}\n";
+  desktopCopyDownOnlyCss.textContent="\n@media(min-width:768px){\n  /* Position only: move the existing left mini-block lower as one intact unit.\n     Header is outside .std-hero, so center within the hero's remaining vertical area. */\n  #esmeraldaDesktopTop .std-copy-inner{\n    top:50%!important;\n    bottom:auto!important;\n    height:auto!important;\n    padding-top:0!important;\n    padding-bottom:0!important;\n    transform:translateY(calc(-50% + 36px))!important;\n  }\n}\n";
   document.head.appendChild(desktopCopyDownOnlyCss);
 
   const root=document.createElement('div');
