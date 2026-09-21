@@ -1614,6 +1614,11 @@
   luxuryHeroOpticalLeftCss.textContent="\n@media(min-width:768px){\n  /* Left composition is centered between viewport-left and the REAL video-left edge.\n     Video starts at 46.5vw; its content block is shifted optically left to match that midpoint. */\n  .std-copy-inner{\n    left:0!important;\n    width:46.5vw!important;\n    padding-left:0!important;\n    padding-right:0!important;\n    transform:translateX(-34px)!important;\n  }\n  .std-copy-inner > *{\n    margin-left:auto!important;\n    margin-right:auto!important;\n  }\n  .std-hero-kicker,.std-logo,.std-logo-sub,.std-tagline{\n    text-align:center!important;\n  }\n  .std-meta{width:min(100%,540px)!important}\n  .std-actions{width:min(100%,540px)!important}\n}\n@media(min-width:768px) and (max-width:1180px){\n  .std-copy-inner{\n    width:48vw!important;\n    transform:translateX(-24px)!important;\n  }\n}\n";
   document.head.appendChild(luxuryHeroOpticalLeftCss);
 
+  const luxuryHeroButtonsCss=document.createElement('style');
+  luxuryHeroButtonsCss.id='esmeralda-desktop-luxury-hero-v6';
+  luxuryHeroButtonsCss.textContent="\n@media(min-width:768px){\n  .std-actions{\n    display:grid!important;\n    grid-template-columns:1fr!important;\n    width:min(100%,540px)!important;\n    gap:11px!important;\n  }\n  .std-actions .std-btn{\n    width:100%!important;\n    height:62px!important;\n    min-width:0!important;\n    padding:0 28px!important;\n    font-size:16px!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  .std-actions{grid-template-columns:1fr!important;width:min(100%,500px)!important}\n  .std-actions .std-btn{height:58px!important;font-size:15px!important}\n}\n";
+  document.head.appendChild(luxuryHeroButtonsCss);
+
 
 
 
