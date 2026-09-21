@@ -1677,6 +1677,10 @@
   desktopLangIconCss.id='esmeralda-desktop-lang-icon-v34';
   desktopLangIconCss.textContent="@media(min-width:768px){\n  .std-lang-switch-under-brand:before{\n    content:\"🌐\"!important;\n    display:inline-flex!important;\n    align-items:center!important;\n    justify-content:center!important;\n    width:20px!important;\n    height:28px!important;\n    margin-right:5px!important;\n    font-size:16px!important;\n    line-height:1!important;\n    filter:grayscale(1)!important;\n  }\n}";
   document.head.appendChild(desktopLangIconCss);
+  const desktopLangCardCss=document.createElement('style');
+  desktopLangCardCss.id='esmeralda-desktop-lang-card-v36';
+  desktopLangCardCss.textContent="\n@media(min-width:768px){\n  .std-lang-switch-under-brand{\n    box-sizing:border-box!important;\n    padding:4px 10px 4px 8px!important;\n    height:38px!important;\n    border:1px solid rgba(72,68,65,.16)!important;\n    border-radius:13px!important;\n    background:rgba(105,105,105,.13)!important;\n    box-shadow:0 6px 18px rgba(55,48,44,.07),inset 0 1px 0 rgba(255,255,255,.38)!important;\n    backdrop-filter:blur(9px)!important;\n    -webkit-backdrop-filter:blur(9px)!important;\n  }\n  .std-lang-switch-under-brand:before{\n    margin-right:6px!important;\n  }\n}\n";
+  document.head.appendChild(desktopLangCardCss);
 
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
