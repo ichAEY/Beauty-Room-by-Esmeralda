@@ -2690,6 +2690,268 @@
     font-size:26px!important;
   }
 
+  /* Final projection pass: stable service rail, sticky card, team/master and contacts. */
+  #esmeraldaDesktopServices.mct-prices>.mct-shell{
+    align-items:start!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head{
+    position:sticky!important;
+    top:92px!important;
+    align-self:start!important;
+    transform:none!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card>strong,
+  #esmeraldaDesktopServices .dct-services-main-title{
+    margin:0!important;
+    padding:0!important;
+    font:500 46px/.94 "Cormorant Garamond",Georgia,serif!important;
+  }
+  #esmeraldaDesktopServices .dct-services-main-title{
+    min-height:44px!important;
+    display:flex!important;
+    align-items:flex-start!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{
+    width:calc(100% + 1.7cm)!important;
+    margin-left:-.7cm!important;
+    margin-top:32px!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs{
+    padding-left:.7cm!important;
+    padding-right:1cm!important;
+  }
+  #esmeraldaDesktopServices .mct-tab.is-active,
+  #esmeraldaDesktopServices .mct-tab-all.is-active{
+    border-color:#d8b7aa!important;
+    background:#d8b7aa!important;
+    color:#2f2926!important;
+    box-shadow:0 13px 30px rgba(216,183,170,.24)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-groups{
+    margin-top:0!important;
+  }
+  #esmeraldaDesktopServices .dct-service-category,
+  #esmeraldaDesktopServices .dct-service-category-list{
+    width:100%!important;
+    min-width:0!important;
+  }
+  #esmeraldaDesktopServices .dct-service-card,
+  #esmeraldaDesktopServices .dct-service-card-body{
+    box-sizing:border-box!important;
+    max-width:100%!important;
+    min-width:0!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-book{
+    isolation:isolate!important;
+    animation:brHeroLikePulse 3.4s ease-in-out infinite!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-book:after{
+    z-index:0!important;
+    width:36%!important;
+    left:-48%!important;
+    opacity:0!important;
+    animation:brHeroLikeShine 3.4s cubic-bezier(.2,.7,.25,1) infinite!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-book>span{
+    position:relative!important;
+    z-index:1!important;
+  }
+  @keyframes brHeroLikePulse{
+    0%,100%{filter:brightness(1);transform:translateY(0);box-shadow:0 12px 28px rgba(147,102,80,.22)}
+    50%{filter:brightness(1.09);transform:translateY(-1px);box-shadow:0 17px 38px rgba(185,137,113,.38)}
+  }
+  @keyframes brHeroLikeShine{
+    0%,48%{left:-48%;opacity:0}
+    54%{opacity:.9}
+    72%{left:118%;opacity:0}
+    100%{left:118%;opacity:0}
+  }
+
+  #esmeraldaDesktopAbout>.br-about-team-headings,
+  #esmeraldaDesktopAbout>.br-about-team-shell{
+    width:min(calc(100% - 56px),1500px)!important;
+    gap:78px!important;
+  }
+  #esmeraldaDesktopAbout .br-about-column,
+  #esmeraldaDesktopTeam.br-team-panel{
+    min-height:0!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-card{
+    display:flex!important;
+    flex-direction:column!important;
+    height:100%!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-portrait-wrap{
+    height:390px!important;
+    min-height:390px!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-portrait,
+  #esmeraldaDesktopAbout .mct-about-portrait img{
+    width:100%!important;
+    height:100%!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-portrait img{object-fit:cover!important}
+  #esmeraldaDesktopTeam .std-team-kicker{
+    display:block!important;
+    margin:0 0 10px!important;
+    text-align:center!important;
+    color:#bcb2ad!important;
+    font:600 11px/1 "Manrope",Arial,sans-serif!important;
+    letter-spacing:.25em!important;
+    text-transform:uppercase!important;
+  }
+  #esmeraldaDesktopTeam .std-team-track{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:28px 34px!important;
+    align-content:center!important;
+  }
+  #esmeraldaDesktopTeam .std-master{
+    min-height:0!important;
+    padding:4px 0 12px!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+  }
+  #esmeraldaDesktopTeam .std-master:hover{
+    background:transparent!important;
+    transform:translateY(-3px)!important;
+  }
+  #esmeraldaDesktopTeam .std-master-avatar{
+    width:190px!important;
+    height:190px!important;
+    max-width:100%!important;
+  }
+  #esmeraldaDesktopTeam .std-master-avatar svg{
+    width:72px!important;
+    height:72px!important;
+  }
+  #esmeraldaDesktopTeam .std-master-name{font-size:28px!important}
+  #esmeraldaDesktopTeam .std-master-role{font-size:13px!important}
+  #esmeraldaDesktopTeam .std-master-cat{
+    font-size:10px!important;
+    padding:7px 10px!important;
+  }
+
+  #stdMasterOverlay .std-master-page-panel{
+    width:min(calc(100% - 72px),1320px)!important;
+    padding:30px 54px 132px!important;
+  }
+  #stdMasterOverlay .std-master-page-top{
+    grid-template-columns:58px 1fr 58px!important;
+  }
+  #stdMasterOverlay .std-master-page-top span{
+    font-size:17px!important;
+    letter-spacing:.3em!important;
+  }
+  #stdMasterOverlay .std-master-page-close{
+    width:54px!important;
+    height:54px!important;
+    font-size:31px!important;
+  }
+  #stdMasterOverlay .std-master-profile{
+    margin-top:34px!important;
+  }
+  #stdMasterOverlay .std-master-profile .std-master-avatar{
+    width:190px!important;
+    height:190px!important;
+  }
+  #stdMasterOverlay .std-master-profile .std-master-avatar svg{
+    width:86px!important;
+    height:86px!important;
+  }
+  #stdMasterOverlay .std-master-profile h2{
+    margin-top:22px!important;
+    font-size:66px!important;
+  }
+  #stdMasterOverlay .std-master-profile p{
+    font-size:17px!important;
+  }
+  #stdMasterOverlay .std-master-profile-rating{
+    font-size:15px!important;
+  }
+  #stdMasterOverlay .std-master-page-grid{
+    gap:42px!important;
+    margin-top:46px!important;
+  }
+  #stdMasterOverlay .std-master-page-block{
+    padding:34px!important;
+    border-radius:24px!important;
+  }
+  #stdMasterOverlay .std-master-page-block h3{
+    margin-bottom:21px!important;
+    font-size:39px!important;
+  }
+  #stdMasterOverlay .std-master-page-service{
+    padding:18px 0!important;
+  }
+  #stdMasterOverlay .std-master-page-service strong{font-size:16px!important}
+  #stdMasterOverlay .std-master-page-service span,
+  #stdMasterOverlay .std-master-page-empty{font-size:14px!important}
+  #stdMasterOverlay .std-master-page-book{
+    min-width:300px!important;
+    height:66px!important;
+    font-size:15px!important;
+  }
+
+  #esmeraldaDesktopContacts.std-contact{
+    padding-top:54px!important;
+    padding-bottom:0!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-inner{
+    padding-bottom:48px!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-card{
+    min-height:106px!important;
+    padding:0 25px!important;
+    transition:transform .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease!important;
+  }
+  #esmeraldaDesktopContacts a.std-contact-card:hover{
+    transform:translateY(-4px)!important;
+    border-color:rgba(216,183,170,.42)!important;
+    background:rgba(255,255,255,.085)!important;
+    box-shadow:0 16px 34px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.06)!important;
+  }
+  #esmeraldaDesktopContacts a.std-contact-card:hover .std-contact-card-icon{
+    transform:scale(1.08)!important;
+    color:#e0bfae!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-card-icon{
+    transition:transform .22s ease,color .22s ease!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-card-title{
+    font-size:29px!important;
+  }
+  #esmeraldaDesktopContacts a[href^="tel:"] .std-contact-card-title{
+    font:500 20px/1.15 "Manrope",Arial,sans-serif!important;
+    letter-spacing:.01em!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-card-sub{
+    margin-top:8px!important;
+    font-size:15px!important;
+    line-height:1.28!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-bottom{
+    min-height:150px!important;
+    margin:0 -84px!important;
+    overflow:visible!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-brand{
+    min-height:150px!important;
+    overflow:visible!important;
+  }
+  #esmeraldaDesktopContacts .br-tanem-mark{
+    width:38px!important;
+    height:38px!important;
+    flex:0 0 38px!important;
+    font-size:25px!important;
+  }
+  #esmeraldaDesktopContacts .br-tanem-copy{
+    font-size:12px!important;
+    line-height:1.3!important;
+  }
+  #esmeraldaDesktopContacts .br-tanem-copy strong{font-size:18px!important}
+
   /* TANEM footer fills the whole strip from its top divider to the page bottom. */
   #esmeraldaDesktopContacts .std-contact-bottom{
     min-height:118px!important;
@@ -2915,6 +3177,7 @@
         </article>
 
         <aside class="br-team-panel" id="esmeraldaDesktopTeam" aria-labelledby="stdTeamTitle">
+          <p class="std-team-kicker">Мастера Beauty Room</p>
           <p class="std-team-subtitle">Нажмите на мастера, чтобы открыть страницу специалиста.</p>
           <div class="std-team-track" id="stdTeamTrack">
             ${TEAM_MASTERS.map(master=>`
