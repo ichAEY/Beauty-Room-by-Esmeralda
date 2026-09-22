@@ -6732,6 +6732,91 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
 }
 `);
 
+  appendDesktopStyle('esmeralda-desktop-final-v63',String.raw`
+@media(min-width:1024px){
+  /* Final requested readability and depth pass. */
+  #esmeraldaDesktopServices .dct-service-sticky-lead{
+    font-size:13.5px!important;line-height:1.58!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-steps li span{
+    font-size:13px!important;line-height:1.42!important;font-weight:550!important;
+  }
+
+  /* Booking radar sits close to the label and visibly pulses. */
+  #esmeraldaDesktopServices .dct-service-card-meta>b,
+  #esmeraldaDesktopServices .dct-service-card-variant-meta>b{
+    justify-content:center!important;
+    padding:0 15px 0 28px!important;
+  }
+  #esmeraldaDesktopServices .dct-service-card-meta>b:before,
+  #esmeraldaDesktopServices .dct-service-card-variant-meta>b:before{
+    left:13px!important;width:7px!important;height:7px!important;
+    animation:brServiceRadarFinal 1.25s ease-out infinite!important;
+  }
+  @keyframes brServiceRadarFinal{
+    0%{opacity:1;box-shadow:0 0 0 0 rgba(23,21,19,.38)}
+    55%{opacity:.48}
+    78%{opacity:1;box-shadow:0 0 0 6px rgba(23,21,19,0)}
+    100%{opacity:1;box-shadow:0 0 0 0 rgba(23,21,19,0)}
+  }
+
+  /* Left mask mirrors the right one and lives before "Все", not on top of it. */
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{overflow:visible!important}
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap:before{
+    content:""!important;display:block!important;
+    left:-28px!important;width:28px!important;top:0!important;height:58px!important;
+    z-index:20!important;pointer-events:none!important;
+    background:linear-gradient(90deg,#242424 0%,rgba(36,36,36,.96) 22%,rgba(36,36,36,.62) 58%,transparent 100%)!important;
+  }
+
+  /* Route row behaves like the original row but is clickable. */
+  #esmeraldaDesktopServices .dct-service-sticky-route{
+    text-decoration:none!important;cursor:pointer!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-route:hover{
+    transform:translateY(-1px)!important;
+  }
+
+  /* About image returns to framed crop; facts remain the final visible edge of the card. */
+  #esmeraldaDesktopAbout .br-about-column,
+  #esmeraldaDesktopTeam.br-team-panel{
+    box-shadow:
+      0 30px 70px rgba(61,43,35,.16),
+      0 7px 20px rgba(61,43,35,.10),
+      inset 0 1px 0 rgba(255,255,255,.72)!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-card{overflow:hidden!important}
+  #esmeraldaDesktopAbout .mct-about-portrait-wrap{
+    height:385px!important;min-height:385px!important;overflow:hidden!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-portrait img{
+    width:100%!important;height:100%!important;
+    object-fit:cover!important;object-position:center 44%!important;
+    transform:none!important;
+  }
+  #esmeraldaDesktopAbout .br-about-column:hover .mct-about-portrait img{transform:none!important}
+  #esmeraldaDesktopAbout .mct-about-copy{
+    display:flex!important;flex-direction:column!important;padding:24px 4px 0!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-amenities{
+    margin-top:24px!important;margin-bottom:0!important;padding-top:20px!important;padding-bottom:0!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-amenities-grid{
+    margin-bottom:0!important;padding-bottom:0!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-amenities-grid article{
+    min-height:102px!important;
+    box-shadow:0 12px 28px rgba(71,49,40,.085),inset 0 1px 0 rgba(255,255,255,.78)!important;
+  }
+
+  /* Slightly larger TANEM footer copy, badge size unchanged. */
+  #esmeraldaDesktopContacts .br-tanem-copy{
+    font-size:11.5px!important;line-height:1.25!important;
+  }
+  #esmeraldaDesktopContacts .br-tanem-copy strong{font-size:16px!important}
+}
+`);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
@@ -6838,7 +6923,7 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
                   <small id="stdStickyServiceStatusSub">до 09:00</small>
                 </span>
               </div>
-              <div class="dct-service-sticky-row">
+              <a class="dct-service-sticky-row dct-service-sticky-route" href="${ROUTE}" target="_blank" rel="noopener" aria-label="Построить маршрут в Google Maps">
                 <span class="dct-service-sticky-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24"><path d="M19 10c0 5.2-7 10-7 10s-7-4.8-7-10a7 7 0 1 1 14 0Z"></path><circle cx="12" cy="10" r="2.2"></circle></svg>
                 </span>
@@ -6846,7 +6931,7 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
                   <b>Ереван</b>
                   <small>Zavarian St 1/5</small>
                 </span>
-              </div>
+              </a>
             </div>
             <div class="dct-service-sticky-steps" aria-label="Как записаться">
               <span class="dct-service-sticky-steps-title">Быстрая запись</span>
@@ -6857,7 +6942,7 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
               </ol>
             </div>
             <button class="dct-service-sticky-book" id="stdStickyServiceBook" type="button"><span>Записаться</span><span aria-hidden="true">→</span></button>
-            <a class="dct-service-sticky-work" href="#esmeraldaDesktopPortfolio"><span>Открыть галерею</span><span aria-hidden="true">✦</span></a>
+            <button class="dct-service-sticky-work" id="stdStickyGalleryOpen" type="button"><span>Открыть галерею</span><span aria-hidden="true">✦</span></button>
           </div>
         </div>
 
@@ -7226,6 +7311,7 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
     btn.addEventListener('click',()=>openDesktopViewer(PORTFOLIO,Number(btn.dataset.portfolioIndex)||0,'portfolio'));
   });
   document.getElementById('stdOpenGallery').addEventListener('click',()=>openDesktopGalleryBrowser('Ногти'));
+  document.getElementById('stdStickyGalleryOpen')?.addEventListener('click',()=>openDesktopGalleryBrowser('Ногти'));
   if(heroVideo)heroVideo.addEventListener('click',()=>openDesktopGalleryBrowser('Ногти'));
   document.getElementById('stdGalleryBrowserBack').addEventListener('click',closeDesktopGalleryBrowser);
   document.getElementById('stdGalleryClose').addEventListener('click',closeDesktopViewer);
