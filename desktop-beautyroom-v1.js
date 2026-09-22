@@ -1,7 +1,8 @@
 /* Esmeralda desktop — STLuxe reference build. Mobile bundle is intentionally untouched. */
 (function(){
   'use strict';
-  if(!window.matchMedia || !window.matchMedia('(min-width:768px)').matches) return;
+  const desktopDevice=window.__BR_DESKTOP_DEVICE__===true || (!('__BR_DESKTOP_DEVICE__' in window) && !!window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches);
+  if(!desktopDevice) return;
 
   const PHONE='+37493873617';
   const ADDRESS='Ереван, Zavarian St 1/5';
@@ -2342,6 +2343,17 @@
 }
 `;
   document.head.appendChild(desktopStabilityCss);
+
+  /* Consolidate iterative desktop CSS layers into one stylesheet.
+     This preserves cascade order while avoiding dozens of live style sheets. */
+  const desktopStyleNodes=[...document.head.querySelectorAll('style[id^="esmeralda-desktop-"]')];
+  if(desktopStyleNodes.length>1){
+    const mergedDesktopCss=document.createElement('style');
+    mergedDesktopCss.id='esmeralda-desktop-bundle-v46';
+    mergedDesktopCss.textContent=desktopStyleNodes.map(node=>node.textContent||'').join('\n');
+    desktopStyleNodes.forEach(node=>node.remove());
+    document.head.appendChild(mergedDesktopCss);
+  }
 
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
