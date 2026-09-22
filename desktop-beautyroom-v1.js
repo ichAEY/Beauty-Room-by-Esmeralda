@@ -3006,6 +3006,156 @@
 `;
   document.head.appendChild(clientFinalCss);
 
+  /* Correct the grid row introduced by the separate right-hand title.
+     The sticky left rail spans every right-hand row, including expanded services. */
+  const geometryFix=document.createElement('style');
+  geometryFix.id='esmeralda-desktop-geometry-fix-v48';
+  geometryFix.textContent=`
+@media(min-width:1200px){
+  #esmeraldaDesktopServices.mct-prices>.mct-shell{
+    display:grid!important;
+    width:calc(100% - 2cm)!important;
+    max-width:none!important;
+    margin:0 1cm!important;
+    grid-template-columns:minmax(400px,470px) minmax(0,1fr)!important;
+    grid-template-rows:auto auto auto auto!important;
+    column-gap:2cm!important;
+    row-gap:0!important;
+    align-items:start!important;
+    overflow:visible!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head{
+    position:sticky!important;
+    top:92px!important;
+    grid-column:1!important;
+    grid-row:1 / -1!important;
+    align-self:start!important;
+    width:100%!important;
+    padding:0!important;
+    margin:0!important;
+    transform:none!important;
+    display:block!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card{
+    box-sizing:border-box!important;
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:0 30px 28px!important;
+    overflow:hidden!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card>strong{
+    display:block!important;
+    margin:0!important;
+    padding:0!important;
+    font:500 46px/.94 "Cormorant Garamond",Georgia,serif!important;
+  }
+  #esmeraldaDesktopServices .dct-services-main-title{
+    grid-column:2!important;
+    grid-row:1!important;
+    align-self:start!important;
+    min-height:44px!important;
+    margin:0!important;
+    padding:0!important;
+    font:500 46px/.94 "Cormorant Garamond",Georgia,serif!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{
+    grid-column:2!important;
+    grid-row:2!important;
+    margin:34px 0 0 -.7cm!important;
+    width:calc(100% + 1.7cm)!important;
+    padding:0 0 22px!important;
+    overflow:visible!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs{
+    box-sizing:border-box!important;
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:5px 1cm 15px .7cm!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    mask-image:none!important;
+    -webkit-mask-image:none!important;
+    clip-path:none!important;
+  }
+  #esmeraldaDesktopServices .dct-service-groups{
+    grid-column:2!important;
+    grid-row:3!important;
+    width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+  }
+  #esmeraldaDesktopServices .mct-more-services{
+    grid-column:2!important;
+    grid-row:4!important;
+    align-self:start!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head:after{
+    right:-1cm!important;
+    top:0!important;
+  }
+}
+@media(min-width:768px) and (max-width:1199px){
+  #esmeraldaDesktopServices.mct-prices>.mct-shell{
+    grid-template-columns:minmax(300px,39%) minmax(0,1fr)!important;
+    width:calc(100% - 56px)!important;
+    margin:0 28px!important;
+    column-gap:42px!important;
+    grid-template-rows:auto auto auto auto!important;
+    overflow:visible!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head{
+    position:sticky!important;
+    top:92px!important;
+    grid-column:1!important;
+    grid-row:1 / -1!important;
+    padding:0!important;
+    margin:0!important;
+    transform:none!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card{
+    width:100%!important;
+    max-width:none!important;
+    min-height:0!important;
+    margin:0!important;
+    padding:0 20px 24px!important;
+  }
+  #esmeraldaDesktopServices .dct-services-main-title{grid-column:2!important;grid-row:1!important;margin:0!important;padding:0!important}
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{grid-column:2!important;grid-row:2!important;margin:30px 0 0 -.5cm!important;width:calc(100% + .5cm)!important}
+  #esmeraldaDesktopServices .mct-tabs{padding-left:.5cm!important}
+  #esmeraldaDesktopServices .dct-service-groups{grid-column:2!important;grid-row:3!important;margin:0!important}
+  #esmeraldaDesktopServices .mct-more-services{grid-column:2!important;grid-row:4!important}
+}
+@media(min-width:768px){
+  #esmeraldaDesktopServices .mct-tab[aria-selected="true"]{
+    background:#d8b7aa!important;
+    border-color:#e6cabb!important;
+    color:#241d19!important;
+    box-shadow:0 12px 30px rgba(216,183,170,.28)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-book{
+    position:relative!important;
+    overflow:hidden!important;
+    isolation:isolate!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-book:after{
+    content:""!important;
+    position:absolute!important;
+    top:-35%!important;
+    left:-50%!important;
+    width:35%!important;
+    height:170%!important;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.65),transparent)!important;
+    transform:rotate(20deg)!important;
+    animation:brHeroLikeShine 3.4s cubic-bezier(.2,.7,.25,1) infinite!important;
+    pointer-events:none!important;
+  }
+}
+`;
+  document.head.appendChild(geometryFix);
+
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
