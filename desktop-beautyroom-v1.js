@@ -3133,6 +3133,132 @@
 `;
   document.head.appendChild(geometryFix);
 
+  const projectionFinal=document.createElement('style');
+  projectionFinal.id='esmeralda-desktop-projection-final-v49';
+  projectionFinal.textContent=`
+@media(min-width:768px){
+  /* Services: one stable geometry. */
+  #esmeraldaDesktopServices.mct-prices{overflow:visible!important}
+  #esmeraldaDesktopServices.mct-prices>.mct-shell{overflow:visible!important}
+  #esmeraldaDesktopServices .mct-price-head{
+    position:sticky!important;top:92px!important;z-index:5!important;
+    grid-column:1!important;grid-row:1 / 5!important;align-self:start!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card{
+    transform:none!important;margin:0!important;box-sizing:border-box!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card>strong,
+  #esmeraldaDesktopServices .dct-services-main-title{
+    font:500 46px/.94 "Cormorant Garamond",Georgia,serif!important;
+    letter-spacing:-.03em!important;margin:0!important;padding:0!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card>strong{display:block!important}
+  #esmeraldaDesktopServices .dct-services-main-title{display:block!important;grid-column:2!important;grid-row:1!important}
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{grid-column:2!important;grid-row:2!important}
+  #esmeraldaDesktopServices .dct-service-groups{grid-column:2!important;grid-row:3!important;margin-top:0!important}
+  #esmeraldaDesktopServices .mct-more-services{grid-column:2!important;grid-row:4!important}
+  #esmeraldaDesktopServices .mct-tab[aria-selected="true"]{
+    background:#d7b5a4!important;border-color:#ead1c4!important;color:#241d19!important;
+    box-shadow:0 0 0 2px rgba(234,209,196,.16),0 14px 30px rgba(0,0,0,.16)!important;
+    transform:translateY(-1px)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-book{
+    background:linear-gradient(105deg,#8d6959 0%,#b68a73 45%,#8d6959 100%)!important;
+    background-size:220% 100%!important;animation:brHeroLikePulse 3.4s ease-in-out infinite!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-book:after{
+    content:""!important;display:block!important;position:absolute!important;pointer-events:none!important;
+    top:-45%!important;left:-45%!important;width:32%!important;height:190%!important;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.72),transparent)!important;
+    transform:rotate(18deg)!important;animation:brHeroLikeShine 3.4s ease-in-out infinite!important;
+  }
+
+  /* About: use the card area instead of leaving a dead bottom. */
+  #esmeraldaDesktopAbout .br-about-column{min-height:760px!important;padding:28px!important}
+  #esmeraldaDesktopAbout .mct-about-card{
+    height:100%!important;display:grid!important;grid-template-rows:minmax(390px,1.2fr) auto!important;
+    gap:0!important;overflow:hidden!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-portrait-wrap{height:100%!important;min-height:390px!important}
+  #esmeraldaDesktopAbout .mct-about-portrait{height:100%!important}
+  #esmeraldaDesktopAbout .mct-about-portrait img{width:100%!important;height:100%!important;object-fit:cover!important}
+  #esmeraldaDesktopAbout .mct-about-copy{padding:24px 4px 2px!important}
+
+  /* Team: mobile-like hierarchy, no square master containers. */
+  #esmeraldaDesktopTeam.br-team-panel{min-height:760px!important;padding:30px 28px!important}
+  #esmeraldaDesktopTeam .std-team-kicker{
+    display:block!important;margin:0!important;text-align:center!important;color:#bcaea7!important;
+    font:600 12px/1 "Manrope",Arial,sans-serif!important;letter-spacing:.24em!important;text-transform:uppercase!important;
+  }
+  #esmeraldaDesktopTeam .std-team-subtitle{margin:12px auto 22px!important;max-width:480px!important}
+  #esmeraldaDesktopTeam .std-team-track{
+    display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:30px 42px!important;margin:0!important;align-content:space-evenly!important;overflow:visible!important;
+  }
+  #esmeraldaDesktopTeam .std-master{
+    min-height:0!important;padding:0!important;border:0!important;border-radius:0!important;
+    background:transparent!important;box-shadow:none!important;
+  }
+  #esmeraldaDesktopTeam .std-master:hover{background:transparent!important;box-shadow:none!important;transform:translateY(-4px)!important}
+  #esmeraldaDesktopTeam .std-master-avatar{width:190px!important;height:190px!important;max-width:100%!important}
+  #esmeraldaDesktopTeam .std-master-name{font-size:29px!important}
+  #esmeraldaDesktopTeam .std-master-role{font-size:13px!important}
+  #esmeraldaDesktopTeam .std-master-cat{border:0!important;background:transparent!important;padding:0!important}
+
+  /* Master page: substantially larger hierarchy. */
+  #stdMasterOverlay .std-master-page-panel{width:min(calc(100% - 64px),1380px)!important;padding:30px 56px 140px!important}
+  #stdMasterOverlay .std-master-profile .std-master-avatar{width:210px!important;height:210px!important}
+  #stdMasterOverlay .std-master-profile h2{font-size:72px!important}
+  #stdMasterOverlay .std-master-profile p{font-size:18px!important}
+  #stdMasterOverlay .std-master-profile-cats{gap:10px!important;margin-top:16px!important}
+  #stdMasterOverlay .std-master-profile-cats span{font-size:14px!important;padding:9px 15px!important}
+  #stdMasterOverlay .std-master-tabs{gap:12px!important;margin-top:34px!important}
+  #stdMasterOverlay .std-master-tabs button{min-height:58px!important;padding:0 26px!important;font-size:15px!important}
+  #stdMasterOverlay .std-master-tab-content{margin-top:30px!important}
+  #stdMasterOverlay .std-master-tab-content>h3,#stdMasterOverlay .std-master-page-block h3{font-size:42px!important}
+  #stdMasterOverlay .std-master-about-copy{font-size:18px!important;line-height:1.65!important}
+  #stdMasterOverlay .std-master-page-service strong{font-size:17px!important}
+  #stdMasterOverlay .std-master-page-service span{font-size:14px!important}
+
+  /* Contacts: larger readable controls and a fully visible TANEM strip. */
+  #esmeraldaDesktopContacts.std-contact{padding-bottom:0!important}
+  #esmeraldaDesktopContacts .std-contact-card{min-height:112px!important}
+  #esmeraldaDesktopContacts .std-contact-card-title{font-size:30px!important}
+  #esmeraldaDesktopContacts .std-contact-card-sub{font-size:15px!important}
+  #esmeraldaDesktopContacts a[href^="tel:"] .std-contact-card-title{
+    font:500 21px/1.15 "Manrope",Arial,sans-serif!important;letter-spacing:.01em!important;
+  }
+  #esmeraldaDesktopContacts a.std-contact-card{transition:transform .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease!important}
+  #esmeraldaDesktopContacts a.std-contact-card:hover{
+    transform:translateY(-5px)!important;background:rgba(255,255,255,.09)!important;
+    border-color:rgba(216,183,170,.44)!important;box-shadow:0 16px 38px rgba(0,0,0,.20)!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-bottom{
+    box-sizing:border-box!important;width:calc(100% + 168px)!important;min-height:128px!important;
+    margin:42px -84px 0!important;padding:24px 0 20px!important;overflow:visible!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-brand{
+    box-sizing:border-box!important;width:min(calc(100% - 80px),560px)!important;min-height:78px!important;
+    margin:0 auto!important;padding:12px 24px!important;overflow:visible!important;
+  }
+  #esmeraldaDesktopContacts .br-tanem-mark{width:40px!important;height:40px!important;flex:0 0 40px!important}
+}
+@media(min-width:1200px){
+  #esmeraldaDesktopServices.mct-prices>.mct-shell{
+    width:calc(100% - 2cm)!important;margin:0 1cm!important;max-width:none!important;
+    grid-template-columns:minmax(410px,470px) minmax(0,1fr)!important;column-gap:2cm!important;
+    grid-template-rows:auto auto auto auto!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head:after{right:-1cm!important}
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{
+    width:calc(100% + 1.7cm)!important;margin:34px 0 0 -.7cm!important;overflow:visible!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs{padding:5px 1cm 15px .7cm!important}
+}
+`;
+  document.head.appendChild(projectionFinal);
+
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
