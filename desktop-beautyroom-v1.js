@@ -2364,9 +2364,12 @@
     padding-top:54px!important;
   }
   #esmeraldaDesktopServices.mct-prices>.mct-shell{
-    width:min(calc(100% - 76px),1360px)!important;
-    grid-template-columns:minmax(430px,480px) minmax(0,1fr)!important;
-    column-gap:64px!important;
+    width:calc(100% - 0.8cm)!important;
+    max-width:1360px!important;
+    margin-left:0.8cm!important;
+    margin-right:auto!important;
+    grid-template-columns:minmax(455px,505px) minmax(0,1fr)!important;
+    column-gap:58px!important;
   }
   #esmeraldaDesktopServices .mct-price-head{
     top:92px!important;
@@ -2380,12 +2383,24 @@
     width:100%!important;
     max-width:none!important;
     min-height:520px!important;
+    padding-top:28px!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card>strong{
+    margin:0!important;
+  }
+  #esmeraldaDesktopServices .dct-services-main-title{
+    grid-column:2!important;
+    margin:0 0 26px!important;
+    color:#f7f3f0!important;
+    font:500 46px/.94 "Cormorant Garamond",Georgia,serif!important;
+    letter-spacing:-.03em!important;
   }
   #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{
+    grid-column:2!important;
     width:calc(100% + max(38px,calc((100vw - 1360px)/2)))!important;
     max-width:none!important;
     margin:0!important;
-    padding:4px 0 22px!important;
+    padding:0 0 22px!important;
     overflow:visible!important;
   }
   #esmeraldaDesktopServices .mct-tabs{
@@ -2539,9 +2554,12 @@
 }
 @media(min-width:768px) and (max-width:1199px){
   #esmeraldaDesktopServices.mct-prices>.mct-shell{
-    width:min(calc(100% - 56px),1360px)!important;
-    grid-template-columns:minmax(360px,400px) minmax(0,1fr)!important;
-    column-gap:44px!important;
+    width:calc(100% - 0.8cm)!important;
+    max-width:1360px!important;
+    margin-left:0.8cm!important;
+    margin-right:auto!important;
+    grid-template-columns:minmax(400px,440px) minmax(0,1fr)!important;
+    column-gap:40px!important;
   }
   #esmeraldaDesktopServices .mct-price-head{padding-right:28px!important}
   #esmeraldaDesktopServices .mct-price-head:after{right:0!important}
@@ -2653,9 +2671,8 @@
     <section class="mct-prices" id="esmeraldaDesktopServices" aria-labelledby="stdServicesTitle">
       <div class="mct-shell">
         <div class="mct-price-head">
-          <div class="dct-service-sticky-card" aria-label="Услуги и цены">
-            <span class="dct-service-sticky-kicker">Услуги и цены</span>
-            <strong id="stdServicesTitle">Выберите услугу</strong>
+          <div class="dct-service-sticky-card" aria-label="Выберите услугу">
+            <strong>Выберите услугу</strong>
             <div class="dct-service-sticky-info">
               <div class="dct-service-sticky-row">
                 <span class="dct-service-sticky-icon" aria-hidden="true">
@@ -2681,6 +2698,7 @@
           </div>
         </div>
 
+        <div class="dct-services-main-title" id="stdServicesTitle">Услуги и цены</div>
         <div class="mct-tabs-ribbon-wrap is-many">
           <div class="mct-tabs mct-tabs-scroll is-many" role="tablist" aria-label="Категории услуг">
             <div class="mct-tabs-track" id="stdServiceTabs"></div>
