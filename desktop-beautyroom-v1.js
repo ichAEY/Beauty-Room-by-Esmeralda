@@ -5412,7 +5412,8 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
   }
   #esmeraldaDesktopServices .mct-tabs-track{display:flex!important;flex-wrap:nowrap!important;width:max-content!important;min-width:100%!important;gap:10px!important}
   #esmeraldaDesktopServices .mct-tab{flex:0 0 auto!important}
-  #esmeraldaDesktopServices .mct-tab[aria-selected="true"]{
+  #esmeraldaDesktopServices #stdServiceTabs .mct-tab.is-active[aria-selected="true"],
+  #esmeraldaDesktopServices #stdServiceTabs .mct-tab-all.is-active[aria-selected="true"]{
     border-color:#e3c0aa!important;background:#d8b7aa!important;color:#241d19!important;
     box-shadow:0 0 0 2px rgba(227,192,170,.24),0 12px 26px rgba(190,142,113,.25)!important
   }
@@ -5860,7 +5861,8 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
     background:rgba(255,255,255,.08)!important;
     transform:translateY(-2px)!important;
   }
-  #esmeraldaDesktopServices .mct-tab[aria-selected="true"]{
+  #esmeraldaDesktopServices #stdServiceTabs .mct-tab.is-active[aria-selected="true"],
+  #esmeraldaDesktopServices #stdServiceTabs .mct-tab-all.is-active[aria-selected="true"]{
     border-color:#e7c8b8!important;
     background:#d7b5a4!important;
     color:#241d19!important;
@@ -5955,7 +5957,7 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
     height:100%!important;
     min-height:0!important;
     grid-template-columns:minmax(0,1fr)!important;
-    grid-template-rows:335px minmax(0,1fr)!important;
+    grid-template-rows:385px minmax(0,1fr)!important;
     gap:0!important;
     margin:0!important;
     padding:0!important;
@@ -5970,8 +5972,8 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
   #esmeraldaDesktopAbout .mct-about-portrait img{
     display:block!important;
     width:100%!important;
-    height:335px!important;
-    min-height:335px!important;
+    height:385px!important;
+    min-height:385px!important;
     margin:0!important;
   }
   #esmeraldaDesktopAbout .mct-about-portrait-wrap{overflow:hidden!important;border-radius:20px!important}
@@ -5997,9 +5999,9 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
   #esmeraldaDesktopAbout .mct-about-copy>p:not(.mct-about-lead){
     margin:11px 0 0!important;
     color:#685f5a!important;
-    font:400 12.5px/1.5 "Manrope",Arial,sans-serif!important;
+    font:400 13px/1.5 "Manrope",Arial,sans-serif!important;
   }
-  #esmeraldaDesktopAbout .dct-about-amenities{margin-top:auto!important;padding-top:17px!important}
+  #esmeraldaDesktopAbout .dct-about-amenities{margin-top:20px!important;padding-top:0!important}
   #esmeraldaDesktopAbout .dct-about-amenities-grid{
     display:grid!important;
     grid-template-columns:repeat(3,minmax(0,1fr))!important;
@@ -6171,10 +6173,10 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
   #esmeraldaDesktopAbout>.br-about-team-shell{column-gap:42px!important}
   #esmeraldaDesktopAbout .br-about-column,
   #esmeraldaDesktopTeam.br-team-panel{height:720px!important;min-height:720px!important}
-  #esmeraldaDesktopAbout .mct-about-card{grid-template-rows:300px minmax(0,1fr)!important}
+  #esmeraldaDesktopAbout .mct-about-card{grid-template-rows:340px minmax(0,1fr)!important}
   #esmeraldaDesktopAbout .mct-about-portrait-wrap,
   #esmeraldaDesktopAbout .mct-about-portrait,
-  #esmeraldaDesktopAbout .mct-about-portrait img{height:300px!important;min-height:300px!important}
+  #esmeraldaDesktopAbout .mct-about-portrait img{height:340px!important;min-height:340px!important}
   #esmeraldaDesktopAbout .mct-about-lead{font-size:27px!important}
   #esmeraldaDesktopAbout .dct-about-amenities-grid{grid-template-columns:1fr!important}
   #esmeraldaDesktopAbout .dct-about-amenities-grid article{min-height:54px!important}
