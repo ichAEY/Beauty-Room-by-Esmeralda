@@ -6817,6 +6817,124 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
 }
 `);
 
+  appendDesktopStyle('esmeralda-desktop-final-v64',String.raw`
+@media(min-width:1024px){
+  /* Match mobile active category exactly. */
+  #esmeraldaDesktopServices #stdServiceTabs .mct-tab.is-active[aria-selected="true"],
+  #esmeraldaDesktopServices #stdServiceTabs .mct-tab-all.is-active[aria-selected="true"]{
+    background:#8b7167!important;
+    border-color:#8b7167!important;
+    color:#fff!important;
+    box-shadow:0 9px 22px rgba(0,0,0,.16)!important;
+  }
+
+  /* Keep first category aligned while adding a real left fade lane. */
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{
+    margin-left:-28px!important;
+    width:calc(100% + 28px)!important;
+    overflow:hidden!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs{
+    padding-left:28px!important;
+    scroll-padding-left:28px!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap:before{
+    left:0!important;
+    width:28px!important;
+    height:58px!important;
+    z-index:30!important;
+    background:linear-gradient(90deg,#242424 0%,rgba(36,36,36,.96) 24%,rgba(36,36,36,.68) 58%,transparent 100%)!important;
+  }
+
+  /* Service booking pill: narrower, radar closer to label. */
+  #esmeraldaDesktopServices .dct-service-card:not(.has-variants) .dct-service-card-body{
+    grid-template-columns:minmax(0,1fr) 112px 136px!important;
+  }
+  #esmeraldaDesktopServices .dct-service-card-meta>b,
+  #esmeraldaDesktopServices .dct-service-card-variant-meta>b{
+    width:136px!important;min-width:136px!important;
+    display:inline-flex!important;align-items:center!important;justify-content:center!important;
+    gap:7px!important;padding:0 15px!important;
+  }
+  #esmeraldaDesktopServices .dct-service-card-meta>b:before,
+  #esmeraldaDesktopServices .dct-service-card-variant-meta>b:before{
+    position:relative!important;left:auto!important;top:auto!important;transform:none!important;
+    flex:0 0 auto!important;margin:0!important;
+  }
+
+  /* Sticky booking button gets a periodic sheen. */
+  #esmeraldaDesktopServices .dct-service-sticky-book{overflow:hidden!important}
+  #esmeraldaDesktopServices .dct-service-sticky-book:after{
+    content:""!important;position:absolute!important;z-index:1!important;top:-30%!important;bottom:-30%!important;
+    width:34%!important;left:-46%!important;pointer-events:none!important;
+    background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,.08) 28%,rgba(255,255,255,.48) 50%,rgba(255,255,255,.08) 72%,transparent 100%)!important;
+    transform:skewX(-18deg)!important;
+    animation:brStickySheen 4.6s ease-in-out infinite!important;
+  }
+  @keyframes brStickySheen{
+    0%,62%{left:-46%;opacity:0}
+    68%{opacity:1}
+    84%{left:118%;opacity:1}
+    85%,100%{left:118%;opacity:0}
+  }
+
+  /* About card follows mobile card language and proportions. */
+  #esmeraldaDesktopAbout .br-about-column{
+    background:#eee7df!important;
+  }
+  #esmeraldaDesktopAbout .br-about-column,
+  #esmeraldaDesktopTeam.br-team-panel{
+    min-height:820px!important;height:820px!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-card{
+    grid-template-rows:390px minmax(0,1fr)!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-portrait-wrap,
+  #esmeraldaDesktopAbout .mct-about-portrait{height:390px!important;min-height:390px!important}
+  #esmeraldaDesktopAbout .mct-about-portrait{position:relative!important}
+  #esmeraldaDesktopAbout .mct-about-copy{
+    padding:28px 18px 18px!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-lead{margin:0!important}
+  #esmeraldaDesktopAbout .dct-about-brand{
+    display:block!important;
+    color:#1d1a18!important;
+    font:400 clamp(35px,2.75vw,43px)/1.04 "Cormorant Garamond",Georgia,serif!important;
+    letter-spacing:-.032em!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-kind{
+    display:block!important;
+    margin-top:8px!important;
+    color:#58504a!important;
+    font:500 14px/1.3 "Manrope",Arial,sans-serif!important;
+    letter-spacing:0!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-copy{
+    margin:18px 0 0!important;
+    color:#58504a!important;
+    font:400 14px/1.62 "Manrope",Arial,sans-serif!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-rating{
+    position:absolute!important;left:14px!important;bottom:14px!important;height:36px!important;
+    padding:0 12px!important;border:1px solid rgba(255,255,255,.28)!important;border-radius:999px!important;
+    background:rgba(18,17,16,.72)!important;backdrop-filter:blur(10px)!important;
+    display:flex!important;align-items:center!important;gap:7px!important;color:#fff!important;
+    box-shadow:0 5px 14px rgba(0,0,0,.13)!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-rating-star{font-size:12px!important;color:#d6ad6b!important}
+  #esmeraldaDesktopAbout .dct-about-rating strong{font:600 14px/1 "Manrope",Arial,sans-serif!important;color:#fff!important}
+  #esmeraldaDesktopAbout .dct-about-rating span:last-child{font:500 8px/1 "Manrope",Arial,sans-serif!important;letter-spacing:.035em!important;color:rgba(255,255,255,.72)!important}
+  #esmeraldaDesktopAbout .dct-about-amenities{margin-top:auto!important;padding-top:18px!important}
+  #esmeraldaDesktopAbout .dct-about-amenities-grid article{min-height:96px!important}
+
+  /* Armenian: only the sticky title is reduced so it always fits. */
+  body[data-br-lang="hy"] #esmeraldaDesktopServices .dct-service-sticky-card>strong{
+    font-size:clamp(31px,2.25vw,38px)!important;
+    letter-spacing:-.035em!important;
+  }
+}
+`);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
@@ -6974,12 +7092,12 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
             <div class="mct-about-portrait-wrap">
               <figure class="mct-about-portrait">
                 <img src="about-salon.webp" alt="Beauty Room by Esmeralda" loading="lazy">
+                <div class="dct-about-rating"><span class="dct-about-rating-star">★</span><strong>5,0</strong><span>рейтинг салона</span></div>
               </figure>
             </div>
             <div class="mct-about-copy">
-              <p class="mct-about-lead">Beauty Room by Esmeralda — салон красоты в Ереване.</p>
-              <p>Здесь можно спокойно выбрать нужные процедуры и доверить уход мастерам разных направлений.</p>
-              <p>Мы ценим аккуратную работу, комфорт и внимательное отношение к каждому гостю.</p>
+              <p class="mct-about-lead"><span class="dct-about-brand">Beauty Room by Esmeralda</span><span class="dct-about-kind">Салон красоты в Ереване</span></p>
+              <p class="dct-about-copy">Здесь можно спокойно выбрать нужные процедуры и доверить уход мастерам разных направлений. Мы ценим аккуратную работу, комфорт и внимательное отношение к каждому гостю.</p>
               <div class="dct-about-amenities">
                 <div class="dct-about-amenities-grid">
                   <article><strong>Разные направления</strong><span>Маникюр, волосы, брови и косметология.</span></article>
@@ -7868,6 +7986,31 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
     document.documentElement.lang=currentDesktopLang;
     document.documentElement.dir='ltr';
     document.body.dataset.brLang=currentDesktopLang;
+
+    if(currentDesktopLang==='hy'){
+      const about=root.querySelector('#esmeraldaDesktopAbout');
+      const brand=about?.querySelector('.dct-about-brand');
+      const kind=about?.querySelector('.dct-about-kind');
+      const copy=about?.querySelector('.dct-about-copy');
+      const rating=about?.querySelector('.dct-about-rating span:last-child');
+      const facts=about?.querySelectorAll('.dct-about-amenities-grid article');
+      if(brand)brand.textContent='Beauty Room by Esmeralda';
+      if(kind)kind.textContent='Салон красоты в Ереване';
+      if(copy)copy.textContent='Здесь можно спокойно выбрать нужные процедуры и доверить уход мастерам разных направлений. Мы ценим аккуратную работу, комфорт и внимательное отношение к каждому гостю.';
+      if(rating)rating.textContent='рейтинг салона';
+      const factCopy=[
+        ['Разные направления','Маникюр, волосы, брови и косметология.'],
+        ['Комфорт','Спокойная атмосфера и внимание к каждому гостю.'],
+        ['Прямая запись','Связь по телефону или Viber без лишних шагов.']
+      ];
+      facts?.forEach((el,i)=>{if(factCopy[i]){const a=el.querySelector('strong'),b=el.querySelector('span');if(a)a.textContent=factCopy[i][0];if(b)b.textContent=factCopy[i][1];}});
+      const roleEn={nails:'Nail master',hair:'Hair master',cosmetology:'Cosmetologist',brows:'Brow & Lash master'};
+      root.querySelectorAll('#esmeraldaDesktopTeam [data-desktop-master]').forEach(card=>{
+        const role=card.querySelector('.std-master-role');
+        if(role)role.textContent=roleEn[card.dataset.desktopMaster]||role.textContent;
+      });
+    }
+
     const titles={ru:'Beauty Room by Esmeralda — Ереван',hy:'Beauty Room by Esmeralda — Երևան',en:'Beauty Room by Esmeralda — Yerevan'};
     document.title=titles[currentDesktopLang]||titles.hy;
   }
