@@ -6499,6 +6499,82 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
 }
 `);
 
+  appendDesktopStyle('esmeralda-desktop-pc-fixes-v59',String.raw`
+@media(min-width:1024px){
+  /* Final correction of the exact desktop items requested. */
+  .std-header-book{
+    border:0!important;
+    border-radius:8px!important;
+    background:#715b53!important;
+    color:#fff!important;
+    font-weight:500!important;
+  }
+  .std-header-book:hover{background:#654f48!important}
+
+  /* Sticky starts only after the services section itself reaches the viewport threshold. */
+  #esmeraldaDesktopServices.mct-prices{position:relative!important}
+  #esmeraldaDesktopServices .dct-service-sticky-card{
+    top:58px!important;
+  }
+
+  /* Fade occupies its own gutter BEFORE "Все", never on top of it. */
+  #esmeraldaDesktopServices .mct-tabs{padding-left:28px!important}
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap:before{
+    left:0!important;
+    width:28px!important;
+    z-index:8!important;
+    background:linear-gradient(90deg,#242424 0%,rgba(36,36,36,.88) 36%,rgba(36,36,36,0) 100%)!important;
+  }
+  #esmeraldaDesktopServices .mct-tab-all{z-index:2!important}
+  #esmeraldaDesktopServices .mct-tab{font-size:13.4px!important}
+
+  #esmeraldaDesktopServices .dct-service-sticky-steps li span{
+    font-size:11.5px!important;
+    line-height:1.42!important;
+  }
+
+  /* About has no added outer frame/shadow. */
+  #esmeraldaDesktopAbout .br-about-column{
+    padding:0!important;
+    border:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-card{
+    border:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    border-radius:0!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-portrait-wrap{
+    border-radius:20px!important;
+    background:transparent!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-portrait img{
+    object-fit:contain!important;
+    object-position:center center!important;
+    transform:scale(.84) translateY(-10px)!important;
+  }
+  #esmeraldaDesktopAbout .br-about-column:hover .mct-about-portrait img{
+    transform:scale(.84) translateY(-10px)!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-amenities{
+    margin-bottom:0!important;
+    padding-bottom:0!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-amenities-grid strong{font-size:17px!important}
+  #esmeraldaDesktopAbout .dct-about-amenities-grid span{font-size:13.2px!important}
+
+  #esmeraldaDesktopTeam .std-team-kicker{font-size:16px!important}
+  #esmeraldaDesktopTeam .std-team-subtitle{font-size:15.5px!important}
+  #esmeraldaDesktopTeam .std-master-avatar{width:216px!important;height:216px!important}
+  #esmeraldaDesktopTeam .std-master-name{font-size:30px!important}
+  #esmeraldaDesktopTeam .std-master-role{font-size:14px!important}
+
+  #esmeraldaDesktopContacts.std-contact{background:#242424!important}
+}
+`);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
@@ -7192,13 +7268,15 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
   }
 
   serviceMore.onclick=()=>{
-    const beforeTop=serviceMore.getBoundingClientRect().top;
+    const anchor=serviceList.querySelector('.dct-service-card')||serviceList;
+    const beforeTop=anchor.getBoundingClientRect().top;
     desktopServicesExpanded=!desktopServicesExpanded;
     renderDesktopServices();
     requestAnimationFrame(()=>{
-      const afterTop=serviceMore.getBoundingClientRect().top;
+      const nextAnchor=serviceList.querySelector('.dct-service-card')||serviceList;
+      const afterTop=nextAnchor.getBoundingClientRect().top;
       const delta=afterTop-beforeTop;
-      if(Math.abs(delta)>.5) window.scrollBy({top:delta,left:0,behavior:'auto'});
+      if(Math.abs(delta)>.5) window.scrollBy(0,delta);
     });
   };
   renderDesktopServices();
