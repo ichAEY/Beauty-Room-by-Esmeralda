@@ -63,9 +63,13 @@
   font.href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap';
   document.head.appendChild(font);
 
-  const desktopCss=document.createElement('style');
-  desktopCss.id='esmeralda-desktop-current';
-  desktopCss.textContent=String.raw`
+  const appendDesktopStyle=(id,text)=>{
+    const node=document.createElement('style');
+    node.id=id;
+    node.textContent=text;
+    document.head.appendChild(node);
+  };
+  appendDesktopStyle('esmeralda-desktop-core',String.raw`
     @media(min-width:768px){
       html,body{margin:0!important;padding:0!important;background:#f7f2eb!important;color:#171513!important;overflow-x:hidden}
       body>main.shell,body>.booking-island{display:none!important}
@@ -4720,8 +4724,8 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
   #esmeraldaDesktopTeam.br-team-panel{padding:36px 28px!important}
   #esmeraldaDesktopTeam .std-master-avatar{width:min(100%,118px)!important}
 }
-
-
+`);
+  appendDesktopStyle('esmeralda-desktop-components',String.raw`
 @media(min-width:768px){
   /* Services sit closer to the gallery and keep a single horizontal category rail. */
   #esmeraldaDesktopServices.mct-prices{
@@ -5367,8 +5371,8 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
   #esmeraldaDesktopTeam .std-master-avatar{width:142px!important}
   #esmeraldaDesktopTeam .std-master{min-height:248px!important}
 }
-
-
+`);
+  appendDesktopStyle('esmeralda-desktop-geometry',String.raw`
 @media(min-width:768px){
   #esmeraldaDesktopServices.mct-prices{overflow:visible!important;padding:54px 0 90px!important}
   #esmeraldaDesktopServices.mct-prices>.mct-shell{
@@ -5487,8 +5491,8 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
 @media(prefers-reduced-motion:reduce){
   #esmeraldaDesktopServices .dct-service-sticky-book,#esmeraldaDesktopServices .dct-service-sticky-book:after{animation:none!important}
 }
-
-
+`);
+  appendDesktopStyle('esmeralda-desktop-projection',String.raw`
 @media(min-width:768px){
   /* Services: one stable geometry. */
   #esmeraldaDesktopServices.mct-prices{overflow:visible!important}
@@ -5608,9 +5612,8 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
   }
   #esmeraldaDesktopServices .mct-tabs{padding:5px 1cm 15px .7cm!important}
 }
-
-
-@media(min-width:768px){
+`);
+  appendDesktopStyle('esmeralda-desktop-current',String.raw`@media(min-width:768px){
   #esmeraldaDesktopServices.mct-prices{
     padding:58px 0 94px!important;
     overflow:visible!important;
@@ -6184,9 +6187,7 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
   #esmeraldaDesktopServices .mct-tab,
   #esmeraldaDesktopServices .dct-service-card{transition:none!important}
 }
-`;
-  document.head.appendChild(desktopCss);
-
+`);
 
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
