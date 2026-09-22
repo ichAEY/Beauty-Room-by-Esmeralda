@@ -7069,6 +7069,44 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
 }
 `);
 
+  appendDesktopStyle('esmeralda-desktop-exact-mobile-shine-v69',String.raw`
+@media(min-width:1024px){
+  /* Exact mobile shine: same gradient, timing and travel as tn22Shine. */
+  #esmeraldaDesktopTop #stdBookBtn,
+  #esmeraldaDesktopServices #stdStickyServiceBook{
+    position:relative!important;
+    overflow:hidden!important;
+    isolation:isolate!important;
+  }
+  #esmeraldaDesktopTop #stdBookBtn:after,
+  #esmeraldaDesktopServices #stdStickyServiceBook:after{
+    content:""!important;
+    display:block!important;
+    position:absolute!important;
+    z-index:1!important;
+    top:-30%!important;
+    bottom:-30%!important;
+    left:-30%!important;
+    width:34%!important;
+    height:auto!important;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent)!important;
+    transform:skewX(-20deg)!important;
+    animation:brMobileExactShine 3.2s ease-in-out infinite!important;
+    opacity:1!important;
+    pointer-events:none!important;
+  }
+  #esmeraldaDesktopTop #stdBookBtn>*,
+  #esmeraldaDesktopServices #stdStickyServiceBook>*{
+    position:relative!important;
+    z-index:2!important;
+  }
+  @keyframes brMobileExactShine{
+    0%,65%{left:-40%}
+    100%{left:130%}
+  }
+}
+`);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
