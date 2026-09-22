@@ -7059,6 +7059,16 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
 }
 `);
 
+  appendDesktopStyle('esmeralda-desktop-final-v68',String.raw`
+@media(min-width:1024px){
+  /* Final rating badge adjustment: +8% over the current v66 size. */
+  #esmeraldaDesktopAbout .dct-about-rating{
+    transform:scale(1.1556)!important;
+    transform-origin:left bottom!important;
+  }
+}
+`);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
@@ -8115,16 +8125,16 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
       const team=root.querySelector('#esmeraldaDesktopTeam');
       const teamKicker=team?.querySelector('.std-team-kicker');
       const teamSubtitle=team?.querySelector('.std-team-subtitle');
-      if(teamKicker)teamKicker.textContent='Мастера Beauty Room';
-      if(teamSubtitle)teamSubtitle.textContent='Нажмите на мастера, чтобы открыть страницу специалиста.';
-      const teamSource={
-        nails:{name:'Nail-мастер',role:'Маникюр · педикюр',cat:'Маникюр'},
-        hair:{name:'Парикмахер',role:'Волосы · укладки',cat:'Волосы'},
-        cosmetology:{name:'Косметолог',role:'Косметология',cat:'Косметология'},
-        brows:{name:'Brow & Lash-мастер',role:'Брови · ресницы',cat:'Брови и ресницы'}
+      if(teamKicker)teamKicker.textContent='Beauty Room Masters';
+      if(teamSubtitle)teamSubtitle.textContent='Choose a specialist to open their profile.';
+      const teamEnglish={
+        nails:{name:'Nail Master',role:'Manicure · Pedicure',cat:'Nails'},
+        hair:{name:'Hairdresser',role:'Hair · Styling',cat:'Hair'},
+        cosmetology:{name:'Cosmetologist',role:'Cosmetology',cat:'Cosmetology'},
+        brows:{name:'Brow & Lash Master',role:'Brows · Lashes',cat:'Brows & Lashes'}
       };
       root.querySelectorAll('#esmeraldaDesktopTeam [data-desktop-master]').forEach(card=>{
-        const data=teamSource[card.dataset.desktopMaster];
+        const data=teamEnglish[card.dataset.desktopMaster];
         if(!data)return;
         const name=card.querySelector('.std-master-name'),role=card.querySelector('.std-master-role'),cat=card.querySelector('.std-master-cat');
         if(name)name.textContent=data.name;
