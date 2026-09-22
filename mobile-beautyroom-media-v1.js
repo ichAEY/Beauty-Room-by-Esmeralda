@@ -1,7 +1,7 @@
 /* Beauty Room media assets integration — 2026-09-18 */
 (function(){
   'use strict';
-  if(!window.matchMedia || !window.matchMedia('(max-width:767px)').matches) return;
+  if(!window.matchMedia || !window.matchMedia('(max-width:1023px)').matches || window.matchMedia('(min-width:768px) and (hover:hover) and (pointer:fine)').matches) return;
 
   const BRAND_SRC='header-logo.webp';
   const ABOUT_SRC='about-salon.webp';
@@ -12,7 +12,7 @@
     const style=document.createElement('style');
     style.id='beautyroom-media-assets-v1';
     style.textContent=`
-      @media(max-width:767px){
+      @media(max-width:1023px){
         /* Top-left text is replaced by the supplied logo asset. */
         #stluxe-tanem-v13 .tn22-brand.br-logo-brand{
           display:flex!important;

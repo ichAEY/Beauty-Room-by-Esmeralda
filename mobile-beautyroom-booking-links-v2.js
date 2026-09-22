@@ -1,7 +1,7 @@
 /* Beauty Room booking/link polish — 2026-09-18 */
 (function(){
   'use strict';
-  if(!window.matchMedia || !window.matchMedia('(max-width:767px)').matches) return;
+  if(!window.matchMedia || !window.matchMedia('(max-width:1023px)').matches || window.matchMedia('(min-width:768px) and (hover:hover) and (pointer:fine)').matches) return;
 
   const VIBER_URL='https://viber.click/+37493873617?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAcGRvZgJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZBAxMjE3OTgxNjQ0ODc5NjI4AAGnKgcjy-6HhcuLc_MuDkJ97YUYwrc_aajRFuRtDzdWgQ9tZd4mBP4_GHBup2k_aem_GiL4aRD9GtOMin9rQKGYYw';
 
@@ -10,7 +10,7 @@
     const style=document.createElement('style');
     style.id='beautyroom-booking-links-v2';
     style.textContent=`
-      @media(max-width:767px){
+      @media(max-width:1023px){
         /* Booking sheet: smooth entrance from the bottom, not a sudden appear. */
         #stluxe-tanem-v13 #tn13BookSheet{
           display:flex!important;

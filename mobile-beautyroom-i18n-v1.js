@@ -1,7 +1,7 @@
 /* Beauty Room multilingual interface — HY / RU / EN */
 (function(){
   'use strict';
-  if(!window.matchMedia || !window.matchMedia('(max-width:767px)').matches) return;
+  if(!window.matchMedia || !window.matchMedia('(max-width:1023px)').matches || window.matchMedia('(min-width:768px) and (hover:hover) and (pointer:fine)').matches) return;
 
   var STORAGE_KEY='beautyroom-language';
   var currentLang='hy';
@@ -248,7 +248,7 @@
     var style=document.createElement('style');
     style.id='beautyroom-i18n-style';
     style.textContent=[
-      '@media(max-width:767px){',
+      '@media(max-width:1023px){',
       '#stluxe-tanem-v13 .br-lang-switch{position:absolute;z-index:66;top:0;right:57px;height:52px;display:flex;align-items:center;gap:3px;font-family:Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}',
       '#stluxe-tanem-v13 .br-lang-switch button{border:0;background:transparent;padding:0 3px;min-width:27px;height:36px;color:#8b817b;font:600 11.5px/1 Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;letter-spacing:.035em;-webkit-tap-highlight-color:transparent}',
       '#stluxe-tanem-v13 .br-lang-switch button.active{color:#171513}',

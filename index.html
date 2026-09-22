@@ -20,6 +20,13 @@
 .viewer{position:fixed;z-index:190;inset:0;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(27,20,20,.90);backdrop-filter:blur(9px);touch-action:none;overscroll-behavior:contain}.viewer.open{display:flex}.viewer-frame{position:relative;width:min(100%,520px);height:min(72dvh,640px);background:transparent;overflow:visible;touch-action:none}.viewer-canvas{position:absolute;inset:0;overflow:hidden;border-radius:14px;background:#151312;box-shadow:0 18px 54px rgba(0,0,0,.28)}.viewer-photo{position:absolute;inset:0;width:100%;height:100%}.viewer-photo.ph:before{border-color:rgba(255,255,255,.15)}.viewer-photo.ph:after{color:#a99e97}.viewer-top{position:absolute;z-index:5;top:-52px;left:0;right:0;display:flex;justify-content:flex-end}.viewer-close{width:42px;height:42px;border:1px solid rgba(255,255,255,.22);border-radius:50%;background:rgba(255,255,255,.08);color:#fff;font-size:22px}.viewer-count{position:absolute;z-index:5;right:0;bottom:-34px;color:#fff;font:500 10px/1 Manrope}.viewer-gallery-btn{position:absolute;z-index:8;left:50%;bottom:-88px;transform:translateX(-50%);width:min(100%,300px);height:46px;border:1px solid rgba(255,255,255,.22);border-radius:13px;background:rgba(255,255,255,.10);backdrop-filter:blur(12px);color:#fff;display:flex;align-items:center;justify-content:center;gap:9px;font:600 12px/1 Manrope}.viewer-gallery-btn[hidden]{display:none}
 @media(min-width:768px){.mobile{display:none}.desktop{display:block;padding:80px;text-align:center}.desktop h1{font:500 72px/1 'Cormorant Garamond',serif}}
 </style>
+<style id="br-device-layout-boundary">
+@media (min-width:768px) and (max-width:1023px){
+  .mobile{display:block!important}
+  .desktop{display:none!important}
+  .br-boot-intro{animation-name:brBootIntro!important;animation-duration:1.55s!important}
+}
+</style>
 </head><body>
 <div class="br-boot-intro" id="brBootIntro" aria-label="Beauty Room by Esmeralda"><img src="intro-logo.webp" alt="Beauty Room by Esmeralda" width="220" height="220" decoding="sync" fetchpriority="high"></div>
 <script>(()=>{const intro=document.getElementById('brBootIntro');if(!intro)return;const desktop=window.matchMedia&&window.matchMedia('(min-width:768px)').matches;document.documentElement.classList.add('br-booting');let done=false;const finish=()=>{if(done)return;done=true;intro.remove();document.documentElement.classList.remove('br-booting');window.dispatchEvent(new Event('br:intro-done'))};intro.addEventListener('animationend',finish,{once:true});window.setTimeout(finish,desktop?2450:1700)})();</script>
@@ -67,7 +74,16 @@ document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(viewer.cla
 })();
 </script>
 
-<script defer src="desktop-beautyroom-v1.js?v=20260922-services-sticky-v44"></script>
+<script>
+(()=>{
+  const desktopQuery=window.matchMedia('(min-width:1024px), (min-width:768px) and (hover:hover) and (pointer:fine)');
+  if(!desktopQuery.matches)return;
+  const script=document.createElement('script');
+  script.src='desktop-beautyroom-v1.js?v=20260922-stable-layout-v45';
+  script.defer=true;
+  document.body.appendChild(script);
+})();
+</script>
 <script defer src="mobile-beautyroom-current.js?v=20260918-overlay-v2"></script>
 <script defer src="mobile-beautyroom-booking-links-v2.js?v=20260918-overlay-v1"></script>
 <script defer src="mobile-beautyroom-media-v1.js?v=20260918-stability-v3"></script>

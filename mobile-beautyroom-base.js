@@ -2,7 +2,7 @@
 
 (function(){
   'use strict';
-  if(!window.matchMedia || !window.matchMedia('(max-width:767px)').matches) return;
+  if(!window.matchMedia || !window.matchMedia('(max-width:1023px)').matches || window.matchMedia('(min-width:768px) and (hover:hover) and (pointer:fine)').matches) return;
 
   const PHONE='+37493873617';
   const WHATSAPP_URL='viber://chat?number=%2B37493873617';
@@ -81,7 +81,7 @@
   const css=document.createElement('style');
   css.id='stluxe-tanem-v13-style';
   css.textContent=`
-  @media(max-width:767px){
+  @media(max-width:1023px){
     html,body{margin:0!important;padding:0!important;min-height:100%!important;background:#f6f1eb!important;color:#2f2926!important;overflow-x:hidden!important;-webkit-font-smoothing:antialiased!important;scrollbar-width:none}
     html::-webkit-scrollbar,body::-webkit-scrollbar{display:none}
     body.br-app-ready>.mobile,body.br-app-ready>.desktop{display:none!important}
@@ -159,7 +159,7 @@
     .tn13-sheet.open{display:flex;align-items:flex-end;background:rgba(37,29,26,.35)}.tn13-panel{width:100%;max-height:92vh;overflow:auto;background:#f8f4ef;border-radius:29px 29px 0 0;padding:26px 20px calc(26px + env(safe-area-inset-bottom));position:relative}.tn13-close{position:absolute;right:16px;top:16px;width:40px;height:40px;border:0;border-radius:50%;background:#eee4dd;font-size:20px}.tn13-master-hero{padding:20px 0 24px}.tn13-master-big{width:120px;height:120px;border-radius:50%;display:grid;place-items:center;background:#e3d7cf;color:#725d55;font:500 48px/1 "Cormorant Garamond",Georgia,serif}.tn13-master-title{font:500 42px/.95 "Cormorant Garamond",Georgia,serif;margin:19px 0 4px}.tn13-master-sub{color:#8a7770;font-size:11px}.tn13-master-about{padding:20px 0;border-top:1px solid var(--line);font-size:12px;line-height:1.58;color:#5f514b}.tn13-master-services{border-top:1px solid var(--line)}.tn13-master-service{display:flex;justify-content:space-between;gap:15px;padding:14px 0;border-bottom:1px solid var(--line);font-size:11px}.tn13-master-service b{font-weight:500}.tn13-master-service span{color:#8a7770}.tn13-sheet-cta{width:100%;height:50px;border:0;border-radius:999px;background:#715b53;color:#fff!important;margin-top:20px;font-size:12px;font-weight:600}
     #tn13BookSheet .tn13-panel{background:#fff}.tn50-book-title{margin:17px 50px 0 0;font:500 38px/.95 "Cormorant Garamond",Georgia,serif;letter-spacing:-.025em}.tn50-book-copy{margin:12px 42px 0 0;color:#736861;font-size:11.5px;line-height:1.5}.tn50-book-options{display:grid;gap:8px;margin-top:22px}.tn50-book-option{width:100%;min-height:62px;border:1px solid rgba(66,52,45,.12);border-radius:14px;padding:9px 12px;display:grid;grid-template-columns:38px minmax(0,1fr) auto;align-items:center;gap:11px;background:#fff;color:#211d1a!important;text-align:left;text-decoration:none!important}.tn50-book-option.is-pending{cursor:default;opacity:1}.tn50-book-icon{width:38px;height:38px;border-radius:12px;display:grid;place-items:center}.tn50-book-icon svg{width:21px;height:21px}.tn50-book-icon.phone{background:#f0edeb;color:#211d1a}.tn50-book-icon.whatsapp{background:#e9f7f0;color:#128c7e}.tn50-book-icon.max{background:#efebff;color:#471aff}.tn50-book-option strong{display:block;font:500 14px/1.2 "Manrope",Arial,sans-serif}.tn50-book-arrow{color:#9b8e86;font-size:17px}
   }
-  @media(min-width:768px){#stluxe-tanem-v13{display:none!important}}
+  @media(min-width:1024px){#stluxe-tanem-v13{display:none!important}}
   `;
   document.head.appendChild(css);
 
@@ -312,7 +312,7 @@
 (function(){
 'use strict';
 const STLUXE_V23_REFINED=true;
-if(!window.matchMedia||!window.matchMedia('(max-width:767px)').matches)return;
+if(!window.matchMedia||!window.matchMedia('(max-width:1023px)').matches||window.matchMedia('(min-width:768px) and (hover:hover) and (pointer:fine)').matches)return;
 const root=document.getElementById('stluxe-tanem-v13'); if(!root)return;
 const YANDEX='https://www.google.com/maps/place/Beauty+Room+by+Esmeralda/@40.1673067,44.5124793,17z/';
 const YANDEX_RU='https://www.google.com/maps/place/Beauty+Room+by+Esmeralda/@40.1673067,44.5124793,17z/';
@@ -414,7 +414,7 @@ const MASTERS=[
 const MASTER_AVATAR='<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="23" r="11" fill="currentColor"></circle><path d="M12 56c2.7-11.4 10-17 20-17s17.3 5.6 20 17" fill="currentColor"></path></svg>';
 
 const css=document.createElement('style'); css.id='stluxe-final-v22-style'; css.textContent=`
-@media(max-width:767px){
+@media(max-width:1023px){
 #tn13Intro{display:none!important} #stluxe-tanem-v13{background:#f6f0e9!important;color:#181512!important}
 #stluxe-tanem-v13 .tn13-hero{height:744px!important;min-height:744px!important;padding:0!important;background:linear-gradient(180deg,#f8f4ee 0%,#f8f4ee 90%,#f7f2eb 100%)!important;position:relative!important;overflow:hidden!important}#stluxe-tanem-v13>.tn13-footer{display:none!important}
 .tn22-top{position:absolute;z-index:30;top:0;left:0;right:0;height:52px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;background:#f8f4ee}
@@ -449,7 +449,7 @@ document.head.appendChild(css);
 const requestedFixStyle=document.createElement('style');
 requestedFixStyle.id='beautyroom-requested-mobile-fixes';
 requestedFixStyle.textContent=`
-@media(max-width:767px){
+@media(max-width:1023px){
   #stluxe-tanem-v13 .tn13-hero{height:100svh!important;min-height:0!important;max-height:none!important}
   .tn22-card{display:flex!important;flex-direction:column!important;padding-bottom:max(14px,env(safe-area-inset-bottom))!important}
   .tn22-cta{margin-top:auto!important}
@@ -505,7 +505,7 @@ requestedFixStyle.textContent=`
 
   .tn50-book-icon.viber-generic{background:#f1edf7!important;color:#67507f!important}
 }
-@media(max-width:767px) and (max-height:720px){
+@media(max-width:1023px) and (max-height:720px){
   .tn22-media{height:330px!important}
   .tn22-card{top:304px!important;padding-top:14px!important}
   .tn22-title{font-size:43px!important}
@@ -647,7 +647,7 @@ const oldMaster=$('#tn13MasterSheet');if(oldMaster)oldMaster.style.display='none
 
 (function(){
 'use strict';
-if(!window.matchMedia||!window.matchMedia('(max-width:767px)').matches)return;
+if(!window.matchMedia||!window.matchMedia('(max-width:1023px)').matches||window.matchMedia('(min-width:768px) and (hover:hover) and (pointer:fine)').matches)return;
 const root=document.getElementById('stluxe-tanem-v13');
 if(!root||document.getElementById('tn38About'))return;
 const services=root.querySelector('#tn13Services');

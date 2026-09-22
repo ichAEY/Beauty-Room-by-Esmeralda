@@ -1979,6 +1979,370 @@
 `;
   document.head.appendChild(pcRestorationCss);
 
+  const desktopStabilityCss=document.createElement('style');
+  desktopStabilityCss.id='esmeralda-desktop-stability-v45';
+  desktopStabilityCss.textContent=`
+@media(min-width:768px){
+  #esmeraldaDesktopPortfolio,
+  #esmeraldaDesktopAbout,
+  #esmeraldaDesktopReviews,
+  #esmeraldaDesktopContacts{
+    content-visibility:auto;
+    contain-intrinsic-size:auto 900px;
+  }
+
+  /* SERVICES — one stable desktop grid with a true section-bounded sticky card. */
+  #esmeraldaDesktopServices.mct-prices{
+    overflow:visible!important;
+    padding:92px 0 108px!important;
+  }
+  #esmeraldaDesktopServices.mct-prices>.mct-shell{
+    width:min(calc(100% - 96px),1360px)!important;
+    grid-template-columns:minmax(390px,440px) minmax(0,1fr)!important;
+    column-gap:clamp(58px,6vw,86px)!important;
+    align-items:start!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head{
+    position:sticky!important;
+    top:96px!important;
+    grid-column:1!important;
+    grid-row:1 / span 3!important;
+    width:100%!important;
+    padding:0 34px 0 0!important;
+    display:flex!important;
+    justify-content:center!important;
+    align-self:start!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head:after{
+    top:0!important;
+    right:-26px!important;
+    height:min(74vh,720px)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card{
+    position:relative!important;
+    isolation:isolate!important;
+    width:100%!important;
+    max-width:460px!important;
+    min-height:500px!important;
+    margin:0 auto!important;
+    padding:42px 34px 32px!important;
+    overflow:hidden!important;
+    border:1px solid rgba(102,78,67,.18)!important;
+    border-radius:30px!important;
+    background:
+      radial-gradient(ellipse 190px 330px at -6% 48%,rgba(118,83,66,.16),transparent 76%),
+      radial-gradient(ellipse 210px 330px at 104% 76%,rgba(142,102,82,.12),transparent 76%),
+      linear-gradient(135deg,#f8f2ec 0%,#eee1d8 100%)!important;
+    box-shadow:0 28px 68px rgba(12,10,9,.24)!important;
+    color:#211d1a!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card:before,
+  #esmeraldaDesktopServices .dct-service-sticky-card:after{
+    position:absolute!important;
+    z-index:-1!important;
+    border:1px solid rgba(139,101,81,.14)!important;
+    border-radius:50%!important;
+    content:""!important;
+    pointer-events:none!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card:before{
+    width:360px!important;
+    height:360px!important;
+    left:-250px!important;
+    top:-115px!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card:after{
+    width:300px!important;
+    height:300px!important;
+    right:-218px!important;
+    bottom:-128px!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-kicker{
+    margin-bottom:16px!important;
+    color:#8f7167!important;
+    font-size:12px!important;
+    letter-spacing:.25em!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card>strong{
+    font-size:46px!important;
+    line-height:.94!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-info{
+    gap:12px!important;
+    margin-top:34px!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-row{
+    min-height:96px!important;
+    padding:14px 12px!important;
+    border-radius:18px!important;
+    background:rgba(255,255,255,.48)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-book,
+  #esmeraldaDesktopServices .dct-service-sticky-work{
+    width:100%!important;
+    height:62px!important;
+    padding:0 24px!important;
+    border-radius:999px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    text-decoration:none!important;
+    font:600 13px/1 "Manrope",Arial,sans-serif!important;
+    transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-book{
+    margin-top:28px!important;
+    background:#9c7967!important;
+    color:#fff!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-work{
+    margin-top:12px!important;
+    border:1px solid rgba(91,68,58,.22)!important;
+    background:rgba(248,244,238,.62)!important;
+    color:#302925!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-book:hover,
+  #esmeraldaDesktopServices .dct-service-sticky-work:hover{
+    transform:translateY(-2px)!important;
+    box-shadow:0 14px 28px rgba(63,47,40,.14)!important;
+  }
+
+  #esmeraldaDesktopServices .dct-services-right-head{display:none!important}
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{
+    grid-column:2!important;
+    width:100%!important;
+    margin:0 0 26px!important;
+    padding:0!important;
+    overflow:visible!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs{
+    width:100%!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:visible!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap.is-many .mct-tabs-track{
+    width:100%!important;
+    min-width:0!important;
+    padding:0!important;
+    display:flex!important;
+    flex-wrap:wrap!important;
+    gap:11px!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap.is-many .mct-tab,
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap.is-many .mct-tab-all{
+    min-width:0!important;
+    min-height:49px!important;
+    padding:0 22px!important;
+    border:1px solid rgba(255,255,255,.19)!important;
+    border-radius:999px!important;
+    background:rgba(255,255,255,.045)!important;
+    color:#d5cbc5!important;
+    box-shadow:none!important;
+    transform:none!important;
+    transition:transform .18s ease,background .18s ease,border-color .18s ease,color .18s ease,box-shadow .18s ease!important;
+  }
+  #esmeraldaDesktopServices .mct-tab:not(.is-active):hover,
+  #esmeraldaDesktopServices .mct-tab-all:not(.is-active):hover{
+    transform:translateY(-3px)!important;
+    border-color:rgba(255,255,255,.36)!important;
+    background:rgba(255,255,255,.10)!important;
+    color:#fff!important;
+    box-shadow:0 10px 22px rgba(0,0,0,.14)!important;
+  }
+  #esmeraldaDesktopServices .mct-tab.is-active,
+  #esmeraldaDesktopServices .mct-tab-all.is-active{
+    border-color:#fff!important;
+    background:#fff!important;
+    color:#2f2926!important;
+    box-shadow:0 12px 26px rgba(0,0,0,.16)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-groups{
+    grid-column:2!important;
+    margin-top:0!important;
+  }
+  #esmeraldaDesktopServices .mct-more-services{grid-column:2!important}
+
+  /* ABOUT + TEAM — one section, two balanced sides. */
+  #esmeraldaDesktopAbout.br-about-team{
+    padding:92px 0 102px!important;
+    background:radial-gradient(circle at 88% 18%,rgba(193,158,145,.13),transparent 31%),linear-gradient(180deg,#f8f3ef 0%,#f4ebe5 100%)!important;
+  }
+  #esmeraldaDesktopAbout>.br-about-team-shell{
+    width:min(calc(100% - 96px),1360px)!important;
+    display:grid!important;
+    grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr)!important;
+    gap:clamp(42px,5vw,72px)!important;
+    align-items:start!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-head{display:block!important}
+  #esmeraldaDesktopAbout .mct-about-head h2,
+  #esmeraldaDesktopTeam .std-team-title{
+    margin:14px 0 0!important;
+    font:500 clamp(50px,4.1vw,64px)/.94 "Cormorant Garamond",Georgia,serif!important;
+    letter-spacing:-.035em!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-card{
+    display:block!important;
+    height:auto!important;
+    min-height:0!important;
+    margin-top:28px!important;
+    overflow:hidden!important;
+    border:1px solid rgba(85,64,57,.10)!important;
+    border-radius:28px!important;
+    background:rgba(255,253,250,.80)!important;
+    box-shadow:0 18px 48px rgba(67,50,44,.075)!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-portrait-wrap{
+    height:270px!important;
+    min-height:270px!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-copy{
+    display:block!important;
+    padding:30px 32px 32px!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-lead{
+    font-size:clamp(29px,2.4vw,37px)!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-amenities{
+    margin-top:24px!important;
+    padding-top:20px!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-amenities-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:0!important;
+  }
+
+  #esmeraldaDesktopTeam.br-team-panel{
+    min-height:680px!important;
+    padding:42px 40px 40px!important;
+    border-radius:28px!important;
+    background:
+      radial-gradient(circle at 92% 8%,rgba(139,113,103,.20),transparent 34%),
+      #2f2926!important;
+    color:#f7f3f0!important;
+    box-shadow:0 20px 52px rgba(54,41,35,.13)!important;
+  }
+  #esmeraldaDesktopTeam .std-team-kicker{
+    margin:0!important;
+    color:#c0b5af!important;
+    font:600 12px/1 "Manrope",Arial,sans-serif!important;
+    letter-spacing:.25em!important;
+    text-transform:uppercase!important;
+  }
+  #esmeraldaDesktopTeam .std-team-title{color:#f7f3f0!important}
+  #esmeraldaDesktopTeam .std-team-subtitle{
+    margin:15px 0 0!important;
+    color:#b9ada7!important;
+    font-size:13px!important;
+    line-height:1.5!important;
+  }
+  #esmeraldaDesktopTeam .std-team-track{
+    display:grid!important;
+    width:100%!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:34px 24px!important;
+    margin-top:38px!important;
+    padding:0!important;
+    overflow:visible!important;
+  }
+  #esmeraldaDesktopTeam .std-master{
+    width:100%!important;
+    min-width:0!important;
+    padding:0!important;
+    border:0!important;
+    background:transparent!important;
+    color:#f7f3f0!important;
+    text-align:center!important;
+  }
+  #esmeraldaDesktopTeam .std-master-avatar{
+    width:min(100%,142px)!important;
+    height:auto!important;
+    aspect-ratio:1!important;
+    margin:0 auto!important;
+    border:1px solid rgba(255,255,255,.09)!important;
+    border-radius:50%!important;
+    background:linear-gradient(145deg,#806b61,#5b4a43)!important;
+    color:#e6d8d0!important;
+    box-shadow:none!important;
+    transition:transform .2s ease,box-shadow .2s ease!important;
+  }
+  #esmeraldaDesktopTeam .std-master:hover .std-master-avatar{
+    transform:translateY(-4px)!important;
+    box-shadow:0 14px 28px rgba(0,0,0,.16)!important;
+  }
+  #esmeraldaDesktopTeam .std-master-name{
+    margin-top:15px!important;
+    color:#f7f3f0!important;
+    font-size:24px!important;
+  }
+  #esmeraldaDesktopTeam .std-master-role{
+    margin-top:6px!important;
+    color:#c1b5ae!important;
+    font-size:10.5px!important;
+  }
+  #esmeraldaDesktopTeam .std-master-cats{display:none!important}
+
+  /* CONTACTS — more air, readable status, and full-sized actions. */
+  #esmeraldaDesktopContacts.std-contact{padding-top:92px!important}
+  #esmeraldaDesktopContacts .std-contact-status{
+    min-width:208px!important;
+    min-height:48px!important;
+    justify-content:center!important;
+    gap:9px!important;
+    padding:10px 18px!important;
+    font-size:13px!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-status svg{
+    width:19px!important;
+    height:19px!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-body{
+    gap:46px!important;
+    margin-top:42px!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-list{gap:14px!important}
+  #esmeraldaDesktopContacts .std-contact-card{
+    min-height:88px!important;
+    padding:15px 17px!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-map{min-height:382px!important}
+  #esmeraldaDesktopContacts .std-contact-actions{
+    gap:14px!important;
+    margin-top:16px!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-action-btn{
+    height:66px!important;
+    border-radius:13px!important;
+    font-size:15px!important;
+    transition:transform .18s ease,filter .18s ease,background .18s ease!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-action-btn:hover{
+    transform:translateY(-2px)!important;
+    filter:brightness(1.05)!important;
+  }
+}
+@media(min-width:768px) and (max-width:1199px){
+  #esmeraldaDesktopServices.mct-prices>.mct-shell{
+    width:min(calc(100% - 56px),1360px)!important;
+    grid-template-columns:minmax(330px,380px) minmax(0,1fr)!important;
+    column-gap:50px!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head{padding-right:24px!important}
+  #esmeraldaDesktopServices .dct-service-sticky-card{
+    min-height:470px!important;
+    padding:36px 26px 28px!important;
+  }
+  #esmeraldaDesktopAbout>.br-about-team-shell{
+    width:min(calc(100% - 56px),1360px)!important;
+    gap:34px!important;
+  }
+  #esmeraldaDesktopTeam.br-team-panel{padding:36px 28px!important}
+  #esmeraldaDesktopTeam .std-master-avatar{width:min(100%,118px)!important}
+}
+`;
+  document.head.appendChild(desktopStabilityCss);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
@@ -2072,9 +2436,9 @@
     <section class="mct-prices" id="esmeraldaDesktopServices" aria-labelledby="stdServicesTitle">
       <div class="mct-shell">
         <div class="mct-price-head">
-          <div class="dct-service-sticky-card" aria-label="Запись на услугу">
-            <span class="dct-service-sticky-kicker">Запись</span>
-            <strong>Выберите услугу</strong>
+          <div class="dct-service-sticky-card" aria-label="Услуги и цены">
+            <span class="dct-service-sticky-kicker">Услуги и цены</span>
+            <strong id="stdServicesTitle">Выберите услугу</strong>
             <div class="dct-service-sticky-info">
               <div class="dct-service-sticky-row">
                 <span class="dct-service-sticky-icon" aria-hidden="true">
@@ -2096,13 +2460,8 @@
               </div>
             </div>
             <button class="dct-service-sticky-book" id="stdStickyServiceBook" type="button"><span>Записаться</span><span aria-hidden="true">→</span></button>
+            <a class="dct-service-sticky-work" href="#esmeraldaDesktopPortfolio"><span>Смотреть работы</span><span aria-hidden="true">✦</span></a>
           </div>
-        </div>
-
-        <div class="dct-services-right-head">
-          <p class="mct-section-kicker">Услуги и цены</p>
-          <h2 id="stdServicesTitle">Выберите услугу</h2>
-          <span>Выберите направление и нужную процедуру. Нажмите на услугу, чтобы выбрать удобный способ записи.</span>
         </div>
 
         <div class="mct-tabs-ribbon-wrap is-many">
@@ -2121,69 +2480,52 @@
       </div>
     </section>
 
-    <section class="mct-about" id="esmeraldaDesktopAbout" aria-labelledby="stdAboutTitle">
-      <div class="mct-shell">
-        <div class="mct-about-head">
-          <div>
-            <p class="mct-section-kicker">О нас</p>
-            <h2 id="stdAboutTitle">О салоне</h2>
-          </div>
-          <span class="mct-about-monogram" aria-hidden="true">E</span>
-        </div>
-
-        <div class="mct-about-card">
-          <div class="mct-about-portrait-wrap">
-            <figure class="mct-about-portrait">
-              <img src="about-salon.webp" alt="Beauty Room by Esmeralda" loading="lazy">
-            </figure>
+    <section class="mct-about br-about-team" id="esmeraldaDesktopAbout" aria-labelledby="stdAboutTitle">
+      <div class="mct-shell br-about-team-shell">
+        <article class="br-about-column">
+          <div class="mct-about-head">
+            <div>
+              <p class="mct-section-kicker">О нас</p>
+              <h2 id="stdAboutTitle">О салоне</h2>
+            </div>
           </div>
 
-          <div class="mct-about-copy">
-            <p class="mct-about-lead">Beauty Room by Esmeralda — салон красоты в Ереване.</p>
-            <p>Здесь можно спокойно выбрать нужные процедуры и доверить уход мастерам разных направлений.</p>
-            <p>Мы ценим аккуратную работу, комфорт и внимательное отношение к каждому гостю.</p>
-
-            <ul class="mct-about-list">
-              <li>Несколько направлений в одном салоне</li>
-              <li>Комфортная атмосфера</li>
-              <li>Индивидуальный подход</li>
-            </ul>
-
-            <div class="dct-about-amenities">
-              <div class="dct-about-amenities-head">
-                <p class="mct-section-kicker">О салоне</p>
-                <span>Всё необходимое для комфортного визита</span>
-              </div>
-              <div class="dct-about-amenities-grid">
-                <article><strong>Разные направления</strong><span>Маникюр, волосы, брови, косметология и другие услуги.</span></article>
-                <article><strong>Комфорт</strong><span>Спокойная атмосфера и внимательное отношение к каждому гостю.</span></article>
-                <article><strong>Прямая запись</strong><span>Связь с салоном по телефону или Viber без лишних шагов.</span></article>
+          <div class="mct-about-card">
+            <div class="mct-about-portrait-wrap">
+              <figure class="mct-about-portrait">
+                <img src="about-salon.webp" alt="Beauty Room by Esmeralda" loading="lazy">
+              </figure>
+            </div>
+            <div class="mct-about-copy">
+              <p class="mct-about-lead">Beauty Room by Esmeralda — салон красоты в Ереване.</p>
+              <p>Здесь можно спокойно выбрать нужные процедуры и доверить уход мастерам разных направлений.</p>
+              <p>Мы ценим аккуратную работу, комфорт и внимательное отношение к каждому гостю.</p>
+              <div class="dct-about-amenities">
+                <div class="dct-about-amenities-grid">
+                  <article><strong>Разные направления</strong><span>Маникюр, волосы, брови и косметология.</span></article>
+                  <article><strong>Комфорт</strong><span>Спокойная атмосфера и внимание к каждому гостю.</span></article>
+                  <article><strong>Прямая запись</strong><span>Связь по телефону или Viber без лишних шагов.</span></article>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </article>
 
-    <section class="std-team" id="esmeraldaDesktopTeam" aria-labelledby="stdTeamTitle">
-      <div class="std-team-inner">
-        <p class="std-team-kicker">Наша команда</p>
-        <div class="std-team-heading-row">
-          <div>
-            <h2 class="std-team-title" id="stdTeamTitle">Мастера Beauty Room</h2>
-            <p class="std-team-subtitle">Нажмите на мастера, чтобы открыть отдельную страницу специалиста.</p>
+        <aside class="br-team-panel" id="esmeraldaDesktopTeam" aria-labelledby="stdTeamTitle">
+          <p class="std-team-kicker">Наша команда</p>
+          <h2 class="std-team-title" id="stdTeamTitle">Мастера Beauty Room</h2>
+          <p class="std-team-subtitle">Нажмите на мастера, чтобы открыть страницу специалиста.</p>
+          <div class="std-team-track" id="stdTeamTrack">
+            ${TEAM_MASTERS.map(master=>`
+              <button class="std-master" type="button" data-desktop-master="${master.id}">
+                <div class="std-master-avatar">${TEAM_AVATAR}</div>
+                <strong class="std-master-name">${master.name}</strong>
+                <span class="std-master-role">${master.role}</span>
+                <span class="std-master-cats">${master.cats.map(cat=>'<span class="std-master-cat">'+cat+'</span>').join('')}</span>
+              </button>
+            `).join('')}
           </div>
-        </div>
-        <div class="std-team-track" id="stdTeamTrack">
-          ${TEAM_MASTERS.map(master=>`
-            <button class="std-master" type="button" data-desktop-master="${master.id}">
-              <div class="std-master-avatar">${TEAM_AVATAR}</div>
-              <strong class="std-master-name">${master.name}</strong>
-              <span class="std-master-role">${master.role}</span>
-              <span class="std-master-cats">${master.cats.map(cat=>'<span class="std-master-cat">'+cat+'</span>').join('')}</span>
-            </button>
-          `).join('')}
-        </div>
+        </aside>
       </div>
     </section>
 
@@ -2709,8 +3051,13 @@
     let reviewIgnoreHoverUntil=0;
     let reviewSuppressClick=false;
     let reviewInView=false;
+    let reviewRaf=0;
     if('IntersectionObserver' in window){
-      const reviewObserver=new IntersectionObserver(entries=>{reviewInView=!!entries[0]?.isIntersecting},{rootMargin:'160px 0px',threshold:0});
+      const reviewObserver=new IntersectionObserver(entries=>{
+        reviewInView=!!entries[0]?.isIntersecting;
+        if(reviewInView)startDesktopReviews();
+        else stopDesktopReviews();
+      },{rootMargin:'160px 0px',threshold:0});
       reviewObserver.observe(desktopReviewsViewport);
     }else{
       reviewInView=true;
@@ -2727,19 +3074,34 @@
       desktopReviewsLoop.style.setProperty('transform','translate3d('+reviewX+'px,0,0)','important');
     }
     function desktopReviewsFrame(now){
+      reviewRaf=0;
       const dt=Math.min(50,now-reviewLast);
       reviewLast=now;
       const hoverBlocked=reviewHoverPause&&Date.now()>=reviewIgnoreHoverUntil;
-      if(reviewInView&&!document.hidden&&!reviewDragging&&Date.now()>=reviewPauseUntil&&!hoverBlocked&&reviewCycle>0){
+      if(!document.hidden&&!reviewDragging&&Date.now()>=reviewPauseUntil&&!hoverBlocked&&reviewCycle>0){
         reviewX-=reviewCycle/105000*dt;
         if(reviewX<=-reviewCycle)reviewX+=reviewCycle;
         paintDesktopReviews();
       }
-      requestAnimationFrame(desktopReviewsFrame);
+      if(reviewInView&&!document.hidden)reviewRaf=requestAnimationFrame(desktopReviewsFrame);
+    }
+    function startDesktopReviews(){
+      if(reviewRaf||!reviewInView||document.hidden)return;
+      reviewLast=performance.now();
+      reviewRaf=requestAnimationFrame(desktopReviewsFrame);
+    }
+    function stopDesktopReviews(){
+      if(!reviewRaf)return;
+      cancelAnimationFrame(reviewRaf);
+      reviewRaf=0;
     }
     measureDesktopReviews();
     paintDesktopReviews();
-    requestAnimationFrame(desktopReviewsFrame);
+    startDesktopReviews();
+    document.addEventListener('visibilitychange',()=>{
+      if(document.hidden)stopDesktopReviews();
+      else startDesktopReviews();
+    });
     window.addEventListener('resize',()=>{measureDesktopReviews();paintDesktopReviews()},{passive:true});
 
     desktopReviewsViewport.addEventListener('pointerenter',()=>{

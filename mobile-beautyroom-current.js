@@ -1,7 +1,7 @@
 /* Beauty Room mobile loader: targeted final polish. */
 (function(){
   'use strict';
-  if(!window.matchMedia || !window.matchMedia('(max-width:767px)').matches) return;
+  if(!window.matchMedia || !window.matchMedia('(max-width:1023px)').matches || window.matchMedia('(min-width:768px) and (hover:hover) and (pointer:fine)').matches) return;
 
   const base=document.createElement('script');
   base.src='mobile-beautyroom-base.js?v=20260918-overlay-v2';
@@ -10,7 +10,7 @@
     const style=document.createElement('style');
     style.id='beautyroom-final-client-polish';
     style.textContent=`
-    @media(max-width:767px){
+    @media(max-width:1023px){
       /* HERO — preserve approved layout; remove only rejected copy. */
       #stluxe-tanem-v13 .tn13-hero{height:744px!important;min-height:744px!important;max-height:none!important;padding:0!important;background:linear-gradient(180deg,#f8f4ee 0%,#f8f4ee 90%,#f7f2eb 100%)!important;position:relative!important;overflow:hidden!important}
       .tn22-media{position:absolute!important;top:52px!important;left:50%!important;right:auto!important;width:100vw!important;height:372px!important;min-height:0!important;transform:translateX(-50%)!important;overflow:hidden!important;padding:0!important;margin:0!important;border:0!important}
@@ -103,6 +103,18 @@
       #tn13Visit .br-tanem-mark{width:30px!important;height:30px!important;border:1px solid rgba(255,255,255,.42)!important;border-radius:8px!important;display:grid!important;place-items:center!important;font:500 21px/1 'Cormorant Garamond',Georgia,serif!important;color:#fff!important}
       #tn13Visit .br-tanem-copy{display:block!important;max-width:none!important;text-align:center!important;font:400 10px/1.2 'Manrope',Arial,sans-serif!important;color:#cfc8c4!important}
       #tn13Visit .br-tanem-copy strong{display:inline!important;font:500 15px/1 'Cormorant Garamond',Georgia,serif!important;color:#fff!important}
+    }
+    @media(max-width:1023px) and (orientation:landscape){
+      html,body{overflow-x:hidden!important}
+      #stluxe-tanem-v13 .tn13-hero{height:744px!important;min-height:744px!important}
+      #stluxe-tanem-v13 .tn22-media{height:372px!important}
+      #stluxe-tanem-v13 .tn22-card{
+        top:343px!important;
+        left:50%!important;
+        right:auto!important;
+        width:min(calc(100vw - 30px),520px)!important;
+        transform:translateX(-50%)!important;
+      }
     }
     `;
     document.head.appendChild(style);
