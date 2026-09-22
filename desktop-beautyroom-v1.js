@@ -6197,6 +6197,160 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
 }
 `);
 
+  appendDesktopStyle('esmeralda-desktop-pc-polish-v56',String.raw`
+@media(min-width:1024px){
+  .std-btn-primary{
+    height:58px!important;border:0!important;border-radius:8px!important;
+    background:#715b53!important;color:#fff!important;
+    box-shadow:0 12px 28px rgba(74,53,45,.20)!important;
+    font:500 14px/1 "Manrope",Arial,sans-serif!important;
+  }
+  .std-btn-primary:hover{
+    background:#654f48!important;transform:translateY(-1px)!important;
+    box-shadow:0 16px 34px rgba(74,53,45,.27)!important;
+  }
+  .std-btn-primary:after,
+  #esmeraldaDesktopServices .dct-service-sticky-book:after{
+    content:""!important;position:absolute!important;top:-42%!important;left:-38%!important;
+    width:25%!important;height:190%!important;pointer-events:none!important;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.46),transparent)!important;
+    transform:skewX(-22deg)!important;
+    animation:brDesktopBookShine 4.2s ease-in-out infinite!important;
+  }
+  @keyframes brDesktopBookShine{
+    0%,66%{left:-38%;opacity:0}
+    70%{opacity:1}
+    100%{left:132%;opacity:0}
+  }
+
+  #esmeraldaDesktopPortfolio.std-portfolio{
+    padding-bottom:58px!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.72),inset 0 -20px 42px rgba(124,91,74,.035)!important;
+  }
+  #esmeraldaDesktopPortfolio .std-work{
+    box-shadow:0 18px 42px rgba(84,59,48,.13),0 4px 13px rgba(84,59,48,.08)!important;
+  }
+  #esmeraldaDesktopPortfolio .std-work:hover{
+    box-shadow:0 22px 48px rgba(84,59,48,.17),0 5px 15px rgba(84,59,48,.10)!important;
+  }
+  #esmeraldaDesktopPortfolio .std-portfolio-more{
+    box-shadow:0 14px 32px rgba(116,84,68,.12)!important;
+  }
+
+  #esmeraldaDesktopServices.mct-prices{
+    padding-top:58px!important;background:#242424!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card{
+    padding:34px 28px 34px!important;
+    background:radial-gradient(330px 230px at 100% 0%,rgba(255,255,255,.78),transparent 72%),linear-gradient(145deg,#f7f2eb 0%,#eaded4 100%)!important;
+    border-color:rgba(66,55,49,.14)!important;
+    box-shadow:0 28px 70px rgba(9,7,6,.25),0 0 46px rgba(190,145,121,.11)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card>strong{margin:0!important}
+  #esmeraldaDesktopServices .dct-service-sticky-lead{
+    max-width:390px!important;margin:16px 0 0!important;color:#5f5752!important;
+    font:400 12.5px/1.58 "Manrope",Arial,sans-serif!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-row:not(.dct-service-availability){
+    border-color:rgba(109,101,95,.25)!important;background:rgba(238,235,232,.82)!important;
+    box-shadow:inset 3px 0 0 rgba(137,129,123,.54)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-row:not(.dct-service-availability) .dct-service-sticky-icon{
+    border-color:rgba(109,101,95,.19)!important;background:rgba(255,255,255,.52)!important;color:#77706b!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-row:not(.dct-service-availability) .dct-service-sticky-copy b{color:#57514d!important}
+  #esmeraldaDesktopServices .dct-service-sticky-steps{margin-top:18px!important;padding:16px 0 15px!important}
+  #esmeraldaDesktopServices .dct-service-sticky-steps-title{
+    margin-bottom:13px!important;color:#6f655f!important;font-size:9.5px!important;letter-spacing:.16em!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-steps li span{
+    white-space:normal!important;overflow:visible!important;text-overflow:clip!important;
+    color:#342e2a!important;font-size:9.8px!important;line-height:1.35!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-book{
+    position:relative!important;isolation:isolate!important;width:100%!important;height:64px!important;
+    margin-top:20px!important;overflow:hidden!important;border:0!important;border-radius:8px!important;
+    background:#715b53!important;background-image:none!important;color:#fff!important;
+    box-shadow:0 13px 30px rgba(74,53,45,.22)!important;animation:none!important;
+    transition:transform .16s ease,background .16s ease,box-shadow .16s ease!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-book:hover{
+    background:#654f48!important;transform:translateY(-1px)!important;
+    box-shadow:0 17px 36px rgba(74,53,45,.30)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-book>span{position:relative!important;z-index:2!important}
+
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{position:relative!important;overflow:hidden!important}
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap:before,
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap:after{
+    content:""!important;position:absolute!important;z-index:3!important;top:0!important;height:58px!important;pointer-events:none!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap:before{
+    left:72px!important;width:48px!important;
+    background:linear-gradient(90deg,#242424 0%,rgba(36,36,36,.74) 34%,transparent 100%)!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap:after{
+    right:0!important;width:54px!important;background:linear-gradient(90deg,transparent,#242424 90%)!important;
+  }
+  #esmeraldaDesktopServices .mct-tab-all{position:sticky!important;left:0!important;z-index:5!important}
+  #esmeraldaDesktopServices .mct-tab-all:not(.is-active){
+    background:#242424!important;box-shadow:10px 0 16px rgba(36,36,36,.72)!important;
+  }
+
+  #esmeraldaDesktopServices .dct-service-card:not(.has-variants) .dct-service-card-body{
+    grid-template-columns:minmax(0,1fr) 112px 142px!important;
+  }
+  #esmeraldaDesktopServices .dct-service-card-meta>b,
+  #esmeraldaDesktopServices .dct-service-card-variant-meta>b{
+    display:inline-flex!important;width:142px!important;min-width:142px!important;min-height:42px!important;
+    align-items:center!important;justify-content:center!important;padding:0 16px!important;
+    border:1px solid rgba(255,255,255,.92)!important;border-radius:999px!important;
+    background:#f7f2eb!important;color:#171513!important;box-shadow:0 8px 18px rgba(0,0,0,.10)!important;
+    font:600 12.5px/1 "Manrope",Arial,sans-serif!important;text-align:center!important;white-space:nowrap!important;
+    transition:transform .18s ease,background .18s ease,box-shadow .18s ease!important;
+  }
+  #esmeraldaDesktopServices .dct-service-card:hover .dct-service-card-meta>b,
+  #esmeraldaDesktopServices .dct-service-card:hover .dct-service-card-variant-meta>b{
+    transform:translateY(-1px)!important;background:#fff!important;box-shadow:0 10px 22px rgba(0,0,0,.14)!important;
+  }
+
+  #esmeraldaDesktopAbout.br-about-team{
+    padding-top:64px!important;
+    background:radial-gradient(circle at 12% 12%,rgba(255,255,255,.72),transparent 28%),radial-gradient(circle at 92% 16%,rgba(193,158,145,.14),transparent 30%),linear-gradient(180deg,#f8f3ef 0%,#f1e7df 100%)!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-card{
+    box-shadow:0 28px 64px rgba(87,61,49,.13),inset 0 1px 0 rgba(255,255,255,.82)!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-copy>p:not(.mct-about-lead){font-size:15px!important;line-height:1.62!important}
+  #esmeraldaDesktopAbout .dct-about-amenities-grid article{box-shadow:0 10px 24px rgba(92,65,52,.06)!important}
+  #esmeraldaDesktopAbout .dct-about-amenities-grid strong{font-size:14.5px!important;line-height:1.25!important}
+  #esmeraldaDesktopAbout .dct-about-amenities-grid span{margin-top:8px!important;font-size:11.3px!important;line-height:1.42!important}
+
+  #esmeraldaDesktopTeam.br-team-panel{
+    background:radial-gradient(circle at 88% 8%,rgba(255,255,255,.055),transparent 26%),radial-gradient(circle at 8% 96%,rgba(139,113,103,.12),transparent 32%),#242424!important;
+    box-shadow:0 30px 68px rgba(42,30,25,.18),inset 0 1px 0 rgba(255,255,255,.035)!important;
+  }
+  #esmeraldaDesktopTeam .std-team-kicker{font-size:14px!important;letter-spacing:.22em!important}
+  #esmeraldaDesktopTeam .std-team-subtitle{font-size:13px!important}
+  #esmeraldaDesktopTeam .std-team-track{gap:30px!important}
+  #esmeraldaDesktopTeam .std-master-avatar{
+    width:235px!important;height:235px!important;max-width:100%!important;
+    background:linear-gradient(145deg,#4a4542,#34302e)!important;box-shadow:0 18px 38px rgba(0,0,0,.18)!important;
+  }
+  #esmeraldaDesktopTeam .std-master-avatar svg{width:78px!important;height:78px!important}
+  #esmeraldaDesktopTeam .std-master-name{margin-top:19px!important;font-size:28px!important}
+  #esmeraldaDesktopTeam .std-master-role{margin-top:7px!important;font-size:13px!important}
+  #esmeraldaDesktopTeam .std-master-cat{font-size:12px!important}
+
+  #esmeraldaDesktopContacts.std-contact{background:#2f2926!important}
+  #esmeraldaDesktopContacts .std-contact-bottom{background:#11100f!important}
+  #esmeraldaDesktopContacts .std-contact-brand{background:#11100f!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .std-btn-primary:after,#esmeraldaDesktopServices .dct-service-sticky-book:after{animation:none!important}
+}
+`);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
@@ -6292,7 +6446,7 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
         <div class="mct-price-head">
           <div class="dct-service-sticky-card" id="stdStickyServiceCard" aria-label="Выберите услугу">
             <strong>Выберите услугу</strong>
-            <p class="dct-service-sticky-lead">Выберите направление справа, затем нужную процедуру. После этого откроется удобный способ связи с салоном.</p>
+            <p class="dct-service-sticky-lead">Все услуги собраны по направлениям. Выберите подходящую процедуру — запись откроется сразу, без лишних шагов.</p>
             <div class="dct-service-sticky-info">
               <div class="dct-service-sticky-row dct-service-availability">
                 <span class="dct-service-sticky-icon" aria-hidden="true">
@@ -6314,10 +6468,10 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
               </div>
             </div>
             <div class="dct-service-sticky-steps" aria-label="Как записаться">
-              <span class="dct-service-sticky-steps-title">Как записаться</span>
+              <span class="dct-service-sticky-steps-title">Быстрая запись</span>
               <ol>
-                <li><b>01</b><span>Категория</span></li>
-                <li><b>02</b><span>Услуга</span></li>
+                <li><b>01</b><span>Выберите услугу</span></li>
+                <li><b>02</b><span>Нажмите «Записаться»</span></li>
                 <li><b>03</b><span>Связь с салоном</span></li>
               </ol>
             </div>
@@ -7113,8 +7267,8 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
     ['Косметология','Կոսմետոլոգիա','Cosmetology'],['Эпиляция','Էպիլյացիա','Hair removal'],['Макияж','Դիմահարդարում','Makeup'],
     ['Массаж','Մերսում','Massage'],['Другое','Այլ','Other'],['Все','Բոլորը','All'],
     ['Услуги и цены','Ծառայություններ և գներ','Services & prices'],['Выберите услугу','Ընտրեք ծառայությունը','Choose a service'],
-    ['Выберите направление справа, затем нужную процедуру. После этого откроется удобный способ связи с салоном.','Աջ կողմում ընտրեք ուղղությունը, ապա անհրաժեշտ ծառայությունը։ Դրանից հետո կբացվի սրահի հետ կապվելու հարմար տարբերակը։','Choose a category on the right, then select a service. You can then contact the salon in the way that suits you.'],
-    ['Как записаться','Ինչպես ամրագրվել','How to book'],['Категория','Բաժին','Category'],['Услуга','Ծառայություն','Service'],['Связь с салоном','Կապ սրահի հետ','Contact the salon'],
+    ['Все услуги собраны по направлениям. Выберите подходящую процедуру — запись откроется сразу, без лишних шагов.','Աջ կողմում ընտրեք ուղղությունը, ապա անհրաժեշտ ծառայությունը։ Դրանից հետո կբացվի սրահի հետ կապվելու հարմար տարբերակը։','Choose a category on the right, then select a service. You can then contact the salon in the way that suits you.'],
+    ['Как записаться','Ինչպես ամրագրվել','How to book'],['Быстрая запись','Արագ ամրագրում','Quick booking'],['Нажмите «Записаться»','Սեղմեք «Ամրագրել»','Tap “Book”'],['Категория','Բաժին','Category'],['Услуга','Ծառայություն','Service'],['Связь с салоном','Կապ սրահի հետ','Contact the salon'],
     ['Выберите направление и нужную процедуру. Запись открывается в отдельной плашке, а все услуги собраны в одной понятной структуре.','Ընտրեք ուղղությունն ու անհրաժեշտ ծառայությունը։ Բոլոր ծառայությունները հավաքված են մեկ պարզ կառուցվածքում։','Choose a category and service. Everything is organized in one clear structure.'],['Выберите направление и нужную процедуру. Нажмите на услугу, чтобы выбрать удобный способ записи.','Ընտրեք ուղղությունն ու անհրաժեշտ ծառայությունը։ Սեղմեք ծառայության վրա՝ ամրագրման հարմար տարբերակ ընտրելու համար։','Choose a category and service. Select a service to choose a convenient booking method.'],
     ['Свернуть','Փակել ցանկը','Show less'],['Свернуть услуги','Փակել ծառայությունները','Collapse services'],['Открыть ещё','Բացել ևս','Show'],['О салоне','Սրահի մասին','About the salon'],
     ['Beauty Room by Esmeralda — салон красоты в Ереване.','Beauty Room by Esmeralda — գեղեցկության սրահ Երևանում։','Beauty Room by Esmeralda — a beauty salon in Yerevan.'],
