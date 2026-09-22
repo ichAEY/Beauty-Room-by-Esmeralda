@@ -1711,6 +1711,173 @@
   desktopHeroEntranceCss.textContent="@media(min-width:768px){#esmeralda-desktop-v1{opacity:0;transform:none;transition:opacity 1.05s cubic-bezier(.22,.72,.28,1)}#esmeralda-desktop-v1.desktop-ready{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){#esmeralda-desktop-v1{opacity:1!important;transform:none!important;transition:none!important}}";
   document.head.appendChild(desktopHeroEntranceCss);
 
+  const pcRestorationCss=document.createElement('style');
+  pcRestorationCss.id='esmeralda-desktop-pc-restoration-v43';
+  pcRestorationCss.textContent=`
+@media(min-width:768px){
+  #esmeralda-desktop-v1{transition:opacity .45s cubic-bezier(.22,.72,.28,1)!important}
+
+  /* Services: stable desktop grid + sticky booking card. */
+  #esmeraldaDesktopServices.mct-prices{
+    overflow:clip!important;
+  }
+  #esmeraldaDesktopServices.mct-prices>.mct-shell{
+    align-items:start!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head{
+    position:sticky!important;
+    top:104px!important;
+    z-index:6!important;
+    transform:none!important;
+    padding:0 clamp(22px,2.7vw,40px) 0 0!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head:after{
+    top:0!important;
+    right:-1.6cm!important;
+    height:min(72vh,660px)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card{
+    width:100%!important;
+    max-width:340px!important;
+    margin-top:28px!important;
+    padding:22px!important;
+    border:1px solid rgba(92,69,59,.16)!important;
+    border-radius:20px!important;
+    background:
+      radial-gradient(240px 130px at 88% 0%,rgba(255,255,255,.68),transparent 72%),
+      linear-gradient(145deg,#f8f4ee 0%,#efe4dc 100%)!important;
+    box-shadow:0 18px 42px rgba(17,14,12,.18)!important;
+    color:#211d1a!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-kicker{
+    display:block!important;
+    margin:0 0 10px!important;
+    color:#8f7167!important;
+    font:600 10px/1 "Manrope",Arial,sans-serif!important;
+    letter-spacing:.22em!important;
+    text-transform:uppercase!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card>strong{
+    display:block!important;
+    color:#211d1a!important;
+    font:500 30px/1 "Cormorant Garamond",Georgia,serif!important;
+    letter-spacing:-.025em!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-book{
+    width:100%!important;
+    height:48px!important;
+    margin-top:20px!important;
+    padding:0 20px!important;
+    border:0!important;
+    border-radius:999px!important;
+    background:#9c7967!important;
+    color:#fff!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    box-shadow:0 10px 24px rgba(104,78,65,.18)!important;
+    font:600 12px/1 "Manrope",Arial,sans-serif!important;
+    transition:background .18s ease,box-shadow .18s ease!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-book:hover{
+    background:#8f6d5c!important;
+    box-shadow:0 12px 28px rgba(104,78,65,.24)!important;
+  }
+
+  /* Category ribbon starts at the divider and reaches the viewport edge. */
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{
+    width:calc(100% + max(48px, calc((100vw - 1360px)/2)))!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:14px 0 18px!important;
+    overflow:visible!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs{
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:4px max(48px, calc((100vw - 1360px)/2)) 12px 0!important;
+    overflow-x:auto!important;
+    overflow-y:visible!important;
+    scrollbar-width:none!important;
+    overscroll-behavior-x:contain!important;
+    scroll-snap-type:x proximity!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs::-webkit-scrollbar{display:none!important}
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap.is-many .mct-tabs-track{
+    min-width:max-content!important;
+    gap:10px!important;
+    padding:0!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap.is-many .mct-tab,
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap.is-many .mct-tab-all{
+    min-height:48px!important;
+    padding:0 24px!important;
+    border:1px solid rgba(255,255,255,.18)!important;
+    border-radius:999px!important;
+    background:rgba(255,255,255,.045)!important;
+    color:#d2c8c2!important;
+    box-shadow:none!important;
+    transform:none!important;
+    transition:background .16s ease,border-color .16s ease,color .16s ease,box-shadow .16s ease!important;
+    scroll-snap-align:start!important;
+  }
+  #esmeraldaDesktopServices .mct-tab:hover,
+  #esmeraldaDesktopServices .mct-tab-all:hover{
+    transform:none!important;
+    background:rgba(255,255,255,.085)!important;
+    border-color:rgba(255,255,255,.25)!important;
+  }
+  #esmeraldaDesktopServices .mct-tab.is-active,
+  #esmeraldaDesktopServices .mct-tab-all.is-active{
+    background:#9c7967!important;
+    border-color:#ad8a78!important;
+    color:#fff!important;
+    box-shadow:0 8px 20px rgba(0,0,0,.14)!important;
+  }
+
+  /* Gallery keeps identical geometry for every category. */
+  #stdGalleryBrowser.std-gallery-browser{
+    overflow-y:scroll!important;
+    scrollbar-gutter:stable both-edges!important;
+  }
+  #stdGalleryBrowser .std-gallery-browser-shell{
+    width:100%!important;
+    min-width:0!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+  #stdGalleryBrowser .std-gallery-browser-top,
+  #stdGalleryBrowser .std-gallery-browser-tabs,
+  #stdGalleryBrowser .std-gallery-browser-grid{
+    box-sizing:border-box!important;
+  }
+
+  /* Remove scroll-in reveal jumps; keep only deliberate micro-interactions. */
+  #esmeralda-desktop-v1 .std-section-reveal{
+    opacity:1!important;
+    transform:none!important;
+    transition:none!important;
+  }
+}
+@media(min-width:768px) and (max-width:930px){
+  #esmeraldaDesktopServices .mct-price-head{
+    position:relative!important;
+    top:auto!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{
+    width:100%!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs{
+    padding-right:0!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card{
+    max-width:none!important;
+  }
+}
+`;
+  document.head.appendChild(pcRestorationCss);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
@@ -1807,6 +1974,11 @@
           <p class="mct-section-kicker">Услуги и цены</p>
           <h2 id="stdServicesTitle">Выберите услугу</h2>
           <span>Выберите направление и нужную процедуру. Нажмите на услугу, чтобы выбрать удобный способ записи.</span>
+          <div class="dct-service-sticky-card" aria-label="Запись на услугу">
+            <span class="dct-service-sticky-kicker">Запись</span>
+            <strong>Выберите услугу</strong>
+            <button class="dct-service-sticky-book" id="stdStickyServiceBook" type="button"><span>Записаться</span><span aria-hidden="true">→</span></button>
+          </div>
         </div>
 
         <div class="mct-tabs-ribbon-wrap is-many">
@@ -2054,18 +2226,35 @@
       </div>
     </div>
   `;
-  document.body.appendChild(root); 
-  window.setTimeout(()=>root.classList.add('desktop-ready'),1650);
+  document.body.appendChild(root);
+  const revealDesktopRoot=()=>requestAnimationFrame(()=>root.classList.add('desktop-ready'));
+  if(document.documentElement.classList.contains('br-booting')){
+    window.addEventListener('br:intro-done',revealDesktopRoot,{once:true});
+  }else{
+    revealDesktopRoot();
+  }
 
   const heroVideo=document.getElementById('stdHeroVideo');
   if(heroVideo){
     heroVideo.muted=true;
     heroVideo.defaultMuted=true;
-    const tryHeroVideo=()=>{const p=heroVideo.play();if(p&&typeof p.catch==='function')p.catch(()=>{})};
-    heroVideo.addEventListener('loadeddata',tryHeroVideo,{once:true});
-    heroVideo.addEventListener('canplay',tryHeroVideo,{once:true});
-    requestAnimationFrame(tryHeroVideo);
-    document.addEventListener('visibilitychange',()=>{if(!document.hidden)tryHeroVideo()});
+    const tryHeroVideo=()=>{if(document.hidden)return;const p=heroVideo.play();if(p&&typeof p.catch==='function')p.catch(()=>{})};
+    if(document.documentElement.classList.contains('br-booting')){
+      try{heroVideo.pause()}catch(_){}
+      window.addEventListener('br:intro-done',tryHeroVideo,{once:true});
+    }else{
+      requestAnimationFrame(tryHeroVideo);
+    }
+    heroVideo.addEventListener('loadeddata',()=>{if(!document.documentElement.classList.contains('br-booting'))tryHeroVideo()},{once:true});
+    if('IntersectionObserver' in window){
+      const heroVideoObserver=new IntersectionObserver(entries=>{
+        const visible=!!entries[0]?.isIntersecting;
+        if(visible&&!document.hidden)tryHeroVideo();
+        else try{heroVideo.pause()}catch(_){}
+      },{threshold:.04});
+      heroVideoObserver.observe(heroVideo);
+    }
+    document.addEventListener('visibilitychange',()=>{if(document.hidden){try{heroVideo.pause()}catch(_){}}else if(heroVideo.getBoundingClientRect().bottom>0)tryHeroVideo()});
   }
 
   const bookBtn=document.getElementById('stdBookBtn');
@@ -2075,6 +2264,8 @@
   bookBtn.addEventListener('click',openDesktopBooking);
   const headerBookBtn=document.getElementById('stdHeaderBookBtn');
   if(headerBookBtn)headerBookBtn.addEventListener('click',openDesktopBooking);
+  const stickyServiceBook=document.getElementById('stdStickyServiceBook');
+  if(stickyServiceBook)stickyServiceBook.addEventListener('click',openDesktopBooking);
   document.getElementById('stdBookClose').addEventListener('click',closeDesktopBooking);
   bookOverlay.addEventListener('click',e=>{if(e.target===bookOverlay)closeDesktopBooking()});
 
@@ -2142,12 +2333,19 @@
   function renderDesktopGalleryBrowser(){
     const cats=Object.keys(DESKTOP_GALLERY_GROUPS);
     const items=DESKTOP_GALLERY_GROUPS[galleryCategory]||[];
-    galleryBrowserTabs.innerHTML=cats.map(cat=>'<button class="std-gallery-browser-tab'+(cat===galleryCategory?' active':'')+'" type="button" data-gallery-category="'+cat+'">'+cat+'</button>').join('');
-    galleryBrowserGrid.innerHTML=items.map((item,i)=>'<button class="std-gallery-browser-tile" type="button" data-gallery-item="'+i+'" aria-label="Открыть фотографию"><img src="'+item.src+'" alt="'+item.alt+'" loading="lazy"></button>').join('');
-    galleryBrowserTabs.querySelectorAll('[data-gallery-category]').forEach(btn=>btn.onclick=()=>{
-      galleryCategory=btn.dataset.galleryCategory;
-      renderDesktopGalleryBrowser();
+    if(!galleryBrowserTabs.childElementCount){
+      galleryBrowserTabs.innerHTML=cats.map(cat=>'<button class="std-gallery-browser-tab" type="button" data-gallery-category="'+cat+'">'+cat+'</button>').join('');
+      galleryBrowserTabs.querySelectorAll('[data-gallery-category]').forEach(btn=>btn.onclick=()=>{
+        galleryCategory=btn.dataset.galleryCategory;
+        renderDesktopGalleryBrowser();
+      });
+    }
+    galleryBrowserTabs.querySelectorAll('[data-gallery-category]').forEach(btn=>{
+      const active=btn.dataset.galleryCategory===galleryCategory;
+      btn.classList.toggle('active',active);
+      btn.setAttribute('aria-selected',active?'true':'false');
     });
+    galleryBrowserGrid.innerHTML=items.map((item,i)=>'<button class="std-gallery-browser-tile" type="button" data-gallery-item="'+i+'" aria-label="Открыть фотографию"><img src="'+item.src+'" alt="'+item.alt+'" loading="lazy" decoding="async"></button>').join('');
     galleryBrowserGrid.querySelectorAll('[data-gallery-item]').forEach(btn=>btn.onclick=()=>{
       openDesktopViewer(items,Number(btn.dataset.galleryItem)||0,'gallery');
     });
@@ -2386,6 +2584,13 @@
     let reviewHoverPause=false;
     let reviewIgnoreHoverUntil=0;
     let reviewSuppressClick=false;
+    let reviewInView=false;
+    if('IntersectionObserver' in window){
+      const reviewObserver=new IntersectionObserver(entries=>{reviewInView=!!entries[0]?.isIntersecting},{rootMargin:'160px 0px',threshold:0});
+      reviewObserver.observe(desktopReviewsViewport);
+    }else{
+      reviewInView=true;
+    }
 
     function measureDesktopReviews(){
       reviewCycle=desktopReviewsFirstSet.getBoundingClientRect().width+16;
@@ -2401,7 +2606,7 @@
       const dt=Math.min(50,now-reviewLast);
       reviewLast=now;
       const hoverBlocked=reviewHoverPause&&Date.now()>=reviewIgnoreHoverUntil;
-      if(!reviewDragging&&Date.now()>=reviewPauseUntil&&!hoverBlocked&&reviewCycle>0){
+      if(reviewInView&&!document.hidden&&!reviewDragging&&Date.now()>=reviewPauseUntil&&!hoverBlocked&&reviewCycle>0){
         reviewX-=reviewCycle/105000*dt;
         if(reviewX<=-reviewCycle)reviewX+=reviewCycle;
         paintDesktopReviews();
