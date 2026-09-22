@@ -2355,6 +2355,211 @@
     document.head.appendChild(mergedDesktopCss);
   }
 
+  const clientFinalCss=document.createElement('style');
+  clientFinalCss.id='esmeralda-desktop-client-final-v47';
+  clientFinalCss.textContent=`
+@media(min-width:768px){
+  /* Services sit closer to the gallery and keep a single horizontal category rail. */
+  #esmeraldaDesktopServices.mct-prices{
+    padding-top:54px!important;
+  }
+  #esmeraldaDesktopServices.mct-prices>.mct-shell{
+    width:min(calc(100% - 76px),1360px)!important;
+    grid-template-columns:minmax(430px,480px) minmax(0,1fr)!important;
+    column-gap:64px!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head{
+    top:92px!important;
+    padding-right:38px!important;
+    justify-content:stretch!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head:after{
+    right:0!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card{
+    width:100%!important;
+    max-width:none!important;
+    min-height:520px!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{
+    width:calc(100% + max(38px,calc((100vw - 1360px)/2)))!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:4px 0 22px!important;
+    overflow:visible!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs{
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:4px max(38px,calc((100vw - 1360px)/2)) 12px 0!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    scrollbar-width:none!important;
+    overscroll-behavior-x:contain!important;
+    scroll-snap-type:x proximity!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs::-webkit-scrollbar{display:none!important}
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap.is-many .mct-tabs-track{
+    display:flex!important;
+    width:max-content!important;
+    min-width:max-content!important;
+    flex-wrap:nowrap!important;
+    gap:10px!important;
+    padding:0!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap.is-many .mct-tab,
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap.is-many .mct-tab-all{
+    flex:0 0 auto!important;
+    width:auto!important;
+    min-width:max-content!important;
+    min-height:49px!important;
+    padding:0 22px!important;
+    border-radius:999px!important;
+    scroll-snap-align:start!important;
+  }
+  #esmeraldaDesktopServices .mct-tab.is-active,
+  #esmeraldaDesktopServices .mct-tab-all.is-active{
+    border-color:#d8b7aa!important;
+    background:#d8b7aa!important;
+    color:#2f2926!important;
+    box-shadow:0 12px 26px rgba(0,0,0,.14)!important;
+  }
+
+  /* About and team are equal-sized cards with aligned headings. */
+  #esmeraldaDesktopAbout>.br-about-team-shell{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:48px!important;
+    align-items:stretch!important;
+  }
+  #esmeraldaDesktopAbout .br-about-column,
+  #esmeraldaDesktopTeam.br-team-panel{
+    box-sizing:border-box!important;
+    min-height:820px!important;
+  }
+  #esmeraldaDesktopAbout .br-about-column{
+    display:flex!important;
+    flex-direction:column!important;
+    padding:36px!important;
+    border:1px solid rgba(85,64,57,.10)!important;
+    border-radius:28px!important;
+    background:rgba(255,253,250,.80)!important;
+    box-shadow:0 20px 52px rgba(67,50,44,.09)!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-head{
+    display:block!important;
+    text-align:center!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-head h2,
+  #esmeraldaDesktopTeam .std-team-title{
+    margin:0!important;
+    text-align:center!important;
+    font:500 clamp(50px,4.1vw,64px)/.94 "Cormorant Garamond",Georgia,serif!important;
+    letter-spacing:-.035em!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-card{
+    flex:1 1 auto!important;
+    margin-top:30px!important;
+    border:0!important;
+    border-radius:22px!important;
+    background:transparent!important;
+    box-shadow:none!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-portrait-wrap{
+    height:310px!important;
+    min-height:310px!important;
+    border-radius:22px!important;
+    overflow:hidden!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-copy{
+    padding:28px 0 0!important;
+  }
+  #esmeraldaDesktopTeam.br-team-panel{
+    display:flex!important;
+    flex-direction:column!important;
+    padding:36px!important;
+  }
+  #esmeraldaDesktopTeam .std-team-kicker{display:none!important}
+  #esmeraldaDesktopTeam .std-team-title{color:#f7f3f0!important}
+  #esmeraldaDesktopTeam .std-team-subtitle{
+    margin:13px 0 0!important;
+    text-align:center!important;
+  }
+  #esmeraldaDesktopTeam .std-team-track{
+    flex:1 1 auto!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:28px!important;
+    margin-top:28px!important;
+    align-content:center!important;
+  }
+  #esmeraldaDesktopTeam .std-master{
+    box-sizing:border-box!important;
+    min-height:272px!important;
+    padding:16px 12px 18px!important;
+    border:1px solid rgba(255,255,255,.075)!important;
+    border-radius:22px!important;
+    background:rgba(255,255,255,.035)!important;
+  }
+  #esmeraldaDesktopTeam .std-master-avatar{
+    width:166px!important;
+    max-width:100%!important;
+  }
+  #esmeraldaDesktopTeam .std-master-name{
+    margin-top:17px!important;
+    font-size:26px!important;
+  }
+
+  /* TANEM footer fills the whole strip from its top divider to the page bottom. */
+  #esmeraldaDesktopContacts .std-contact-bottom{
+    min-height:118px!important;
+    margin:36px -70px -54px!important;
+    padding:0!important;
+    border-top:1px solid rgba(23,21,19,.18)!important;
+    background:#171513!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-brand{
+    width:100%!important;
+    max-width:none!important;
+    min-height:118px!important;
+    margin:0!important;
+    padding:0 70px!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:8px!important;
+  }
+}
+@media(min-width:768px) and (max-width:1199px){
+  #esmeraldaDesktopServices.mct-prices>.mct-shell{
+    width:min(calc(100% - 56px),1360px)!important;
+    grid-template-columns:minmax(360px,400px) minmax(0,1fr)!important;
+    column-gap:44px!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head{padding-right:28px!important}
+  #esmeraldaDesktopServices .mct-price-head:after{right:0!important}
+  #esmeraldaDesktopAbout>.br-about-team-shell{
+    width:min(calc(100% - 56px),1360px)!important;
+    gap:30px!important;
+  }
+  #esmeraldaDesktopAbout .br-about-column,
+  #esmeraldaDesktopTeam.br-team-panel{
+    min-height:760px!important;
+    padding:30px!important;
+  }
+  #esmeraldaDesktopTeam .std-master-avatar{width:142px!important}
+  #esmeraldaDesktopTeam .std-master{min-height:248px!important}
+}
+`;
+  document.head.appendChild(clientFinalCss);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
@@ -2497,7 +2702,6 @@
         <article class="br-about-column">
           <div class="mct-about-head">
             <div>
-              <p class="mct-section-kicker">О нас</p>
               <h2 id="stdAboutTitle">О салоне</h2>
             </div>
           </div>
@@ -2524,8 +2728,7 @@
         </article>
 
         <aside class="br-team-panel" id="esmeraldaDesktopTeam" aria-labelledby="stdTeamTitle">
-          <p class="std-team-kicker">Наша команда</p>
-          <h2 class="std-team-title" id="stdTeamTitle">Мастера Beauty Room</h2>
+          <h2 class="std-team-title" id="stdTeamTitle">Наша команда</h2>
           <p class="std-team-subtitle">Нажмите на мастера, чтобы открыть страницу специалиста.</p>
           <div class="std-team-track" id="stdTeamTrack">
             ${TEAM_MASTERS.map(master=>`
