@@ -6935,6 +6935,18 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
 }
 `);
 
+  appendDesktopStyle('esmeralda-desktop-active-category-v65',String.raw`
+@media(min-width:1024px){
+  #esmeraldaDesktopServices #stdServiceTabs .mct-tab.is-active[aria-selected="true"],
+  #esmeraldaDesktopServices #stdServiceTabs .mct-tab-all.is-active[aria-selected="true"]{
+    background:#fff!important;
+    border-color:#fff!important;
+    color:#171513!important;
+    box-shadow:0 9px 22px rgba(0,0,0,.16)!important;
+  }
+}
+`);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
