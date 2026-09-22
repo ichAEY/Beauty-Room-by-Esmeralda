@@ -5636,13 +5636,13 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
     overflow:visible!important;
   }
   #esmeraldaDesktopServices .mct-price-head{
-    position:sticky!important;
-    top:94px!important;
+    position:relative!important;
+    top:auto!important;
     grid-column:1!important;
     grid-row:1 / 5!important;
-    align-self:start!important;
+    align-self:stretch!important;
     width:100%!important;
-    height:auto!important;
+    height:100%!important;
     margin:0!important;
     padding:0!important;
     transform:none!important;
@@ -5656,6 +5656,8 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
     background:linear-gradient(180deg,rgba(229,205,193,0),rgba(229,205,193,.22) 10%,rgba(229,205,193,.22) 88%,rgba(229,205,193,0))!important;
   }
   #esmeraldaDesktopServices .dct-service-sticky-card{
+    position:sticky!important;
+    top:94px!important;
     width:100%!important;
     min-height:0!important;
     margin:0!important;
