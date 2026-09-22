@@ -1728,8 +1728,12 @@
     position:sticky!important;
     top:104px!important;
     z-index:6!important;
+    grid-column:1!important;
+    grid-row:1 / span 4!important;
+    width:100%!important;
     transform:none!important;
     padding:0 clamp(22px,2.7vw,40px) 0 0!important;
+    align-self:start!important;
   }
   #esmeraldaDesktopServices .mct-price-head:after{
     top:0!important;
@@ -1738,36 +1742,95 @@
   }
   #esmeraldaDesktopServices .dct-service-sticky-card{
     width:100%!important;
-    max-width:340px!important;
-    margin-top:28px!important;
-    padding:22px!important;
+    max-width:440px!important;
+    min-height:360px!important;
+    margin:0!important;
+    padding:30px 30px 28px!important;
     border:1px solid rgba(92,69,59,.16)!important;
-    border-radius:20px!important;
+    border-radius:26px!important;
     background:
-      radial-gradient(240px 130px at 88% 0%,rgba(255,255,255,.68),transparent 72%),
-      linear-gradient(145deg,#f8f4ee 0%,#efe4dc 100%)!important;
-    box-shadow:0 18px 42px rgba(17,14,12,.18)!important;
+      radial-gradient(310px 180px at 88% 0%,rgba(255,255,255,.76),transparent 72%),
+      linear-gradient(145deg,#f8f4ee 0%,#eee1d8 100%)!important;
+    box-shadow:0 22px 52px rgba(17,14,12,.20)!important;
     color:#211d1a!important;
   }
   #esmeraldaDesktopServices .dct-service-sticky-kicker{
     display:block!important;
-    margin:0 0 10px!important;
+    margin:0 0 12px!important;
     color:#8f7167!important;
-    font:600 10px/1 "Manrope",Arial,sans-serif!important;
-    letter-spacing:.22em!important;
+    font:600 11px/1 "Manrope",Arial,sans-serif!important;
+    letter-spacing:.24em!important;
     text-transform:uppercase!important;
   }
   #esmeraldaDesktopServices .dct-service-sticky-card>strong{
     display:block!important;
     color:#211d1a!important;
-    font:500 30px/1 "Cormorant Garamond",Georgia,serif!important;
-    letter-spacing:-.025em!important;
+    font:500 39px/.98 "Cormorant Garamond",Georgia,serif!important;
+    letter-spacing:-.03em!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-info{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:10px!important;
+    margin-top:28px!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-row{
+    min-width:0!important;
+    min-height:82px!important;
+    display:grid!important;
+    grid-template-columns:42px minmax(0,1fr)!important;
+    gap:11px!important;
+    align-items:center!important;
+    padding:12px!important;
+    border:1px solid rgba(83,63,55,.105)!important;
+    border-radius:16px!important;
+    background:rgba(255,255,255,.42)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-icon{
+    width:42px!important;
+    height:42px!important;
+    display:grid!important;
+    place-items:center!important;
+    border:1px solid rgba(103,78,65,.13)!important;
+    border-radius:50%!important;
+    background:rgba(255,255,255,.42)!important;
+    color:#715b53!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-icon svg{
+    width:20px!important;
+    height:20px!important;
+    fill:none!important;
+    stroke:currentColor!important;
+    stroke-width:1.7!important;
+    stroke-linecap:round!important;
+    stroke-linejoin:round!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-copy{
+    min-width:0!important;
+    display:block!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-copy b{
+    display:block!important;
+    overflow:hidden!important;
+    color:#302925!important;
+    font:600 12px/1.15 "Manrope",Arial,sans-serif!important;
+    text-overflow:ellipsis!important;
+    white-space:nowrap!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-copy small{
+    display:block!important;
+    margin-top:5px!important;
+    overflow:hidden!important;
+    color:#776b64!important;
+    font:500 10px/1.25 "Manrope",Arial,sans-serif!important;
+    text-overflow:ellipsis!important;
+    white-space:nowrap!important;
   }
   #esmeraldaDesktopServices .dct-service-sticky-book{
     width:100%!important;
-    height:48px!important;
-    margin-top:20px!important;
-    padding:0 20px!important;
+    height:56px!important;
+    margin-top:22px!important;
+    padding:0 22px!important;
     border:0!important;
     border-radius:999px!important;
     background:#9c7967!important;
@@ -1784,8 +1847,36 @@
     box-shadow:0 12px 28px rgba(104,78,65,.24)!important;
   }
 
+  #esmeraldaDesktopServices .dct-services-right-head{
+    grid-column:2!important;
+    width:min(100%,780px)!important;
+    margin:0 0 22px!important;
+    padding:0!important;
+  }
+  #esmeraldaDesktopServices .dct-services-right-head .mct-section-kicker{
+    margin:0!important;
+    color:#b8ada7!important;
+    font:600 12px/1 "Manrope",Arial,sans-serif!important;
+    letter-spacing:.24em!important;
+    text-transform:uppercase!important;
+  }
+  #esmeraldaDesktopServices .dct-services-right-head h2{
+    margin:12px 0 0!important;
+    color:#f7f3f0!important;
+    font:500 clamp(50px,4.2vw,64px)/.94 "Cormorant Garamond",Georgia,serif!important;
+    letter-spacing:-.035em!important;
+  }
+  #esmeraldaDesktopServices .dct-services-right-head>span{
+    display:block!important;
+    max-width:620px!important;
+    margin-top:20px!important;
+    color:#b9ada7!important;
+    font:400 14px/1.7 "Manrope",Arial,sans-serif!important;
+  }
+
   /* Category ribbon starts at the divider and reaches the viewport edge. */
   #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{
+    grid-column:2!important;
     width:calc(100% + max(48px, calc((100vw - 1360px)/2)))!important;
     max-width:none!important;
     margin:0!important;
@@ -1837,6 +1928,11 @@
   }
 
   /* Gallery keeps identical geometry for every category. */
+  #esmeraldaDesktopServices .dct-service-groups,
+  #esmeraldaDesktopServices .mct-more-services{
+    grid-column:2!important;
+  }
+
   #stdGalleryBrowser.std-gallery-browser{
     overflow-y:scroll!important;
     scrollbar-gutter:stable both-edges!important;
@@ -1864,6 +1960,11 @@
   #esmeraldaDesktopServices .mct-price-head{
     position:relative!important;
     top:auto!important;
+    grid-column:1!important;
+    grid-row:auto!important;
+  }
+  #esmeraldaDesktopServices .dct-services-right-head{
+    grid-column:1!important;
   }
   #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{
     width:100%!important;
@@ -1971,14 +2072,37 @@
     <section class="mct-prices" id="esmeraldaDesktopServices" aria-labelledby="stdServicesTitle">
       <div class="mct-shell">
         <div class="mct-price-head">
-          <p class="mct-section-kicker">Услуги и цены</p>
-          <h2 id="stdServicesTitle">Выберите услугу</h2>
-          <span>Выберите направление и нужную процедуру. Нажмите на услугу, чтобы выбрать удобный способ записи.</span>
           <div class="dct-service-sticky-card" aria-label="Запись на услугу">
             <span class="dct-service-sticky-kicker">Запись</span>
             <strong>Выберите услугу</strong>
+            <div class="dct-service-sticky-info">
+              <div class="dct-service-sticky-row">
+                <span class="dct-service-sticky-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5v5l3.2 2"></path></svg>
+                </span>
+                <span class="dct-service-sticky-copy">
+                  <b id="stdStickyServiceStatus">Закрыто</b>
+                  <small id="stdStickyServiceStatusSub">до 09:00</small>
+                </span>
+              </div>
+              <div class="dct-service-sticky-row">
+                <span class="dct-service-sticky-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M19 10c0 5.2-7 10-7 10s-7-4.8-7-10a7 7 0 1 1 14 0Z"></path><circle cx="12" cy="10" r="2.2"></circle></svg>
+                </span>
+                <span class="dct-service-sticky-copy">
+                  <b>Ереван</b>
+                  <small>Zavarian St 1/5</small>
+                </span>
+              </div>
+            </div>
             <button class="dct-service-sticky-book" id="stdStickyServiceBook" type="button"><span>Записаться</span><span aria-hidden="true">→</span></button>
           </div>
+        </div>
+
+        <div class="dct-services-right-head">
+          <p class="mct-section-kicker">Услуги и цены</p>
+          <h2 id="stdServicesTitle">Выберите услугу</h2>
+          <span>Выберите направление и нужную процедуру. Нажмите на услугу, чтобы выбрать удобный способ записи.</span>
         </div>
 
         <div class="mct-tabs-ribbon-wrap is-many">
@@ -2926,6 +3050,12 @@
       main.textContent=desktopTrText(isOpen?'Открыто':'Закрыто');
       sub.textContent=desktopTrText(isOpen?'до 20:00':'до 09:00');
       main.style.color=isOpen?'#3f8750':'#a45e64';
+    }
+    const stickyStatus=document.getElementById('stdStickyServiceStatus'),stickyStatusSub=document.getElementById('stdStickyServiceStatusSub');
+    if(stickyStatus&&stickyStatusSub){
+      stickyStatus.textContent=desktopTrText(isOpen?'Открыто':'Закрыто');
+      stickyStatusSub.textContent=desktopTrText(isOpen?'до 20:00':'до 09:00');
+      stickyStatus.style.color=isOpen?'#3f8750':'#a45e64';
     }
     const contactStatus=document.getElementById('stdContactStatus'),contactStatusText=document.getElementById('stdContactStatusText');
     if(contactStatus&&contactStatusText){
