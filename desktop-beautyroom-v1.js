@@ -6981,6 +6981,84 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
 }
 `);
 
+  appendDesktopStyle('esmeralda-desktop-motion-v67',String.raw`
+@media(min-width:1024px){
+  /* Primary CTA + sticky booking CTA: reliable periodic light sweep. */
+  #esmeraldaDesktopTop #stdBookBtn,
+  #esmeraldaDesktopServices #stdStickyServiceBook{
+    position:relative!important;overflow:hidden!important;isolation:isolate!important;
+  }
+  #esmeraldaDesktopTop #stdBookBtn>*,
+  #esmeraldaDesktopServices #stdStickyServiceBook>*{position:relative!important;z-index:2!important}
+  #esmeraldaDesktopTop #stdBookBtn:after,
+  #esmeraldaDesktopServices #stdStickyServiceBook:after{
+    content:""!important;display:block!important;position:absolute!important;z-index:1!important;
+    top:-55%!important;bottom:-55%!important;left:-55%!important;width:42%!important;
+    background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,.08) 22%,rgba(255,255,255,.78) 50%,rgba(255,255,255,.10) 78%,transparent 100%)!important;
+    transform:skewX(-19deg)!important;pointer-events:none!important;
+    animation:brFinalBookingSheen 4.2s cubic-bezier(.22,.72,.18,1) infinite!important;
+  }
+  @keyframes brFinalBookingSheen{
+    0%,56%{left:-55%;opacity:0}
+    59%{opacity:1}
+    77%{left:122%;opacity:1}
+    79%,100%{left:122%;opacity:0}
+  }
+
+  /* Deliberate section entrances; no visible seam between hero and portfolio. */
+  #esmeraldaDesktopPortfolio.std-portfolio{border-top:0!important}
+  #esmeraldaDesktopPortfolio .std-portfolio-head,
+  #esmeraldaDesktopPortfolio .std-portfolio-grid,
+  #esmeraldaDesktopPortfolio .std-portfolio-more,
+  #esmeraldaDesktopServices .dct-services-main-title,
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap,
+  #esmeraldaDesktopServices .dct-service-groups,
+  #esmeraldaDesktopServices .mct-more-services,
+  #esmeraldaDesktopReviews .std-reviews-head,
+  #esmeraldaDesktopReviews .std-reviews-viewport,
+  #esmeraldaDesktopReviews .std-reviews-actions,
+  #esmeraldaDesktopContacts .std-contact-inner{
+    opacity:0!important;transform:translateY(24px)!important;
+    transition:opacity .72s ease,transform .82s cubic-bezier(.16,1,.3,1)!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head{
+    opacity:0!important;transform:translateX(-52px)!important;
+    transition:opacity .72s ease,transform .86s cubic-bezier(.16,1,.3,1)!important;
+  }
+  #esmeraldaDesktopAbout .br-about-column{
+    opacity:0!important;transform:translateX(-52px)!important;
+    transition:opacity .75s ease,transform .9s cubic-bezier(.16,1,.3,1)!important;
+  }
+  #esmeraldaDesktopTeam.br-team-panel{
+    opacity:0!important;transform:translateX(52px)!important;
+    transition:opacity .75s ease,transform .9s cubic-bezier(.16,1,.3,1)!important;
+  }
+  #esmeraldaDesktopPortfolio.in-view .std-portfolio-head,
+  #esmeraldaDesktopPortfolio.in-view .std-portfolio-grid,
+  #esmeraldaDesktopPortfolio.in-view .std-portfolio-more,
+  #esmeraldaDesktopServices.in-view .mct-price-head,
+  #esmeraldaDesktopServices.in-view .dct-services-main-title,
+  #esmeraldaDesktopServices.in-view .mct-tabs-ribbon-wrap,
+  #esmeraldaDesktopServices.in-view .dct-service-groups,
+  #esmeraldaDesktopServices.in-view .mct-more-services,
+  #esmeraldaDesktopAbout.in-view .br-about-column,
+  #esmeraldaDesktopTeam.in-view,
+  #esmeraldaDesktopReviews.in-view .std-reviews-head,
+  #esmeraldaDesktopReviews.in-view .std-reviews-viewport,
+  #esmeraldaDesktopReviews.in-view .std-reviews-actions,
+  #esmeraldaDesktopContacts.in-view .std-contact-inner{
+    opacity:1!important;transform:none!important;
+  }
+  #esmeraldaDesktopPortfolio .std-portfolio-grid{transition-delay:.10s!important}
+  #esmeraldaDesktopPortfolio .std-portfolio-more{transition-delay:.18s!important}
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{transition-delay:.08s!important}
+  #esmeraldaDesktopServices .dct-service-groups{transition-delay:.14s!important}
+  #esmeraldaDesktopServices .mct-more-services{transition-delay:.20s!important}
+  #esmeraldaDesktopReviews .std-reviews-viewport{transition-delay:.10s!important}
+  #esmeraldaDesktopReviews .std-reviews-actions{transition-delay:.17s!important}
+}
+`);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
@@ -8034,10 +8112,24 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
     document.body.dataset.brLang=currentDesktopLang;
 
     if(currentDesktopLang==='hy'){
-      const roleEn={nails:'Nail master',hair:'Hair master',cosmetology:'Cosmetologist',brows:'Brow & Lash master'};
+      const team=root.querySelector('#esmeraldaDesktopTeam');
+      const teamKicker=team?.querySelector('.std-team-kicker');
+      const teamSubtitle=team?.querySelector('.std-team-subtitle');
+      if(teamKicker)teamKicker.textContent='Мастера Beauty Room';
+      if(teamSubtitle)teamSubtitle.textContent='Нажмите на мастера, чтобы открыть страницу специалиста.';
+      const teamSource={
+        nails:{name:'Nail-мастер',role:'Маникюр · педикюр',cat:'Маникюр'},
+        hair:{name:'Парикмахер',role:'Волосы · укладки',cat:'Волосы'},
+        cosmetology:{name:'Косметолог',role:'Косметология',cat:'Косметология'},
+        brows:{name:'Brow & Lash-мастер',role:'Брови · ресницы',cat:'Брови и ресницы'}
+      };
       root.querySelectorAll('#esmeraldaDesktopTeam [data-desktop-master]').forEach(card=>{
-        const role=card.querySelector('.std-master-role');
-        if(role)role.textContent=roleEn[card.dataset.desktopMaster]||role.textContent;
+        const data=teamSource[card.dataset.desktopMaster];
+        if(!data)return;
+        const name=card.querySelector('.std-master-name'),role=card.querySelector('.std-master-role'),cat=card.querySelector('.std-master-cat');
+        if(name)name.textContent=data.name;
+        if(role)role.textContent=data.role;
+        if(cat)cat.textContent=data.cat;
       });
     }
 
@@ -8058,20 +8150,24 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
   desktopLangObserver.observe(root,{childList:true,subtree:true});
   applyDesktopLanguage();
 
-  const revealSections=[...root.querySelectorAll('.std-portfolio,.mct-prices,.mct-about,.std-team,.std-reviews,.std-contact')];
+  const revealSections=[...root.querySelectorAll('.std-portfolio,.mct-prices,.mct-about,.std-reviews,.std-contact')];
   revealSections.forEach(el=>el.classList.add('std-section-reveal'));
   if('IntersectionObserver' in window){
     const revealObserver=new IntersectionObserver(entries=>{
       entries.forEach(entry=>{
         if(entry.isIntersecting){
           entry.target.classList.add('in-view','is-visible');
+          if(entry.target.id==='esmeraldaDesktopAbout')entry.target.querySelector('#esmeraldaDesktopTeam')?.classList.add('in-view','is-visible');
           revealObserver.unobserve(entry.target);
         }
       });
     },{threshold:.09,rootMargin:'0px 0px -5% 0px'});
     revealSections.forEach(el=>revealObserver.observe(el));
   }else{
-    revealSections.forEach(el=>el.classList.add('in-view'));
+    revealSections.forEach(el=>{
+      el.classList.add('in-view','is-visible');
+      if(el.id==='esmeraldaDesktopAbout')el.querySelector('#esmeraldaDesktopTeam')?.classList.add('in-view','is-visible');
+    });
   }
 
   function updateStatus(){
