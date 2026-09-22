@@ -6575,6 +6575,70 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
 }
 `);
 
+  appendDesktopStyle('esmeralda-desktop-pc-fixes-v60',String.raw`
+@media(min-width:1024px){
+  /* v60: exact geometry corrections requested, desktop only. */
+  .std-header-book{
+    background:#715b53!important;border-color:#715b53!important;color:#fff!important;
+    border-radius:8px!important;box-shadow:0 10px 24px rgba(74,53,45,.18)!important;
+  }
+
+  /* The sticky card starts at the same 58px inset only after Services crosses that threshold. */
+  #esmeraldaDesktopServices .dct-service-sticky-card{top:58px!important}
+
+  /* True left fade: a separate gutter before "Все", with tabs starting after it. */
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{padding-left:0!important}
+  #esmeraldaDesktopServices .mct-tabs{
+    padding-left:34px!important;
+    scroll-padding-left:34px!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap:before{
+    left:0!important;width:34px!important;z-index:20!important;
+    background:linear-gradient(90deg,#242424 0%,rgba(36,36,36,.92) 34%,rgba(36,36,36,.38) 70%,transparent 100%)!important;
+  }
+  #esmeraldaDesktopServices .mct-tab-all{position:relative!important;left:auto!important;z-index:1!important}
+
+  /* Content height is allowed to collapse for short categories. */
+  #esmeraldaDesktopServices.mct-prices>.mct-shell{grid-template-rows:48px auto auto auto!important}
+  #esmeraldaDesktopServices .dct-service-groups{min-height:491px!important}
+  #esmeraldaDesktopServices .dct-service-category,
+  #esmeraldaDesktopServices .dct-service-category-list{min-height:0!important;height:auto!important}
+
+  /* The about column itself has no visual frame. */
+  #esmeraldaDesktopAbout .br-about-column{
+    padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-card{
+    border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-portrait-wrap{
+    border:0!important;box-shadow:none!important;background:transparent!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-portrait img{
+    object-fit:contain!important;object-position:center center!important;
+    transform:translateY(-12px) scale(.82)!important;
+  }
+  #esmeraldaDesktopAbout .br-about-column:hover .mct-about-portrait img{
+    transform:translateY(-12px) scale(.82)!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-amenities-grid article{
+    border:0!important;background:transparent!important;box-shadow:none!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-amenities-grid strong{font-size:17px!important}
+  #esmeraldaDesktopAbout .dct-about-amenities-grid span{font-size:13.2px!important}
+
+  #esmeraldaDesktopTeam .std-team-kicker{font-size:16px!important}
+  #esmeraldaDesktopTeam .std-team-subtitle{font-size:15.5px!important}
+  #esmeraldaDesktopTeam .std-master-avatar{width:216px!important;height:216px!important}
+  #esmeraldaDesktopTeam .std-master-name{font-size:30px!important}
+  #esmeraldaDesktopTeam .std-master-role{font-size:14px!important}
+
+  #esmeraldaDesktopContacts.std-contact,
+  #esmeraldaDesktopContacts .std-contact-bottom,
+  #esmeraldaDesktopContacts .std-contact-brand{background:#242424!important}
+}
+`);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
@@ -7268,15 +7332,16 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
   }
 
   serviceMore.onclick=()=>{
-    const anchor=serviceList.querySelector('.dct-service-card')||serviceList;
-    const beforeTop=anchor.getBoundingClientRect().top;
+    const beforeTop=serviceMore.getBoundingClientRect().top;
+    const beforeScroll=window.scrollY;
     desktopServicesExpanded=!desktopServicesExpanded;
     renderDesktopServices();
     requestAnimationFrame(()=>{
-      const nextAnchor=serviceList.querySelector('.dct-service-card')||serviceList;
-      const afterTop=nextAnchor.getBoundingClientRect().top;
+      const afterTop=serviceMore.getBoundingClientRect().top;
       const delta=afterTop-beforeTop;
-      if(Math.abs(delta)>.5) window.scrollBy(0,delta);
+      if(Number.isFinite(delta)&&Math.abs(delta)>.5){
+        window.scrollTo(0,Math.max(0,beforeScroll+delta));
+      }
     });
   };
   renderDesktopServices();
