@@ -2441,11 +2441,186 @@
     box-shadow:0 12px 26px rgba(0,0,0,.14)!important;
   }
 
+  /* Final service geometry: 1 cm outer/card-divider rhythm, aligned titles and sticky card. */
+  #esmeraldaDesktopServices.mct-prices{
+    overflow-x:hidden!important;
+  }
+  #esmeraldaDesktopServices.mct-prices>.mct-shell{
+    width:calc(100% - 2cm)!important;
+    max-width:none!important;
+    margin-left:1cm!important;
+    margin-right:1cm!important;
+    grid-template-columns:minmax(455px,505px) minmax(0,1fr)!important;
+    column-gap:2cm!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head{
+    top:92px!important;
+    padding-right:0!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head:after{
+    right:-1cm!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card{
+    min-height:0!important;
+    padding:30px 32px!important;
+    border-color:rgba(153,112,91,.24)!important;
+    background:
+      radial-gradient(340px 210px at 95% 2%,rgba(255,255,255,.94),transparent 70%),
+      radial-gradient(290px 230px at 0% 100%,rgba(194,151,128,.18),transparent 74%),
+      linear-gradient(145deg,#fffdf9 0%,#f2e5db 100%)!important;
+    box-shadow:
+      0 28px 70px rgba(86,56,43,.18),
+      0 10px 32px rgba(194,151,128,.18),
+      inset 0 1px 0 rgba(255,255,255,.92)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card>strong,
+  #esmeraldaDesktopServices .dct-services-main-title{
+    font:500 46px/.94 "Cormorant Garamond",Georgia,serif!important;
+    letter-spacing:-.03em!important;
+  }
+  #esmeraldaDesktopServices .dct-services-main-title{
+    align-self:start!important;
+    margin:0!important;
+    padding:0!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-lead{
+    max-width:390px!important;
+    margin:16px 0 0!important;
+    color:#76675f!important;
+    font:500 12px/1.65 "Manrope",Arial,sans-serif!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-info{
+    gap:12px!important;
+    margin-top:24px!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-row{
+    min-height:82px!important;
+    padding:12px!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-benefits{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:12px!important;
+    margin-top:12px!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-benefits>span{
+    min-height:68px!important;
+    padding:13px 14px!important;
+    border:1px solid rgba(112,82,68,.10)!important;
+    border-radius:16px!important;
+    background:rgba(255,255,255,.34)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-benefits b,
+  #esmeraldaDesktopServices .dct-service-sticky-benefits small{
+    display:block!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-benefits b{
+    color:#302925!important;
+    font:650 11px/1.25 "Manrope",Arial,sans-serif!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-benefits small{
+    margin-top:5px!important;
+    color:#8b7c74!important;
+    font:500 9px/1.45 "Manrope",Arial,sans-serif!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-book{
+    position:relative!important;
+    overflow:hidden!important;
+    margin-top:20px!important;
+    background:linear-gradient(100deg,#8d6959,#ad8571,#8d6959)!important;
+    background-size:220% 100%!important;
+    box-shadow:0 12px 28px rgba(147,102,80,.24)!important;
+    animation:brServiceBookGlow 3.8s ease-in-out infinite!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-book:after{
+    position:absolute!important;
+    top:-45%!important;
+    left:-35%!important;
+    width:28%!important;
+    height:190%!important;
+    content:""!important;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.42),transparent)!important;
+    transform:rotate(18deg)!important;
+    animation:brServiceBookShine 4.6s ease-in-out infinite!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-work{
+    margin-top:10px!important;
+  }
+  @keyframes brServiceBookGlow{
+    0%,100%{background-position:0 50%;box-shadow:0 12px 28px rgba(147,102,80,.20)}
+    50%{background-position:100% 50%;box-shadow:0 16px 36px rgba(147,102,80,.34)}
+  }
+  @keyframes brServiceBookShine{
+    0%,62%{left:-35%;opacity:0}
+    68%{opacity:1}
+    82%{left:120%;opacity:0}
+    100%{left:120%;opacity:0}
+  }
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{
+    grid-column:2!important;
+    width:calc(100% + 1cm)!important;
+    margin-top:30px!important;
+    padding:0 0 24px!important;
+    overflow:visible!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs{
+    width:100%!important;
+    padding:4px 1cm 12px 0!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    clip-path:none!important;
+    mask-image:none!important;
+    -webkit-mask-image:none!important;
+  }
+  #esmeraldaDesktopServices .dct-service-groups,
+  #esmeraldaDesktopServices .mct-more-services{
+    grid-column:2!important;
+  }
+
   /* About and team are equal-sized cards with aligned headings. */
-  #esmeraldaDesktopAbout>.br-about-team-shell{
+  #esmeraldaDesktopAbout{
+    position:relative!important;
+  }
+  #esmeraldaDesktopAbout>.br-about-team-headings{
+    width:min(calc(100% - 72px),1460px)!important;
+    margin:0 auto 24px!important;
+    display:grid!important;
     grid-template-columns:repeat(2,minmax(0,1fr))!important;
-    gap:48px!important;
+    gap:72px!important;
+    position:relative!important;
+  }
+  #esmeraldaDesktopAbout>.br-about-team-headings:after{
+    position:absolute!important;
+    left:50%!important;
+    top:4px!important;
+    width:1px!important;
+    height:76px!important;
+    content:""!important;
+    background:linear-gradient(to bottom,transparent,rgba(116,90,78,.26),transparent)!important;
+  }
+  #esmeraldaDesktopAbout>.br-about-team-headings h2{
+    margin:0!important;
+    text-align:center!important;
+    font:500 clamp(50px,4.1vw,64px)/.94 "Cormorant Garamond",Georgia,serif!important;
+    letter-spacing:-.035em!important;
+  }
+  #esmeraldaDesktopAbout>.br-about-team-headings h2:last-child{color:#2e2724!important}
+  #esmeraldaDesktopAbout>.br-about-team-shell{
+    width:min(calc(100% - 72px),1460px)!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:72px!important;
     align-items:stretch!important;
+    position:relative!important;
+  }
+  #esmeraldaDesktopAbout>.br-about-team-shell:after{
+    position:absolute!important;
+    left:50%!important;
+    top:2%!important;
+    width:1px!important;
+    height:96%!important;
+    content:""!important;
+    pointer-events:none!important;
+    background:linear-gradient(to bottom,transparent,rgba(116,90,78,.18) 15%,rgba(116,90,78,.18) 85%,transparent)!important;
   }
   #esmeraldaDesktopAbout .br-about-column,
   #esmeraldaDesktopTeam.br-team-panel{
@@ -2461,20 +2636,11 @@
     background:rgba(255,253,250,.80)!important;
     box-shadow:0 20px 52px rgba(67,50,44,.09)!important;
   }
-  #esmeraldaDesktopAbout .mct-about-head{
-    display:block!important;
-    text-align:center!important;
-  }
-  #esmeraldaDesktopAbout .mct-about-head h2,
-  #esmeraldaDesktopTeam .std-team-title{
-    margin:0!important;
-    text-align:center!important;
-    font:500 clamp(50px,4.1vw,64px)/.94 "Cormorant Garamond",Georgia,serif!important;
-    letter-spacing:-.035em!important;
-  }
+  #esmeraldaDesktopAbout .mct-about-head,
+  #esmeraldaDesktopTeam .std-team-title{display:none!important}
   #esmeraldaDesktopAbout .mct-about-card{
     flex:1 1 auto!important;
-    margin-top:30px!important;
+    margin-top:0!important;
     border:0!important;
     border-radius:22px!important;
     background:transparent!important;
@@ -2673,6 +2839,7 @@
         <div class="mct-price-head">
           <div class="dct-service-sticky-card" aria-label="Выберите услугу">
             <strong>Выберите услугу</strong>
+            <p class="dct-service-sticky-lead">Все направления салона собраны здесь. Выберите категорию справа, затем нужную процедуру.</p>
             <div class="dct-service-sticky-info">
               <div class="dct-service-sticky-row">
                 <span class="dct-service-sticky-icon" aria-hidden="true">
@@ -2693,8 +2860,12 @@
                 </span>
               </div>
             </div>
+            <div class="dct-service-sticky-benefits" aria-label="Информация о записи">
+              <span><b>Без лишних шагов</b><small>Выберите процедуру и способ связи</small></span>
+              <span><b>Ежедневно</b><small>Салон работает с 09:00 до 20:00</small></span>
+            </div>
             <button class="dct-service-sticky-book" id="stdStickyServiceBook" type="button"><span>Записаться</span><span aria-hidden="true">→</span></button>
-            <a class="dct-service-sticky-work" href="#esmeraldaDesktopPortfolio"><span>Смотреть работы</span><span aria-hidden="true">✦</span></a>
+            <a class="dct-service-sticky-work" href="#esmeraldaDesktopPortfolio"><span>Открыть галерею</span><span aria-hidden="true">✦</span></a>
           </div>
         </div>
 
@@ -2716,14 +2887,12 @@
     </section>
 
     <section class="mct-about br-about-team" id="esmeraldaDesktopAbout" aria-labelledby="stdAboutTitle">
+      <div class="br-about-team-headings">
+        <h2 id="stdAboutTitle">О салоне</h2>
+        <h2 id="stdTeamTitle">Наша команда</h2>
+      </div>
       <div class="mct-shell br-about-team-shell">
         <article class="br-about-column">
-          <div class="mct-about-head">
-            <div>
-              <h2 id="stdAboutTitle">О салоне</h2>
-            </div>
-          </div>
-
           <div class="mct-about-card">
             <div class="mct-about-portrait-wrap">
               <figure class="mct-about-portrait">
@@ -2746,7 +2915,6 @@
         </article>
 
         <aside class="br-team-panel" id="esmeraldaDesktopTeam" aria-labelledby="stdTeamTitle">
-          <h2 class="std-team-title" id="stdTeamTitle">Наша команда</h2>
           <p class="std-team-subtitle">Нажмите на мастера, чтобы открыть страницу специалиста.</p>
           <div class="std-team-track" id="stdTeamTrack">
             ${TEAM_MASTERS.map(master=>`
