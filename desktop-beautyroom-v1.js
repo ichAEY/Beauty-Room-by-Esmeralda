@@ -63,9 +63,9 @@
   font.href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap';
   document.head.appendChild(font);
 
-  const css=document.createElement('style');
-  css.id='esmeralda-desktop-v1-style';
-  css.textContent=`
+  const desktopCss=document.createElement('style');
+  desktopCss.id='esmeralda-desktop-current';
+  desktopCss.textContent=String.raw`
     @media(min-width:768px){
       html,body{margin:0!important;padding:0!important;background:#f7f2eb!important;color:#171513!important;overflow-x:hidden}
       body>main.shell,body>.booking-island{display:none!important}
@@ -1565,156 +1565,2539 @@
         .std-scroll-hint{right:-68px}
       }
     }
-  `;
-  document.head.appendChild(css);
-  /* Legacy reference override removed; final desktop sync layer is authoritative. */
-  const bookCss=document.createElement('style');bookCss.id='esmeralda-desktop-book-style';bookCss.textContent="@media(min-width:768px){.std-book-overlay{position:fixed;inset:0;z-index:360;display:none;align-items:center;justify-content:center;padding:28px;background:rgba(18,16,15,.62);backdrop-filter:blur(8px)}.std-book-overlay.open{display:flex}.std-book-panel{position:relative;width:min(100%,560px);padding:34px;border-radius:22px;background:#f7f2eb;color:#211d1a;box-shadow:0 28px 90px rgba(0,0,0,.28);animation:stdEsBookIn .32s cubic-bezier(.16,1,.3,1)}@keyframes stdEsBookIn{from{opacity:0;transform:translateY(22px) scale(.985)}to{opacity:1;transform:none}}.std-book-close{position:absolute;right:18px;top:18px;width:42px;height:42px;border:1px solid rgba(61,49,43,.13);border-radius:50%;background:#fff;color:#221e1b;font-size:23px}.std-book-panel h3{margin:16px 52px 0 0;font:500 40px/.95 \"Cormorant Garamond\",Georgia,serif}.std-book-panel>p:not(.std-services-kicker){margin:13px 0 0;color:#756a63;font:400 13px/1.5 \"Manrope\",Arial,sans-serif}.std-book-options{display:grid;gap:9px;margin-top:24px}.std-book-options a{min-height:62px;padding:0 17px;border:1px solid rgba(61,49,43,.12);border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:space-between;color:#211d1a!important;font:600 13px/1 \"Manrope\",Arial,sans-serif}.std-book-options a span:last-child{color:#82766f;font-size:11px}}";document.head.appendChild(bookCss);
-  const polishCss=document.createElement('style');
-  polishCss.id='esmeralda-desktop-mobile-language-v1';
-  polishCss.textContent="\n@media(min-width:768px){\n  #esmeralda-desktop-v1{\n    --br-bg:#f8f4ee;\n    --br-section:#f7f2eb;\n    --br-warm:#e9e2da;\n    --br-team:#f6f1e9;\n    --br-ink:#171513;\n    --br-soft:#746c66;\n    --br-line:rgba(62,51,44,.12);\n    --br-taupe:#8f7167;\n    background:var(--br-bg)!important;\n    color:var(--br-ink)!important;\n  }\n\n  /* Hero scale and alignment. */\n  .std-copy-inner{width:min(100%,560px)!important}\n  .std-logo{max-width:100%!important;font-size:clamp(54px,4.15vw,70px)!important;letter-spacing:.055em!important;white-space:nowrap!important}\n  .std-hero-kicker{font-size:14px!important;letter-spacing:.40em!important;margin-bottom:31px!important}\n  .std-logo-sub{font-size:14px!important;letter-spacing:.40em!important;margin-top:20px!important}\n  .std-tagline{font-size:26px!important;max-width:510px!important}\n  .std-meta{width:100%!important;grid-template-columns:1fr 1px 1.18fr!important;margin-top:2px!important;margin-bottom:34px!important}\n  .std-meta-icon{width:68px!important;height:68px!important;flex-basis:68px!important}\n  .std-meta-icon svg{width:29px!important;height:29px!important}\n  .std-meta-text{font-size:17px!important;line-height:1.42!important}\n  .std-actions{width:100%!important;gap:15px!important}\n  .std-btn{height:74px!important;font-size:18px!important;border-radius:10px!important}\n  .std-phone{font-size:19px!important}\n  .std-header-book{width:174px!important;min-width:174px!important;height:50px!important;font-size:17px!important}\n  .std-hero-copy:before{\n    left:0!important;\n    bottom:0!important;\n    width:190px!important;\n    height:545px!important;\n    opacity:.92!important;\n    filter:none!important;\n    transform:none!important;\n    background-image:url('desktop-hero-reference.webp')!important;\n    background-repeat:no-repeat!important;\n    background-size:1648px auto!important;\n    background-position:left bottom!important;\n    -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 58%,transparent 100%)!important;\n    mask-image:linear-gradient(90deg,#000 0%,#000 58%,transparent 100%)!important;\n    pointer-events:none!important;\n  }\n\n  /* Portfolio moves down ~0.5 cm and blends into hero. */\n  .std-portfolio{padding-top:82px!important;background:linear-gradient(180deg,#f0e8e1 0%,#f4ede7 24%,#f7f2eb 100%)!important}\n  .std-portfolio-kicker{color:#746c66!important}\n  .std-portfolio-title{color:#171513!important}\n  .std-portfolio-copy{color:#746c66!important}\n\n  /* Gallery — same light palette, larger title/tabs. */\n  .std-gallery-browser{background:#f7f2eb!important;color:#171513!important}\n  .std-gallery-browser-shell{background:#f7f2eb!important}\n  .std-gallery-browser-title strong{font-size:31px!important;color:#171513!important}\n  .std-gallery-browser-title span{color:#746c66!important}\n  .std-gallery-browser-back{color:#171513!important;border-color:rgba(62,51,44,.16)!important;background:rgba(255,255,255,.34)!important}\n  .std-gallery-browser-tab{\n    height:44px!important;\n    padding:0 20px!important;\n    border-color:rgba(62,51,44,.16)!important;\n    background:rgba(255,255,255,.20)!important;\n    color:#655d57!important;\n    font-size:12.7px!important;\n  }\n  .std-gallery-browser-tab.active{background:#171513!important;border-color:#171513!important;color:#fff!important}\n\n  /* Services — structure copied from Shablon-Hair-Master desktop system. */\n  .std-services{\n    min-height:0!important;\n    padding:96px 0 104px!important;\n    background:\n      radial-gradient(circle at 9% 4%,rgba(204,171,158,.15),transparent 29%),\n      radial-gradient(circle at 92% 83%,rgba(218,195,184,.12),transparent 31%),\n      #f8f4ef!important;\n    color:#171513!important;\n  }\n  .std-services-inner{width:min(calc(100% - 96px),1400px)!important;margin:0 auto!important;display:block!important}\n  .std-services-head-ref{display:grid!important;grid-template-columns:minmax(360px,.95fr) minmax(360px,1.05fr)!important;align-items:end!important;column-gap:clamp(54px,7vw,110px)!important}\n  .std-services-kicker{margin:0!important;color:#9b7d72!important;font-size:12px!important;font-weight:600!important;letter-spacing:.24em!important;text-transform:uppercase!important}\n  .std-services-title{margin:12px 0 0!important;color:#171513!important;font:500 clamp(64px,5.6vw,82px)/.90 \"Cormorant Garamond\",Georgia,serif!important;letter-spacing:-.045em!important}\n  .std-services-intro{max-width:540px!important;margin:0 0 7px!important;color:#625b57!important;font-size:14px!important;line-height:1.7!important}\n  .std-price-legacy{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important}\n  .std-services-right{width:100%!important}\n  .std-service-tabs{\n    width:100%!important;\n    max-width:none!important;\n    margin-top:38px!important;\n    padding:5px!important;\n    display:flex!important;\n    gap:5px!important;\n    overflow-x:auto!important;\n    border:1px solid rgba(83,63,55,.09)!important;\n    border-radius:17px!important;\n    background:rgba(229,216,208,.58)!important;\n    box-shadow:inset 0 1px 0 rgba(255,255,255,.62)!important;\n    scrollbar-width:none!important;\n  }\n  .std-service-tabs::-webkit-scrollbar{display:none!important}\n  .std-service-tab{\n    flex:1 0 auto!important;\n    min-height:50px!important;\n    padding:0 18px!important;\n    border:1px solid transparent!important;\n    border-radius:13px!important;\n    background:transparent!important;\n    color:#655d57!important;\n    font-size:12px!important;\n    font-weight:600!important;\n    transition:transform 180ms ease,border-color 180ms ease,box-shadow 180ms ease,background 180ms ease!important;\n  }\n  .std-service-tab:hover{background:rgba(237,226,219,.76)!important;transform:translateY(-2px)!important}\n  .std-service-tab.active{background:#171513!important;color:#fff!important;border-color:#171513!important;box-shadow:0 12px 24px rgba(50,39,33,.12)!important}\n  .std-service-list{display:block!important;width:100%!important;margin-top:30px!important;border:0!important}\n  .std-service-category-ref + .std-service-category-ref{margin-top:38px!important}\n  .std-service-category-heading-ref{display:flex!important;min-height:34px!important;align-items:center!important;gap:12px!important;margin:0 0 14px!important;color:#705a52!important;font-size:13px!important;font-weight:600!important;letter-spacing:.12em!important;text-transform:uppercase!important}\n  .std-service-category-heading-ref:before{width:34px!important;height:1px!important;flex:0 0 34px!important;background:rgba(104,79,70,.28)!important;content:\"\"!important}\n  .std-service-category-heading-ref i{height:1px!important;flex:1 1 auto!important;background:linear-gradient(90deg,rgba(104,79,70,.18),transparent)!important}\n  .std-service-grid-ref{position:relative!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px 38px!important}\n  .std-service-grid-ref:after{position:absolute!important;top:0!important;bottom:0!important;left:50%!important;width:1px!important;background:linear-gradient(180deg,transparent,rgba(100,77,68,.14) 8%,rgba(100,77,68,.14) 92%,transparent)!important;content:\"\"!important;transform:translateX(-.5px)!important;pointer-events:none!important}\n  .std-service-card-ref{\n    position:relative!important;\n    display:flex!important;\n    width:100%!important;\n    min-height:154px!important;\n    flex-direction:column!important;\n    align-items:stretch!important;\n    padding:24px 76px 22px 24px!important;\n    overflow:hidden!important;\n    border:1px solid rgba(79,60,53,.105)!important;\n    border-radius:22px!important;\n    background:rgba(255,253,250,.80)!important;\n    box-shadow:0 10px 26px rgba(68,50,43,.05)!important;\n    color:#171513!important;\n    text-align:left!important;\n    transition:transform 200ms ease,border-color 200ms ease,box-shadow 200ms ease,background 200ms ease!important;\n  }\n  .std-service-card-ref:after{position:absolute!important;top:22px!important;right:20px!important;display:grid!important;width:42px!important;height:42px!important;place-items:center!important;border:1px solid rgba(112,81,71,.16)!important;border-radius:50%!important;background:#eee3dd!important;color:#6d514a!important;content:\"↗\"!important;font:500 16px/1 \"Manrope\",Arial,sans-serif!important}\n  .std-service-card-ref:hover{border-color:rgba(117,82,72,.22)!important;background:#fffdf9!important;box-shadow:0 16px 35px rgba(68,50,43,.085)!important;transform:translateY(-3px)!important}\n  .std-service-card-ref:hover:after{background:#171513!important;color:#fff!important}\n  .std-service-card-title-ref{max-width:100%!important;color:#2d2825!important;font:500 clamp(23px,1.65vw,28px)/1.08 \"Cormorant Garamond\",Georgia,serif!important}\n  .std-service-card-detail-ref{margin-top:10px!important;color:#716964!important;font-size:11.5px!important;line-height:1.5!important}\n  .std-service-card-bottom-ref{display:flex!important;align-items:end!important;justify-content:space-between!important;gap:14px!important;margin-top:auto!important;padding-top:22px!important}\n  .std-service-card-bottom-ref span{display:inline-flex!important;min-height:27px!important;align-items:center!important;padding:0 10px!important;border-radius:999px!important;background:#f0e7e1!important;color:#81736b!important;font-size:9.5px!important;font-weight:600!important}\n  .std-service-card-bottom-ref b{color:#332d2a!important;font:600 18px/1 \"Cormorant Garamond\",Georgia,serif!important}\n  .std-service-more{width:min(100%,390px)!important;height:56px!important;margin:32px auto 0!important;border:1px solid #bbaea5!important;border-radius:10px!important;background:rgba(255,255,255,.26)!important;color:#342f2b!important}\n  .std-services-count{text-align:center!important;color:#8a7f78!important;font-size:10px!important;margin-top:14px!important}\n\n  /* About — wider, calmer, no cramped blocks. */\n  .std-about{padding:96px 70px 104px!important;background:#f8f4ee!important;color:#171513!important}\n  .std-about-inner{width:min(100%,1360px)!important;margin:0 auto!important}\n  .std-about-kicker{color:#9b7d72!important;font-size:12px!important;letter-spacing:.24em!important}\n  .std-about-grid{display:grid!important;grid-template-columns:1.05fr .95fr!important;gap:70px!important;align-items:center!important;margin-top:28px!important}\n  .std-about-copy{padding:20px 0!important}\n  .std-about-lead{max-width:720px!important;font-size:clamp(55px,4.6vw,72px)!important;line-height:.98!important;color:#171513!important}\n  .std-about-text{max-width:690px!important;margin-top:30px!important;color:#625b57!important;font-size:17px!important;line-height:1.65!important}\n  .std-about-facts{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important;margin-top:36px!important}\n  .std-about-fact{min-height:92px!important;padding:18px!important;border:1px solid rgba(63,50,44,.10)!important;border-radius:15px!important;background:rgba(255,255,255,.28)!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;text-align:left!important;color:#171513!important}\n  .std-about-fact strong{font:500 18px/1.05 \"Cormorant Garamond\",Georgia,serif!important}\n  .std-about-fact span{margin-top:7px!important;color:#81766f!important;font-size:10px!important}\n  .std-about-visual{min-height:520px!important;border-radius:28px!important;overflow:hidden!important;box-shadow:0 24px 60px rgba(67,50,43,.10)!important}\n  .std-about-visual img{width:100%!important;height:100%!important;object-fit:cover!important}\n  .std-about-rating{left:24px!important;bottom:24px!important;background:rgba(248,244,238,.92)!important;color:#171513!important}\n\n  /* Team — same light mobile language, four balanced cards. */\n  #esmeraldaDesktopTeam.std-team{min-height:0!important;padding:88px 70px 92px!important;background:#f6f1e9!important;color:#171513!important}\n  #esmeraldaDesktopTeam .std-team-inner{width:min(100%,1360px)!important}\n  #esmeraldaDesktopTeam .std-team-kicker{color:#9b7d72!important;font-size:12px!important}\n  #esmeraldaDesktopTeam .std-team-title{margin-top:14px!important;color:#171513!important;font-size:64px!important;line-height:.93!important}\n  #esmeraldaDesktopTeam .std-team-subtitle{margin-top:14px!important;color:#746c66!important;font-size:14px!important}\n  #esmeraldaDesktopTeam .std-team-track{display:grid!important;width:100%!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:30px!important;margin-top:46px!important;overflow:visible!important;padding:0!important}\n  #esmeraldaDesktopTeam .std-master{position:relative!important;display:block!important;width:100%!important;min-width:0!important;padding:0 8px 18px!important;border:0!important;background:none!important;color:#171513!important;text-align:center!important;cursor:pointer!important}\n  #esmeraldaDesktopTeam .std-master-arrow{position:absolute!important;top:7px!important;right:12px!important;z-index:2!important;width:36px!important;height:36px!important;border:1px solid rgba(62,51,44,.12)!important;border-radius:50%!important;background:rgba(255,255,255,.48)!important;display:grid!important;place-items:center!important;color:#75675f!important;font-size:14px!important}\n  #esmeraldaDesktopTeam .std-master-avatar{width:min(100%,190px)!important;height:auto!important;aspect-ratio:1/1!important;margin:0 auto!important;border:0!important;border-radius:50%!important;background:linear-gradient(145deg,#e9e3dc,#d7cec6)!important;color:#9b9088!important;box-shadow:none!important;transition:transform .22s ease!important}\n  #esmeraldaDesktopTeam .std-master:hover .std-master-avatar{transform:translateY(-4px)!important}\n  #esmeraldaDesktopTeam .std-master-avatar svg{width:64px!important;height:64px!important}\n  #esmeraldaDesktopTeam .std-master-name{margin-top:18px!important;color:#171513!important;font-size:29px!important}\n  #esmeraldaDesktopTeam .std-master-role{margin-top:7px!important;color:#827871!important;font-size:11px!important}\n\n  /* Reviews — same warm mobile block color. */\n  #esmeraldaDesktopReviews.std-reviews{\n    height:auto!important;\n    min-height:760px!important;\n    padding:78px 0 62px!important;\n    background:#e9e2da!important;\n    color:#171513!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-kicker{color:#746c66!important}\n  #esmeraldaDesktopReviews .std-reviews-title{color:#171513!important}\n  #esmeraldaDesktopReviews .std-reviews-score>strong{color:#171513!important}\n  #esmeraldaDesktopReviews .std-reviews-count{color:#716862!important}\n  #esmeraldaDesktopReviews .std-review-card{border-color:rgba(66,55,49,.15)!important;border-radius:14px!important;background:rgba(255,255,255,.34)!important}\n  #esmeraldaDesktopReviews .std-review-avatar{background:#d7cec6!important;border-color:rgba(66,55,49,.10)!important;color:#514943!important}\n  #esmeraldaDesktopReviews .std-review-name{color:#2a2522!important}\n  #esmeraldaDesktopReviews .std-review-text{color:#4f4843!important}\n  #esmeraldaDesktopReviews .std-reviews-all{border-color:rgba(66,55,49,.18)!important;background:rgba(255,255,255,.18)!important;color:#2f2a26!important}\n\n  /* Contacts follow the mobile light section; TANEM badge stays dark. */\n  .std-contact{padding:74px 70px 54px!important;background:#f7f2eb!important;color:#171513!important}\n  .std-contact-inner{width:min(100%,1360px)!important;grid-template-columns:520px minmax(0,1fr)!important;gap:42px!important}\n  .std-contact-kicker{color:#9b7d72!important}\n  .std-contact-title{color:#171513!important}\n  .std-contact-card{border-color:rgba(63,50,44,.12)!important;background:rgba(255,255,255,.55)!important;color:#1e1a17!important}\n  .std-contact-card:hover{border-color:rgba(63,50,44,.22)!important;background:rgba(255,255,255,.76)!important}\n  .std-contact-card-title{color:#171513!important}\n  .std-contact-card-sub{color:#81766f!important}\n  .std-contact-card-icon{color:#8d7e74!important}\n  .std-contact-map{border:1px solid rgba(63,50,44,.12)!important;border-radius:24px!important;overflow:hidden!important;background:#eee!important}\n  .std-contact-status{border-color:#b8b0aa!important;background:#fff0df!important;color:#a46020!important}\n  .std-contact-status.open{background:#e7f4e6!important;color:#3a7440!important}\n  .std-contact-bottom{margin-top:34px!important;display:flex!important;justify-content:center!important}\n  .std-contact-brand{min-width:280px!important;min-height:58px!important;padding:0 22px!important;border-radius:16px!important;background:#171513!important;color:#fff!important;box-shadow:0 14px 34px rgba(23,21,19,.16)!important}\n  .std-contact-brand-mark{background:#8f7167!important;color:#fff!important}\n  .std-contact-brand-text{color:#f4eee8!important}\n\n  /* Separate master page, desktop version of mobile overlay. */\n  .std-master-overlay{position:fixed!important;z-index:390!important;inset:0!important;display:block!important;overflow:auto!important;background:#f8f4ee!important;color:#171513!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;transition:opacity .34s ease,visibility 0s linear .42s!important}\n  .std-master-overlay.open{visibility:visible!important;opacity:1!important;pointer-events:auto!important;transition-delay:0s!important}\n  .std-master-page-panel{width:min(100%,1120px)!important;min-height:100vh!important;margin:0 auto!important;padding:24px 48px 120px!important;transform:translateY(28px)!important;transition:transform .46s cubic-bezier(.16,1,.3,1)!important}\n  .std-master-overlay.open .std-master-page-panel{transform:none!important}\n  .std-master-page-top{display:grid!important;grid-template-columns:48px 1fr 48px!important;align-items:center!important;text-align:center!important}\n  .std-master-page-top span{font-size:14px!important;font-weight:600!important;letter-spacing:.28em!important}\n  .std-master-page-top i{width:48px!important;height:48px!important}\n  .std-master-page-close{width:48px!important;height:48px!important;border:1px solid rgba(63,50,44,.12)!important;border-radius:50%!important;background:rgba(255,255,255,.45)!important;font-size:27px!important}\n  .std-master-profile{text-align:center!important;margin-top:28px!important}\n  .std-master-profile .std-master-avatar{width:158px!important;height:158px!important;margin:0 auto!important;border-radius:50%!important;display:grid!important;place-items:center!important;background:linear-gradient(145deg,#e9e3dc,#d7cec6)!important;color:#9b9088!important}\n  .std-master-profile .std-master-avatar svg{width:72px!important;height:72px!important}\n  .std-master-profile h2{margin:18px 0 0!important;font:500 54px/.95 \"Cormorant Garamond\",Georgia,serif!important}\n  .std-master-profile p{margin:8px 0 0!important;color:#837970!important;font-size:14px!important}\n  .std-master-profile-rating{margin-top:10px!important;font-size:12px!important;font-weight:600!important}.std-master-profile-rating b{color:#b78d4f!important}\n  .std-master-page-grid{display:grid!important;grid-template-columns:1.1fr .9fr!important;gap:34px!important;margin-top:38px!important}\n  .std-master-page-block{padding:26px!important;border:1px solid rgba(63,50,44,.10)!important;border-radius:20px!important;background:rgba(255,255,255,.38)!important}\n  .std-master-page-block h3{margin:0 0 16px!important;font:500 31px/1 \"Cormorant Garamond\",Georgia,serif!important}\n  .std-master-page-service{display:flex!important;justify-content:space-between!important;gap:18px!important;padding:14px 0!important;border-bottom:1px solid rgba(63,50,44,.10)!important}\n  .std-master-page-service:last-child{border-bottom:0!important}.std-master-page-service strong{font-size:13px!important}.std-master-page-service span{color:#81766f!important;font-size:11px!important}\n  .std-master-page-works{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}.std-master-page-works img{width:100%!important;aspect-ratio:1.25/1!important;object-fit:cover!important;border-radius:12px!important}\n  .std-master-page-empty{color:#81766f!important;font-size:12px!important;line-height:1.55!important}\n  .std-master-page-book{position:fixed!important;z-index:395!important;left:50%!important;bottom:22px!important;width:min(620px,calc(100% - 64px))!important;height:58px!important;transform:translateX(-50%)!important;border:0!important;border-radius:14px!important;background:#171513!important;color:#fff!important;font-size:14px!important;font-weight:600!important;box-shadow:0 16px 38px rgba(23,21,19,.18)!important}\n}\n";
-  document.head.appendChild(polishCss);
 
-  const desktopSyncCss=document.createElement('style');
-  desktopSyncCss.id='esmeralda-desktop-mobile-sync-v3';
-  desktopSyncCss.textContent="\n@media(min-width:768px){\n  #esmeralda-desktop-v1{\n    --br-bg:#f8f4ee;--br-light:#f7f2eb;--br-warm:#e9e2da;--br-dark:#2f2926;\n    --br-ink:#171513;--br-soft:#746c66;--br-taupe:#8b7167;--br-line:rgba(62,51,44,.12);\n    background:var(--br-bg)!important;color:var(--br-ink)!important\n  }\n  .std-portfolio-title,.std-services-title,.std-about-title,#esmeraldaDesktopTeam .std-team-title,\n  #esmeraldaDesktopReviews .std-reviews-title,.std-contact-title{\n    margin-top:14px!important;font:500 clamp(54px,4.35vw,68px)/.94 \"Cormorant Garamond\",Georgia,serif!important;\n    letter-spacing:-.035em!important\n  }\n  .std-portfolio-kicker,.std-services-kicker,.std-about-kicker,#esmeraldaDesktopTeam .std-team-kicker,\n  #esmeraldaDesktopReviews .std-reviews-kicker,.std-contact-kicker{\n    font:600 12px/1 \"Manrope\",Arial,sans-serif!important;letter-spacing:.26em!important;text-transform:uppercase!important\n  }\n\n  .std-header{background:#f8f4ee!important;border-bottom:1px solid rgba(62,51,44,.06)!important}\n  .std-header-right{gap:17px!important}\n  .std-lang-switch{height:42px;display:flex;align-items:center;gap:4px;padding:0 4px}\n  .std-lang-switch button{min-width:28px;height:34px;padding:0 3px;border:0;background:transparent;color:#8b817b;\n    font:600 11px/1 \"Manrope\",Arial,sans-serif!important;letter-spacing:.04em}\n  .std-lang-switch button.active{color:#171513!important}.std-lang-switch .sep{color:#c7bbb3;font-size:10px;pointer-events:none}\n\n  .std-copy-inner{width:min(100%,560px)!important;transform:translateY(38px)!important}\n  .std-hero-kicker{font-size:14px!important;letter-spacing:.40em!important;margin-bottom:31px!important}\n  .std-logo{max-width:100%!important;font-size:clamp(54px,4.15vw,70px)!important;letter-spacing:.055em!important;white-space:nowrap!important}\n  .std-logo-sub{font-size:14px!important;letter-spacing:.40em!important;margin-top:20px!important}\n  .std-tagline{font-size:25px!important;line-height:1.38!important;max-width:500px!important}\n  .std-meta-text{font-size:16px!important;line-height:1.42!important}\n  .std-actions{gap:12px!important}.std-btn{height:66px!important;font-size:16px!important;border-radius:8px!important}\n  .std-scroll-hint{right:-88px!important;color:#fff!important;background:rgba(50,42,38,.78)!important;\n    border:1px solid rgba(255,255,255,.13)!important;box-shadow:0 12px 34px rgba(36,29,26,.20)!important;backdrop-filter:blur(7px)!important}\n  .std-scroll-hint span{color:#fff!important}\n\n  .std-portfolio{padding:82px 42px 78px!important;background:#f7f2eb!important;color:#171513!important}\n  .std-portfolio-inner{width:min(calc(100% - 24px),1400px)!important}\n  .std-portfolio-kicker{color:#746c66!important}.std-portfolio-title{color:#171513!important}\n  .std-portfolio-copy{margin-top:17px!important;color:#746c66!important;font-size:15px!important;line-height:1.55!important}\n  .std-portfolio-more{width:min(100%,520px)!important;height:56px!important;margin:34px auto 0!important;\n    border:1px solid rgba(64,52,46,.18)!important;border-radius:10px!important;background:transparent!important;color:#1a1715!important;\n    box-shadow:none!important;font:500 14px/1 \"Manrope\",Arial,sans-serif!important;gap:12px!important}\n  .std-portfolio-more:hover{background:rgba(255,255,255,.32)!important;box-shadow:none!important;transform:translateY(-1px)!important}\n\n  .std-gallery-browser{background:#f7f2eb!important;color:#171513!important}\n  .std-gallery-browser-shell{width:min(100%,1320px)!important;padding:32px 42px 60px!important;background:#f7f2eb!important}\n  .std-gallery-browser-back{width:46px!important;height:46px!important;border:0!important;border-radius:0!important;background:transparent!important;\n    box-shadow:none!important;color:#171513!important;font:300 36px/1 Arial,sans-serif!important}\n  .std-gallery-browser-title strong{font:500 clamp(54px,4vw,64px)/.9 \"Cormorant Garamond\",Georgia,serif!important;color:#171513!important}\n  .std-gallery-browser-title span{margin-top:9px!important;color:#746c66!important;font-size:11px!important}\n  .std-gallery-browser-tab{height:43px!important;padding:0 18px!important;border-color:rgba(55,44,39,.12)!important;background:transparent!important;color:#6f655f!important}\n  .std-gallery-browser-tab.active{background:#171513!important;border-color:#171513!important;color:#fff!important}\n  .std-gallery-browser-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:9px!important;margin-top:20px!important}\n  .std-gallery-browser-tile{aspect-ratio:1/1!important;border-radius:11px!important}\n\n  .std-gallery{z-index:450!important;padding:22px!important;background:rgba(27,20,20,.90)!important;backdrop-filter:blur(9px)!important}\n  .std-gallery-stage{width:min(calc(100vw - 130px),980px)!important;height:min(78dvh,760px)!important;max-height:none!important;touch-action:none!important;overflow:visible!important}\n  .std-gallery-canvas{position:absolute;inset:0;overflow:hidden;border-radius:14px;background:#151312;box-shadow:0 18px 54px rgba(0,0,0,.28);touch-action:none}\n  .std-gallery-image{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;\n    object-fit:contain!important;border-radius:0!important;box-shadow:none!important;transform:translate3d(0,0,0) scale(1);transform-origin:center;will-change:transform}\n  .std-gallery-hint{position:absolute;top:-35px;left:0;color:rgba(255,255,255,.66);font:400 10px/1 \"Manrope\",Arial,sans-serif}\n  .std-gallery-nav{width:34px!important;height:54px!important;border:0!important;background:transparent!important;font-size:39px!important}\n  .std-gallery-prev{left:-48px!important}.std-gallery-next{right:-48px!important}\n  .std-gallery-count{bottom:-32px!important;font-size:10px!important;color:#fff!important}\n  .std-view-gallery{position:absolute;left:50%;bottom:-54px;transform:translateX(-50%);height:42px;padding:0 18px;\n    border:1px solid rgba(255,255,255,.34);border-radius:999px;background:rgba(22,18,16,.74);backdrop-filter:blur(12px);\n    color:#fff!important;font:600 11px/1 \"Manrope\",Arial,sans-serif!important;white-space:nowrap}\n  .std-gallery:not([data-source=\"portfolio\"]) .std-view-gallery{display:none!important}\n\n  .std-services{min-height:0!important;padding:88px 0 94px!important;background:#2f2926!important;color:#f7f3f0!important}\n  .std-services-inner{width:min(calc(100% - 96px),1360px)!important;margin:0 auto!important;display:block!important}\n  .std-services-head-ref{display:grid!important;grid-template-columns:minmax(340px,.88fr) minmax(360px,1.12fr)!important;align-items:end!important;gap:68px!important}\n  .std-services-kicker{color:#b8ada7!important}.std-services-title{color:#f7f3f0!important}\n  .std-services-intro{max-width:570px!important;margin:0 0 5px!important;color:#b9ada7!important;font-size:15px!important;line-height:1.65!important}\n  .std-price-legacy{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%)!important}\n  .std-service-tabs{width:100%!important;margin:34px 0 0!important;padding:0 0 8px!important;display:flex!important;gap:8px!important;\n    overflow-x:auto!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;\n    -webkit-mask-image:none!important;mask-image:none!important}\n  .std-service-tab{flex:0 0 auto!important;min-height:38px!important;padding:0 16px!important;border:1px solid rgba(255,255,255,.18)!important;\n    border-radius:999px!important;background:transparent!important;color:#cfc5bf!important;font-size:11px!important;font-weight:500!important}\n  .std-service-tab:hover{transform:translateY(-2px)!important;background:rgba(255,255,255,.06)!important}\n  .std-service-tab.active{background:#8b7167!important;border-color:#8b7167!important;color:#fff!important;box-shadow:none!important}\n  .std-service-list{display:block!important;width:100%!important;margin-top:24px!important;border:0!important}\n  .std-service-grid-ref{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}\n  .std-service-grid-ref:after{display:none!important}\n  .std-service-card-ref{position:relative!important;display:flex!important;min-height:142px!important;flex-direction:column!important;\n    padding:23px 68px 20px 23px!important;border:1px solid rgba(255,255,255,.12)!important;border-radius:17px!important;\n    background:rgba(255,255,255,.045)!important;box-shadow:none!important;color:#f7f3f0!important;text-align:left!important}\n  .std-service-card-ref:after{position:absolute!important;top:20px!important;right:18px!important;display:grid!important;width:38px!important;height:38px!important;\n    place-items:center!important;border:1px solid rgba(255,255,255,.16)!important;border-radius:50%!important;background:rgba(255,255,255,.06)!important;\n    color:#d8b7aa!important;content:\"↗\"!important;font:500 15px/1 \"Manrope\",Arial,sans-serif!important}\n  .std-service-card-ref:hover{transform:translateY(-3px)!important;border-color:rgba(255,255,255,.22)!important;background:rgba(255,255,255,.07)!important;box-shadow:none!important}\n  .std-service-card-title-ref{color:#f7f3f0!important;font:500 clamp(23px,1.55vw,27px)/1.08 \"Cormorant Garamond\",Georgia,serif!important}\n  .std-service-card-detail-ref{margin-top:9px!important;color:#b9ada7!important;font-size:11px!important;line-height:1.5!important}\n  .std-service-card-bottom-ref{display:flex!important;align-items:end!important;justify-content:space-between!important;gap:12px!important;margin-top:auto!important;padding-top:20px!important}\n  .std-service-card-bottom-ref span{display:inline-flex!important;min-height:25px!important;align-items:center!important;padding:0 9px!important;border-radius:999px!important;background:rgba(255,255,255,.07)!important;color:#c9bdb6!important;font-size:9px!important}\n  .std-service-card-bottom-ref b{color:#f7f3f0!important;font:500 17px/1 \"Cormorant Garamond\",Georgia,serif!important}\n  .std-service-all-grid{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:50px}\n  .std-service-all-grid:after{content:\"\";position:absolute;top:0;bottom:0;left:50%;width:1px;background:rgba(255,255,255,.13);transform:translateX(-.5px)}\n  .std-service-all-row{min-height:92px;padding:20px 5px;border:0;border-bottom:1px solid rgba(255,255,255,.14);background:transparent;\n    color:#f7f3f0!important;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;text-align:left}\n  .std-service-all-title{display:block;color:#f7f3f0;font:500 24px/1.08 \"Cormorant Garamond\",Georgia,serif}\n  .std-service-all-cat{display:block;margin-top:7px;color:#a99e98;font:500 9.5px/1 \"Manrope\",Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}\n  .std-service-all-action{color:#d8b7aa;font:500 11px/1 \"Manrope\",Arial,sans-serif;white-space:nowrap}\n  .std-service-more{width:min(100%,390px)!important;height:52px!important;margin:28px auto 0!important;border:1px solid rgba(255,255,255,.22)!important;\n    border-radius:8px!important;background:rgba(255,255,255,.06)!important;color:#f4eeea!important}\n  .std-service-more[hidden]{display:none!important}.std-services-count{margin-top:13px!important;text-align:center!important;color:#938984!important;font-size:10px!important}\n\n  .std-about{min-height:0!important;padding:88px 70px 96px!important;background:#f7f2eb!important;color:#171513!important}\n  .std-about-inner{width:min(100%,1360px)!important;margin:0 auto!important}.std-about-kicker{color:#88786e!important}.std-about-title{color:#171513!important}\n  .std-about-grid{margin-top:38px!important;padding:18px!important;display:grid!important;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr)!important;\n    gap:54px!important;align-items:stretch!important;border:1px solid rgba(66,55,49,.11)!important;border-radius:28px!important;background:#eee7df!important;\n    box-shadow:0 14px 34px rgba(47,37,31,.08)!important}\n  .std-about-visual{height:auto!important;min-height:500px!important;border-radius:20px!important;overflow:hidden!important;box-shadow:none!important;order:0!important}\n  .std-about-visual:after{background:none!important}.std-about-visual img{filter:none!important;object-fit:cover!important}\n  .std-about-rating{left:18px!important;bottom:18px!important;height:42px!important;padding:0 14px!important;background:rgba(18,17,16,.72)!important;color:#fff!important;border-color:rgba(255,255,255,.28)!important}\n  .std-about-rating strong,.std-about-rating span{color:#fff!important}\n  .std-about-copy{padding:38px 34px 34px 0!important;display:flex!important;flex-direction:column!important;justify-content:center!important}\n  .std-about-lead{margin:0!important;max-width:670px!important;color:#1d1a18!important;font:500 clamp(31px,2.55vw,40px)/1.12 \"Cormorant Garamond\",Georgia,serif!important;letter-spacing:-.025em!important}\n  .std-about-text{max-width:660px!important;margin:23px 0 0!important;color:#58504a!important;font-size:15px!important;line-height:1.68!important}\n  .std-about-facts{display:grid!important;grid-template-columns:1fr!important;gap:0!important;margin-top:29px!important;border-top:1px solid rgba(66,55,49,.12)!important}\n  .std-about-fact{min-height:57px!important;padding:0!important;border:0!important;border-bottom:1px solid rgba(66,55,49,.12)!important;border-radius:0!important;background:transparent!important;\n    display:flex!important;align-items:center!important;justify-content:flex-start!important;text-align:left!important}\n  .std-about-fact strong{color:#2b2724!important;font:500 16px/1.2 \"Manrope\",Arial,sans-serif!important;white-space:nowrap!important}\n\n  #esmeraldaDesktopTeam.std-team{min-height:0!important;padding:84px 70px 88px!important;background:#2f2926!important;color:#f7f3f0!important}\n  #esmeraldaDesktopTeam .std-team-inner{width:min(100%,1360px)!important}#esmeraldaDesktopTeam .std-team-kicker{color:#b8ada7!important}\n  #esmeraldaDesktopTeam .std-team-title{color:#f7f3f0!important}#esmeraldaDesktopTeam .std-team-subtitle{margin-top:14px!important;color:#b9ada7!important;font-size:14px!important}\n  #esmeraldaDesktopTeam .std-team-track{display:grid!important;width:100%!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:28px!important;margin-top:42px!important;overflow:visible!important;padding:0!important}\n  #esmeraldaDesktopTeam .std-master{position:relative!important;display:block!important;width:100%!important;min-width:0!important;padding:20px 12px 22px!important;\n    border:1px solid rgba(255,255,255,.10)!important;border-radius:18px!important;background:rgba(255,255,255,.035)!important;color:#f7f3f0!important;text-align:center!important}\n  #esmeraldaDesktopTeam .std-master-arrow{position:absolute!important;top:13px!important;right:13px!important;width:34px!important;height:34px!important;border:1px solid rgba(255,255,255,.14)!important;\n    border-radius:50%!important;background:rgba(255,255,255,.05)!important;color:#d8b7aa!important;display:grid!important;place-items:center!important}\n  #esmeraldaDesktopTeam .std-master-avatar{width:min(100%,176px)!important;height:auto!important;aspect-ratio:1!important;margin:0 auto!important;border-radius:50%!important;\n    background:linear-gradient(145deg,#806b61,#5b4a43)!important;color:#e6d8d0!important;border:1px solid rgba(255,255,255,.10)!important}\n  #esmeraldaDesktopTeam .std-master-name{margin-top:17px!important;color:#f7f3f0!important;font-size:27px!important}\n  #esmeraldaDesktopTeam .std-master-role{margin-top:6px!important;color:#c5b9b2!important;font-size:11px!important}\n  .std-master-cats{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:13px}\n  .std-master-cat{display:inline-flex;min-height:25px;align-items:center;padding:0 9px;border:1px solid rgba(255,255,255,.11);border-radius:999px;color:#d8cdc6;font:500 9px/1 \"Manrope\",Arial,sans-serif}\n\n  #esmeraldaDesktopReviews.std-reviews{height:auto!important;min-height:0!important;padding:82px 0 70px!important;background:#e9e2da!important;color:#171513!important}\n  #esmeraldaDesktopReviews .std-reviews-head{width:min(calc(100% - 96px),1360px)!important;margin:0 auto!important;text-align:center!important}\n  #esmeraldaDesktopReviews .std-reviews-kicker{color:#746c66!important}#esmeraldaDesktopReviews .std-reviews-title{color:#171513!important}\n  #esmeraldaDesktopReviews .std-reviews-score{margin-top:34px!important}#esmeraldaDesktopReviews .std-reviews-score>strong{font:500 78px/.82 \"Cormorant Garamond\",Georgia,serif!important;color:#171513!important}\n  #esmeraldaDesktopReviews .std-reviews-stars{margin-top:17px!important;font-size:27px!important;color:#b78d4f!important}\n  #esmeraldaDesktopReviews .std-reviews-count{margin-top:13px!important;color:#716862!important;font-size:13px!important}\n  #esmeraldaDesktopReviews .std-review-card{height:270px!important;min-height:270px!important;padding:25px!important;border-color:rgba(66,55,49,.15)!important;border-radius:13px!important;background:rgba(255,255,255,.34)!important}\n  #esmeraldaDesktopReviews .std-review-text{margin-top:22px!important;color:#4f4843!important;font-size:14px!important;line-height:1.5!important;display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:5!important;overflow:hidden!important}\n\n  .std-contact{min-height:0!important;padding:82px 70px 46px!important;background:#2f2926!important;color:#f7f3f0!important}\n  .std-contact-inner{width:min(100%,1360px)!important;grid-template-columns:500px minmax(0,1fr)!important;gap:42px!important}\n  .std-contact-kicker{color:#b8ada7!important}.std-contact-title{color:#f7f3f0!important;margin-bottom:32px!important}.std-contact-right{padding-top:94px!important}\n  .std-contact-card{min-height:76px!important;border-color:rgba(255,255,255,.13)!important;background:rgba(255,255,255,.06)!important;color:#f7f3f0!important}\n  .std-contact-card:hover{border-color:rgba(255,255,255,.22)!important;background:rgba(255,255,255,.085)!important}\n  .std-contact-card-title{color:#f7f3f0!important;font-size:21px!important}.std-contact-card-sub{color:#c7bbb4!important;font-size:11px!important}.std-contact-card-icon{color:#f0e8e3!important}\n  .std-contact-map{height:430px!important;border:1px solid rgba(255,255,255,.12)!important;border-radius:18px!important;overflow:hidden!important;background:#423a36!important}\n  .std-contact-status{border-color:rgba(255,255,255,.16)!important;background:#493336!important;color:#d59a9f!important}\n  .std-contact-status.open{background:#2e4133!important;border-color:#4d6752!important;color:#a9d5b0!important}\n  .std-contact-bottom{margin-top:34px!important;display:flex!important;justify-content:center!important}\n  .std-contact-brand{width:min(100%,480px)!important;min-height:76px!important;padding:0 24px!important;border-radius:14px!important;background:#171513!important;color:#fff!important;\n    display:flex!important;align-items:center!important;justify-content:space-between!important;gap:24px!important;box-shadow:none!important;text-decoration:none!important}\n  .std-contact-brand strong{font:500 23px/1 \"Cormorant Garamond\",Georgia,serif!important;color:#fff!important;white-space:nowrap}\n  .std-contact-brand-text{max-width:220px!important;text-align:right!important;color:#d6cec8!important;font:400 10px/1.35 \"Manrope\",Arial,sans-serif!important}\n\n  .std-master-page-close{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}\n  .std-master-profile-cats{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin-top:12px}\n  .std-master-profile-cats span{display:inline-flex;min-height:28px;align-items:center;padding:0 10px;border:1px solid rgba(61,49,43,.12);border-radius:999px;color:#71665f;font-size:10px}\n  .std-master-tabs{display:flex!important;justify-content:center!important;gap:7px!important;margin:24px auto 0!important;overflow-x:auto!important}\n  .std-master-tabs button{height:42px!important;padding:0 17px!important;border:1px solid rgba(61,49,43,.12)!important;border-radius:999px!important;background:transparent!important;color:#615851!important;font-size:11px!important}\n  .std-master-tabs button.active{background:#171513!important;color:#fff!important;border-color:#171513!important}\n  .std-master-tab-content{margin-top:28px!important}.std-master-tab-content h3{margin:0 0 14px!important;font:500 31px/1 \"Cormorant Garamond\",Georgia,serif!important}\n  .std-master-about-copy{max-width:660px;margin:0 auto;color:#514a45;font-size:13px;line-height:1.65;text-align:center}\n  .std-master-page-works{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}\n  .std-master-page-work{border:0;padding:0;background:none}.std-master-page-work img{width:100%!important;aspect-ratio:1.15!important;object-fit:cover!important;border-radius:11px!important}\n\n  .std-section-reveal{opacity:0;transform:translate3d(0,28px,0);transition:opacity .72s ease,transform .82s cubic-bezier(.16,1,.3,1)}\n  .std-section-reveal.in-view{opacity:1;transform:none}\n  @media(prefers-reduced-motion:reduce){.std-section-reveal{opacity:1!important;transform:none!important;transition:none!important}}\n\n  @media(max-width:1180px){\n    .std-header{padding:0 30px!important}.std-nav{gap:19px!important}.std-header-right{gap:9px!important}.std-phone{font-size:14px!important}\n    .std-lang-switch{gap:1px}.std-lang-switch button{min-width:23px;font-size:10px!important}\n    .std-services-inner{width:min(calc(100% - 56px),1360px)!important}.std-services-head-ref{gap:40px!important}\n    .std-about{padding-left:42px!important;padding-right:42px!important}.std-about-grid{gap:36px!important}.std-about-copy{padding-right:18px!important}\n    #esmeraldaDesktopTeam.std-team{padding-left:42px!important;padding-right:42px!important}#esmeraldaDesktopTeam .std-team-track{gap:16px!important}\n    .std-contact{padding-left:42px!important;padding-right:42px!important}.std-contact-inner{grid-template-columns:430px minmax(0,1fr)!important}\n    .std-about-fact strong{font-size:14px!important}\n  }\n  @media(max-width:930px){\n    .std-nav{display:none!important}.std-services-head-ref{grid-template-columns:1fr!important;gap:20px!important}\n    .std-service-grid-ref,.std-service-all-grid{grid-template-columns:1fr!important}.std-service-all-grid:after{display:none!important}\n    .std-about-grid{grid-template-columns:1fr!important}.std-about-visual{min-height:390px!important}.std-about-copy{padding:24px 18px 30px!important}\n    #esmeraldaDesktopTeam .std-team-track{grid-template-columns:repeat(2,minmax(0,1fr))!important}\n    .std-contact-inner{grid-template-columns:1fr!important}.std-contact-right{padding-top:0!important}.std-contact-map{height:360px!important}\n    .std-gallery-browser-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}\n  }\n}";
-  document.head.appendChild(desktopSyncCss);
+@media(min-width:768px){.std-book-overlay{position:fixed;inset:0;z-index:360;display:none;align-items:center;justify-content:center;padding:28px;background:rgba(18,16,15,.62);backdrop-filter:blur(8px)}.std-book-overlay.open{display:flex}.std-book-panel{position:relative;width:min(100%,560px);padding:34px;border-radius:22px;background:#f7f2eb;color:#211d1a;box-shadow:0 28px 90px rgba(0,0,0,.28);animation:stdEsBookIn .32s cubic-bezier(.16,1,.3,1)}@keyframes stdEsBookIn{from{opacity:0;transform:translateY(22px) scale(.985)}to{opacity:1;transform:none}}.std-book-close{position:absolute;right:18px;top:18px;width:42px;height:42px;border:1px solid rgba(61,49,43,.13);border-radius:50%;background:#fff;color:#221e1b;font-size:23px}.std-book-panel h3{margin:16px 52px 0 0;font:500 40px/.95 "Cormorant Garamond",Georgia,serif}.std-book-panel>p:not(.std-services-kicker){margin:13px 0 0;color:#756a63;font:400 13px/1.5 "Manrope",Arial,sans-serif}.std-book-options{display:grid;gap:9px;margin-top:24px}.std-book-options a{min-height:62px;padding:0 17px;border:1px solid rgba(61,49,43,.12);border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:space-between;color:#211d1a!important;font:600 13px/1 "Manrope",Arial,sans-serif}.std-book-options a span:last-child{color:#82766f;font-size:11px}}
 
-  const desktopRebuildCss=document.createElement('style');
-  desktopRebuildCss.id='esmeralda-desktop-rebuild-v2';
-  desktopRebuildCss.textContent="\n@media(min-width:768px){\n  html,body{\n    scroll-behavior:smooth!important;\n    overscroll-behavior-y:auto!important;\n  }\n\n  /* HERO — desktop version of the approved mobile framed card. */\n  .std-hero{\n    height:calc(100dvh - 80px)!important;\n    min-height:700px!important;\n    background:#eae0d9!important;\n  }\n  .std-hero-copy{\n    position:relative!important;\n    align-items:stretch!important;\n    justify-content:center!important;\n    padding:0 24px!important;\n    overflow:visible!important;\n  }\n  .std-hero-frame{\n    position:relative!important;\n    z-index:2!important;\n    width:min(100%,660px)!important;\n    height:100%!important;\n    margin:30px auto 0!important;\n    border:1px solid rgba(70,55,48,.10)!important;\n    border-bottom:0!important;\n    border-radius:24px 24px 0 0!important;\n    background:linear-gradient(180deg,rgba(249,246,241,.985) 0%,rgba(249,246,241,.985) 82%,rgba(247,242,235,.93) 100%)!important;\n    box-shadow:0 -2px 18px rgba(47,37,31,.09),0 -1px 4px rgba(47,37,31,.05)!important;\n    display:flex!important;\n    justify-content:center!important;\n    overflow:visible!important;\n  }\n  .std-hero-frame:after{\n    content:\"\"!important;\n    position:absolute!important;\n    z-index:4!important;\n    left:-26px!important;\n    right:-26px!important;\n    bottom:-2px!important;\n    height:150px!important;\n    background:linear-gradient(180deg,rgba(240,232,225,0) 0%,rgba(240,232,225,.60) 48%,#f0e8e1 90%,#f0e8e1 100%)!important;\n    pointer-events:none!important;\n  }\n  .std-copy-inner{\n    position:relative!important;\n    z-index:5!important;\n    width:min(100% - 64px,560px)!important;\n    margin-top:116px!important;\n    transform:none!important;\n  }\n  .std-scroll-hint{\n    position:absolute!important;\n    z-index:7!important;\n    left:50%!important;\n    right:auto!important;\n    bottom:24px!important;\n    transform:translateX(-50%)!important;\n    display:flex!important;\n    flex-direction:column!important;\n    align-items:center!important;\n    gap:9px!important;\n    padding:0!important;\n    border:0!important;\n    border-radius:0!important;\n    background:transparent!important;\n    box-shadow:none!important;\n    backdrop-filter:none!important;\n    color:#65564e!important;\n    text-decoration:none!important;\n    animation:none!important;\n  }\n  .std-scroll-label{\n    display:block!important;\n    color:#7d6d65!important;\n    font:600 9px/1 \"Manrope\",Arial,sans-serif!important;\n    letter-spacing:.30em!important;\n    text-transform:uppercase!important;\n    white-space:nowrap!important;\n  }\n  .std-scroll-circle{\n    display:grid!important;\n    width:54px!important;\n    height:54px!important;\n    place-items:center!important;\n    border:1px solid rgba(255,255,255,.24)!important;\n    border-radius:50%!important;\n    background:#715b53!important;\n    color:#fff!important;\n    box-shadow:0 12px 28px rgba(74,54,47,.22)!important;\n    font:300 24px/1 Arial,sans-serif!important;\n    letter-spacing:0!important;\n    animation:stdScrollCircleFloat 2.5s ease-in-out infinite!important;\n  }\n  @keyframes stdScrollCircleFloat{\n    0%,100%{transform:translateY(0)}\n    50%{transform:translateY(5px)}\n  }\n  @media(prefers-reduced-motion:reduce){\n    .std-scroll-circle{animation:none!important}\n  }\n\n  /* CURRENT SHABLON-FOR-ONLY-MASTERS: SERVICES STRUCTURE.\n     Only the palette below is changed to Esmeralda's dark services colors. */\n  #esmeraldaDesktopServices.mct-prices{\n    overflow:hidden!important;\n    padding:96px 0 104px!important;\n    background:#2f2926!important;\n    color:#f7f3f0!important;\n  }\n  #esmeraldaDesktopServices.mct-prices>.mct-shell{\n    position:relative!important;\n    display:grid!important;\n    width:min(calc(100% - 96px),1360px)!important;\n    margin:0 auto!important;\n    grid-template-columns:minmax(285px,.72fr) minmax(0,1.58fr)!important;\n    column-gap:clamp(46px,5.5vw,82px)!important;\n    align-items:start!important;\n  }\n  #esmeraldaDesktopServices .mct-price-head{\n    position:sticky!important;\n    top:108px!important;\n    display:block!important;\n    grid-column:1!important;\n    width:100%!important;\n    padding:0 clamp(22px,2.7vw,40px) 0 0!important;\n    text-align:left!important;\n    transform:translate(-1.5cm,-3cm)!important;\n  }\n  #esmeraldaDesktopServices .mct-price-head:after{\n    position:absolute!important;\n    top:4px!important;\n    right:-1.6cm!important;\n    width:1px!important;\n    height:min(72vh,660px)!important;\n    background:linear-gradient(180deg,transparent,rgba(255,255,255,.20) 10%,rgba(255,255,255,.12) 86%,transparent)!important;\n    content:\"\"!important;\n  }\n  #esmeraldaDesktopServices .mct-section-kicker{\n    margin:0!important;\n    color:#b8ada7!important;\n    font:600 12px/1 \"Manrope\",Arial,sans-serif!important;\n    letter-spacing:.24em!important;\n    text-transform:uppercase!important;\n  }\n  #esmeraldaDesktopServices .mct-price-head h2{\n    width:auto!important;\n    margin:12px 0 0!important;\n    color:#f7f3f0!important;\n    font:500 clamp(49.5px,4.125vw,63.8px)/.94 \"Cormorant Garamond\",Georgia,serif!important;\n    letter-spacing:-.035em!important;\n    white-space:nowrap!important;\n  }\n  #esmeraldaDesktopServices .mct-price-head>span{\n    display:block!important;\n    width:auto!important;\n    max-width:374px!important;\n    margin:26px 0 0!important;\n    color:#b9ada7!important;\n    font-size:14.3px!important;\n    line-height:1.72!important;\n  }\n  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{\n    grid-column:2!important;\n    width:100%!important;\n    min-width:0!important;\n    margin:0 0 12px!important;\n    padding:24px 0 16px!important;\n    overflow:visible!important;\n  }\n  #esmeraldaDesktopServices .mct-tabs{\n    width:calc(100% + 32px)!important;\n    margin:-10px -16px -16px!important;\n    padding:10px 16px 16px!important;\n    overflow-x:auto!important;\n    overflow-y:hidden!important;\n    scrollbar-width:none!important;\n    overscroll-behavior-x:contain!important;\n    scroll-snap-type:x proximity!important;\n    box-sizing:border-box!important;\n  }\n  #esmeraldaDesktopServices .mct-tabs::-webkit-scrollbar{display:none!important}\n  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap.is-many .mct-tabs-track{\n    display:flex!important;\n    width:max-content!important;\n    min-width:100%!important;\n    flex-wrap:nowrap!important;\n    gap:10px!important;\n    padding:5px 6px 18px!important;\n    box-sizing:border-box!important;\n  }\n  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap.is-many .mct-tab,\n  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap.is-many .mct-tab-all{\n    display:inline-flex!important;\n    width:auto!important;\n    min-width:max-content!important;\n    min-height:56px!important;\n    flex:0 0 auto!important;\n    align-items:center!important;\n    justify-content:center!important;\n    padding:0 28px!important;\n    border:1px solid rgba(255,255,255,.18)!important;\n    border-radius:14px!important;\n    background:rgba(255,255,255,.045)!important;\n    color:#cfc5bf!important;\n    box-shadow:0 10px 22px rgba(0,0,0,.08)!important;\n    font:600 14px/1 \"Manrope\",Arial,sans-serif!important;\n    white-space:nowrap!important;\n    scroll-snap-align:start!important;\n    transition:transform 180ms ease,border-color 180ms ease,box-shadow 180ms ease,background 180ms ease!important;\n  }\n  #esmeraldaDesktopServices .mct-tab:not(.is-active):hover{\n    border-color:rgba(255,255,255,.28)!important;\n    background:rgba(255,255,255,.08)!important;\n    transform:translateY(-2px)!important;\n  }\n  #esmeraldaDesktopServices .mct-tab.is-active{\n    border-color:#8b7167!important;\n    background:#8b7167!important;\n    color:#fff!important;\n    box-shadow:0 14px 30px rgba(0,0,0,.16)!important;\n  }\n  #esmeraldaDesktopServices .dct-service-groups{\n    grid-column:2!important;\n    width:100%!important;\n    min-width:0!important;\n    margin-top:-1cm!important;\n  }\n  #esmeraldaDesktopServices .dct-service-category+.dct-service-category{\n    margin-top:30px!important;\n  }\n  #esmeraldaDesktopServices .dct-service-category-heading{\n    display:flex!important;\n    min-height:30px!important;\n    align-items:center!important;\n    gap:12px!important;\n    margin:0 0 10px!important;\n    color:#d8b7aa!important;\n    font-size:13px!important;\n    font-weight:600!important;\n    letter-spacing:.12em!important;\n    text-transform:uppercase!important;\n  }\n  #esmeraldaDesktopServices .dct-service-category-heading:before{\n    width:34px!important;\n    height:1px!important;\n    flex:0 0 34px!important;\n    background:rgba(216,183,170,.38)!important;\n    content:\"\"!important;\n  }\n  #esmeraldaDesktopServices .dct-service-category-heading i{\n    height:1px!important;\n    flex:1 1 auto!important;\n    background:linear-gradient(90deg,rgba(216,183,170,.26),transparent)!important;\n  }\n  #esmeraldaDesktopServices .dct-service-category-list{\n    display:grid!important;\n    width:100%!important;\n    gap:11px!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card,\n  #esmeraldaDesktopServices .dct-service-card.has-description{\n    position:relative!important;\n    display:block!important;\n    width:100%!important;\n    min-height:104px!important;\n    padding:18px 24px!important;\n    overflow:hidden!important;\n    border:1px solid rgba(255,255,255,.12)!important;\n    border-radius:20px!important;\n    background:rgba(255,255,255,.045)!important;\n    box-shadow:0 10px 26px rgba(0,0,0,.06)!important;\n    color:#f7f3f0!important;\n    text-align:left!important;\n    text-decoration:none!important;\n    transition:transform 200ms ease,border-color 200ms ease,box-shadow 200ms ease,background 200ms ease!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card:hover{\n    border-color:rgba(255,255,255,.23)!important;\n    background:rgba(255,255,255,.075)!important;\n    box-shadow:0 16px 35px rgba(0,0,0,.10)!important;\n    transform:translateY(-3px)!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card:not(.has-variants) .dct-service-card-body{\n    display:grid!important;\n    min-height:68px!important;\n    grid-template-columns:minmax(0,1fr) 112px 150px!important;\n    grid-template-rows:1fr!important;\n    align-items:center!important;\n    column-gap:18px!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card:not(.has-variants) .dct-service-card-title{\n    grid-column:1!important;\n    grid-row:1!important;\n    align-self:center!important;\n    margin:0!important;\n    color:#f7f3f0!important;\n    font:500 clamp(24px,1.8vw,30px)/1.04 \"Cormorant Garamond\",Georgia,serif!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card:not(.has-variants).has-description .dct-service-card-body{\n    min-height:84px!important;\n    grid-template-rows:auto auto!important;\n    align-content:center!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card:not(.has-variants).has-description .dct-service-card-title{\n    grid-row:1!important;\n    align-self:end!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card-description{\n    grid-column:1!important;\n    grid-row:2!important;\n    align-self:start!important;\n    max-width:95%!important;\n    margin:7px 0 0!important;\n    color:#b9ada7!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card-description.is-empty{display:none!important}\n  #esmeraldaDesktopServices .dct-service-card-description p{\n    margin:0!important;\n    color:#b9ada7!important;\n    font-size:11.5px!important;\n    line-height:1.48!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card:not(.has-variants) .dct-service-card-meta{\n    display:contents!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card-meta>small{\n    grid-column:2!important;\n    grid-row:1!important;\n    align-self:center!important;\n    justify-self:start!important;\n    display:inline-flex!important;\n    min-height:30px!important;\n    align-items:center!important;\n    padding:0 10px!important;\n    border:1px solid rgba(255,255,255,.10)!important;\n    border-radius:999px!important;\n    background:rgba(255,255,255,.06)!important;\n    color:#c9bdb6!important;\n    font-size:11px!important;\n    font-weight:650!important;\n    white-space:nowrap!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card-meta>small:before{\n    margin-right:6px!important;\n    content:\"◷\"!important;\n    font-size:12px!important;\n  }\n  #esmeraldaDesktopServices .dct-service-card-meta>b{\n    grid-column:3!important;\n    grid-row:1!important;\n    align-self:center!important;\n    justify-self:end!important;\n    width:150px!important;\n    min-width:150px!important;\n    color:#f7f3f0!important;\n    font:600 23px/1 \"Cormorant Garamond\",Georgia,serif!important;\n    text-align:right!important;\n    white-space:nowrap!important;\n  }\n  #esmeraldaDesktopServices .mct-more-services{\n    display:flex!important;\n    grid-column:2!important;\n    width:320px!important;\n    min-height:58px!important;\n    margin:26px auto 0!important;\n    align-items:center!important;\n    justify-content:center!important;\n    gap:9px!important;\n    border:1px solid rgba(255,255,255,.22)!important;\n    border-radius:10px!important;\n    background:rgba(255,255,255,.06)!important;\n    color:#f4eeea!important;\n    font:600 13px/1 \"Manrope\",Arial,sans-serif!important;\n  }\n  #esmeraldaDesktopServices .mct-more-services[hidden]{display:none!important}\n  #esmeraldaDesktopServices .mct-more-services svg{transition:transform .2s ease!important}\n  #esmeraldaDesktopServices .mct-more-services.is-open svg{transform:rotate(180deg)!important}\n  #esmeraldaDesktopServices .mct-more-services-mobile-copy{display:none!important}\n  #esmeraldaDesktopServices .mct-more-services-desktop-copy{display:inline!important}\n\n  /* CURRENT SHABLON-FOR-ONLY-MASTERS: ABOUT STRUCTURE. */\n  #esmeraldaDesktopAbout.mct-about{\n    padding:84px 0 88px!important;\n    background:radial-gradient(circle at 88% 18%,rgba(193,158,145,.13),transparent 31%),linear-gradient(180deg,#f8f3ef 0%,#f4ebe5 100%)!important;\n    color:#171513!important;\n  }\n  #esmeraldaDesktopAbout>.mct-shell{\n    width:min(calc(100% - 96px),1360px)!important;\n    margin:0 auto!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-head{\n    display:flex!important;\n    align-items:end!important;\n    justify-content:space-between!important;\n    gap:24px!important;\n  }\n  #esmeraldaDesktopAbout .mct-section-kicker{\n    margin:0!important;\n    color:#88786e!important;\n    font:600 12px/1 \"Manrope\",Arial,sans-serif!important;\n    letter-spacing:.22em!important;\n    text-transform:uppercase!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-head h2{\n    margin:13px 0 0!important;\n    color:#171513!important;\n    font:500 clamp(54px,4.35vw,68px)/.94 \"Cormorant Garamond\",Georgia,serif!important;\n    letter-spacing:-.035em!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-monogram{\n    color:rgba(113,91,83,.22)!important;\n    font:500 76px/.8 \"Cormorant Garamond\",Georgia,serif!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-card{\n    display:grid!important;\n    grid-template-columns:minmax(360px,.84fr) minmax(500px,1.16fr)!important;\n    height:clamp(600px,43vw,640px)!important;\n    min-height:0!important;\n    margin-top:28px!important;\n    overflow:hidden!important;\n    border:1px solid rgba(85,64,57,.10)!important;\n    border-radius:28px!important;\n    background:rgba(255,253,250,.80)!important;\n    box-shadow:0 18px 48px rgba(67,50,44,.075)!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-portrait-wrap{\n    position:relative!important;\n    height:100%!important;\n    min-height:540px!important;\n    overflow:hidden!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-portrait{\n    width:100%!important;\n    height:100%!important;\n    margin:0!important;\n    overflow:hidden!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-portrait img{\n    display:block!important;\n    width:100%!important;\n    height:100%!important;\n    object-fit:cover!important;\n    object-position:center 20%!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-copy{\n    display:flex!important;\n    flex-direction:column!important;\n    justify-content:center!important;\n    padding:clamp(34px,3.6vw,52px)!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-lead{\n    margin:0 0 12px!important;\n    color:#1d1a18!important;\n    font:500 clamp(30px,2.5vw,38px)/1.15 \"Cormorant Garamond\",Georgia,serif!important;\n    letter-spacing:-.025em!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-copy>p:not(.mct-about-lead){\n    margin:8px 0 0!important;\n    color:#58504a!important;\n    font-size:13.5px!important;\n    line-height:1.62!important;\n  }\n  #esmeraldaDesktopAbout .mct-about-list{display:none!important}\n  #esmeraldaDesktopAbout .dct-about-amenities{\n    display:block!important;\n    margin-top:24px!important;\n    padding-top:20px!important;\n    border-top:1px solid rgba(83,63,55,.11)!important;\n  }\n  #esmeraldaDesktopAbout .dct-about-amenities-head{\n    display:flex!important;\n    align-items:center!important;\n    justify-content:space-between!important;\n    gap:22px!important;\n  }\n  #esmeraldaDesktopAbout .dct-about-amenities-head>span{\n    color:#716a66!important;\n    font-size:10px!important;\n  }\n  #esmeraldaDesktopAbout .dct-about-amenities-grid{\n    display:grid!important;\n    grid-template-columns:repeat(3,minmax(0,1fr))!important;\n    margin-top:16px!important;\n  }\n  #esmeraldaDesktopAbout .dct-about-amenities-grid article{\n    min-width:0!important;\n    padding:3px 15px 0 0!important;\n  }\n  #esmeraldaDesktopAbout .dct-about-amenities-grid article+article{\n    padding-left:15px!important;\n    border-left:1px solid rgba(83,63,55,.10)!important;\n  }\n  #esmeraldaDesktopAbout .dct-about-amenities-grid strong,\n  #esmeraldaDesktopAbout .dct-about-amenities-grid span{display:block!important}\n  #esmeraldaDesktopAbout .dct-about-amenities-grid strong{\n    color:#373331!important;\n    font:600 22px/1.08 \"Cormorant Garamond\",Georgia,serif!important;\n  }\n  #esmeraldaDesktopAbout .dct-about-amenities-grid span{\n    margin-top:5px!important;\n    color:#716a66!important;\n    font-size:9.5px!important;\n    line-height:1.42!important;\n  }\n\n  /* TEAM — remove card containers; keep only circular master icons + copy. */\n  #esmeraldaDesktopTeam .std-team-track{\n    gap:42px!important;\n  }\n  #esmeraldaDesktopTeam .std-master{\n    position:relative!important;\n    display:block!important;\n    width:100%!important;\n    min-width:0!important;\n    padding:0!important;\n    border:0!important;\n    border-radius:0!important;\n    background:transparent!important;\n    box-shadow:none!important;\n    color:#f7f3f0!important;\n    text-align:center!important;\n  }\n  #esmeraldaDesktopTeam .std-master-arrow{display:none!important}\n  #esmeraldaDesktopTeam .std-master-avatar{\n    width:min(100%,188px)!important;\n    height:auto!important;\n    aspect-ratio:1!important;\n    margin:0 auto!important;\n    border-radius:50%!important;\n    background:linear-gradient(145deg,#806b61,#5b4a43)!important;\n    border:1px solid rgba(255,255,255,.08)!important;\n    box-shadow:none!important;\n  }\n  #esmeraldaDesktopTeam .std-master-name{\n    margin-top:17px!important;\n  }\n  #esmeraldaDesktopTeam .std-master-cats{\n    margin-top:9px!important;\n    gap:8px!important;\n  }\n  #esmeraldaDesktopTeam .std-master-cat{\n    min-height:0!important;\n    padding:0!important;\n    border:0!important;\n    border-radius:0!important;\n    background:transparent!important;\n    color:#bdb5b0!important;\n    font-size:10px!important;\n  }\n\n  /* REVIEWS — restore the approved pre-rebuild PC proportions and stable marquee. */\n  #esmeraldaDesktopReviews.std-reviews{\n    position:relative!important;\n    box-sizing:border-box!important;\n    width:100%!important;\n    height:auto!important;\n    min-height:760px!important;\n    overflow:hidden!important;\n    padding:65px 0 52px!important;\n    background:#e9e2da!important;\n    color:#171513!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-head{\n    width:min(calc(100% - 128px),1408px)!important;\n    margin:0 auto!important;\n    text-align:center!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-kicker{\n    margin:0!important;\n    color:#746c66!important;\n    font:500 17px/1 \"Manrope\",Arial,sans-serif!important;\n    letter-spacing:.30em!important;\n    text-transform:uppercase!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-title{\n    margin:22px 0 0!important;\n    color:#151517!important;\n    font:500 76px/.92 \"Cormorant Garamond\",Georgia,serif!important;\n    letter-spacing:-.035em!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-score{margin-top:44px!important;text-align:center!important}\n  #esmeraldaDesktopReviews .std-reviews-score>strong{\n    display:block!important;\n    margin:0!important;\n    color:#151517!important;\n    font:500 88px/.78 \"Cormorant Garamond\",Georgia,serif!important;\n    letter-spacing:-.045em!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-stars{\n    display:block!important;\n    margin-top:21px!important;\n    color:#b78d4f!important;\n    font-size:34px!important;\n    line-height:1!important;\n    letter-spacing:6px!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-count{\n    margin-top:20px!important;\n    color:#716862!important;\n    font:400 18px/1 \"Manrope\",Arial,sans-serif!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-viewport{\n    position:relative!important;\n    box-sizing:border-box!important;\n    width:100%!important;\n    margin-top:35px!important;\n    padding:0 64px 4px!important;\n    overflow:hidden!important;\n    cursor:grab!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-loop{\n    display:flex!important;\n    align-items:stretch!important;\n    gap:16px!important;\n    width:max-content!important;\n    will-change:transform!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-set{\n    display:flex!important;\n    flex:0 0 auto!important;\n    align-items:stretch!important;\n    gap:16px!important;\n  }\n  #esmeraldaDesktopReviews .std-review-card{\n    box-sizing:border-box!important;\n    flex:0 0 459px!important;\n    width:459px!important;\n    height:320px!important;\n    min-width:459px!important;\n    min-height:320px!important;\n    max-width:none!important;\n    padding:31px 30px 28px!important;\n    border:1px solid rgba(66,55,49,.15)!important;\n    border-radius:12px!important;\n    background:rgba(255,255,255,.34)!important;\n    color:#19191b!important;\n    text-decoration:none!important;\n    box-shadow:none!important;\n  }\n  #esmeraldaDesktopReviews .std-review-head{\n    display:grid!important;\n    grid-template-columns:70px minmax(0,1fr)!important;\n    gap:24px!important;\n    align-items:center!important;\n  }\n  #esmeraldaDesktopReviews .std-review-avatar{\n    width:70px!important;\n    height:70px!important;\n    border-radius:50%!important;\n    display:grid!important;\n    place-items:center!important;\n    background:#d7cec6!important;\n    border:1px solid rgba(66,55,49,.10)!important;\n    color:#514943!important;\n    font:500 32px/1 \"Cormorant Garamond\",Georgia,serif!important;\n  }\n  #esmeraldaDesktopReviews .std-review-name{\n    display:block!important;\n    margin:0!important;\n    color:#2a2522!important;\n    font:600 25px/1 \"Cormorant Garamond\",Georgia,serif!important;\n  }\n  #esmeraldaDesktopReviews .std-review-meta{\n    display:block!important;\n    margin-top:7px!important;\n    color:#818087!important;\n    font:500 11px/1 \"Manrope\",Arial,sans-serif!important;\n    letter-spacing:.13em!important;\n    text-transform:uppercase!important;\n  }\n  #esmeraldaDesktopReviews .std-review-stars{\n    display:block!important;\n    margin-top:8px!important;\n    color:#b78d4f!important;\n    font-size:16px!important;\n    line-height:1!important;\n    letter-spacing:1.5px!important;\n  }\n  #esmeraldaDesktopReviews .std-review-text{\n    display:-webkit-box!important;\n    margin:31px 0 0!important;\n    min-height:95px!important;\n    overflow:hidden!important;\n    color:#4f4843!important;\n    font:400 16px/1.52 \"Manrope\",Arial,sans-serif!important;\n    -webkit-box-orient:vertical!important;\n    -webkit-line-clamp:4!important;\n  }\n  #esmeraldaDesktopReviews .std-review-more{\n    display:block!important;\n    margin-top:18px!important;\n    color:#67666c!important;\n    font:400 12px/1 \"Manrope\",Arial,sans-serif!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-actions{\n    display:flex!important;\n    justify-content:center!important;\n    margin-top:27px!important;\n  }\n  #esmeraldaDesktopReviews .std-reviews-all{\n    width:458px!important;\n    height:55px!important;\n    border:1px solid rgba(66,55,49,.18)!important;\n    border-radius:7px!important;\n    background:rgba(255,255,255,.18)!important;\n    display:flex!important;\n    align-items:center!important;\n    justify-content:center!important;\n    color:#242327!important;\n    font:500 14px/1 \"Manrope\",Arial,sans-serif!important;\n    letter-spacing:.14em!important;\n    text-transform:uppercase!important;\n  }\n\n  /* CONTACTS — clear desktop adaptation of current mobile contact block. */\n  #esmeraldaDesktopContacts.std-contact{\n    padding:82px 70px 0!important;\n    background:#2f2926!important;\n    color:#f7f3f0!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-inner{\n    display:block!important;\n    width:min(100%,1360px)!important;\n    margin:0 auto!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-head{\n    display:flex!important;\n    align-items:flex-end!important;\n    justify-content:space-between!important;\n    gap:28px!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-kicker{color:#b8ada7!important}\n  #esmeraldaDesktopContacts .std-contact-title{\n    margin:14px 0 0!important;\n    color:#f7f3f0!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-status{\n    position:static!important;\n    display:inline-flex!important;\n    min-height:38px!important;\n    align-items:center!important;\n    gap:7px!important;\n    padding:8px 12px!important;\n    border:1px solid rgba(255,255,255,.16)!important;\n    border-radius:999px!important;\n    background:#493336!important;\n    color:#d59a9f!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-status.open{\n    background:#2e4133!important;\n    border-color:#4d6752!important;\n    color:#a9d5b0!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-body{\n    display:grid!important;\n    grid-template-columns:minmax(420px,.9fr) minmax(0,1.1fr)!important;\n    gap:34px!important;\n    margin-top:34px!important;\n    align-items:stretch!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-list{\n    display:grid!important;\n    gap:10px!important;\n    margin:0!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-card{\n    min-height:76px!important;\n    grid-template-columns:46px minmax(0,1fr)!important;\n    gap:13px!important;\n    padding:13px 15px!important;\n    border:1px solid rgba(255,255,255,.13)!important;\n    border-radius:14px!important;\n    background:rgba(255,255,255,.06)!important;\n    color:#f7f3f0!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-card-icon{\n    width:40px!important;\n    height:40px!important;\n    display:grid!important;\n    place-items:center!important;\n    border-radius:50%!important;\n    background:rgba(255,255,255,.08)!important;\n    color:#f0e8e3!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-card-title{\n    color:#f7f3f0!important;\n    font:500 19px/1.15 \"Cormorant Garamond\",Georgia,serif!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-card-sub{\n    margin-top:5px!important;\n    color:#c7bbb4!important;\n    font-size:10.5px!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-right{\n    display:flex!important;\n    flex-direction:column!important;\n    padding:0!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-map{\n    height:100%!important;\n    min-height:334px!important;\n    border:1px solid rgba(255,255,255,.12)!important;\n    border-radius:18px!important;\n    overflow:hidden!important;\n    background:#423a36!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-actions{\n    display:grid!important;\n    grid-template-columns:1fr 1.15fr!important;\n    gap:10px!important;\n    margin-top:12px!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-action-btn{\n    height:50px!important;\n    border-radius:10px!important;\n    display:flex!important;\n    align-items:center!important;\n    justify-content:center!important;\n    text-decoration:none!important;\n    font:500 12px/1 \"Manrope\",Arial,sans-serif!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-call{\n    border:1px solid rgba(255,255,255,.22)!important;\n    color:#f7f3f0!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-route{\n    background:#f4ede8!important;\n    color:#2b2522!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-bottom{\n    width:calc(100% + 140px)!important;\n    margin:42px -70px 0!important;\n    display:block!important;\n  }\n  #esmeraldaDesktopContacts .std-contact-brand{\n    width:100%!important;\n    min-height:96px!important;\n    padding:12px 24px!important;\n    border:0!important;\n    border-radius:0!important;\n    background:#11100f!important;\n    color:#fff!important;\n    display:flex!important;\n    flex-direction:column!important;\n    align-items:center!important;\n    justify-content:center!important;\n    gap:8px!important;\n    box-shadow:none!important;\n  }\n  #esmeraldaDesktopContacts .br-tanem-mark{\n    width:30px!important;\n    height:30px!important;\n    border:1px solid rgba(255,255,255,.42)!important;\n    border-radius:8px!important;\n    display:grid!important;\n    place-items:center!important;\n    color:#fff!important;\n    font:500 21px/1 \"Cormorant Garamond\",Georgia,serif!important;\n  }\n  #esmeraldaDesktopContacts .br-tanem-copy{\n    display:block!important;\n    color:#cfc8c4!important;\n    font:400 10px/1.2 \"Manrope\",Arial,sans-serif!important;\n    text-align:center!important;\n  }\n  #esmeraldaDesktopContacts .br-tanem-copy strong{\n    display:inline!important;\n    color:#fff!important;\n    font:500 15px/1 \"Cormorant Garamond\",Georgia,serif!important;\n  }\n\n  @media(max-width:1199px){\n    #esmeraldaDesktopServices.mct-prices>.mct-shell{\n      width:min(calc(100% - 56px),1360px)!important;\n      grid-template-columns:minmax(255px,.68fr) minmax(0,1.52fr)!important;\n      column-gap:34px!important;\n    }\n    #esmeraldaDesktopServices .mct-price-head{\n      top:96px!important;\n    }\n    #esmeraldaDesktopServices .mct-price-head h2{font-size:47.3px!important}\n    #esmeraldaDesktopServices .dct-service-card:not(.has-variants) .dct-service-card-body{\n      grid-template-columns:minmax(0,1fr) 98px 132px!important;\n      column-gap:14px!important;\n    }\n    #esmeraldaDesktopServices .dct-service-card-meta>b{\n      width:132px!important;\n      min-width:132px!important;\n    }\n    #esmeraldaDesktopAbout>.mct-shell{\n      width:min(calc(100% - 56px),1360px)!important;\n    }\n    #esmeraldaDesktopAbout .mct-about-card{\n      grid-template-columns:minmax(330px,.84fr) minmax(0,1.16fr)!important;\n    }\n    #esmeraldaDesktopContacts.std-contact{padding-left:42px!important;padding-right:42px!important}\n    #esmeraldaDesktopContacts .std-contact-bottom{\n      width:calc(100% + 84px)!important;\n      margin-left:-42px!important;\n      margin-right:-42px!important;\n    }\n  }\n  @media(max-width:930px){\n    .std-hero-frame{margin-top:18px!important}\n    .std-copy-inner{width:min(100% - 44px,540px)!important;margin-top:90px!important}\n\n    #esmeraldaDesktopServices.mct-prices>.mct-shell{\n      grid-template-columns:1fr!important;\n      row-gap:26px!important;\n    }\n    #esmeraldaDesktopServices .mct-price-head{\n      position:relative!important;\n      top:auto!important;\n      grid-column:1!important;\n      padding:0!important;\n      transform:none!important;\n    }\n    #esmeraldaDesktopServices .mct-price-head:after{display:none!important}\n    #esmeraldaDesktopServices .mct-tabs-ribbon-wrap,\n    #esmeraldaDesktopServices .dct-service-groups,\n    #esmeraldaDesktopServices .mct-more-services{grid-column:1!important}\n    #esmeraldaDesktopServices .dct-service-groups{margin-top:0!important}\n\n    #esmeraldaDesktopAbout .mct-about-card{\n      grid-template-columns:1fr!important;\n      height:auto!important;\n    }\n    #esmeraldaDesktopAbout .mct-about-portrait-wrap{min-height:390px!important}\n    #esmeraldaDesktopAbout .dct-about-amenities-grid{grid-template-columns:1fr!important;gap:12px!important}\n    #esmeraldaDesktopAbout .dct-about-amenities-grid article+article{padding-left:0!important;border-left:0!important}\n\n    #esmeraldaDesktopContacts .std-contact-body{grid-template-columns:1fr!important}\n    #esmeraldaDesktopContacts .std-contact-map{min-height:330px!important}\n  }\n}\n";
-  document.head.appendChild(desktopRebuildCss);
+@media(min-width:768px){
+  #esmeralda-desktop-v1{
+    --br-bg:#f8f4ee;
+    --br-section:#f7f2eb;
+    --br-warm:#e9e2da;
+    --br-team:#f6f1e9;
+    --br-ink:#171513;
+    --br-soft:#746c66;
+    --br-line:rgba(62,51,44,.12);
+    --br-taupe:#8f7167;
+    background:var(--br-bg)!important;
+    color:var(--br-ink)!important;
+  }
+
+  /* Hero scale and alignment. */
+  .std-copy-inner{width:min(100%,560px)!important}
+  .std-logo{max-width:100%!important;font-size:clamp(54px,4.15vw,70px)!important;letter-spacing:.055em!important;white-space:nowrap!important}
+  .std-hero-kicker{font-size:14px!important;letter-spacing:.40em!important;margin-bottom:31px!important}
+  .std-logo-sub{font-size:14px!important;letter-spacing:.40em!important;margin-top:20px!important}
+  .std-tagline{font-size:26px!important;max-width:510px!important}
+  .std-meta{width:100%!important;grid-template-columns:1fr 1px 1.18fr!important;margin-top:2px!important;margin-bottom:34px!important}
+  .std-meta-icon{width:68px!important;height:68px!important;flex-basis:68px!important}
+  .std-meta-icon svg{width:29px!important;height:29px!important}
+  .std-meta-text{font-size:17px!important;line-height:1.42!important}
+  .std-actions{width:100%!important;gap:15px!important}
+  .std-btn{height:74px!important;font-size:18px!important;border-radius:10px!important}
+  .std-phone{font-size:19px!important}
+  .std-header-book{width:174px!important;min-width:174px!important;height:50px!important;font-size:17px!important}
+  .std-hero-copy:before{
+    left:0!important;
+    bottom:0!important;
+    width:190px!important;
+    height:545px!important;
+    opacity:.92!important;
+    filter:none!important;
+    transform:none!important;
+    background-image:url('desktop-hero-reference.webp')!important;
+    background-repeat:no-repeat!important;
+    background-size:1648px auto!important;
+    background-position:left bottom!important;
+    -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 58%,transparent 100%)!important;
+    mask-image:linear-gradient(90deg,#000 0%,#000 58%,transparent 100%)!important;
+    pointer-events:none!important;
+  }
+
+  /* Portfolio moves down ~0.5 cm and blends into hero. */
+  .std-portfolio{padding-top:82px!important;background:linear-gradient(180deg,#f0e8e1 0%,#f4ede7 24%,#f7f2eb 100%)!important}
+  .std-portfolio-kicker{color:#746c66!important}
+  .std-portfolio-title{color:#171513!important}
+  .std-portfolio-copy{color:#746c66!important}
+
+  /* Gallery — same light palette, larger title/tabs. */
+  .std-gallery-browser{background:#f7f2eb!important;color:#171513!important}
+  .std-gallery-browser-shell{background:#f7f2eb!important}
+  .std-gallery-browser-title strong{font-size:31px!important;color:#171513!important}
+  .std-gallery-browser-title span{color:#746c66!important}
+  .std-gallery-browser-back{color:#171513!important;border-color:rgba(62,51,44,.16)!important;background:rgba(255,255,255,.34)!important}
+  .std-gallery-browser-tab{
+    height:44px!important;
+    padding:0 20px!important;
+    border-color:rgba(62,51,44,.16)!important;
+    background:rgba(255,255,255,.20)!important;
+    color:#655d57!important;
+    font-size:12.7px!important;
+  }
+  .std-gallery-browser-tab.active{background:#171513!important;border-color:#171513!important;color:#fff!important}
+
+  /* Services — structure copied from Shablon-Hair-Master desktop system. */
+  .std-services{
+    min-height:0!important;
+    padding:96px 0 104px!important;
+    background:
+      radial-gradient(circle at 9% 4%,rgba(204,171,158,.15),transparent 29%),
+      radial-gradient(circle at 92% 83%,rgba(218,195,184,.12),transparent 31%),
+      #f8f4ef!important;
+    color:#171513!important;
+  }
+  .std-services-inner{width:min(calc(100% - 96px),1400px)!important;margin:0 auto!important;display:block!important}
+  .std-services-head-ref{display:grid!important;grid-template-columns:minmax(360px,.95fr) minmax(360px,1.05fr)!important;align-items:end!important;column-gap:clamp(54px,7vw,110px)!important}
+  .std-services-kicker{margin:0!important;color:#9b7d72!important;font-size:12px!important;font-weight:600!important;letter-spacing:.24em!important;text-transform:uppercase!important}
+  .std-services-title{margin:12px 0 0!important;color:#171513!important;font:500 clamp(64px,5.6vw,82px)/.90 "Cormorant Garamond",Georgia,serif!important;letter-spacing:-.045em!important}
+  .std-services-intro{max-width:540px!important;margin:0 0 7px!important;color:#625b57!important;font-size:14px!important;line-height:1.7!important}
+  .std-price-legacy{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important}
+  .std-services-right{width:100%!important}
+  .std-service-tabs{
+    width:100%!important;
+    max-width:none!important;
+    margin-top:38px!important;
+    padding:5px!important;
+    display:flex!important;
+    gap:5px!important;
+    overflow-x:auto!important;
+    border:1px solid rgba(83,63,55,.09)!important;
+    border-radius:17px!important;
+    background:rgba(229,216,208,.58)!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.62)!important;
+    scrollbar-width:none!important;
+  }
+  .std-service-tabs::-webkit-scrollbar{display:none!important}
+  .std-service-tab{
+    flex:1 0 auto!important;
+    min-height:50px!important;
+    padding:0 18px!important;
+    border:1px solid transparent!important;
+    border-radius:13px!important;
+    background:transparent!important;
+    color:#655d57!important;
+    font-size:12px!important;
+    font-weight:600!important;
+    transition:transform 180ms ease,border-color 180ms ease,box-shadow 180ms ease,background 180ms ease!important;
+  }
+  .std-service-tab:hover{background:rgba(237,226,219,.76)!important;transform:translateY(-2px)!important}
+  .std-service-tab.active{background:#171513!important;color:#fff!important;border-color:#171513!important;box-shadow:0 12px 24px rgba(50,39,33,.12)!important}
+  .std-service-list{display:block!important;width:100%!important;margin-top:30px!important;border:0!important}
+  .std-service-category-ref + .std-service-category-ref{margin-top:38px!important}
+  .std-service-category-heading-ref{display:flex!important;min-height:34px!important;align-items:center!important;gap:12px!important;margin:0 0 14px!important;color:#705a52!important;font-size:13px!important;font-weight:600!important;letter-spacing:.12em!important;text-transform:uppercase!important}
+  .std-service-category-heading-ref:before{width:34px!important;height:1px!important;flex:0 0 34px!important;background:rgba(104,79,70,.28)!important;content:""!important}
+  .std-service-category-heading-ref i{height:1px!important;flex:1 1 auto!important;background:linear-gradient(90deg,rgba(104,79,70,.18),transparent)!important}
+  .std-service-grid-ref{position:relative!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px 38px!important}
+  .std-service-grid-ref:after{position:absolute!important;top:0!important;bottom:0!important;left:50%!important;width:1px!important;background:linear-gradient(180deg,transparent,rgba(100,77,68,.14) 8%,rgba(100,77,68,.14) 92%,transparent)!important;content:""!important;transform:translateX(-.5px)!important;pointer-events:none!important}
+  .std-service-card-ref{
+    position:relative!important;
+    display:flex!important;
+    width:100%!important;
+    min-height:154px!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    padding:24px 76px 22px 24px!important;
+    overflow:hidden!important;
+    border:1px solid rgba(79,60,53,.105)!important;
+    border-radius:22px!important;
+    background:rgba(255,253,250,.80)!important;
+    box-shadow:0 10px 26px rgba(68,50,43,.05)!important;
+    color:#171513!important;
+    text-align:left!important;
+    transition:transform 200ms ease,border-color 200ms ease,box-shadow 200ms ease,background 200ms ease!important;
+  }
+  .std-service-card-ref:after{position:absolute!important;top:22px!important;right:20px!important;display:grid!important;width:42px!important;height:42px!important;place-items:center!important;border:1px solid rgba(112,81,71,.16)!important;border-radius:50%!important;background:#eee3dd!important;color:#6d514a!important;content:"↗"!important;font:500 16px/1 "Manrope",Arial,sans-serif!important}
+  .std-service-card-ref:hover{border-color:rgba(117,82,72,.22)!important;background:#fffdf9!important;box-shadow:0 16px 35px rgba(68,50,43,.085)!important;transform:translateY(-3px)!important}
+  .std-service-card-ref:hover:after{background:#171513!important;color:#fff!important}
+  .std-service-card-title-ref{max-width:100%!important;color:#2d2825!important;font:500 clamp(23px,1.65vw,28px)/1.08 "Cormorant Garamond",Georgia,serif!important}
+  .std-service-card-detail-ref{margin-top:10px!important;color:#716964!important;font-size:11.5px!important;line-height:1.5!important}
+  .std-service-card-bottom-ref{display:flex!important;align-items:end!important;justify-content:space-between!important;gap:14px!important;margin-top:auto!important;padding-top:22px!important}
+  .std-service-card-bottom-ref span{display:inline-flex!important;min-height:27px!important;align-items:center!important;padding:0 10px!important;border-radius:999px!important;background:#f0e7e1!important;color:#81736b!important;font-size:9.5px!important;font-weight:600!important}
+  .std-service-card-bottom-ref b{color:#332d2a!important;font:600 18px/1 "Cormorant Garamond",Georgia,serif!important}
+  .std-service-more{width:min(100%,390px)!important;height:56px!important;margin:32px auto 0!important;border:1px solid #bbaea5!important;border-radius:10px!important;background:rgba(255,255,255,.26)!important;color:#342f2b!important}
+  .std-services-count{text-align:center!important;color:#8a7f78!important;font-size:10px!important;margin-top:14px!important}
+
+  /* About — wider, calmer, no cramped blocks. */
+  .std-about{padding:96px 70px 104px!important;background:#f8f4ee!important;color:#171513!important}
+  .std-about-inner{width:min(100%,1360px)!important;margin:0 auto!important}
+  .std-about-kicker{color:#9b7d72!important;font-size:12px!important;letter-spacing:.24em!important}
+  .std-about-grid{display:grid!important;grid-template-columns:1.05fr .95fr!important;gap:70px!important;align-items:center!important;margin-top:28px!important}
+  .std-about-copy{padding:20px 0!important}
+  .std-about-lead{max-width:720px!important;font-size:clamp(55px,4.6vw,72px)!important;line-height:.98!important;color:#171513!important}
+  .std-about-text{max-width:690px!important;margin-top:30px!important;color:#625b57!important;font-size:17px!important;line-height:1.65!important}
+  .std-about-facts{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important;margin-top:36px!important}
+  .std-about-fact{min-height:92px!important;padding:18px!important;border:1px solid rgba(63,50,44,.10)!important;border-radius:15px!important;background:rgba(255,255,255,.28)!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;text-align:left!important;color:#171513!important}
+  .std-about-fact strong{font:500 18px/1.05 "Cormorant Garamond",Georgia,serif!important}
+  .std-about-fact span{margin-top:7px!important;color:#81766f!important;font-size:10px!important}
+  .std-about-visual{min-height:520px!important;border-radius:28px!important;overflow:hidden!important;box-shadow:0 24px 60px rgba(67,50,43,.10)!important}
+  .std-about-visual img{width:100%!important;height:100%!important;object-fit:cover!important}
+  .std-about-rating{left:24px!important;bottom:24px!important;background:rgba(248,244,238,.92)!important;color:#171513!important}
+
+  /* Team — same light mobile language, four balanced cards. */
+  #esmeraldaDesktopTeam.std-team{min-height:0!important;padding:88px 70px 92px!important;background:#f6f1e9!important;color:#171513!important}
+  #esmeraldaDesktopTeam .std-team-inner{width:min(100%,1360px)!important}
+  #esmeraldaDesktopTeam .std-team-kicker{color:#9b7d72!important;font-size:12px!important}
+  #esmeraldaDesktopTeam .std-team-title{margin-top:14px!important;color:#171513!important;font-size:64px!important;line-height:.93!important}
+  #esmeraldaDesktopTeam .std-team-subtitle{margin-top:14px!important;color:#746c66!important;font-size:14px!important}
+  #esmeraldaDesktopTeam .std-team-track{display:grid!important;width:100%!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:30px!important;margin-top:46px!important;overflow:visible!important;padding:0!important}
+  #esmeraldaDesktopTeam .std-master{position:relative!important;display:block!important;width:100%!important;min-width:0!important;padding:0 8px 18px!important;border:0!important;background:none!important;color:#171513!important;text-align:center!important;cursor:pointer!important}
+  #esmeraldaDesktopTeam .std-master-arrow{position:absolute!important;top:7px!important;right:12px!important;z-index:2!important;width:36px!important;height:36px!important;border:1px solid rgba(62,51,44,.12)!important;border-radius:50%!important;background:rgba(255,255,255,.48)!important;display:grid!important;place-items:center!important;color:#75675f!important;font-size:14px!important}
+  #esmeraldaDesktopTeam .std-master-avatar{width:min(100%,190px)!important;height:auto!important;aspect-ratio:1/1!important;margin:0 auto!important;border:0!important;border-radius:50%!important;background:linear-gradient(145deg,#e9e3dc,#d7cec6)!important;color:#9b9088!important;box-shadow:none!important;transition:transform .22s ease!important}
+  #esmeraldaDesktopTeam .std-master:hover .std-master-avatar{transform:translateY(-4px)!important}
+  #esmeraldaDesktopTeam .std-master-avatar svg{width:64px!important;height:64px!important}
+  #esmeraldaDesktopTeam .std-master-name{margin-top:18px!important;color:#171513!important;font-size:29px!important}
+  #esmeraldaDesktopTeam .std-master-role{margin-top:7px!important;color:#827871!important;font-size:11px!important}
+
+  /* Reviews — same warm mobile block color. */
+  #esmeraldaDesktopReviews.std-reviews{
+    height:auto!important;
+    min-height:760px!important;
+    padding:78px 0 62px!important;
+    background:#e9e2da!important;
+    color:#171513!important;
+  }
+  #esmeraldaDesktopReviews .std-reviews-kicker{color:#746c66!important}
+  #esmeraldaDesktopReviews .std-reviews-title{color:#171513!important}
+  #esmeraldaDesktopReviews .std-reviews-score>strong{color:#171513!important}
+  #esmeraldaDesktopReviews .std-reviews-count{color:#716862!important}
+  #esmeraldaDesktopReviews .std-review-card{border-color:rgba(66,55,49,.15)!important;border-radius:14px!important;background:rgba(255,255,255,.34)!important}
+  #esmeraldaDesktopReviews .std-review-avatar{background:#d7cec6!important;border-color:rgba(66,55,49,.10)!important;color:#514943!important}
+  #esmeraldaDesktopReviews .std-review-name{color:#2a2522!important}
+  #esmeraldaDesktopReviews .std-review-text{color:#4f4843!important}
+  #esmeraldaDesktopReviews .std-reviews-all{border-color:rgba(66,55,49,.18)!important;background:rgba(255,255,255,.18)!important;color:#2f2a26!important}
+
+  /* Contacts follow the mobile light section; TANEM badge stays dark. */
+  .std-contact{padding:74px 70px 54px!important;background:#f7f2eb!important;color:#171513!important}
+  .std-contact-inner{width:min(100%,1360px)!important;grid-template-columns:520px minmax(0,1fr)!important;gap:42px!important}
+  .std-contact-kicker{color:#9b7d72!important}
+  .std-contact-title{color:#171513!important}
+  .std-contact-card{border-color:rgba(63,50,44,.12)!important;background:rgba(255,255,255,.55)!important;color:#1e1a17!important}
+  .std-contact-card:hover{border-color:rgba(63,50,44,.22)!important;background:rgba(255,255,255,.76)!important}
+  .std-contact-card-title{color:#171513!important}
+  .std-contact-card-sub{color:#81766f!important}
+  .std-contact-card-icon{color:#8d7e74!important}
+  .std-contact-map{border:1px solid rgba(63,50,44,.12)!important;border-radius:24px!important;overflow:hidden!important;background:#eee!important}
+  .std-contact-status{border-color:#b8b0aa!important;background:#fff0df!important;color:#a46020!important}
+  .std-contact-status.open{background:#e7f4e6!important;color:#3a7440!important}
+  .std-contact-bottom{margin-top:34px!important;display:flex!important;justify-content:center!important}
+  .std-contact-brand{min-width:280px!important;min-height:58px!important;padding:0 22px!important;border-radius:16px!important;background:#171513!important;color:#fff!important;box-shadow:0 14px 34px rgba(23,21,19,.16)!important}
+  .std-contact-brand-mark{background:#8f7167!important;color:#fff!important}
+  .std-contact-brand-text{color:#f4eee8!important}
+
+  /* Separate master page, desktop version of mobile overlay. */
+  .std-master-overlay{position:fixed!important;z-index:390!important;inset:0!important;display:block!important;overflow:auto!important;background:#f8f4ee!important;color:#171513!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;transition:opacity .34s ease,visibility 0s linear .42s!important}
+  .std-master-overlay.open{visibility:visible!important;opacity:1!important;pointer-events:auto!important;transition-delay:0s!important}
+  .std-master-page-panel{width:min(100%,1120px)!important;min-height:100vh!important;margin:0 auto!important;padding:24px 48px 120px!important;transform:translateY(28px)!important;transition:transform .46s cubic-bezier(.16,1,.3,1)!important}
+  .std-master-overlay.open .std-master-page-panel{transform:none!important}
+  .std-master-page-top{display:grid!important;grid-template-columns:48px 1fr 48px!important;align-items:center!important;text-align:center!important}
+  .std-master-page-top span{font-size:14px!important;font-weight:600!important;letter-spacing:.28em!important}
+  .std-master-page-top i{width:48px!important;height:48px!important}
+  .std-master-page-close{width:48px!important;height:48px!important;border:1px solid rgba(63,50,44,.12)!important;border-radius:50%!important;background:rgba(255,255,255,.45)!important;font-size:27px!important}
+  .std-master-profile{text-align:center!important;margin-top:28px!important}
+  .std-master-profile .std-master-avatar{width:158px!important;height:158px!important;margin:0 auto!important;border-radius:50%!important;display:grid!important;place-items:center!important;background:linear-gradient(145deg,#e9e3dc,#d7cec6)!important;color:#9b9088!important}
+  .std-master-profile .std-master-avatar svg{width:72px!important;height:72px!important}
+  .std-master-profile h2{margin:18px 0 0!important;font:500 54px/.95 "Cormorant Garamond",Georgia,serif!important}
+  .std-master-profile p{margin:8px 0 0!important;color:#837970!important;font-size:14px!important}
+  .std-master-profile-rating{margin-top:10px!important;font-size:12px!important;font-weight:600!important}.std-master-profile-rating b{color:#b78d4f!important}
+  .std-master-page-grid{display:grid!important;grid-template-columns:1.1fr .9fr!important;gap:34px!important;margin-top:38px!important}
+  .std-master-page-block{padding:26px!important;border:1px solid rgba(63,50,44,.10)!important;border-radius:20px!important;background:rgba(255,255,255,.38)!important}
+  .std-master-page-block h3{margin:0 0 16px!important;font:500 31px/1 "Cormorant Garamond",Georgia,serif!important}
+  .std-master-page-service{display:flex!important;justify-content:space-between!important;gap:18px!important;padding:14px 0!important;border-bottom:1px solid rgba(63,50,44,.10)!important}
+  .std-master-page-service:last-child{border-bottom:0!important}.std-master-page-service strong{font-size:13px!important}.std-master-page-service span{color:#81766f!important;font-size:11px!important}
+  .std-master-page-works{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}.std-master-page-works img{width:100%!important;aspect-ratio:1.25/1!important;object-fit:cover!important;border-radius:12px!important}
+  .std-master-page-empty{color:#81766f!important;font-size:12px!important;line-height:1.55!important}
+  .std-master-page-book{position:fixed!important;z-index:395!important;left:50%!important;bottom:22px!important;width:min(620px,calc(100% - 64px))!important;height:58px!important;transform:translateX(-50%)!important;border:0!important;border-radius:14px!important;background:#171513!important;color:#fff!important;font-size:14px!important;font-weight:600!important;box-shadow:0 16px 38px rgba(23,21,19,.18)!important}
+}
 
 
-  const desktopFinishCss=document.createElement('style');
-  desktopFinishCss.id='esmeralda-desktop-finish-v1';
-  desktopFinishCss.textContent="\n@media(min-width:768px){\n  html,body{scroll-behavior:auto!important;overscroll-behavior-y:auto!important}\n  .std-hero{height:calc(100dvh - 80px)!important;min-height:0!important}\n  .std-hero-copy{min-height:0!important}\n  .std-hero-frame{min-height:0!important}\n  #esmeraldaDesktopPortfolio,#esmeraldaDesktopServices,#esmeraldaDesktopAbout,#esmeraldaDesktopTeam,#esmeraldaDesktopReviews,#esmeraldaDesktopContacts{scroll-margin-top:80px!important}\n}\n@media(min-width:768px) and (max-height:820px){\n  .std-hero-frame{margin-top:18px!important}\n  .std-copy-inner{margin-top:72px!important;width:min(100% - 56px,540px)!important}\n  .std-hero-kicker{margin-bottom:20px!important}\n  .std-logo-sub{margin-bottom:22px!important}\n  .std-tagline{margin-bottom:22px!important;font-size:21px!important}\n  .std-meta{margin-bottom:20px!important}\n  .std-meta-icon{width:52px!important;height:52px!important;flex-basis:52px!important}\n  .std-btn{height:58px!important}\n  .std-scroll-hint{bottom:14px!important}\n  .std-scroll-circle{width:46px!important;height:46px!important}\n}\n";
-  document.head.appendChild(desktopFinishCss);
+@media(min-width:768px){
+  #esmeralda-desktop-v1{
+    --br-bg:#f8f4ee;--br-light:#f7f2eb;--br-warm:#e9e2da;--br-dark:#2f2926;
+    --br-ink:#171513;--br-soft:#746c66;--br-taupe:#8b7167;--br-line:rgba(62,51,44,.12);
+    background:var(--br-bg)!important;color:var(--br-ink)!important
+  }
+  .std-portfolio-title,.std-services-title,.std-about-title,#esmeraldaDesktopTeam .std-team-title,
+  #esmeraldaDesktopReviews .std-reviews-title,.std-contact-title{
+    margin-top:14px!important;font:500 clamp(54px,4.35vw,68px)/.94 "Cormorant Garamond",Georgia,serif!important;
+    letter-spacing:-.035em!important
+  }
+  .std-portfolio-kicker,.std-services-kicker,.std-about-kicker,#esmeraldaDesktopTeam .std-team-kicker,
+  #esmeraldaDesktopReviews .std-reviews-kicker,.std-contact-kicker{
+    font:600 12px/1 "Manrope",Arial,sans-serif!important;letter-spacing:.26em!important;text-transform:uppercase!important
+  }
 
-  const luxuryHeroCss=document.createElement('style');
-  luxuryHeroCss.id='esmeralda-desktop-luxury-hero-v1';
-  luxuryHeroCss.textContent="\n@media(min-width:768px){\n  /* Luxury desktop hero only. Mobile remains untouched. */\n  .std-header{\n    height:80px!important;\n    padding:0 48px!important;\n    background:#f8f4ee!important;\n    border-bottom:1px solid rgba(77,59,50,.055)!important;\n  }\n  .std-header-brand{\n    width:auto!important;\n    min-width:0!important;\n    align-items:flex-start!important;\n  }\n  .std-header-brand-main{\n    font-size:31px!important;\n    letter-spacing:.075em!important;\n  }\n  .std-header-brand-sub{\n    margin-top:7px!important;\n    font-size:8px!important;\n    letter-spacing:.38em!important;\n    padding-left:2px!important;\n  }\n  .std-header-right{\n    margin-left:auto!important;\n    gap:19px!important;\n    transform:none!important;\n  }\n  .std-phone{font-size:16px!important}\n  .std-header-book{\n    width:158px!important;\n    min-width:158px!important;\n    height:48px!important;\n    font-size:15px!important;\n  }\n\n  .std-hero{\n    position:relative!important;\n    isolation:isolate!important;\n    display:grid!important;\n    grid-template-columns:46.5% 53.5%!important;\n    height:calc(100dvh - 80px)!important;\n    min-height:690px!important;\n    overflow:hidden!important;\n    background:\n      radial-gradient(700px 520px at 22% 48%,rgba(255,255,255,.52),transparent 68%),\n      radial-gradient(620px 460px at 76% 38%,rgba(183,143,120,.09),transparent 72%),\n      linear-gradient(118deg,#f8f4ee 0%,#f6efe9 56%,#f2e8e0 100%)!important;\n  }\n  .std-hero:before,\n  .std-hero:after{\n    content:\"\"!important;\n    position:absolute!important;\n    z-index:0!important;\n    width:1040px!important;\n    height:1040px!important;\n    border:1px solid rgba(151,112,91,.17)!important;\n    border-radius:50%!important;\n    pointer-events:none!important;\n    background:transparent!important;\n  }\n  .std-hero:before{\n    left:33%!important;\n    top:-600px!important;\n  }\n  .std-hero:after{\n    width:820px!important;\n    height:820px!important;\n    right:-410px!important;\n    bottom:-540px!important;\n  }\n\n  .std-hero-copy{\n    position:relative!important;\n    z-index:2!important;\n    min-width:0!important;\n    align-items:stretch!important;\n    justify-content:flex-start!important;\n    padding:0 40px 0 78px!important;\n    overflow:visible!important;\n    background:transparent!important;\n  }\n  .std-hero-copy:before{\n    content:\"\"!important;\n    position:absolute!important;\n    z-index:0!important;\n    width:540px!important;\n    height:540px!important;\n    left:-365px!important;\n    top:70px!important;\n    border:1px solid rgba(151,112,91,.10)!important;\n    border-radius:50%!important;\n    opacity:1!important;\n    filter:none!important;\n    transform:none!important;\n    background:transparent!important;\n    -webkit-mask-image:none!important;\n    mask-image:none!important;\n    pointer-events:none!important;\n  }\n  .std-hero-copy:after{\n    content:\"Красота — это уверенность\\Aв себе каждый день.\"!important;\n    white-space:pre!important;\n    position:absolute!important;\n    left:78px!important;\n    bottom:44px!important;\n    z-index:3!important;\n    padding-left:58px!important;\n    color:#9b7768!important;\n    font:500 italic 19px/1.24 \"Cormorant Garamond\",Georgia,serif!important;\n    letter-spacing:.01em!important;\n    background:linear-gradient(#9b7768,#9b7768) left 9px/38px 1px no-repeat!important;\n    pointer-events:none!important;\n  }\n\n  .std-hero-frame{\n    position:relative!important;\n    z-index:2!important;\n    width:min(100%,610px)!important;\n    height:100%!important;\n    min-height:0!important;\n    margin:0!important;\n    border:0!important;\n    border-radius:0!important;\n    background:transparent!important;\n    box-shadow:none!important;\n    display:flex!important;\n    justify-content:flex-start!important;\n    overflow:visible!important;\n  }\n  .std-hero-frame:after{display:none!important}\n\n  .std-copy-inner{\n    position:relative!important;\n    z-index:4!important;\n    width:min(100%,570px)!important;\n    margin:clamp(72px,10.5vh,120px) 0 0!important;\n    transform:none!important;\n    text-align:left!important;\n  }\n  .std-hero-kicker{\n    margin:0 0 28px!important;\n    color:#9b7768!important;\n    font-size:12px!important;\n    letter-spacing:.43em!important;\n    text-align:left!important;\n  }\n  .std-logo{\n    max-width:100%!important;\n    margin:0!important;\n    color:#211d1a!important;\n    font-size:clamp(64px,5.35vw,88px)!important;\n    line-height:.84!important;\n    letter-spacing:.055em!important;\n    text-indent:0!important;\n    text-align:left!important;\n    white-space:nowrap!important;\n  }\n  .std-logo-sub{\n    width:min(100%,540px)!important;\n    margin:22px 0 38px!important;\n    color:#4f443f!important;\n    font-size:12px!important;\n    letter-spacing:.43em!important;\n    text-indent:0!important;\n    text-align:center!important;\n  }\n  .std-tagline{\n    max-width:540px!important;\n    margin:0 0 34px!important;\n    color:#2d2724!important;\n    font-size:23px!important;\n    line-height:1.35!important;\n    text-align:left!important;\n  }\n  .std-meta{\n    width:min(100%,540px)!important;\n    display:grid!important;\n    grid-template-columns:1fr 1px 1.13fr!important;\n    gap:20px!important;\n    margin:0 0 30px!important;\n  }\n  .std-meta-item{justify-content:flex-start!important}\n  .std-meta-icon{\n    width:56px!important;\n    height:56px!important;\n    flex-basis:56px!important;\n    background:rgba(255,255,255,.20)!important;\n    border-color:rgba(103,78,65,.15)!important;\n  }\n  .std-meta-icon svg{width:24px!important;height:24px!important}\n  .std-meta-text{font-size:15px!important;line-height:1.38!important}\n  .std-meta-divider{height:58px!important}\n  .std-actions{\n    width:min(100%,540px)!important;\n    gap:11px!important;\n  }\n  .std-btn{\n    height:62px!important;\n    border-radius:9px!important;\n    font-size:16px!important;\n  }\n  .std-btn-primary{\n    background:#a58270!important;\n    border-color:#a58270!important;\n  }\n  .std-btn-primary:hover{background:#967361!important}\n  .std-scroll-hint{display:none!important}\n\n  .std-hero-photo{\n    position:relative!important;\n    z-index:3!important;\n    min-width:0!important;\n    height:auto!important;\n    margin:36px 48px 36px 0!important;\n    overflow:hidden!important;\n    border:1px solid rgba(109,82,68,.16)!important;\n    border-radius:28px!important;\n    background:#e7ddd4!important;\n    box-shadow:\n      0 24px 70px rgba(75,53,43,.11),\n      inset 0 0 0 1px rgba(255,255,255,.18)!important;\n    cursor:pointer!important;\n  }\n  .std-hero-photo:before{\n    content:\"\"!important;\n    position:absolute!important;\n    inset:0!important;\n    z-index:2!important;\n    pointer-events:none!important;\n    border-radius:inherit!important;\n    box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)!important;\n  }\n  .std-hero-photo video,\n  .std-hero-photo img{\n    position:absolute!important;\n    inset:0!important;\n    width:100%!important;\n    height:100%!important;\n    object-fit:cover!important;\n    object-position:center center!important;\n    border-radius:inherit!important;\n    display:block!important;\n  }\n  .std-hero-photo video{\n    pointer-events:auto!important;\n    cursor:pointer!important;\n  }\n}\n\n@media(min-width:768px) and (max-width:1180px){\n  .std-header{padding:0 28px!important}\n  .std-header-brand-main{font-size:27px!important}\n  .std-header-right{gap:10px!important}\n  .std-header-book{width:132px!important;min-width:132px!important}\n  .std-hero{grid-template-columns:48% 52%!important}\n  .std-hero-copy{padding-left:42px!important;padding-right:24px!important}\n  .std-hero-copy:after{left:42px!important}\n  .std-copy-inner{width:min(100%,500px)!important;margin-top:clamp(58px,8vh,86px)!important}\n  .std-logo{font-size:clamp(52px,5.1vw,66px)!important}\n  .std-logo-sub{margin-bottom:27px!important}\n  .std-tagline{font-size:20px!important;margin-bottom:26px!important}\n  .std-meta{gap:13px!important;margin-bottom:24px!important}\n  .std-meta-icon{width:50px!important;height:50px!important;flex-basis:50px!important}\n  .std-meta-text{font-size:13px!important}\n  .std-btn{height:56px!important;font-size:14px!important}\n  .std-hero-photo{margin:26px 28px 26px 0!important;border-radius:22px!important}\n}\n\n@media(min-width:768px) and (max-height:820px){\n  .std-copy-inner{margin-top:48px!important}\n  .std-hero-kicker{margin-bottom:18px!important}\n  .std-logo-sub{margin-top:15px!important;margin-bottom:20px!important}\n  .std-tagline{margin-bottom:20px!important;font-size:19px!important}\n  .std-meta{margin-bottom:18px!important}\n  .std-meta-icon{width:48px!important;height:48px!important;flex-basis:48px!important}\n  .std-btn{height:54px!important}\n  .std-hero-copy:after{bottom:24px!important;font-size:17px!important}\n  .std-hero-photo{margin-top:24px!important;margin-bottom:24px!important}\n}\n";
-  document.head.appendChild(luxuryHeroCss);
+  .std-header{background:#f8f4ee!important;border-bottom:1px solid rgba(62,51,44,.06)!important}
+  .std-header-right{gap:17px!important}
+  .std-lang-switch{height:42px;display:flex;align-items:center;gap:4px;padding:0 4px}
+  .std-lang-switch button{min-width:28px;height:34px;padding:0 3px;border:0;background:transparent;color:#8b817b;
+    font:600 11px/1 "Manrope",Arial,sans-serif!important;letter-spacing:.04em}
+  .std-lang-switch button.active{color:#171513!important}.std-lang-switch .sep{color:#c7bbb3;font-size:10px;pointer-events:none}
 
-  const luxuryHeroFineTuneCss=document.createElement('style');
-  luxuryHeroFineTuneCss.id='esmeralda-desktop-luxury-hero-v2';
-  luxuryHeroFineTuneCss.textContent="\n@media(min-width:768px){\n  /* Fine-tuning of the approved luxury desktop hero. */\n  html{scrollbar-width:none!important}\n  html::-webkit-scrollbar,body::-webkit-scrollbar{width:0!important;height:0!important;display:none!important}\n\n  .std-header{padding-left:36px!important;padding-right:36px!important}\n  .std-header-right{margin-left:auto!important;transform:translateX(0)!important}\n\n  .std-hero{\n    background:\n      radial-gradient(330px 470px at -4% 24%,rgba(88,61,49,.115) 0%,rgba(125,92,74,.065) 18%,transparent 66%),\n      radial-gradient(420px 560px at 104% 82%,rgba(93,65,52,.115) 0%,rgba(137,101,80,.06) 19%,transparent 66%),\n      radial-gradient(520px 320px at 69% 2%,rgba(170,129,104,.085),transparent 72%),\n      radial-gradient(650px 500px at 25% 50%,rgba(255,255,255,.55),transparent 70%),\n      linear-gradient(118deg,#f9f5ef 0%,#f6efe9 53%,#f1e7df 100%)!important;\n  }\n  .std-hero:before{\n    left:30%!important;\n    top:-620px!important;\n    border-color:rgba(146,106,85,.20)!important;\n    box-shadow:0 0 90px rgba(150,112,91,.035)!important;\n  }\n  .std-hero:after{\n    right:-395px!important;\n    bottom:-525px!important;\n    border-color:rgba(146,106,85,.16)!important;\n    box-shadow:0 0 100px rgba(150,112,91,.04)!important;\n  }\n  .std-hero-copy{\n    padding-left:58px!important;\n    padding-right:58px!important;\n  }\n  .std-hero-copy:before{\n    left:-355px!important;\n    top:88px!important;\n    border-color:rgba(146,106,85,.12)!important;\n    box-shadow:0 0 80px rgba(108,77,61,.035)!important;\n  }\n  .std-copy-inner{\n    width:100%!important;\n    max-width:570px!important;\n    margin-left:auto!important;\n    margin-right:auto!important;\n    text-align:center!important;\n  }\n  .std-hero-kicker,\n  .std-logo,\n  .std-logo-sub,\n  .std-tagline{text-align:center!important}\n  .std-logo{margin-left:auto!important;margin-right:auto!important}\n  .std-logo-sub,\n  .std-tagline,\n  .std-meta,\n  .std-actions{\n    margin-left:auto!important;\n    margin-right:auto!important;\n  }\n  .std-meta-item{justify-content:center!important;text-align:left!important}\n  .std-actions{justify-content:center!important}\n\n  .std-hero-photo{\n    margin:36px 36px 36px 0!important;\n    border-color:rgba(112,83,68,.20)!important;\n    box-shadow:\n      0 34px 82px rgba(71,48,38,.18),\n      -18px 10px 42px rgba(91,64,51,.075),\n      18px 10px 42px rgba(91,64,51,.07),\n      0 0 0 7px rgba(255,255,255,.16),\n      inset 0 0 0 1px rgba(255,255,255,.24)!important;\n  }\n  .std-hero-photo:before{\n    box-shadow:\n      inset 0 0 0 1px rgba(255,255,255,.18),\n      inset 0 -34px 70px rgba(55,39,31,.035)!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  .std-header{padding-left:26px!important;padding-right:26px!important}\n  .std-hero-copy{padding-left:34px!important;padding-right:34px!important}\n  .std-hero-photo{margin:26px 26px 26px 0!important}\n}\n";
-  document.head.appendChild(luxuryHeroFineTuneCss);
+  .std-copy-inner{width:min(100%,560px)!important;transform:translateY(38px)!important}
+  .std-hero-kicker{font-size:14px!important;letter-spacing:.40em!important;margin-bottom:31px!important}
+  .std-logo{max-width:100%!important;font-size:clamp(54px,4.15vw,70px)!important;letter-spacing:.055em!important;white-space:nowrap!important}
+  .std-logo-sub{font-size:14px!important;letter-spacing:.40em!important;margin-top:20px!important}
+  .std-tagline{font-size:25px!important;line-height:1.38!important;max-width:500px!important}
+  .std-meta-text{font-size:16px!important;line-height:1.42!important}
+  .std-actions{gap:12px!important}.std-btn{height:66px!important;font-size:16px!important;border-radius:8px!important}
+  .std-scroll-hint{right:-88px!important;color:#fff!important;background:rgba(50,42,38,.78)!important;
+    border:1px solid rgba(255,255,255,.13)!important;box-shadow:0 12px 34px rgba(36,29,26,.20)!important;backdrop-filter:blur(7px)!important}
+  .std-scroll-hint span{color:#fff!important}
 
-  const luxuryHeroCenterCss=document.createElement('style');
-  luxuryHeroCenterCss.id='esmeralda-desktop-luxury-hero-v3';
-  luxuryHeroCenterCss.textContent="\n@media(min-width:768px){\n  /* Center the hero content in the entire left column and restore full CTA sizing. */\n  .std-hero-copy{padding-left:0!important;padding-right:0!important}\n  .std-hero-frame{\n    width:100%!important;\n    max-width:none!important;\n    justify-content:center!important;\n  }\n  .std-copy-inner{\n    width:min(calc(100% - 72px),570px)!important;\n    max-width:570px!important;\n    margin-left:auto!important;\n    margin-right:auto!important;\n  }\n  .std-actions{\n    width:min(100%,540px)!important;\n    display:grid!important;\n    grid-template-columns:1fr!important;\n    gap:11px!important;\n  }\n  .std-actions .std-btn{\n    width:100%!important;\n    min-width:0!important;\n    height:62px!important;\n    padding:0 28px!important;\n    font-size:16px!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  .std-hero-copy{padding-left:0!important;padding-right:0!important}\n  .std-copy-inner{width:min(calc(100% - 52px),500px)!important}\n  .std-actions .std-btn{height:58px!important;font-size:15px!important}\n}\n";
-  document.head.appendChild(luxuryHeroCenterCss);
+  .std-portfolio{padding:82px 42px 78px!important;background:#f7f2eb!important;color:#171513!important}
+  .std-portfolio-inner{width:min(calc(100% - 24px),1400px)!important}
+  .std-portfolio-kicker{color:#746c66!important}.std-portfolio-title{color:#171513!important}
+  .std-portfolio-copy{margin-top:17px!important;color:#746c66!important;font-size:15px!important;line-height:1.55!important}
+  .std-portfolio-more{width:min(100%,520px)!important;height:56px!important;margin:34px auto 0!important;
+    border:1px solid rgba(64,52,46,.18)!important;border-radius:10px!important;background:transparent!important;color:#1a1715!important;
+    box-shadow:none!important;font:500 14px/1 "Manrope",Arial,sans-serif!important;gap:12px!important}
+  .std-portfolio-more:hover{background:rgba(255,255,255,.32)!important;box-shadow:none!important;transform:translateY(-1px)!important}
 
-  const luxuryHeroExactCenterCss=document.createElement('style');
-  luxuryHeroExactCenterCss.id='esmeralda-desktop-luxury-hero-v4';
-  luxuryHeroExactCenterCss.textContent="\n@media(min-width:768px){\n  /* Exact optical center: viewport left edge -> actual left edge of video. */\n  .std-hero-copy{position:static!important}\n  .std-hero-frame{position:static!important}\n  .std-copy-inner{\n    position:absolute!important;\n    z-index:4!important;\n    left:0!important;\n    top:0!important;\n    width:46.5%!important;\n    max-width:none!important;\n    height:100%!important;\n    margin:0!important;\n    padding:clamp(72px,10.5vh,120px) 36px 118px!important;\n    box-sizing:border-box!important;\n    display:flex!important;\n    flex-direction:column!important;\n    align-items:center!important;\n    justify-content:flex-start!important;\n    text-align:center!important;\n  }\n  .std-hero-kicker,.std-logo,.std-logo-sub,.std-tagline{\n    width:100%!important;\n    text-align:center!important;\n  }\n  .std-logo{\n    margin-left:auto!important;\n    margin-right:auto!important;\n    white-space:nowrap!important;\n  }\n  .std-logo-sub,.std-tagline,.std-meta,.std-actions{\n    margin-left:auto!important;\n    margin-right:auto!important;\n  }\n  .std-meta{\n    justify-content:center!important;\n    justify-items:center!important;\n  }\n  .std-meta-item{justify-content:center!important}\n  .std-actions{\n    width:min(100%,540px)!important;\n    grid-template-columns:1fr 1fr!important;\n    gap:12px!important;\n  }\n  .std-actions .std-btn{\n    width:100%!important;\n    height:62px!important;\n    font-size:16px!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  .std-copy-inner{\n    width:48%!important;\n    padding:clamp(58px,8vh,86px) 26px 100px!important;\n  }\n  .std-actions{width:min(100%,500px)!important}\n  .std-actions .std-btn{height:58px!important;font-size:15px!important}\n}\n@media(min-width:768px) and (max-height:820px){\n  .std-copy-inner{padding-top:48px!important;padding-bottom:82px!important}\n}\n";
-  document.head.appendChild(luxuryHeroExactCenterCss);
+  .std-gallery-browser{background:#f7f2eb!important;color:#171513!important}
+  .std-gallery-browser-shell{width:min(100%,1320px)!important;padding:32px 42px 60px!important;background:#f7f2eb!important}
+  .std-gallery-browser-back{width:46px!important;height:46px!important;border:0!important;border-radius:0!important;background:transparent!important;
+    box-shadow:none!important;color:#171513!important;font:300 36px/1 Arial,sans-serif!important}
+  .std-gallery-browser-title strong{font:500 clamp(54px,4vw,64px)/.9 "Cormorant Garamond",Georgia,serif!important;color:#171513!important}
+  .std-gallery-browser-title span{margin-top:9px!important;color:#746c66!important;font-size:11px!important}
+  .std-gallery-browser-tab{height:43px!important;padding:0 18px!important;border-color:rgba(55,44,39,.12)!important;background:transparent!important;color:#6f655f!important}
+  .std-gallery-browser-tab.active{background:#171513!important;border-color:#171513!important;color:#fff!important}
+  .std-gallery-browser-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:9px!important;margin-top:20px!important}
+  .std-gallery-browser-tile{aspect-ratio:1/1!important;border-radius:11px!important}
 
-  const luxuryHeroTrueCenterCss=document.createElement('style');
-  luxuryHeroTrueCenterCss.id='esmeralda-desktop-luxury-hero-v7';
-  luxuryHeroTrueCenterCss.textContent="\n@media(min-width:768px){\n  /* One source of truth: left pane ends exactly where the video begins. */\n  .std-hero{--hero-video-start:46.5%}\n  .std-copy-inner{\n    left:0!important;\n    width:var(--hero-video-start)!important;\n    padding-left:36px!important;\n    padding-right:36px!important;\n    transform:none!important;\n    align-items:center!important;\n    text-align:center!important;\n  }\n  .std-copy-inner > *{margin-left:auto!important;margin-right:auto!important}\n  .std-hero-kicker,.std-logo,.std-logo-sub,.std-tagline{text-align:center!important}\n  .std-meta{justify-content:center!important;justify-items:center!important}\n  .std-meta-item{justify-content:center!important}\n}\n@media(min-width:768px) and (max-width:1180px){\n  .std-hero{--hero-video-start:48%}\n  .std-copy-inner{\n    width:var(--hero-video-start)!important;\n    padding-left:26px!important;\n    padding-right:26px!important;\n    transform:none!important;\n  }\n}\n";
-  document.head.appendChild(luxuryHeroTrueCenterCss);
+  .std-gallery{z-index:450!important;padding:22px!important;background:rgba(27,20,20,.90)!important;backdrop-filter:blur(9px)!important}
+  .std-gallery-stage{width:min(calc(100vw - 130px),980px)!important;height:min(78dvh,760px)!important;max-height:none!important;touch-action:none!important;overflow:visible!important}
+  .std-gallery-canvas{position:absolute;inset:0;overflow:hidden;border-radius:14px;background:#151312;box-shadow:0 18px 54px rgba(0,0,0,.28);touch-action:none}
+  .std-gallery-image{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;
+    object-fit:contain!important;border-radius:0!important;box-shadow:none!important;transform:translate3d(0,0,0) scale(1);transform-origin:center;will-change:transform}
+  .std-gallery-hint{position:absolute;top:-35px;left:0;color:rgba(255,255,255,.66);font:400 10px/1 "Manrope",Arial,sans-serif}
+  .std-gallery-nav{width:34px!important;height:54px!important;border:0!important;background:transparent!important;font-size:39px!important}
+  .std-gallery-prev{left:-48px!important}.std-gallery-next{right:-48px!important}
+  .std-gallery-count{bottom:-32px!important;font-size:10px!important;color:#fff!important}
+  .std-view-gallery{position:absolute;left:50%;bottom:-54px;transform:translateX(-50%);height:42px;padding:0 18px;
+    border:1px solid rgba(255,255,255,.34);border-radius:999px;background:rgba(22,18,16,.74);backdrop-filter:blur(12px);
+    color:#fff!important;font:600 11px/1 "Manrope",Arial,sans-serif!important;white-space:nowrap}
+  .std-gallery:not([data-source="portfolio"]) .std-view-gallery{display:none!important}
 
-  const desktopCtaSizeOnlyCss=document.createElement('style');
-  desktopCtaSizeOnlyCss.id='esmeralda-desktop-cta-size-only-v8';
-  desktopCtaSizeOnlyCss.textContent="\n@media(min-width:768px){\n  /* CTA size only. Do not alter hero positioning/layout. */\n  .std-actions .std-btn{\n    height:62px!important;\n    padding:0 28px!important;\n    font-size:16px!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  .std-actions .std-btn{\n    height:58px!important;\n    padding:0 26px!important;\n    font-size:15px!important;\n  }\n}\n";
-  document.head.appendChild(desktopCtaSizeOnlyCss);
+  .std-services{min-height:0!important;padding:88px 0 94px!important;background:#2f2926!important;color:#f7f3f0!important}
+  .std-services-inner{width:min(calc(100% - 96px),1360px)!important;margin:0 auto!important;display:block!important}
+  .std-services-head-ref{display:grid!important;grid-template-columns:minmax(340px,.88fr) minmax(360px,1.12fr)!important;align-items:end!important;gap:68px!important}
+  .std-services-kicker{color:#b8ada7!important}.std-services-title{color:#f7f3f0!important}
+  .std-services-intro{max-width:570px!important;margin:0 0 5px!important;color:#b9ada7!important;font-size:15px!important;line-height:1.65!important}
+  .std-price-legacy{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%)!important}
+  .std-service-tabs{width:100%!important;margin:34px 0 0!important;padding:0 0 8px!important;display:flex!important;gap:8px!important;
+    overflow-x:auto!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
+    -webkit-mask-image:none!important;mask-image:none!important}
+  .std-service-tab{flex:0 0 auto!important;min-height:38px!important;padding:0 16px!important;border:1px solid rgba(255,255,255,.18)!important;
+    border-radius:999px!important;background:transparent!important;color:#cfc5bf!important;font-size:11px!important;font-weight:500!important}
+  .std-service-tab:hover{transform:translateY(-2px)!important;background:rgba(255,255,255,.06)!important}
+  .std-service-tab.active{background:#8b7167!important;border-color:#8b7167!important;color:#fff!important;box-shadow:none!important}
+  .std-service-list{display:block!important;width:100%!important;margin-top:24px!important;border:0!important}
+  .std-service-grid-ref{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+  .std-service-grid-ref:after{display:none!important}
+  .std-service-card-ref{position:relative!important;display:flex!important;min-height:142px!important;flex-direction:column!important;
+    padding:23px 68px 20px 23px!important;border:1px solid rgba(255,255,255,.12)!important;border-radius:17px!important;
+    background:rgba(255,255,255,.045)!important;box-shadow:none!important;color:#f7f3f0!important;text-align:left!important}
+  .std-service-card-ref:after{position:absolute!important;top:20px!important;right:18px!important;display:grid!important;width:38px!important;height:38px!important;
+    place-items:center!important;border:1px solid rgba(255,255,255,.16)!important;border-radius:50%!important;background:rgba(255,255,255,.06)!important;
+    color:#d8b7aa!important;content:"↗"!important;font:500 15px/1 "Manrope",Arial,sans-serif!important}
+  .std-service-card-ref:hover{transform:translateY(-3px)!important;border-color:rgba(255,255,255,.22)!important;background:rgba(255,255,255,.07)!important;box-shadow:none!important}
+  .std-service-card-title-ref{color:#f7f3f0!important;font:500 clamp(23px,1.55vw,27px)/1.08 "Cormorant Garamond",Georgia,serif!important}
+  .std-service-card-detail-ref{margin-top:9px!important;color:#b9ada7!important;font-size:11px!important;line-height:1.5!important}
+  .std-service-card-bottom-ref{display:flex!important;align-items:end!important;justify-content:space-between!important;gap:12px!important;margin-top:auto!important;padding-top:20px!important}
+  .std-service-card-bottom-ref span{display:inline-flex!important;min-height:25px!important;align-items:center!important;padding:0 9px!important;border-radius:999px!important;background:rgba(255,255,255,.07)!important;color:#c9bdb6!important;font-size:9px!important}
+  .std-service-card-bottom-ref b{color:#f7f3f0!important;font:500 17px/1 "Cormorant Garamond",Georgia,serif!important}
+  .std-service-all-grid{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:50px}
+  .std-service-all-grid:after{content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;background:rgba(255,255,255,.13);transform:translateX(-.5px)}
+  .std-service-all-row{min-height:92px;padding:20px 5px;border:0;border-bottom:1px solid rgba(255,255,255,.14);background:transparent;
+    color:#f7f3f0!important;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;text-align:left}
+  .std-service-all-title{display:block;color:#f7f3f0;font:500 24px/1.08 "Cormorant Garamond",Georgia,serif}
+  .std-service-all-cat{display:block;margin-top:7px;color:#a99e98;font:500 9.5px/1 "Manrope",Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+  .std-service-all-action{color:#d8b7aa;font:500 11px/1 "Manrope",Arial,sans-serif;white-space:nowrap}
+  .std-service-more{width:min(100%,390px)!important;height:52px!important;margin:28px auto 0!important;border:1px solid rgba(255,255,255,.22)!important;
+    border-radius:8px!important;background:rgba(255,255,255,.06)!important;color:#f4eeea!important}
+  .std-service-more[hidden]{display:none!important}.std-services-count{margin-top:13px!important;text-align:center!important;color:#938984!important;font-size:10px!important}
 
-  const desktopCtaStackCss=document.createElement('style');
-  desktopCtaStackCss.id='esmeralda-desktop-cta-stack-v9';
-  desktopCtaStackCss.textContent="\n@media(min-width:768px){\n  /* Buttons only: stacked; each button takes the previous combined two-button width. */\n  .std-actions{\n    display:grid!important;\n    grid-template-columns:1fr!important;\n    width:min(100%,540px)!important;\n    gap:11px!important;\n  }\n  .std-actions .std-btn{\n    width:100%!important;\n    min-width:0!important;\n    height:62px!important;\n    padding:0 28px!important;\n    font-size:16px!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  .std-actions{width:min(100%,500px)!important}\n  .std-actions .std-btn{\n    width:100%!important;\n    height:58px!important;\n    padding:0 26px!important;\n    font-size:15px!important;\n  }\n}\n";
-  document.head.appendChild(desktopCtaStackCss);
+  .std-about{min-height:0!important;padding:88px 70px 96px!important;background:#f7f2eb!important;color:#171513!important}
+  .std-about-inner{width:min(100%,1360px)!important;margin:0 auto!important}.std-about-kicker{color:#88786e!important}.std-about-title{color:#171513!important}
+  .std-about-grid{margin-top:38px!important;padding:18px!important;display:grid!important;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr)!important;
+    gap:54px!important;align-items:stretch!important;border:1px solid rgba(66,55,49,.11)!important;border-radius:28px!important;background:#eee7df!important;
+    box-shadow:0 14px 34px rgba(47,37,31,.08)!important}
+  .std-about-visual{height:auto!important;min-height:500px!important;border-radius:20px!important;overflow:hidden!important;box-shadow:none!important;order:0!important}
+  .std-about-visual:after{background:none!important}.std-about-visual img{filter:none!important;object-fit:cover!important}
+  .std-about-rating{left:18px!important;bottom:18px!important;height:42px!important;padding:0 14px!important;background:rgba(18,17,16,.72)!important;color:#fff!important;border-color:rgba(255,255,255,.28)!important}
+  .std-about-rating strong,.std-about-rating span{color:#fff!important}
+  .std-about-copy{padding:38px 34px 34px 0!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+  .std-about-lead{margin:0!important;max-width:670px!important;color:#1d1a18!important;font:500 clamp(31px,2.55vw,40px)/1.12 "Cormorant Garamond",Georgia,serif!important;letter-spacing:-.025em!important}
+  .std-about-text{max-width:660px!important;margin:23px 0 0!important;color:#58504a!important;font-size:15px!important;line-height:1.68!important}
+  .std-about-facts{display:grid!important;grid-template-columns:1fr!important;gap:0!important;margin-top:29px!important;border-top:1px solid rgba(66,55,49,.12)!important}
+  .std-about-fact{min-height:57px!important;padding:0!important;border:0!important;border-bottom:1px solid rgba(66,55,49,.12)!important;border-radius:0!important;background:transparent!important;
+    display:flex!important;align-items:center!important;justify-content:flex-start!important;text-align:left!important}
+  .std-about-fact strong{color:#2b2724!important;font:500 16px/1.2 "Manrope",Arial,sans-serif!important;white-space:nowrap!important}
 
-  const desktopCtaExactCss=document.createElement('style');
-  desktopCtaExactCss.id='esmeralda-desktop-cta-exact-v10';
-  desktopCtaExactCss.textContent="\n@media(min-width:768px){\n  /* Exact CTA structure only: first button above second, same full width. */\n  #esmeraldaDesktopTop .std-actions{\n    display:flex!important;\n    flex-direction:column!important;\n    align-items:stretch!important;\n    justify-content:flex-start!important;\n    width:540px!important;\n    max-width:calc(100% - 72px)!important;\n    gap:12px!important;\n  }\n  #esmeraldaDesktopTop .std-actions > #stdBookBtn,\n  #esmeraldaDesktopTop .std-actions > a.std-btn{\n    display:flex!important;\n    flex:0 0 auto!important;\n    width:100%!important;\n    max-width:none!important;\n    min-width:0!important;\n    box-sizing:border-box!important;\n    height:62px!important;\n    margin:0!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  #esmeraldaDesktopTop .std-actions{\n    width:500px!important;\n    max-width:calc(100% - 52px)!important;\n  }\n  #esmeraldaDesktopTop .std-actions > #stdBookBtn,\n  #esmeraldaDesktopTop .std-actions > a.std-btn{height:58px!important}\n}\n";
-  document.head.appendChild(desktopCtaExactCss);
+  #esmeraldaDesktopTeam.std-team{min-height:0!important;padding:84px 70px 88px!important;background:#2f2926!important;color:#f7f3f0!important}
+  #esmeraldaDesktopTeam .std-team-inner{width:min(100%,1360px)!important}#esmeraldaDesktopTeam .std-team-kicker{color:#b8ada7!important}
+  #esmeraldaDesktopTeam .std-team-title{color:#f7f3f0!important}#esmeraldaDesktopTeam .std-team-subtitle{margin-top:14px!important;color:#b9ada7!important;font-size:14px!important}
+  #esmeraldaDesktopTeam .std-team-track{display:grid!important;width:100%!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:28px!important;margin-top:42px!important;overflow:visible!important;padding:0!important}
+  #esmeraldaDesktopTeam .std-master{position:relative!important;display:block!important;width:100%!important;min-width:0!important;padding:20px 12px 22px!important;
+    border:1px solid rgba(255,255,255,.10)!important;border-radius:18px!important;background:rgba(255,255,255,.035)!important;color:#f7f3f0!important;text-align:center!important}
+  #esmeraldaDesktopTeam .std-master-arrow{position:absolute!important;top:13px!important;right:13px!important;width:34px!important;height:34px!important;border:1px solid rgba(255,255,255,.14)!important;
+    border-radius:50%!important;background:rgba(255,255,255,.05)!important;color:#d8b7aa!important;display:grid!important;place-items:center!important}
+  #esmeraldaDesktopTeam .std-master-avatar{width:min(100%,176px)!important;height:auto!important;aspect-ratio:1!important;margin:0 auto!important;border-radius:50%!important;
+    background:linear-gradient(145deg,#806b61,#5b4a43)!important;color:#e6d8d0!important;border:1px solid rgba(255,255,255,.10)!important}
+  #esmeraldaDesktopTeam .std-master-name{margin-top:17px!important;color:#f7f3f0!important;font-size:27px!important}
+  #esmeraldaDesktopTeam .std-master-role{margin-top:6px!important;color:#c5b9b2!important;font-size:11px!important}
+  .std-master-cats{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:13px}
+  .std-master-cat{display:inline-flex;min-height:25px;align-items:center;padding:0 9px;border:1px solid rgba(255,255,255,.11);border-radius:999px;color:#d8cdc6;font:500 9px/1 "Manrope",Arial,sans-serif}
 
-  const desktopCopyDownOnlyCss=document.createElement('style');
-  desktopCopyDownOnlyCss.id='esmeralda-desktop-copy-down-only-v13';
-  desktopCopyDownOnlyCss.textContent="\n@media(min-width:768px){\n  /* Position only: move the existing left mini-block lower as one intact unit.\n     Header is outside .std-hero, so center within the hero's remaining vertical area. */\n  #esmeraldaDesktopTop .std-copy-inner{\n    top:calc(50% + 36px - 1.5cm)!important;\n    bottom:auto!important;\n    height:auto!important;\n    padding-top:0!important;\n    padding-bottom:0!important;\n    transform:translateY(-50%)!important;\n  }\n}\n";
-  document.head.appendChild(desktopCopyDownOnlyCss);
+  #esmeraldaDesktopReviews.std-reviews{height:auto!important;min-height:0!important;padding:82px 0 70px!important;background:#e9e2da!important;color:#171513!important}
+  #esmeraldaDesktopReviews .std-reviews-head{width:min(calc(100% - 96px),1360px)!important;margin:0 auto!important;text-align:center!important}
+  #esmeraldaDesktopReviews .std-reviews-kicker{color:#746c66!important}#esmeraldaDesktopReviews .std-reviews-title{color:#171513!important}
+  #esmeraldaDesktopReviews .std-reviews-score{margin-top:34px!important}#esmeraldaDesktopReviews .std-reviews-score>strong{font:500 78px/.82 "Cormorant Garamond",Georgia,serif!important;color:#171513!important}
+  #esmeraldaDesktopReviews .std-reviews-stars{margin-top:17px!important;font-size:27px!important;color:#b78d4f!important}
+  #esmeraldaDesktopReviews .std-reviews-count{margin-top:13px!important;color:#716862!important;font-size:13px!important}
+  #esmeraldaDesktopReviews .std-review-card{height:270px!important;min-height:270px!important;padding:25px!important;border-color:rgba(66,55,49,.15)!important;border-radius:13px!important;background:rgba(255,255,255,.34)!important}
+  #esmeraldaDesktopReviews .std-review-text{margin-top:22px!important;color:#4f4843!important;font-size:14px!important;line-height:1.5!important;display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:5!important;overflow:hidden!important}
 
-  const desktopDetailTuneCss=document.createElement('style');
-  desktopDetailTuneCss.id='esmeralda-desktop-detail-tune-v18';
-  desktopDetailTuneCss.textContent="\n@media(min-width:768px){\n  /* Requested detail changes only. */\n  #esmeraldaDesktopTop .std-hero-kicker{\n    width:min(100%,540px)!important;\n    text-align:left!important;\n    align-self:center!important;\n  }\n  #esmeraldaDesktopTop .std-logo-sub{\n    font-size:13.2px!important;\n  }\n  #esmeraldaDesktopTop .std-meta-text{\n    font-size:16.05px!important;\n  }\n  #esmeraldaDesktopTop .std-actions > #stdBookBtn,\n  #esmeraldaDesktopTop .std-actions > a.std-btn{\n    height:66.34px!important;\n    font-size:17.12px!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  #esmeraldaDesktopTop .std-logo-sub{font-size:15.4px!important}\n  #esmeraldaDesktopTop .std-meta-text{font-size:13.91px!important}\n  #esmeraldaDesktopTop .std-actions > #stdBookBtn,\n  #esmeraldaDesktopTop .std-actions > a.std-btn{\n    height:62.06px!important;\n    font-size:16.05px!important;\n  }\n}\n";
-  document.head.appendChild(desktopDetailTuneCss);
+  .std-contact{min-height:0!important;padding:82px 70px 46px!important;background:#2f2926!important;color:#f7f3f0!important}
+  .std-contact-inner{width:min(100%,1360px)!important;grid-template-columns:500px minmax(0,1fr)!important;gap:42px!important}
+  .std-contact-kicker{color:#b8ada7!important}.std-contact-title{color:#f7f3f0!important;margin-bottom:32px!important}.std-contact-right{padding-top:94px!important}
+  .std-contact-card{min-height:76px!important;border-color:rgba(255,255,255,.13)!important;background:rgba(255,255,255,.06)!important;color:#f7f3f0!important}
+  .std-contact-card:hover{border-color:rgba(255,255,255,.22)!important;background:rgba(255,255,255,.085)!important}
+  .std-contact-card-title{color:#f7f3f0!important;font-size:21px!important}.std-contact-card-sub{color:#c7bbb4!important;font-size:11px!important}.std-contact-card-icon{color:#f0e8e3!important}
+  .std-contact-map{height:430px!important;border:1px solid rgba(255,255,255,.12)!important;border-radius:18px!important;overflow:hidden!important;background:#423a36!important}
+  .std-contact-status{border-color:rgba(255,255,255,.16)!important;background:#493336!important;color:#d59a9f!important}
+  .std-contact-status.open{background:#2e4133!important;border-color:#4d6752!important;color:#a9d5b0!important}
+  .std-contact-bottom{margin-top:34px!important;display:flex!important;justify-content:center!important}
+  .std-contact-brand{width:min(100%,480px)!important;min-height:76px!important;padding:0 24px!important;border-radius:14px!important;background:#171513!important;color:#fff!important;
+    display:flex!important;align-items:center!important;justify-content:space-between!important;gap:24px!important;box-shadow:none!important;text-decoration:none!important}
+  .std-contact-brand strong{font:500 23px/1 "Cormorant Garamond",Georgia,serif!important;color:#fff!important;white-space:nowrap}
+  .std-contact-brand-text{max-width:220px!important;text-align:right!important;color:#d6cec8!important;font:400 10px/1.35 "Manrope",Arial,sans-serif!important}
 
-  const desktopDetailTune2Css=document.createElement('style');
-  desktopDetailTune2Css.id='esmeralda-desktop-detail-tune-v19';
-  desktopDetailTune2Css.textContent="\n@media(min-width:768px){\n  #esmeraldaDesktopTop .std-hero-kicker{\n    width:min(100%,540px)!important;\n    box-sizing:border-box!important;\n    text-align:left!important;\n    align-self:center!important;\n    margin-left:auto!important;\n    margin-right:auto!important;\n  }\n  #esmeraldaDesktopTop .std-logo-sub{font-size:14.52px!important}\n  #esmeraldaDesktopTop .std-meta-text{font-size:17.1735px!important}\n  #esmeraldaDesktopTop .std-actions > #stdBookBtn,\n  #esmeraldaDesktopTop .std-actions > a.std-btn{\n    height:70.9838px!important;\n    font-size:18.3184px!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  #esmeraldaDesktopTop .std-hero-kicker{width:min(100%,500px)!important}\n  #esmeraldaDesktopTop .std-logo-sub{font-size:16.94px!important}\n  #esmeraldaDesktopTop .std-meta-text{font-size:14.8837px!important}\n  #esmeraldaDesktopTop .std-actions > #stdBookBtn,\n  #esmeraldaDesktopTop .std-actions > a.std-btn{\n    height:66.4042px!important;\n    font-size:17.1735px!important;\n  }\n}\n";
-  document.head.appendChild(desktopDetailTune2Css);
+  .std-master-page-close{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+  .std-master-profile-cats{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin-top:12px}
+  .std-master-profile-cats span{display:inline-flex;min-height:28px;align-items:center;padding:0 10px;border:1px solid rgba(61,49,43,.12);border-radius:999px;color:#71665f;font-size:10px}
+  .std-master-tabs{display:flex!important;justify-content:center!important;gap:7px!important;margin:24px auto 0!important;overflow-x:auto!important}
+  .std-master-tabs button{height:42px!important;padding:0 17px!important;border:1px solid rgba(61,49,43,.12)!important;border-radius:999px!important;background:transparent!important;color:#615851!important;font-size:11px!important}
+  .std-master-tabs button.active{background:#171513!important;color:#fff!important;border-color:#171513!important}
+  .std-master-tab-content{margin-top:28px!important}.std-master-tab-content h3{margin:0 0 14px!important;font:500 31px/1 "Cormorant Garamond",Georgia,serif!important}
+  .std-master-about-copy{max-width:660px;margin:0 auto;color:#514a45;font-size:13px;line-height:1.65;text-align:center}
+  .std-master-page-works{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+  .std-master-page-work{border:0;padding:0;background:none}.std-master-page-work img{width:100%!important;aspect-ratio:1.15!important;object-fit:cover!important;border-radius:11px!important}
 
-  const desktopDetailTune3Css=document.createElement('style');
-  desktopDetailTune3Css.id='esmeralda-desktop-detail-tune-v20';
-  desktopDetailTune3Css.textContent="\n@media(min-width:768px){\n  #esmeraldaDesktopTop .std-hero-kicker{\n    width:100%!important;\n    text-align:center!important;\n    align-self:center!important;\n  }\n  #esmeraldaDesktopTop .std-logo{\n    font-size:inherit!important;\n  }\n  #esmeraldaDesktopTop .std-logo-sub{\n    font-size:15.5364px!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  #esmeraldaDesktopTop .std-logo-sub{\n    font-size:18.1258px!important;\n  }\n}\n";
-  document.head.appendChild(desktopDetailTune3Css);
+  .std-section-reveal{opacity:0;transform:translate3d(0,28px,0);transition:opacity .72s ease,transform .82s cubic-bezier(.16,1,.3,1)}
+  .std-section-reveal.in-view{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.std-section-reveal{opacity:1!important;transform:none!important;transition:none!important}}
 
-  const desktopDetailTune4Css=document.createElement('style');
-  desktopDetailTune4Css.id='esmeralda-desktop-detail-tune-v21';
-  desktopDetailTune4Css.textContent="\n@media(min-width:768px){\n  /* Center kicker against the actual BEAUTY ROOM text box, not the whole left column. */\n  #esmeraldaDesktopTop .std-logo{\n    font-size:clamp(59.52px,4.9755vw,81.84px)!important;\n  }\n  #esmeraldaDesktopTop .std-hero-kicker{\n    width:max-content!important;\n    max-width:100%!important;\n    align-self:center!important;\n    margin-left:auto!important;\n    margin-right:auto!important;\n    text-align:center!important;\n  }\n}\n@media(min-width:768px) and (max-width:1180px){\n  #esmeraldaDesktopTop .std-logo{\n    font-size:clamp(48.36px,4.743vw,61.38px)!important;\n  }\n}\n";
-  document.head.appendChild(desktopDetailTune4Css);
+  @media(max-width:1180px){
+    .std-header{padding:0 30px!important}.std-nav{gap:19px!important}.std-header-right{gap:9px!important}.std-phone{font-size:14px!important}
+    .std-lang-switch{gap:1px}.std-lang-switch button{min-width:23px;font-size:10px!important}
+    .std-services-inner{width:min(calc(100% - 56px),1360px)!important}.std-services-head-ref{gap:40px!important}
+    .std-about{padding-left:42px!important;padding-right:42px!important}.std-about-grid{gap:36px!important}.std-about-copy{padding-right:18px!important}
+    #esmeraldaDesktopTeam.std-team{padding-left:42px!important;padding-right:42px!important}#esmeraldaDesktopTeam .std-team-track{gap:16px!important}
+    .std-contact{padding-left:42px!important;padding-right:42px!important}.std-contact-inner{grid-template-columns:430px minmax(0,1fr)!important}
+    .std-about-fact strong{font-size:14px!important}
+  }
+  @media(max-width:930px){
+    .std-nav{display:none!important}.std-services-head-ref{grid-template-columns:1fr!important;gap:20px!important}
+    .std-service-grid-ref,.std-service-all-grid{grid-template-columns:1fr!important}.std-service-all-grid:after{display:none!important}
+    .std-about-grid{grid-template-columns:1fr!important}.std-about-visual{min-height:390px!important}.std-about-copy{padding:24px 18px 30px!important}
+    #esmeraldaDesktopTeam .std-team-track{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+    .std-contact-inner{grid-template-columns:1fr!important}.std-contact-right{padding-top:0!important}.std-contact-map{height:360px!important}
+    .std-gallery-browser-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  }
+}
 
-  const desktopReferenceBackgroundCss=document.createElement('style');
-  desktopReferenceBackgroundCss.id='esmeralda-desktop-reference-background-v23';
-  desktopReferenceBackgroundCss.textContent="\n@media(min-width:768px){\n  /* Background only — matched to the supplied reference. */\n  #esmeraldaDesktopTop.std-hero{\n    background:\n      radial-gradient(ellipse 360px 520px at -3% 35%,rgba(112,79,61,.105) 0%,rgba(140,104,84,.050) 28%,transparent 72%),\n      radial-gradient(ellipse 460px 620px at 103% 82%,rgba(115,82,64,.095) 0%,rgba(151,113,91,.040) 28%,transparent 72%),\n      radial-gradient(ellipse 760px 520px at 38% 42%,rgba(255,255,255,.48) 0%,rgba(255,255,255,.20) 45%,transparent 76%),\n      linear-gradient(108deg,#f7f1ea 0%,#f8f3ed 45%,#f3ebe4 100%)!important;\n  }\n  #esmeraldaDesktopTop.std-hero:before{\n    width:1040px!important;\n    height:1040px!important;\n    left:31%!important;\n    top:-610px!important;\n    border:1px solid rgba(150,111,90,.17)!important;\n    border-radius:50%!important;\n    background:transparent!important;\n    box-shadow:none!important;\n  }\n  #esmeraldaDesktopTop.std-hero:after{\n    width:820px!important;\n    height:820px!important;\n    right:-410px!important;\n    bottom:-540px!important;\n    border:1px solid rgba(150,111,90,.13)!important;\n    border-radius:50%!important;\n    background:transparent!important;\n    box-shadow:none!important;\n  }\n  #esmeraldaDesktopTop .std-hero-copy:before{\n    width:540px!important;\n    height:540px!important;\n    left:-365px!important;\n    top:70px!important;\n    border:1px solid rgba(150,111,90,.085)!important;\n    border-radius:50%!important;\n    background:transparent!important;\n    box-shadow:none!important;\n    opacity:1!important;\n    filter:none!important;\n    transform:none!important;\n  }\n}\n";
-  document.head.appendChild(desktopReferenceBackgroundCss);
+@media(min-width:768px){
+  html,body{
+    scroll-behavior:smooth!important;
+    overscroll-behavior-y:auto!important;
+  }
 
-  const desktopReferenceBackground2Css=document.createElement('style');
-  desktopReferenceBackground2Css.id='esmeralda-desktop-reference-background-v24';
-  desktopReferenceBackground2Css.textContent="\n@media(min-width:768px){\n  /* Reference background: force every hero layer to stay transparent except the hero canvas. */\n  #esmeraldaDesktopTop.std-hero{\n    background:\n      radial-gradient(ellipse 290px 500px at -2% 42%,rgba(121,88,69,.12) 0%,rgba(143,108,88,.055) 34%,transparent 76%),\n      radial-gradient(ellipse 300px 560px at 101% 69%,rgba(119,84,67,.105) 0%,rgba(151,112,91,.045) 34%,transparent 76%),\n      radial-gradient(ellipse 720px 500px at 35% 45%,rgba(255,255,255,.52) 0%,rgba(255,255,255,.22) 48%,transparent 78%),\n      linear-gradient(102deg,#f7f1ea 0%,#f8f4ee 47%,#f3ebe4 100%)!important;\n  }\n  #esmeraldaDesktopTop .std-hero-copy,\n  #esmeraldaDesktopTop .std-hero-frame,\n  #esmeraldaDesktopTop .std-copy-inner{\n    background:transparent!important;\n  }\n  #esmeraldaDesktopTop.std-hero:before{\n    content:\"\"!important;\n    position:absolute!important;\n    z-index:1!important;\n    width:1040px!important;\n    height:1040px!important;\n    left:31%!important;\n    top:-610px!important;\n    border:1px solid rgba(151,112,91,.18)!important;\n    border-radius:50%!important;\n    background:transparent!important;\n    pointer-events:none!important;\n  }\n  #esmeraldaDesktopTop.std-hero:after{\n    content:\"\"!important;\n    position:absolute!important;\n    z-index:1!important;\n    width:820px!important;\n    height:820px!important;\n    right:-410px!important;\n    bottom:-540px!important;\n    border:1px solid rgba(151,112,91,.14)!important;\n    border-radius:50%!important;\n    background:transparent!important;\n    pointer-events:none!important;\n  }\n  #esmeraldaDesktopTop .std-hero-copy:before{\n    content:\"\"!important;\n    position:absolute!important;\n    z-index:0!important;\n    width:540px!important;\n    height:540px!important;\n    left:-365px!important;\n    top:70px!important;\n    border:1px solid rgba(151,112,91,.10)!important;\n    border-radius:50%!important;\n    background:transparent!important;\n    opacity:1!important;\n    filter:none!important;\n    transform:none!important;\n    pointer-events:none!important;\n  }\n}\n";
-  document.head.appendChild(desktopReferenceBackground2Css);
+  /* HERO — desktop version of the approved mobile framed card. */
+  .std-hero{
+    height:calc(100dvh - 80px)!important;
+    min-height:700px!important;
+    background:#eae0d9!important;
+  }
+  .std-hero-copy{
+    position:relative!important;
+    align-items:stretch!important;
+    justify-content:center!important;
+    padding:0 24px!important;
+    overflow:visible!important;
+  }
+  .std-hero-frame{
+    position:relative!important;
+    z-index:2!important;
+    width:min(100%,660px)!important;
+    height:100%!important;
+    margin:30px auto 0!important;
+    border:1px solid rgba(70,55,48,.10)!important;
+    border-bottom:0!important;
+    border-radius:24px 24px 0 0!important;
+    background:linear-gradient(180deg,rgba(249,246,241,.985) 0%,rgba(249,246,241,.985) 82%,rgba(247,242,235,.93) 100%)!important;
+    box-shadow:0 -2px 18px rgba(47,37,31,.09),0 -1px 4px rgba(47,37,31,.05)!important;
+    display:flex!important;
+    justify-content:center!important;
+    overflow:visible!important;
+  }
+  .std-hero-frame:after{
+    content:""!important;
+    position:absolute!important;
+    z-index:4!important;
+    left:-26px!important;
+    right:-26px!important;
+    bottom:-2px!important;
+    height:150px!important;
+    background:linear-gradient(180deg,rgba(240,232,225,0) 0%,rgba(240,232,225,.60) 48%,#f0e8e1 90%,#f0e8e1 100%)!important;
+    pointer-events:none!important;
+  }
+  .std-copy-inner{
+    position:relative!important;
+    z-index:5!important;
+    width:min(100% - 64px,560px)!important;
+    margin-top:116px!important;
+    transform:none!important;
+  }
+  .std-scroll-hint{
+    position:absolute!important;
+    z-index:7!important;
+    left:50%!important;
+    right:auto!important;
+    bottom:24px!important;
+    transform:translateX(-50%)!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    gap:9px!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    backdrop-filter:none!important;
+    color:#65564e!important;
+    text-decoration:none!important;
+    animation:none!important;
+  }
+  .std-scroll-label{
+    display:block!important;
+    color:#7d6d65!important;
+    font:600 9px/1 "Manrope",Arial,sans-serif!important;
+    letter-spacing:.30em!important;
+    text-transform:uppercase!important;
+    white-space:nowrap!important;
+  }
+  .std-scroll-circle{
+    display:grid!important;
+    width:54px!important;
+    height:54px!important;
+    place-items:center!important;
+    border:1px solid rgba(255,255,255,.24)!important;
+    border-radius:50%!important;
+    background:#715b53!important;
+    color:#fff!important;
+    box-shadow:0 12px 28px rgba(74,54,47,.22)!important;
+    font:300 24px/1 Arial,sans-serif!important;
+    letter-spacing:0!important;
+    animation:stdScrollCircleFloat 2.5s ease-in-out infinite!important;
+  }
+  @keyframes stdScrollCircleFloat{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(5px)}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .std-scroll-circle{animation:none!important}
+  }
 
-  const desktopReferenceBackground3Css=document.createElement('style');
-  desktopReferenceBackground3Css.id='esmeralda-desktop-reference-background-v25';
-  desktopReferenceBackground3Css.textContent="\n@media(min-width:768px){\n  /* Reference-specific left edge shadow: visible warm vertical vignette fading inward. */\n  #esmeraldaDesktopTop.std-hero{\n    background:\n      radial-gradient(ellipse 185px 610px at -1% 43%,rgba(83,57,45,.24) 0%,rgba(105,74,58,.15) 25%,rgba(133,96,76,.065) 48%,transparent 76%),\n      radial-gradient(ellipse 360px 640px at 101% 70%,rgba(119,84,67,.105) 0%,rgba(151,112,91,.045) 34%,transparent 76%),\n      radial-gradient(ellipse 720px 500px at 35% 45%,rgba(255,255,255,.52) 0%,rgba(255,255,255,.22) 48%,transparent 78%),\n      linear-gradient(102deg,#f3ebe3 0%,#f4eee7 47%,#eee3da 100%)!important;\n  }\n}\n";
-  document.head.appendChild(desktopReferenceBackground3Css);
+  /* CURRENT SHABLON-FOR-ONLY-MASTERS: SERVICES STRUCTURE.
+     Only the palette below is changed to Esmeralda's dark services colors. */
+  #esmeraldaDesktopServices.mct-prices{
+    overflow:hidden!important;
+    padding:96px 0 104px!important;
+    background:#2f2926!important;
+    color:#f7f3f0!important;
+  }
+  #esmeraldaDesktopServices.mct-prices>.mct-shell{
+    position:relative!important;
+    display:grid!important;
+    width:min(calc(100% - 96px),1360px)!important;
+    margin:0 auto!important;
+    grid-template-columns:minmax(285px,.72fr) minmax(0,1.58fr)!important;
+    column-gap:clamp(46px,5.5vw,82px)!important;
+    align-items:start!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head{
+    position:sticky!important;
+    top:108px!important;
+    display:block!important;
+    grid-column:1!important;
+    width:100%!important;
+    padding:0 clamp(22px,2.7vw,40px) 0 0!important;
+    text-align:left!important;
+    transform:translate(-1.5cm,-3cm)!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head:after{
+    position:absolute!important;
+    top:4px!important;
+    right:-1.6cm!important;
+    width:1px!important;
+    height:min(72vh,660px)!important;
+    background:linear-gradient(180deg,transparent,rgba(255,255,255,.20) 10%,rgba(255,255,255,.12) 86%,transparent)!important;
+    content:""!important;
+  }
+  #esmeraldaDesktopServices .mct-section-kicker{
+    margin:0!important;
+    color:#b8ada7!important;
+    font:600 12px/1 "Manrope",Arial,sans-serif!important;
+    letter-spacing:.24em!important;
+    text-transform:uppercase!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head h2{
+    width:auto!important;
+    margin:12px 0 0!important;
+    color:#f7f3f0!important;
+    font:500 clamp(49.5px,4.125vw,63.8px)/.94 "Cormorant Garamond",Georgia,serif!important;
+    letter-spacing:-.035em!important;
+    white-space:nowrap!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head>span{
+    display:block!important;
+    width:auto!important;
+    max-width:374px!important;
+    margin:26px 0 0!important;
+    color:#b9ada7!important;
+    font-size:14.3px!important;
+    line-height:1.72!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{
+    grid-column:2!important;
+    width:100%!important;
+    min-width:0!important;
+    margin:0 0 12px!important;
+    padding:24px 0 16px!important;
+    overflow:visible!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs{
+    width:calc(100% + 32px)!important;
+    margin:-10px -16px -16px!important;
+    padding:10px 16px 16px!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    scrollbar-width:none!important;
+    overscroll-behavior-x:contain!important;
+    scroll-snap-type:x proximity!important;
+    box-sizing:border-box!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs::-webkit-scrollbar{display:none!important}
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap.is-many .mct-tabs-track{
+    display:flex!important;
+    width:max-content!important;
+    min-width:100%!important;
+    flex-wrap:nowrap!important;
+    gap:10px!important;
+    padding:5px 6px 18px!important;
+    box-sizing:border-box!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap.is-many .mct-tab,
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap.is-many .mct-tab-all{
+    display:inline-flex!important;
+    width:auto!important;
+    min-width:max-content!important;
+    min-height:56px!important;
+    flex:0 0 auto!important;
+    align-items:center!important;
+    justify-content:center!important;
+    padding:0 28px!important;
+    border:1px solid rgba(255,255,255,.18)!important;
+    border-radius:14px!important;
+    background:rgba(255,255,255,.045)!important;
+    color:#cfc5bf!important;
+    box-shadow:0 10px 22px rgba(0,0,0,.08)!important;
+    font:600 14px/1 "Manrope",Arial,sans-serif!important;
+    white-space:nowrap!important;
+    scroll-snap-align:start!important;
+    transition:transform 180ms ease,border-color 180ms ease,box-shadow 180ms ease,background 180ms ease!important;
+  }
+  #esmeraldaDesktopServices .mct-tab:not(.is-active):hover{
+    border-color:rgba(255,255,255,.28)!important;
+    background:rgba(255,255,255,.08)!important;
+    transform:translateY(-2px)!important;
+  }
+  #esmeraldaDesktopServices .mct-tab.is-active{
+    border-color:#8b7167!important;
+    background:#8b7167!important;
+    color:#fff!important;
+    box-shadow:0 14px 30px rgba(0,0,0,.16)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-groups{
+    grid-column:2!important;
+    width:100%!important;
+    min-width:0!important;
+    margin-top:-1cm!important;
+  }
+  #esmeraldaDesktopServices .dct-service-category+.dct-service-category{
+    margin-top:30px!important;
+  }
+  #esmeraldaDesktopServices .dct-service-category-heading{
+    display:flex!important;
+    min-height:30px!important;
+    align-items:center!important;
+    gap:12px!important;
+    margin:0 0 10px!important;
+    color:#d8b7aa!important;
+    font-size:13px!important;
+    font-weight:600!important;
+    letter-spacing:.12em!important;
+    text-transform:uppercase!important;
+  }
+  #esmeraldaDesktopServices .dct-service-category-heading:before{
+    width:34px!important;
+    height:1px!important;
+    flex:0 0 34px!important;
+    background:rgba(216,183,170,.38)!important;
+    content:""!important;
+  }
+  #esmeraldaDesktopServices .dct-service-category-heading i{
+    height:1px!important;
+    flex:1 1 auto!important;
+    background:linear-gradient(90deg,rgba(216,183,170,.26),transparent)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-category-list{
+    display:grid!important;
+    width:100%!important;
+    gap:11px!important;
+  }
+  #esmeraldaDesktopServices .dct-service-card,
+  #esmeraldaDesktopServices .dct-service-card.has-description{
+    position:relative!important;
+    display:block!important;
+    width:100%!important;
+    min-height:104px!important;
+    padding:18px 24px!important;
+    overflow:hidden!important;
+    border:1px solid rgba(255,255,255,.12)!important;
+    border-radius:20px!important;
+    background:rgba(255,255,255,.045)!important;
+    box-shadow:0 10px 26px rgba(0,0,0,.06)!important;
+    color:#f7f3f0!important;
+    text-align:left!important;
+    text-decoration:none!important;
+    transition:transform 200ms ease,border-color 200ms ease,box-shadow 200ms ease,background 200ms ease!important;
+  }
+  #esmeraldaDesktopServices .dct-service-card:hover{
+    border-color:rgba(255,255,255,.23)!important;
+    background:rgba(255,255,255,.075)!important;
+    box-shadow:0 16px 35px rgba(0,0,0,.10)!important;
+    transform:translateY(-3px)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-card:not(.has-variants) .dct-service-card-body{
+    display:grid!important;
+    min-height:68px!important;
+    grid-template-columns:minmax(0,1fr) 112px 150px!important;
+    grid-template-rows:1fr!important;
+    align-items:center!important;
+    column-gap:18px!important;
+  }
+  #esmeraldaDesktopServices .dct-service-card:not(.has-variants) .dct-service-card-title{
+    grid-column:1!important;
+    grid-row:1!important;
+    align-self:center!important;
+    margin:0!important;
+    color:#f7f3f0!important;
+    font:500 clamp(24px,1.8vw,30px)/1.04 "Cormorant Garamond",Georgia,serif!important;
+  }
+  #esmeraldaDesktopServices .dct-service-card:not(.has-variants).has-description .dct-service-card-body{
+    min-height:84px!important;
+    grid-template-rows:auto auto!important;
+    align-content:center!important;
+  }
+  #esmeraldaDesktopServices .dct-service-card:not(.has-variants).has-description .dct-service-card-title{
+    grid-row:1!important;
+    align-self:end!important;
+  }
+  #esmeraldaDesktopServices .dct-service-card-description{
+    grid-column:1!important;
+    grid-row:2!important;
+    align-self:start!important;
+    max-width:95%!important;
+    margin:7px 0 0!important;
+    color:#b9ada7!important;
+  }
+  #esmeraldaDesktopServices .dct-service-card-description.is-empty{display:none!important}
+  #esmeraldaDesktopServices .dct-service-card-description p{
+    margin:0!important;
+    color:#b9ada7!important;
+    font-size:11.5px!important;
+    line-height:1.48!important;
+  }
+  #esmeraldaDesktopServices .dct-service-card:not(.has-variants) .dct-service-card-meta{
+    display:contents!important;
+  }
+  #esmeraldaDesktopServices .dct-service-card-meta>small{
+    grid-column:2!important;
+    grid-row:1!important;
+    align-self:center!important;
+    justify-self:start!important;
+    display:inline-flex!important;
+    min-height:30px!important;
+    align-items:center!important;
+    padding:0 10px!important;
+    border:1px solid rgba(255,255,255,.10)!important;
+    border-radius:999px!important;
+    background:rgba(255,255,255,.06)!important;
+    color:#c9bdb6!important;
+    font-size:11px!important;
+    font-weight:650!important;
+    white-space:nowrap!important;
+  }
+  #esmeraldaDesktopServices .dct-service-card-meta>small:before{
+    margin-right:6px!important;
+    content:"◷"!important;
+    font-size:12px!important;
+  }
+  #esmeraldaDesktopServices .dct-service-card-meta>b{
+    grid-column:3!important;
+    grid-row:1!important;
+    align-self:center!important;
+    justify-self:end!important;
+    width:150px!important;
+    min-width:150px!important;
+    color:#f7f3f0!important;
+    font:600 23px/1 "Cormorant Garamond",Georgia,serif!important;
+    text-align:right!important;
+    white-space:nowrap!important;
+  }
+  #esmeraldaDesktopServices .mct-more-services{
+    display:flex!important;
+    grid-column:2!important;
+    width:320px!important;
+    min-height:58px!important;
+    margin:26px auto 0!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:9px!important;
+    border:1px solid rgba(255,255,255,.22)!important;
+    border-radius:10px!important;
+    background:rgba(255,255,255,.06)!important;
+    color:#f4eeea!important;
+    font:600 13px/1 "Manrope",Arial,sans-serif!important;
+  }
+  #esmeraldaDesktopServices .mct-more-services[hidden]{display:none!important}
+  #esmeraldaDesktopServices .mct-more-services svg{transition:transform .2s ease!important}
+  #esmeraldaDesktopServices .mct-more-services.is-open svg{transform:rotate(180deg)!important}
+  #esmeraldaDesktopServices .mct-more-services-mobile-copy{display:none!important}
+  #esmeraldaDesktopServices .mct-more-services-desktop-copy{display:inline!important}
 
-  const desktopLangUnderBrandCss=document.createElement('style');
-  desktopLangUnderBrandCss.id='esmeralda-desktop-lang-below-brand-v31';
-  desktopLangUnderBrandCss.textContent="\n@media(min-width:768px){\n  .std-header{position:relative!important;overflow:visible!important}\n  .std-lang-switch-under-brand{\n    position:absolute!important;\n    left:calc(36px - 0.1cm)!important;\n    top:calc(66px + 0.6cm)!important;\n    height:28px!important;\n    z-index:20!important;\n    display:flex!important;\n    align-items:center!important;\n    gap:4px!important;\n    padding:0!important;\n    margin:0!important;\n  }\n  .std-lang-switch-under-brand button{\n    min-width:28px!important;\n    height:28px!important;\n    padding:0 3px!important;\n    font-size:13px!important;\n    font-weight:500!important;\n    letter-spacing:0!important;\n  }\n  .std-lang-switch-under-brand .sep{font-size:13px!important}\n  .std-lang-switch-placeholder{display:none!important}\n}\n@media(min-width:768px) and (max-width:1180px){\n  .std-lang-switch-under-brand{left:calc(26px - 0.1cm)!important;gap:2px!important}\n  .std-lang-switch-under-brand button{min-width:25px!important;font-size:13px!important}\n}\n";
-  document.head.appendChild(desktopLangUnderBrandCss);
-  const desktopLangIconCss=document.createElement('style');
-  desktopLangIconCss.id='esmeralda-desktop-lang-icon-v34';
-  desktopLangIconCss.textContent="@media(min-width:768px){\n  .std-lang-switch-under-brand:before{\n    content:\"🌐\"!important;\n    display:inline-flex!important;\n    align-items:center!important;\n    justify-content:center!important;\n    width:20px!important;\n    height:28px!important;\n    margin-right:5px!important;\n    font-size:16px!important;\n    line-height:1!important;\n    filter:grayscale(1)!important;\n  }\n}";
-  document.head.appendChild(desktopLangIconCss);
-  const desktopLangCardCss=document.createElement('style');
-  desktopLangCardCss.id='esmeralda-desktop-lang-card-v36';
-  desktopLangCardCss.textContent="\n@media(min-width:768px){\n  .std-lang-switch-under-brand{\n    box-sizing:border-box!important;\n    padding:4px 10px 4px 8px!important;\n    height:38px!important;\n    border:1px solid rgba(72,68,65,.16)!important;\n    border-radius:13px!important;\n    background:rgba(105,105,105,.13)!important;\n    box-shadow:0 6px 18px rgba(55,48,44,.07),inset 0 1px 0 rgba(255,255,255,.38)!important;\n    backdrop-filter:blur(9px)!important;\n    -webkit-backdrop-filter:blur(9px)!important;\n  }\n  .std-lang-switch-under-brand:before{\n    margin-right:6px!important;\n  }\n}\n";
-  document.head.appendChild(desktopLangCardCss);
-  const desktopInteractionPolishCss=document.createElement('style');
-  desktopInteractionPolishCss.id='esmeralda-desktop-interaction-polish-v37';
-  desktopInteractionPolishCss.textContent="\n@media(min-width:768px){\n  /* Header tone integrated with the hero. */\n  .std-header{\n    background:rgba(239,230,221,.92)!important;\n    border-bottom:1px solid rgba(103,82,70,.10)!important;\n    box-shadow:0 7px 24px rgba(73,55,46,.035)!important;\n  }\n\n  /* Language control: 1mm lower, clear hover and selected state. */\n  .std-lang-switch-under-brand{transform:translateY(.1cm)!important}\n  .std-lang-switch-under-brand button{\n    position:relative!important;\n    border-radius:7px!important;\n    transition:background .18s ease,color .18s ease,font-weight .18s ease,transform .18s ease!important;\n  }\n  .std-lang-switch-under-brand button:hover{\n    background:rgba(64,58,54,.08)!important;\n    color:#201c1a!important;\n    transform:translateY(-1px)!important;\n  }\n  .std-lang-switch-under-brand button.active{\n    background:rgba(61,55,51,.14)!important;\n    color:#171412!important;\n    font-weight:700!important;\n    box-shadow:inset 0 0 0 1px rgba(56,49,45,.08)!important;\n  }\n\n  /* Minimal navigation hover. */\n  .std-nav a{position:relative!important;transition:color .18s ease!important}\n  .std-nav a:after{\n    content:\"\"!important;\n    position:absolute!important;\n    left:50%!important;\n    right:50%!important;\n    bottom:-7px!important;\n    height:1px!important;\n    background:currentColor!important;\n    opacity:.65!important;\n    transition:left .2s ease,right .2s ease!important;\n  }\n  .std-nav a:hover:after{left:0!important;right:0!important}\n\n  /* Give the hero sentence a distinct editorial face without loading a new asset. */\n  #esmeraldaDesktopTop .std-tagline{\n    font-family:\"Cormorant Garamond\",Georgia,serif!important;\n    font-weight:500!important;\n    letter-spacing:.005em!important;\n    font-style:italic!important;\n  }\n}\n";
-  document.head.appendChild(desktopInteractionPolishCss);
-  const desktopFinalPolishCss=document.createElement('style');
-  desktopFinalPolishCss.id='esmeralda-desktop-final-polish-v38';
-  desktopFinalPolishCss.textContent="\n@media(min-width:768px){\n  .std-lang-switch-under-brand button.active{\n    background:rgba(61,55,51,.075)!important;\n    box-shadow:inset 0 0 0 1px rgba(56,49,45,.045)!important;\n    font-weight:650!important;\n  }\n  .std-lang-switch-under-brand .sep{\n    color:rgba(43,38,35,.42)!important;\n    font-weight:400!important;\n  }\n  .std-nav a{color:#332d29!important}\n  .std-nav a:hover{color:#1f1b19!important}\n  html,body{scroll-snap-type:none!important;overscroll-behavior-y:auto!important}\n}\n";
-  document.head.appendChild(desktopFinalPolishCss);
-  const desktopScrollPortfolioCss=document.createElement('style');
-  desktopScrollPortfolioCss.id='esmeralda-desktop-scroll-portfolio-v39';
-  desktopScrollPortfolioCss.textContent="@media(min-width:768px){\n.std-lang-switch-under-brand{background:rgba(125,125,125,.095)!important;border-color:rgba(72,68,65,.125)!important;box-shadow:0 6px 18px rgba(55,48,44,.045),inset 0 1px 0 rgba(255,255,255,.46)!important}\nhtml,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none!important;overscroll-behavior:auto!important}\n.std-section-reveal,.std-section-reveal.in-view,.std-section-reveal.is-visible{opacity:1!important;transform:none!important;transition:none!important}\n#esmeralda-desktop-v1 section{scroll-snap-align:none!important;scroll-snap-stop:normal!important}\n#esmeraldaDesktopTop.std-hero:after{content:\"\"!important;display:block!important;position:absolute!important;z-index:4!important;left:0!important;right:0!important;bottom:-1px!important;width:auto!important;height:150px!important;border:0!important;border-radius:0!important;background:linear-gradient(180deg,rgba(243,235,227,0) 0%,rgba(243,235,227,.46) 45%,#f3ebe3 100%)!important;pointer-events:none!important}\n#esmeraldaDesktopPortfolio.std-portfolio{margin-top:-1px!important;padding-top:92px!important;background:radial-gradient(ellipse 330px 520px at -2% 18%,rgba(83,57,45,.12) 0%,rgba(105,74,58,.06) 38%,transparent 76%),radial-gradient(ellipse 390px 560px at 102% 76%,rgba(119,84,67,.08) 0%,rgba(151,112,91,.035) 35%,transparent 76%),radial-gradient(ellipse 760px 500px at 37% 20%,rgba(255,255,255,.36) 0%,rgba(255,255,255,.13) 48%,transparent 78%),linear-gradient(180deg,#f3ebe3 0%,#f4eee7 48%,#eee3da 100%)!important}\n#esmeraldaDesktopPortfolio.std-portfolio:before{width:760px!important;height:760px!important;left:-470px!important;bottom:-390px!important;border:1px solid rgba(151,112,91,.09)!important;border-radius:50%!important;background:transparent!important;filter:none!important}\n#esmeraldaDesktopPortfolio.std-portfolio:after{width:980px!important;height:980px!important;right:-520px!important;top:-610px!important;border:1px solid rgba(151,112,91,.12)!important;border-radius:50%!important;background:transparent!important;filter:none!important}\n#esmeraldaDesktopPortfolio .std-portfolio-kicker{color:#62564f!important}\n#esmeraldaDesktopPortfolio .std-portfolio-title{color:#211c19!important}\n#esmeraldaDesktopPortfolio .std-portfolio-copy{color:#655b55!important}\n#esmeraldaDesktopPortfolio .std-work{border:1px solid rgba(93,70,59,.10)!important;box-shadow:0 18px 42px rgba(70,51,43,.07)!important}\n#esmeraldaDesktopPortfolio .std-portfolio-more{background:rgba(255,255,255,.20)!important;border-color:rgba(80,61,52,.17)!important;backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important}\n}";
-  document.head.appendChild(desktopScrollPortfolioCss);
-  const desktopPortfolioContinuityCss=document.createElement('style');
-  desktopPortfolioContinuityCss.id='esmeralda-desktop-portfolio-continuity-v40';
-  desktopPortfolioContinuityCss.textContent="@media(min-width:768px){\n/* Hero and portfolio share one background family; separation comes from subtle depth, not a fade strip. */\n#esmeraldaDesktopTop.std-hero:after{display:none!important}\n#esmeraldaDesktopPortfolio.std-portfolio{\n  margin-top:0!important;\n  padding-top:92px!important;\n  border-top:1px solid rgba(93,70,59,.055)!important;\n  background:\n    radial-gradient(ellipse 185px 610px at -1% 38%,rgba(83,57,45,.18) 0%,rgba(105,74,58,.105) 25%,rgba(133,96,76,.05) 48%,transparent 76%),\n    radial-gradient(ellipse 360px 640px at 101% 68%,rgba(119,84,67,.09) 0%,rgba(151,112,91,.04) 34%,transparent 76%),\n    radial-gradient(ellipse 720px 500px at 35% 34%,rgba(255,255,255,.42) 0%,rgba(255,255,255,.17) 48%,transparent 78%),\n    linear-gradient(102deg,#f3ebe3 0%,#f4eee7 47%,#eee3da 100%)!important;\n  box-shadow:inset 0 30px 52px -48px rgba(73,54,45,.38)!important;\n}\n#esmeraldaDesktopPortfolio.std-portfolio:before{\n  width:620px!important;height:620px!important;left:-430px!important;bottom:-330px!important;\n  border:1px solid rgba(151,112,91,.075)!important;border-radius:50%!important;background:transparent!important;filter:none!important;\n}\n#esmeraldaDesktopPortfolio.std-portfolio:after{\n  width:900px!important;height:900px!important;right:-520px!important;top:-590px!important;\n  border:1px solid rgba(151,112,91,.10)!important;border-radius:50%!important;background:transparent!important;filter:none!important;\n}\n#esmeraldaDesktopPortfolio .std-portfolio-inner{\n  padding-top:8px!important;\n}\n#esmeraldaDesktopPortfolio .std-portfolio-grid{\n  filter:drop-shadow(0 18px 30px rgba(71,52,44,.055))!important;\n}\n}";
-  document.head.appendChild(desktopPortfolioContinuityCss);
-  const desktopGalleryPolishCss=document.createElement('style');
-  desktopGalleryPolishCss.id='esmeralda-desktop-gallery-polish-v41';
-  desktopGalleryPolishCss.textContent="@media(min-width:768px){\n/* Stronger but soft depth between hero and portfolio; same background family. */\n#esmeraldaDesktopTop.std-hero{box-shadow:inset 0 -34px 60px -58px rgba(64,45,37,.48),0 18px 44px -40px rgba(64,45,37,.42)!important}\n#esmeraldaDesktopPortfolio.std-portfolio{\n  padding-top:calc(92px - .7cm)!important;\n  box-shadow:inset 0 38px 64px -62px rgba(64,45,37,.52),inset 0 -28px 58px -58px rgba(64,45,37,.24)!important;\n}\n#esmeraldaDesktopPortfolio .std-work{box-shadow:0 20px 46px rgba(66,48,40,.105)!important}\n\n/* Gallery button: larger and vertically balanced before services. */\n#esmeraldaDesktopPortfolio .std-portfolio-more{\n  width:min(100%,650px)!important;\n  height:72px!important;\n  margin:54px auto 48px!important;\n  border-radius:14px!important;\n  font-size:17.5px!important;\n  gap:16px!important;\n  background:rgba(255,255,255,.25)!important;\n  box-shadow:0 14px 34px rgba(68,49,41,.09)!important;\n  transition:transform .22s cubic-bezier(.2,.75,.25,1),box-shadow .22s ease,background .22s ease,border-color .22s ease!important;\n}\n#esmeraldaDesktopPortfolio .std-portfolio-more:hover{\n  transform:translateY(-3px) scale(1.012)!important;\n  background:rgba(255,255,255,.39)!important;\n  border-color:rgba(75,55,47,.25)!important;\n  box-shadow:0 20px 42px rgba(68,49,41,.14)!important;\n}\n#esmeraldaDesktopPortfolio .std-portfolio-more span{transition:transform .22s ease!important}\n#esmeraldaDesktopPortfolio .std-portfolio-more:hover span{transform:translateX(5px)!important}\n\n/* Independent gallery overlay with its own entrance. */\n.std-gallery-browser{\n  display:block!important;\n  opacity:0!important;\n  visibility:hidden!important;\n  pointer-events:none!important;\n  transform:translate3d(0,16px,0) scale(.992)!important;\n  transition:opacity .34s ease,transform .42s cubic-bezier(.16,1,.3,1),visibility .42s!important;\n}\n.std-gallery-browser.open{\n  opacity:1!important;\n  visibility:visible!important;\n  pointer-events:auto!important;\n  transform:none!important;\n}\n.std-gallery-browser-shell{\n  opacity:0!important;\n  transform:translateY(12px)!important;\n  transition:opacity .32s ease .06s,transform .42s cubic-bezier(.16,1,.3,1) .06s!important;\n}\n.std-gallery-browser.open .std-gallery-browser-shell{opacity:1!important;transform:none!important}\n\n/* Gallery heading sizing and alignment. */\n.std-gallery-browser-title strong{font-size:clamp(59.4px,4.4vw,70.4px)!important}\n.std-gallery-browser-title span{\n  margin-top:calc(9px + .1cm)!important;\n  font-size:11.55px!important;\n}\n\n/* Clear back control. */\n.std-gallery-browser-back{\n  width:50px!important;height:50px!important;\n  border:1px solid rgba(64,52,46,.18)!important;\n  border-radius:50%!important;\n  background:rgba(255,255,255,.34)!important;\n  box-shadow:0 8px 22px rgba(70,51,43,.08)!important;\n  transition:transform .18s ease,background .18s ease,box-shadow .18s ease!important;\n}\n.std-gallery-browser-back:hover{transform:translateX(-2px)!important;background:rgba(255,255,255,.58)!important;box-shadow:0 11px 26px rgba(70,51,43,.12)!important}\n\n/* Gallery category pills are visibly actionable even when inactive. */\n.std-gallery-browser-tabs{gap:11px!important}\n.std-gallery-browser-tab{\n  min-width:116px!important;\n  height:46px!important;\n  padding:0 25px!important;\n  border:1px solid rgba(72,57,49,.17)!important;\n  background:#e7ddd4!important;\n  color:#4f4540!important;\n  box-shadow:0 5px 14px rgba(65,48,41,.045)!important;\n  transition:transform .18s ease,background .18s ease,box-shadow .18s ease!important;\n}\n.std-gallery-browser-tab:hover{transform:translateY(-2px)!important;background:#ded0c5!important;box-shadow:0 9px 20px rgba(65,48,41,.08)!important}\n.std-gallery-browser-tab.active{background:#302825!important;border-color:#302825!important;color:#fff!important;box-shadow:0 8px 18px rgba(48,40,37,.14)!important}\n}";
-  document.head.appendChild(desktopGalleryPolishCss);
-  const desktopSeamGalleryCss=document.createElement('style');
-  desktopSeamGalleryCss.id='esmeralda-desktop-seam-gallery-v42';
-  desktopSeamGalleryCss.textContent="@media(min-width:768px){\n/* Hero and portfolio use the exact same base canvas. No seam/fade at the boundary. */\n#esmeraldaDesktopTop.std-hero,\n#esmeraldaDesktopPortfolio.std-portfolio{\n  background:\n    radial-gradient(ellipse 185px 610px at -1% 43%,rgba(83,57,45,.24) 0%,rgba(105,74,58,.15) 25%,rgba(133,96,76,.065) 48%,transparent 76%),\n    radial-gradient(ellipse 360px 640px at 101% 70%,rgba(119,84,67,.105) 0%,rgba(151,112,91,.045) 34%,transparent 76%),\n    radial-gradient(ellipse 720px 500px at 35% 45%,rgba(255,255,255,.52) 0%,rgba(255,255,255,.22) 48%,transparent 78%),\n    linear-gradient(102deg,#f3ebe3 0%,#f4eee7 47%,#eee3da 100%)!important;\n}\n#esmeraldaDesktopTop.std-hero{\n  box-shadow:inset 0 0 90px rgba(83,57,45,.035)!important;\n}\n#esmeraldaDesktopPortfolio.std-portfolio{\n  border-top:0!important;\n  box-shadow:inset 0 26px 52px -50px rgba(69,49,41,.28),inset 0 -32px 62px -58px rgba(69,49,41,.20)!important;\n}\n#esmeraldaDesktopPortfolio.std-portfolio:before{\n  width:540px!important;height:540px!important;left:-365px!important;top:70px!important;bottom:auto!important;\n  border:1px solid rgba(151,112,91,.10)!important;background:transparent!important;\n}\n#esmeraldaDesktopPortfolio.std-portfolio:after{\n  width:820px!important;height:820px!important;right:-410px!important;bottom:-540px!important;top:auto!important;\n  border:1px solid rgba(151,112,91,.10)!important;background:transparent!important;\n}\n\n/* Gallery header and category controls. */\n.std-gallery-browser-title span{margin-top:calc(9px + .2cm)!important}\n.std-gallery-browser-tabs{\n  overflow:visible!important;\n  padding:8px 10px 12px!important;\n  margin-top:19px!important;\n}\n.std-gallery-browser-tab{overflow:visible!important}\n.std-gallery-browser-tab:hover,\n.std-gallery-browser-tab.active{transform:translateY(-2px)!important}\n.std-gallery-browser-shell{overflow:visible!important}\n\n/* Photo viewer: clearer zoom instruction and Julia-style counter beside the gallery action. */\n.std-gallery-hint{\n  top:-45px!important;\n  left:0!important;\n  padding:8px 12px!important;\n  border:1px solid rgba(255,255,255,.15)!important;\n  border-radius:9px!important;\n  background:rgba(24,20,18,.56)!important;\n  backdrop-filter:blur(10px)!important;\n  -webkit-backdrop-filter:blur(10px)!important;\n  color:rgba(255,255,255,.88)!important;\n  font:500 12px/1.2 \"Manrope\",Arial,sans-serif!important;\n  letter-spacing:.01em!important;\n}\n.std-gallery-count{\n  left:calc(50% + 132px)!important;\n  bottom:-54px!important;\n  transform:none!important;\n  min-width:76px!important;\n  height:42px!important;\n  padding:0 13px!important;\n  display:flex!important;\n  align-items:center!important;\n  justify-content:center!important;\n  border:1px solid rgba(255,255,255,.25)!important;\n  border-radius:999px!important;\n  background:rgba(22,18,16,.66)!important;\n  backdrop-filter:blur(12px)!important;\n  -webkit-backdrop-filter:blur(12px)!important;\n  color:#fff!important;\n  font:600 11px/1 \"Manrope\",Arial,sans-serif!important;\n  letter-spacing:.08em!important;\n}\n.std-view-gallery{left:calc(50% - 48px)!important}\n}";
-  document.head.appendChild(desktopSeamGalleryCss);
+  /* CURRENT SHABLON-FOR-ONLY-MASTERS: ABOUT STRUCTURE. */
+  #esmeraldaDesktopAbout.mct-about{
+    padding:84px 0 88px!important;
+    background:radial-gradient(circle at 88% 18%,rgba(193,158,145,.13),transparent 31%),linear-gradient(180deg,#f8f3ef 0%,#f4ebe5 100%)!important;
+    color:#171513!important;
+  }
+  #esmeraldaDesktopAbout>.mct-shell{
+    width:min(calc(100% - 96px),1360px)!important;
+    margin:0 auto!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-head{
+    display:flex!important;
+    align-items:end!important;
+    justify-content:space-between!important;
+    gap:24px!important;
+  }
+  #esmeraldaDesktopAbout .mct-section-kicker{
+    margin:0!important;
+    color:#88786e!important;
+    font:600 12px/1 "Manrope",Arial,sans-serif!important;
+    letter-spacing:.22em!important;
+    text-transform:uppercase!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-head h2{
+    margin:13px 0 0!important;
+    color:#171513!important;
+    font:500 clamp(54px,4.35vw,68px)/.94 "Cormorant Garamond",Georgia,serif!important;
+    letter-spacing:-.035em!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-monogram{
+    color:rgba(113,91,83,.22)!important;
+    font:500 76px/.8 "Cormorant Garamond",Georgia,serif!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-card{
+    display:grid!important;
+    grid-template-columns:minmax(360px,.84fr) minmax(500px,1.16fr)!important;
+    height:clamp(600px,43vw,640px)!important;
+    min-height:0!important;
+    margin-top:28px!important;
+    overflow:hidden!important;
+    border:1px solid rgba(85,64,57,.10)!important;
+    border-radius:28px!important;
+    background:rgba(255,253,250,.80)!important;
+    box-shadow:0 18px 48px rgba(67,50,44,.075)!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-portrait-wrap{
+    position:relative!important;
+    height:100%!important;
+    min-height:540px!important;
+    overflow:hidden!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-portrait{
+    width:100%!important;
+    height:100%!important;
+    margin:0!important;
+    overflow:hidden!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-portrait img{
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center 20%!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-copy{
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:center!important;
+    padding:clamp(34px,3.6vw,52px)!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-lead{
+    margin:0 0 12px!important;
+    color:#1d1a18!important;
+    font:500 clamp(30px,2.5vw,38px)/1.15 "Cormorant Garamond",Georgia,serif!important;
+    letter-spacing:-.025em!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-copy>p:not(.mct-about-lead){
+    margin:8px 0 0!important;
+    color:#58504a!important;
+    font-size:13.5px!important;
+    line-height:1.62!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-list{display:none!important}
+  #esmeraldaDesktopAbout .dct-about-amenities{
+    display:block!important;
+    margin-top:24px!important;
+    padding-top:20px!important;
+    border-top:1px solid rgba(83,63,55,.11)!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-amenities-head{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:22px!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-amenities-head>span{
+    color:#716a66!important;
+    font-size:10px!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-amenities-grid{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    margin-top:16px!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-amenities-grid article{
+    min-width:0!important;
+    padding:3px 15px 0 0!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-amenities-grid article+article{
+    padding-left:15px!important;
+    border-left:1px solid rgba(83,63,55,.10)!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-amenities-grid strong,
+  #esmeraldaDesktopAbout .dct-about-amenities-grid span{display:block!important}
+  #esmeraldaDesktopAbout .dct-about-amenities-grid strong{
+    color:#373331!important;
+    font:600 22px/1.08 "Cormorant Garamond",Georgia,serif!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-amenities-grid span{
+    margin-top:5px!important;
+    color:#716a66!important;
+    font-size:9.5px!important;
+    line-height:1.42!important;
+  }
 
-  const desktopHeroEntranceCss=document.createElement('style');
-  desktopHeroEntranceCss.id='esmeralda-desktop-hero-entrance-v40';
-  desktopHeroEntranceCss.textContent="@media(min-width:768px){#esmeralda-desktop-v1{opacity:0;transform:none;transition:opacity 1.05s cubic-bezier(.22,.72,.28,1)}#esmeralda-desktop-v1.desktop-ready{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){#esmeralda-desktop-v1{opacity:1!important;transform:none!important;transition:none!important}}";
-  document.head.appendChild(desktopHeroEntranceCss);
+  /* TEAM — remove card containers; keep only circular master icons + copy. */
+  #esmeraldaDesktopTeam .std-team-track{
+    gap:42px!important;
+  }
+  #esmeraldaDesktopTeam .std-master{
+    position:relative!important;
+    display:block!important;
+    width:100%!important;
+    min-width:0!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    color:#f7f3f0!important;
+    text-align:center!important;
+  }
+  #esmeraldaDesktopTeam .std-master-arrow{display:none!important}
+  #esmeraldaDesktopTeam .std-master-avatar{
+    width:min(100%,188px)!important;
+    height:auto!important;
+    aspect-ratio:1!important;
+    margin:0 auto!important;
+    border-radius:50%!important;
+    background:linear-gradient(145deg,#806b61,#5b4a43)!important;
+    border:1px solid rgba(255,255,255,.08)!important;
+    box-shadow:none!important;
+  }
+  #esmeraldaDesktopTeam .std-master-name{
+    margin-top:17px!important;
+  }
+  #esmeraldaDesktopTeam .std-master-cats{
+    margin-top:9px!important;
+    gap:8px!important;
+  }
+  #esmeraldaDesktopTeam .std-master-cat{
+    min-height:0!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    color:#bdb5b0!important;
+    font-size:10px!important;
+  }
 
-  const pcRestorationCss=document.createElement('style');
-  pcRestorationCss.id='esmeralda-desktop-pc-restoration-v43';
-  pcRestorationCss.textContent=`
+  /* REVIEWS — restore the approved pre-rebuild PC proportions and stable marquee. */
+  #esmeraldaDesktopReviews.std-reviews{
+    position:relative!important;
+    box-sizing:border-box!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:760px!important;
+    overflow:hidden!important;
+    padding:65px 0 52px!important;
+    background:#e9e2da!important;
+    color:#171513!important;
+  }
+  #esmeraldaDesktopReviews .std-reviews-head{
+    width:min(calc(100% - 128px),1408px)!important;
+    margin:0 auto!important;
+    text-align:center!important;
+  }
+  #esmeraldaDesktopReviews .std-reviews-kicker{
+    margin:0!important;
+    color:#746c66!important;
+    font:500 17px/1 "Manrope",Arial,sans-serif!important;
+    letter-spacing:.30em!important;
+    text-transform:uppercase!important;
+  }
+  #esmeraldaDesktopReviews .std-reviews-title{
+    margin:22px 0 0!important;
+    color:#151517!important;
+    font:500 76px/.92 "Cormorant Garamond",Georgia,serif!important;
+    letter-spacing:-.035em!important;
+  }
+  #esmeraldaDesktopReviews .std-reviews-score{margin-top:44px!important;text-align:center!important}
+  #esmeraldaDesktopReviews .std-reviews-score>strong{
+    display:block!important;
+    margin:0!important;
+    color:#151517!important;
+    font:500 88px/.78 "Cormorant Garamond",Georgia,serif!important;
+    letter-spacing:-.045em!important;
+  }
+  #esmeraldaDesktopReviews .std-reviews-stars{
+    display:block!important;
+    margin-top:21px!important;
+    color:#b78d4f!important;
+    font-size:34px!important;
+    line-height:1!important;
+    letter-spacing:6px!important;
+  }
+  #esmeraldaDesktopReviews .std-reviews-count{
+    margin-top:20px!important;
+    color:#716862!important;
+    font:400 18px/1 "Manrope",Arial,sans-serif!important;
+  }
+  #esmeraldaDesktopReviews .std-reviews-viewport{
+    position:relative!important;
+    box-sizing:border-box!important;
+    width:100%!important;
+    margin-top:35px!important;
+    padding:0 64px 4px!important;
+    overflow:hidden!important;
+    cursor:grab!important;
+  }
+  #esmeraldaDesktopReviews .std-reviews-loop{
+    display:flex!important;
+    align-items:stretch!important;
+    gap:16px!important;
+    width:max-content!important;
+    will-change:transform!important;
+  }
+  #esmeraldaDesktopReviews .std-reviews-set{
+    display:flex!important;
+    flex:0 0 auto!important;
+    align-items:stretch!important;
+    gap:16px!important;
+  }
+  #esmeraldaDesktopReviews .std-review-card{
+    box-sizing:border-box!important;
+    flex:0 0 459px!important;
+    width:459px!important;
+    height:320px!important;
+    min-width:459px!important;
+    min-height:320px!important;
+    max-width:none!important;
+    padding:31px 30px 28px!important;
+    border:1px solid rgba(66,55,49,.15)!important;
+    border-radius:12px!important;
+    background:rgba(255,255,255,.34)!important;
+    color:#19191b!important;
+    text-decoration:none!important;
+    box-shadow:none!important;
+  }
+  #esmeraldaDesktopReviews .std-review-head{
+    display:grid!important;
+    grid-template-columns:70px minmax(0,1fr)!important;
+    gap:24px!important;
+    align-items:center!important;
+  }
+  #esmeraldaDesktopReviews .std-review-avatar{
+    width:70px!important;
+    height:70px!important;
+    border-radius:50%!important;
+    display:grid!important;
+    place-items:center!important;
+    background:#d7cec6!important;
+    border:1px solid rgba(66,55,49,.10)!important;
+    color:#514943!important;
+    font:500 32px/1 "Cormorant Garamond",Georgia,serif!important;
+  }
+  #esmeraldaDesktopReviews .std-review-name{
+    display:block!important;
+    margin:0!important;
+    color:#2a2522!important;
+    font:600 25px/1 "Cormorant Garamond",Georgia,serif!important;
+  }
+  #esmeraldaDesktopReviews .std-review-meta{
+    display:block!important;
+    margin-top:7px!important;
+    color:#818087!important;
+    font:500 11px/1 "Manrope",Arial,sans-serif!important;
+    letter-spacing:.13em!important;
+    text-transform:uppercase!important;
+  }
+  #esmeraldaDesktopReviews .std-review-stars{
+    display:block!important;
+    margin-top:8px!important;
+    color:#b78d4f!important;
+    font-size:16px!important;
+    line-height:1!important;
+    letter-spacing:1.5px!important;
+  }
+  #esmeraldaDesktopReviews .std-review-text{
+    display:-webkit-box!important;
+    margin:31px 0 0!important;
+    min-height:95px!important;
+    overflow:hidden!important;
+    color:#4f4843!important;
+    font:400 16px/1.52 "Manrope",Arial,sans-serif!important;
+    -webkit-box-orient:vertical!important;
+    -webkit-line-clamp:4!important;
+  }
+  #esmeraldaDesktopReviews .std-review-more{
+    display:block!important;
+    margin-top:18px!important;
+    color:#67666c!important;
+    font:400 12px/1 "Manrope",Arial,sans-serif!important;
+  }
+  #esmeraldaDesktopReviews .std-reviews-actions{
+    display:flex!important;
+    justify-content:center!important;
+    margin-top:27px!important;
+  }
+  #esmeraldaDesktopReviews .std-reviews-all{
+    width:458px!important;
+    height:55px!important;
+    border:1px solid rgba(66,55,49,.18)!important;
+    border-radius:7px!important;
+    background:rgba(255,255,255,.18)!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    color:#242327!important;
+    font:500 14px/1 "Manrope",Arial,sans-serif!important;
+    letter-spacing:.14em!important;
+    text-transform:uppercase!important;
+  }
+
+  /* CONTACTS — clear desktop adaptation of current mobile contact block. */
+  #esmeraldaDesktopContacts.std-contact{
+    padding:82px 70px 0!important;
+    background:#2f2926!important;
+    color:#f7f3f0!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-inner{
+    display:block!important;
+    width:min(100%,1360px)!important;
+    margin:0 auto!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-head{
+    display:flex!important;
+    align-items:flex-end!important;
+    justify-content:space-between!important;
+    gap:28px!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-kicker{color:#b8ada7!important}
+  #esmeraldaDesktopContacts .std-contact-title{
+    margin:14px 0 0!important;
+    color:#f7f3f0!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-status{
+    position:static!important;
+    display:inline-flex!important;
+    min-height:38px!important;
+    align-items:center!important;
+    gap:7px!important;
+    padding:8px 12px!important;
+    border:1px solid rgba(255,255,255,.16)!important;
+    border-radius:999px!important;
+    background:#493336!important;
+    color:#d59a9f!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-status.open{
+    background:#2e4133!important;
+    border-color:#4d6752!important;
+    color:#a9d5b0!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-body{
+    display:grid!important;
+    grid-template-columns:minmax(420px,.9fr) minmax(0,1.1fr)!important;
+    gap:34px!important;
+    margin-top:34px!important;
+    align-items:stretch!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-list{
+    display:grid!important;
+    gap:10px!important;
+    margin:0!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-card{
+    min-height:76px!important;
+    grid-template-columns:46px minmax(0,1fr)!important;
+    gap:13px!important;
+    padding:13px 15px!important;
+    border:1px solid rgba(255,255,255,.13)!important;
+    border-radius:14px!important;
+    background:rgba(255,255,255,.06)!important;
+    color:#f7f3f0!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-card-icon{
+    width:40px!important;
+    height:40px!important;
+    display:grid!important;
+    place-items:center!important;
+    border-radius:50%!important;
+    background:rgba(255,255,255,.08)!important;
+    color:#f0e8e3!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-card-title{
+    color:#f7f3f0!important;
+    font:500 19px/1.15 "Cormorant Garamond",Georgia,serif!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-card-sub{
+    margin-top:5px!important;
+    color:#c7bbb4!important;
+    font-size:10.5px!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-right{
+    display:flex!important;
+    flex-direction:column!important;
+    padding:0!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-map{
+    height:100%!important;
+    min-height:334px!important;
+    border:1px solid rgba(255,255,255,.12)!important;
+    border-radius:18px!important;
+    overflow:hidden!important;
+    background:#423a36!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-actions{
+    display:grid!important;
+    grid-template-columns:1fr 1.15fr!important;
+    gap:10px!important;
+    margin-top:12px!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-action-btn{
+    height:50px!important;
+    border-radius:10px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    text-decoration:none!important;
+    font:500 12px/1 "Manrope",Arial,sans-serif!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-call{
+    border:1px solid rgba(255,255,255,.22)!important;
+    color:#f7f3f0!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-route{
+    background:#f4ede8!important;
+    color:#2b2522!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-bottom{
+    width:calc(100% + 140px)!important;
+    margin:42px -70px 0!important;
+    display:block!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-brand{
+    width:100%!important;
+    min-height:96px!important;
+    padding:12px 24px!important;
+    border:0!important;
+    border-radius:0!important;
+    background:#11100f!important;
+    color:#fff!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:8px!important;
+    box-shadow:none!important;
+  }
+  #esmeraldaDesktopContacts .br-tanem-mark{
+    width:30px!important;
+    height:30px!important;
+    border:1px solid rgba(255,255,255,.42)!important;
+    border-radius:8px!important;
+    display:grid!important;
+    place-items:center!important;
+    color:#fff!important;
+    font:500 21px/1 "Cormorant Garamond",Georgia,serif!important;
+  }
+  #esmeraldaDesktopContacts .br-tanem-copy{
+    display:block!important;
+    color:#cfc8c4!important;
+    font:400 10px/1.2 "Manrope",Arial,sans-serif!important;
+    text-align:center!important;
+  }
+  #esmeraldaDesktopContacts .br-tanem-copy strong{
+    display:inline!important;
+    color:#fff!important;
+    font:500 15px/1 "Cormorant Garamond",Georgia,serif!important;
+  }
+
+  @media(max-width:1199px){
+    #esmeraldaDesktopServices.mct-prices>.mct-shell{
+      width:min(calc(100% - 56px),1360px)!important;
+      grid-template-columns:minmax(255px,.68fr) minmax(0,1.52fr)!important;
+      column-gap:34px!important;
+    }
+    #esmeraldaDesktopServices .mct-price-head{
+      top:96px!important;
+    }
+    #esmeraldaDesktopServices .mct-price-head h2{font-size:47.3px!important}
+    #esmeraldaDesktopServices .dct-service-card:not(.has-variants) .dct-service-card-body{
+      grid-template-columns:minmax(0,1fr) 98px 132px!important;
+      column-gap:14px!important;
+    }
+    #esmeraldaDesktopServices .dct-service-card-meta>b{
+      width:132px!important;
+      min-width:132px!important;
+    }
+    #esmeraldaDesktopAbout>.mct-shell{
+      width:min(calc(100% - 56px),1360px)!important;
+    }
+    #esmeraldaDesktopAbout .mct-about-card{
+      grid-template-columns:minmax(330px,.84fr) minmax(0,1.16fr)!important;
+    }
+    #esmeraldaDesktopContacts.std-contact{padding-left:42px!important;padding-right:42px!important}
+    #esmeraldaDesktopContacts .std-contact-bottom{
+      width:calc(100% + 84px)!important;
+      margin-left:-42px!important;
+      margin-right:-42px!important;
+    }
+  }
+  @media(max-width:930px){
+    .std-hero-frame{margin-top:18px!important}
+    .std-copy-inner{width:min(100% - 44px,540px)!important;margin-top:90px!important}
+
+    #esmeraldaDesktopServices.mct-prices>.mct-shell{
+      grid-template-columns:1fr!important;
+      row-gap:26px!important;
+    }
+    #esmeraldaDesktopServices .mct-price-head{
+      position:relative!important;
+      top:auto!important;
+      grid-column:1!important;
+      padding:0!important;
+      transform:none!important;
+    }
+    #esmeraldaDesktopServices .mct-price-head:after{display:none!important}
+    #esmeraldaDesktopServices .mct-tabs-ribbon-wrap,
+    #esmeraldaDesktopServices .dct-service-groups,
+    #esmeraldaDesktopServices .mct-more-services{grid-column:1!important}
+    #esmeraldaDesktopServices .dct-service-groups{margin-top:0!important}
+
+    #esmeraldaDesktopAbout .mct-about-card{
+      grid-template-columns:1fr!important;
+      height:auto!important;
+    }
+    #esmeraldaDesktopAbout .mct-about-portrait-wrap{min-height:390px!important}
+    #esmeraldaDesktopAbout .dct-about-amenities-grid{grid-template-columns:1fr!important;gap:12px!important}
+    #esmeraldaDesktopAbout .dct-about-amenities-grid article+article{padding-left:0!important;border-left:0!important}
+
+    #esmeraldaDesktopContacts .std-contact-body{grid-template-columns:1fr!important}
+    #esmeraldaDesktopContacts .std-contact-map{min-height:330px!important}
+  }
+}
+
+
+@media(min-width:768px){
+  html,body{scroll-behavior:auto!important;overscroll-behavior-y:auto!important}
+  .std-hero{height:calc(100dvh - 80px)!important;min-height:0!important}
+  .std-hero-copy{min-height:0!important}
+  .std-hero-frame{min-height:0!important}
+  #esmeraldaDesktopPortfolio,#esmeraldaDesktopServices,#esmeraldaDesktopAbout,#esmeraldaDesktopTeam,#esmeraldaDesktopReviews,#esmeraldaDesktopContacts{scroll-margin-top:80px!important}
+}
+@media(min-width:768px) and (max-height:820px){
+  .std-hero-frame{margin-top:18px!important}
+  .std-copy-inner{margin-top:72px!important;width:min(100% - 56px,540px)!important}
+  .std-hero-kicker{margin-bottom:20px!important}
+  .std-logo-sub{margin-bottom:22px!important}
+  .std-tagline{margin-bottom:22px!important;font-size:21px!important}
+  .std-meta{margin-bottom:20px!important}
+  .std-meta-icon{width:52px!important;height:52px!important;flex-basis:52px!important}
+  .std-btn{height:58px!important}
+  .std-scroll-hint{bottom:14px!important}
+  .std-scroll-circle{width:46px!important;height:46px!important}
+}
+
+
+@media(min-width:768px){
+  /* Luxury desktop hero only. Mobile remains untouched. */
+  .std-header{
+    height:80px!important;
+    padding:0 48px!important;
+    background:#f8f4ee!important;
+    border-bottom:1px solid rgba(77,59,50,.055)!important;
+  }
+  .std-header-brand{
+    width:auto!important;
+    min-width:0!important;
+    align-items:flex-start!important;
+  }
+  .std-header-brand-main{
+    font-size:31px!important;
+    letter-spacing:.075em!important;
+  }
+  .std-header-brand-sub{
+    margin-top:7px!important;
+    font-size:8px!important;
+    letter-spacing:.38em!important;
+    padding-left:2px!important;
+  }
+  .std-header-right{
+    margin-left:auto!important;
+    gap:19px!important;
+    transform:none!important;
+  }
+  .std-phone{font-size:16px!important}
+  .std-header-book{
+    width:158px!important;
+    min-width:158px!important;
+    height:48px!important;
+    font-size:15px!important;
+  }
+
+  .std-hero{
+    position:relative!important;
+    isolation:isolate!important;
+    display:grid!important;
+    grid-template-columns:46.5% 53.5%!important;
+    height:calc(100dvh - 80px)!important;
+    min-height:690px!important;
+    overflow:hidden!important;
+    background:
+      radial-gradient(700px 520px at 22% 48%,rgba(255,255,255,.52),transparent 68%),
+      radial-gradient(620px 460px at 76% 38%,rgba(183,143,120,.09),transparent 72%),
+      linear-gradient(118deg,#f8f4ee 0%,#f6efe9 56%,#f2e8e0 100%)!important;
+  }
+  .std-hero:before,
+  .std-hero:after{
+    content:""!important;
+    position:absolute!important;
+    z-index:0!important;
+    width:1040px!important;
+    height:1040px!important;
+    border:1px solid rgba(151,112,91,.17)!important;
+    border-radius:50%!important;
+    pointer-events:none!important;
+    background:transparent!important;
+  }
+  .std-hero:before{
+    left:33%!important;
+    top:-600px!important;
+  }
+  .std-hero:after{
+    width:820px!important;
+    height:820px!important;
+    right:-410px!important;
+    bottom:-540px!important;
+  }
+
+  .std-hero-copy{
+    position:relative!important;
+    z-index:2!important;
+    min-width:0!important;
+    align-items:stretch!important;
+    justify-content:flex-start!important;
+    padding:0 40px 0 78px!important;
+    overflow:visible!important;
+    background:transparent!important;
+  }
+  .std-hero-copy:before{
+    content:""!important;
+    position:absolute!important;
+    z-index:0!important;
+    width:540px!important;
+    height:540px!important;
+    left:-365px!important;
+    top:70px!important;
+    border:1px solid rgba(151,112,91,.10)!important;
+    border-radius:50%!important;
+    opacity:1!important;
+    filter:none!important;
+    transform:none!important;
+    background:transparent!important;
+    -webkit-mask-image:none!important;
+    mask-image:none!important;
+    pointer-events:none!important;
+  }
+  .std-hero-copy:after{
+    content:"Красота — это уверенность\Aв себе каждый день."!important;
+    white-space:pre!important;
+    position:absolute!important;
+    left:78px!important;
+    bottom:44px!important;
+    z-index:3!important;
+    padding-left:58px!important;
+    color:#9b7768!important;
+    font:500 italic 19px/1.24 "Cormorant Garamond",Georgia,serif!important;
+    letter-spacing:.01em!important;
+    background:linear-gradient(#9b7768,#9b7768) left 9px/38px 1px no-repeat!important;
+    pointer-events:none!important;
+  }
+
+  .std-hero-frame{
+    position:relative!important;
+    z-index:2!important;
+    width:min(100%,610px)!important;
+    height:100%!important;
+    min-height:0!important;
+    margin:0!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    display:flex!important;
+    justify-content:flex-start!important;
+    overflow:visible!important;
+  }
+  .std-hero-frame:after{display:none!important}
+
+  .std-copy-inner{
+    position:relative!important;
+    z-index:4!important;
+    width:min(100%,570px)!important;
+    margin:clamp(72px,10.5vh,120px) 0 0!important;
+    transform:none!important;
+    text-align:left!important;
+  }
+  .std-hero-kicker{
+    margin:0 0 28px!important;
+    color:#9b7768!important;
+    font-size:12px!important;
+    letter-spacing:.43em!important;
+    text-align:left!important;
+  }
+  .std-logo{
+    max-width:100%!important;
+    margin:0!important;
+    color:#211d1a!important;
+    font-size:clamp(64px,5.35vw,88px)!important;
+    line-height:.84!important;
+    letter-spacing:.055em!important;
+    text-indent:0!important;
+    text-align:left!important;
+    white-space:nowrap!important;
+  }
+  .std-logo-sub{
+    width:min(100%,540px)!important;
+    margin:22px 0 38px!important;
+    color:#4f443f!important;
+    font-size:12px!important;
+    letter-spacing:.43em!important;
+    text-indent:0!important;
+    text-align:center!important;
+  }
+  .std-tagline{
+    max-width:540px!important;
+    margin:0 0 34px!important;
+    color:#2d2724!important;
+    font-size:23px!important;
+    line-height:1.35!important;
+    text-align:left!important;
+  }
+  .std-meta{
+    width:min(100%,540px)!important;
+    display:grid!important;
+    grid-template-columns:1fr 1px 1.13fr!important;
+    gap:20px!important;
+    margin:0 0 30px!important;
+  }
+  .std-meta-item{justify-content:flex-start!important}
+  .std-meta-icon{
+    width:56px!important;
+    height:56px!important;
+    flex-basis:56px!important;
+    background:rgba(255,255,255,.20)!important;
+    border-color:rgba(103,78,65,.15)!important;
+  }
+  .std-meta-icon svg{width:24px!important;height:24px!important}
+  .std-meta-text{font-size:15px!important;line-height:1.38!important}
+  .std-meta-divider{height:58px!important}
+  .std-actions{
+    width:min(100%,540px)!important;
+    gap:11px!important;
+  }
+  .std-btn{
+    height:62px!important;
+    border-radius:9px!important;
+    font-size:16px!important;
+  }
+  .std-btn-primary{
+    background:#a58270!important;
+    border-color:#a58270!important;
+  }
+  .std-btn-primary:hover{background:#967361!important}
+  .std-scroll-hint{display:none!important}
+
+  .std-hero-photo{
+    position:relative!important;
+    z-index:3!important;
+    min-width:0!important;
+    height:auto!important;
+    margin:36px 48px 36px 0!important;
+    overflow:hidden!important;
+    border:1px solid rgba(109,82,68,.16)!important;
+    border-radius:28px!important;
+    background:#e7ddd4!important;
+    box-shadow:
+      0 24px 70px rgba(75,53,43,.11),
+      inset 0 0 0 1px rgba(255,255,255,.18)!important;
+    cursor:pointer!important;
+  }
+  .std-hero-photo:before{
+    content:""!important;
+    position:absolute!important;
+    inset:0!important;
+    z-index:2!important;
+    pointer-events:none!important;
+    border-radius:inherit!important;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)!important;
+  }
+  .std-hero-photo video,
+  .std-hero-photo img{
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center center!important;
+    border-radius:inherit!important;
+    display:block!important;
+  }
+  .std-hero-photo video{
+    pointer-events:auto!important;
+    cursor:pointer!important;
+  }
+}
+
+@media(min-width:768px) and (max-width:1180px){
+  .std-header{padding:0 28px!important}
+  .std-header-brand-main{font-size:27px!important}
+  .std-header-right{gap:10px!important}
+  .std-header-book{width:132px!important;min-width:132px!important}
+  .std-hero{grid-template-columns:48% 52%!important}
+  .std-hero-copy{padding-left:42px!important;padding-right:24px!important}
+  .std-hero-copy:after{left:42px!important}
+  .std-copy-inner{width:min(100%,500px)!important;margin-top:clamp(58px,8vh,86px)!important}
+  .std-logo{font-size:clamp(52px,5.1vw,66px)!important}
+  .std-logo-sub{margin-bottom:27px!important}
+  .std-tagline{font-size:20px!important;margin-bottom:26px!important}
+  .std-meta{gap:13px!important;margin-bottom:24px!important}
+  .std-meta-icon{width:50px!important;height:50px!important;flex-basis:50px!important}
+  .std-meta-text{font-size:13px!important}
+  .std-btn{height:56px!important;font-size:14px!important}
+  .std-hero-photo{margin:26px 28px 26px 0!important;border-radius:22px!important}
+}
+
+@media(min-width:768px) and (max-height:820px){
+  .std-copy-inner{margin-top:48px!important}
+  .std-hero-kicker{margin-bottom:18px!important}
+  .std-logo-sub{margin-top:15px!important;margin-bottom:20px!important}
+  .std-tagline{margin-bottom:20px!important;font-size:19px!important}
+  .std-meta{margin-bottom:18px!important}
+  .std-meta-icon{width:48px!important;height:48px!important;flex-basis:48px!important}
+  .std-btn{height:54px!important}
+  .std-hero-copy:after{bottom:24px!important;font-size:17px!important}
+  .std-hero-photo{margin-top:24px!important;margin-bottom:24px!important}
+}
+
+
+@media(min-width:768px){
+  /* Fine-tuning of the approved luxury desktop hero. */
+  html{scrollbar-width:none!important}
+  html::-webkit-scrollbar,body::-webkit-scrollbar{width:0!important;height:0!important;display:none!important}
+
+  .std-header{padding-left:36px!important;padding-right:36px!important}
+  .std-header-right{margin-left:auto!important;transform:translateX(0)!important}
+
+  .std-hero{
+    background:
+      radial-gradient(330px 470px at -4% 24%,rgba(88,61,49,.115) 0%,rgba(125,92,74,.065) 18%,transparent 66%),
+      radial-gradient(420px 560px at 104% 82%,rgba(93,65,52,.115) 0%,rgba(137,101,80,.06) 19%,transparent 66%),
+      radial-gradient(520px 320px at 69% 2%,rgba(170,129,104,.085),transparent 72%),
+      radial-gradient(650px 500px at 25% 50%,rgba(255,255,255,.55),transparent 70%),
+      linear-gradient(118deg,#f9f5ef 0%,#f6efe9 53%,#f1e7df 100%)!important;
+  }
+  .std-hero:before{
+    left:30%!important;
+    top:-620px!important;
+    border-color:rgba(146,106,85,.20)!important;
+    box-shadow:0 0 90px rgba(150,112,91,.035)!important;
+  }
+  .std-hero:after{
+    right:-395px!important;
+    bottom:-525px!important;
+    border-color:rgba(146,106,85,.16)!important;
+    box-shadow:0 0 100px rgba(150,112,91,.04)!important;
+  }
+  .std-hero-copy{
+    padding-left:58px!important;
+    padding-right:58px!important;
+  }
+  .std-hero-copy:before{
+    left:-355px!important;
+    top:88px!important;
+    border-color:rgba(146,106,85,.12)!important;
+    box-shadow:0 0 80px rgba(108,77,61,.035)!important;
+  }
+  .std-copy-inner{
+    width:100%!important;
+    max-width:570px!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+    text-align:center!important;
+  }
+  .std-hero-kicker,
+  .std-logo,
+  .std-logo-sub,
+  .std-tagline{text-align:center!important}
+  .std-logo{margin-left:auto!important;margin-right:auto!important}
+  .std-logo-sub,
+  .std-tagline,
+  .std-meta,
+  .std-actions{
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+  .std-meta-item{justify-content:center!important;text-align:left!important}
+  .std-actions{justify-content:center!important}
+
+  .std-hero-photo{
+    margin:36px 36px 36px 0!important;
+    border-color:rgba(112,83,68,.20)!important;
+    box-shadow:
+      0 34px 82px rgba(71,48,38,.18),
+      -18px 10px 42px rgba(91,64,51,.075),
+      18px 10px 42px rgba(91,64,51,.07),
+      0 0 0 7px rgba(255,255,255,.16),
+      inset 0 0 0 1px rgba(255,255,255,.24)!important;
+  }
+  .std-hero-photo:before{
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,.18),
+      inset 0 -34px 70px rgba(55,39,31,.035)!important;
+  }
+}
+@media(min-width:768px) and (max-width:1180px){
+  .std-header{padding-left:26px!important;padding-right:26px!important}
+  .std-hero-copy{padding-left:34px!important;padding-right:34px!important}
+  .std-hero-photo{margin:26px 26px 26px 0!important}
+}
+
+
+@media(min-width:768px){
+  /* Center the hero content in the entire left column and restore full CTA sizing. */
+  .std-hero-copy{padding-left:0!important;padding-right:0!important}
+  .std-hero-frame{
+    width:100%!important;
+    max-width:none!important;
+    justify-content:center!important;
+  }
+  .std-copy-inner{
+    width:min(calc(100% - 72px),570px)!important;
+    max-width:570px!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+  .std-actions{
+    width:min(100%,540px)!important;
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:11px!important;
+  }
+  .std-actions .std-btn{
+    width:100%!important;
+    min-width:0!important;
+    height:62px!important;
+    padding:0 28px!important;
+    font-size:16px!important;
+  }
+}
+@media(min-width:768px) and (max-width:1180px){
+  .std-hero-copy{padding-left:0!important;padding-right:0!important}
+  .std-copy-inner{width:min(calc(100% - 52px),500px)!important}
+  .std-actions .std-btn{height:58px!important;font-size:15px!important}
+}
+
+
+@media(min-width:768px){
+  /* Exact optical center: viewport left edge -> actual left edge of video. */
+  .std-hero-copy{position:static!important}
+  .std-hero-frame{position:static!important}
+  .std-copy-inner{
+    position:absolute!important;
+    z-index:4!important;
+    left:0!important;
+    top:0!important;
+    width:46.5%!important;
+    max-width:none!important;
+    height:100%!important;
+    margin:0!important;
+    padding:clamp(72px,10.5vh,120px) 36px 118px!important;
+    box-sizing:border-box!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    text-align:center!important;
+  }
+  .std-hero-kicker,.std-logo,.std-logo-sub,.std-tagline{
+    width:100%!important;
+    text-align:center!important;
+  }
+  .std-logo{
+    margin-left:auto!important;
+    margin-right:auto!important;
+    white-space:nowrap!important;
+  }
+  .std-logo-sub,.std-tagline,.std-meta,.std-actions{
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+  .std-meta{
+    justify-content:center!important;
+    justify-items:center!important;
+  }
+  .std-meta-item{justify-content:center!important}
+  .std-actions{
+    width:min(100%,540px)!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:12px!important;
+  }
+  .std-actions .std-btn{
+    width:100%!important;
+    height:62px!important;
+    font-size:16px!important;
+  }
+}
+@media(min-width:768px) and (max-width:1180px){
+  .std-copy-inner{
+    width:48%!important;
+    padding:clamp(58px,8vh,86px) 26px 100px!important;
+  }
+  .std-actions{width:min(100%,500px)!important}
+  .std-actions .std-btn{height:58px!important;font-size:15px!important}
+}
+@media(min-width:768px) and (max-height:820px){
+  .std-copy-inner{padding-top:48px!important;padding-bottom:82px!important}
+}
+
+
+@media(min-width:768px){
+  /* One source of truth: left pane ends exactly where the video begins. */
+  .std-hero{--hero-video-start:46.5%}
+  .std-copy-inner{
+    left:0!important;
+    width:var(--hero-video-start)!important;
+    padding-left:36px!important;
+    padding-right:36px!important;
+    transform:none!important;
+    align-items:center!important;
+    text-align:center!important;
+  }
+  .std-copy-inner > *{margin-left:auto!important;margin-right:auto!important}
+  .std-hero-kicker,.std-logo,.std-logo-sub,.std-tagline{text-align:center!important}
+  .std-meta{justify-content:center!important;justify-items:center!important}
+  .std-meta-item{justify-content:center!important}
+}
+@media(min-width:768px) and (max-width:1180px){
+  .std-hero{--hero-video-start:48%}
+  .std-copy-inner{
+    width:var(--hero-video-start)!important;
+    padding-left:26px!important;
+    padding-right:26px!important;
+    transform:none!important;
+  }
+}
+
+
+@media(min-width:768px){
+  /* CTA size only. Do not alter hero positioning/layout. */
+  .std-actions .std-btn{
+    height:62px!important;
+    padding:0 28px!important;
+    font-size:16px!important;
+  }
+}
+@media(min-width:768px) and (max-width:1180px){
+  .std-actions .std-btn{
+    height:58px!important;
+    padding:0 26px!important;
+    font-size:15px!important;
+  }
+}
+
+
+@media(min-width:768px){
+  /* Buttons only: stacked; each button takes the previous combined two-button width. */
+  .std-actions{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    width:min(100%,540px)!important;
+    gap:11px!important;
+  }
+  .std-actions .std-btn{
+    width:100%!important;
+    min-width:0!important;
+    height:62px!important;
+    padding:0 28px!important;
+    font-size:16px!important;
+  }
+}
+@media(min-width:768px) and (max-width:1180px){
+  .std-actions{width:min(100%,500px)!important}
+  .std-actions .std-btn{
+    width:100%!important;
+    height:58px!important;
+    padding:0 26px!important;
+    font-size:15px!important;
+  }
+}
+
+
+@media(min-width:768px){
+  /* Exact CTA structure only: first button above second, same full width. */
+  #esmeraldaDesktopTop .std-actions{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    justify-content:flex-start!important;
+    width:540px!important;
+    max-width:calc(100% - 72px)!important;
+    gap:12px!important;
+  }
+  #esmeraldaDesktopTop .std-actions > #stdBookBtn,
+  #esmeraldaDesktopTop .std-actions > a.std-btn{
+    display:flex!important;
+    flex:0 0 auto!important;
+    width:100%!important;
+    max-width:none!important;
+    min-width:0!important;
+    box-sizing:border-box!important;
+    height:62px!important;
+    margin:0!important;
+  }
+}
+@media(min-width:768px) and (max-width:1180px){
+  #esmeraldaDesktopTop .std-actions{
+    width:500px!important;
+    max-width:calc(100% - 52px)!important;
+  }
+  #esmeraldaDesktopTop .std-actions > #stdBookBtn,
+  #esmeraldaDesktopTop .std-actions > a.std-btn{height:58px!important}
+}
+
+
+@media(min-width:768px){
+  /* Position only: move the existing left mini-block lower as one intact unit.
+     Header is outside .std-hero, so center within the hero's remaining vertical area. */
+  #esmeraldaDesktopTop .std-copy-inner{
+    top:calc(50% + 36px - 1.5cm)!important;
+    bottom:auto!important;
+    height:auto!important;
+    padding-top:0!important;
+    padding-bottom:0!important;
+    transform:translateY(-50%)!important;
+  }
+}
+
+
+@media(min-width:768px){
+  /* Requested detail changes only. */
+  #esmeraldaDesktopTop .std-hero-kicker{
+    width:min(100%,540px)!important;
+    text-align:left!important;
+    align-self:center!important;
+  }
+  #esmeraldaDesktopTop .std-logo-sub{
+    font-size:13.2px!important;
+  }
+  #esmeraldaDesktopTop .std-meta-text{
+    font-size:16.05px!important;
+  }
+  #esmeraldaDesktopTop .std-actions > #stdBookBtn,
+  #esmeraldaDesktopTop .std-actions > a.std-btn{
+    height:66.34px!important;
+    font-size:17.12px!important;
+  }
+}
+@media(min-width:768px) and (max-width:1180px){
+  #esmeraldaDesktopTop .std-logo-sub{font-size:15.4px!important}
+  #esmeraldaDesktopTop .std-meta-text{font-size:13.91px!important}
+  #esmeraldaDesktopTop .std-actions > #stdBookBtn,
+  #esmeraldaDesktopTop .std-actions > a.std-btn{
+    height:62.06px!important;
+    font-size:16.05px!important;
+  }
+}
+
+
+@media(min-width:768px){
+  #esmeraldaDesktopTop .std-hero-kicker{
+    width:min(100%,540px)!important;
+    box-sizing:border-box!important;
+    text-align:left!important;
+    align-self:center!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+  #esmeraldaDesktopTop .std-logo-sub{font-size:14.52px!important}
+  #esmeraldaDesktopTop .std-meta-text{font-size:17.1735px!important}
+  #esmeraldaDesktopTop .std-actions > #stdBookBtn,
+  #esmeraldaDesktopTop .std-actions > a.std-btn{
+    height:70.9838px!important;
+    font-size:18.3184px!important;
+  }
+}
+@media(min-width:768px) and (max-width:1180px){
+  #esmeraldaDesktopTop .std-hero-kicker{width:min(100%,500px)!important}
+  #esmeraldaDesktopTop .std-logo-sub{font-size:16.94px!important}
+  #esmeraldaDesktopTop .std-meta-text{font-size:14.8837px!important}
+  #esmeraldaDesktopTop .std-actions > #stdBookBtn,
+  #esmeraldaDesktopTop .std-actions > a.std-btn{
+    height:66.4042px!important;
+    font-size:17.1735px!important;
+  }
+}
+
+
+@media(min-width:768px){
+  #esmeraldaDesktopTop .std-hero-kicker{
+    width:100%!important;
+    text-align:center!important;
+    align-self:center!important;
+  }
+  #esmeraldaDesktopTop .std-logo{
+    font-size:inherit!important;
+  }
+  #esmeraldaDesktopTop .std-logo-sub{
+    font-size:15.5364px!important;
+  }
+}
+@media(min-width:768px) and (max-width:1180px){
+  #esmeraldaDesktopTop .std-logo-sub{
+    font-size:18.1258px!important;
+  }
+}
+
+
+@media(min-width:768px){
+  /* Center kicker against the actual BEAUTY ROOM text box, not the whole left column. */
+  #esmeraldaDesktopTop .std-logo{
+    font-size:clamp(59.52px,4.9755vw,81.84px)!important;
+  }
+  #esmeraldaDesktopTop .std-hero-kicker{
+    width:max-content!important;
+    max-width:100%!important;
+    align-self:center!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+    text-align:center!important;
+  }
+}
+@media(min-width:768px) and (max-width:1180px){
+  #esmeraldaDesktopTop .std-logo{
+    font-size:clamp(48.36px,4.743vw,61.38px)!important;
+  }
+}
+
+
+@media(min-width:768px){
+  /* Background only — matched to the supplied reference. */
+  #esmeraldaDesktopTop.std-hero{
+    background:
+      radial-gradient(ellipse 360px 520px at -3% 35%,rgba(112,79,61,.105) 0%,rgba(140,104,84,.050) 28%,transparent 72%),
+      radial-gradient(ellipse 460px 620px at 103% 82%,rgba(115,82,64,.095) 0%,rgba(151,113,91,.040) 28%,transparent 72%),
+      radial-gradient(ellipse 760px 520px at 38% 42%,rgba(255,255,255,.48) 0%,rgba(255,255,255,.20) 45%,transparent 76%),
+      linear-gradient(108deg,#f7f1ea 0%,#f8f3ed 45%,#f3ebe4 100%)!important;
+  }
+  #esmeraldaDesktopTop.std-hero:before{
+    width:1040px!important;
+    height:1040px!important;
+    left:31%!important;
+    top:-610px!important;
+    border:1px solid rgba(150,111,90,.17)!important;
+    border-radius:50%!important;
+    background:transparent!important;
+    box-shadow:none!important;
+  }
+  #esmeraldaDesktopTop.std-hero:after{
+    width:820px!important;
+    height:820px!important;
+    right:-410px!important;
+    bottom:-540px!important;
+    border:1px solid rgba(150,111,90,.13)!important;
+    border-radius:50%!important;
+    background:transparent!important;
+    box-shadow:none!important;
+  }
+  #esmeraldaDesktopTop .std-hero-copy:before{
+    width:540px!important;
+    height:540px!important;
+    left:-365px!important;
+    top:70px!important;
+    border:1px solid rgba(150,111,90,.085)!important;
+    border-radius:50%!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    opacity:1!important;
+    filter:none!important;
+    transform:none!important;
+  }
+}
+
+
+@media(min-width:768px){
+  /* Reference background: force every hero layer to stay transparent except the hero canvas. */
+  #esmeraldaDesktopTop.std-hero{
+    background:
+      radial-gradient(ellipse 290px 500px at -2% 42%,rgba(121,88,69,.12) 0%,rgba(143,108,88,.055) 34%,transparent 76%),
+      radial-gradient(ellipse 300px 560px at 101% 69%,rgba(119,84,67,.105) 0%,rgba(151,112,91,.045) 34%,transparent 76%),
+      radial-gradient(ellipse 720px 500px at 35% 45%,rgba(255,255,255,.52) 0%,rgba(255,255,255,.22) 48%,transparent 78%),
+      linear-gradient(102deg,#f7f1ea 0%,#f8f4ee 47%,#f3ebe4 100%)!important;
+  }
+  #esmeraldaDesktopTop .std-hero-copy,
+  #esmeraldaDesktopTop .std-hero-frame,
+  #esmeraldaDesktopTop .std-copy-inner{
+    background:transparent!important;
+  }
+  #esmeraldaDesktopTop.std-hero:before{
+    content:""!important;
+    position:absolute!important;
+    z-index:1!important;
+    width:1040px!important;
+    height:1040px!important;
+    left:31%!important;
+    top:-610px!important;
+    border:1px solid rgba(151,112,91,.18)!important;
+    border-radius:50%!important;
+    background:transparent!important;
+    pointer-events:none!important;
+  }
+  #esmeraldaDesktopTop.std-hero:after{
+    content:""!important;
+    position:absolute!important;
+    z-index:1!important;
+    width:820px!important;
+    height:820px!important;
+    right:-410px!important;
+    bottom:-540px!important;
+    border:1px solid rgba(151,112,91,.14)!important;
+    border-radius:50%!important;
+    background:transparent!important;
+    pointer-events:none!important;
+  }
+  #esmeraldaDesktopTop .std-hero-copy:before{
+    content:""!important;
+    position:absolute!important;
+    z-index:0!important;
+    width:540px!important;
+    height:540px!important;
+    left:-365px!important;
+    top:70px!important;
+    border:1px solid rgba(151,112,91,.10)!important;
+    border-radius:50%!important;
+    background:transparent!important;
+    opacity:1!important;
+    filter:none!important;
+    transform:none!important;
+    pointer-events:none!important;
+  }
+}
+
+
+@media(min-width:768px){
+  /* Reference-specific left edge shadow: visible warm vertical vignette fading inward. */
+  #esmeraldaDesktopTop.std-hero{
+    background:
+      radial-gradient(ellipse 185px 610px at -1% 43%,rgba(83,57,45,.24) 0%,rgba(105,74,58,.15) 25%,rgba(133,96,76,.065) 48%,transparent 76%),
+      radial-gradient(ellipse 360px 640px at 101% 70%,rgba(119,84,67,.105) 0%,rgba(151,112,91,.045) 34%,transparent 76%),
+      radial-gradient(ellipse 720px 500px at 35% 45%,rgba(255,255,255,.52) 0%,rgba(255,255,255,.22) 48%,transparent 78%),
+      linear-gradient(102deg,#f3ebe3 0%,#f4eee7 47%,#eee3da 100%)!important;
+  }
+}
+
+
+@media(min-width:768px){
+  .std-header{position:relative!important;overflow:visible!important}
+  .std-lang-switch-under-brand{
+    position:absolute!important;
+    left:calc(36px - 0.1cm)!important;
+    top:calc(66px + 0.6cm)!important;
+    height:28px!important;
+    z-index:20!important;
+    display:flex!important;
+    align-items:center!important;
+    gap:4px!important;
+    padding:0!important;
+    margin:0!important;
+  }
+  .std-lang-switch-under-brand button{
+    min-width:28px!important;
+    height:28px!important;
+    padding:0 3px!important;
+    font-size:13px!important;
+    font-weight:500!important;
+    letter-spacing:0!important;
+  }
+  .std-lang-switch-under-brand .sep{font-size:13px!important}
+  .std-lang-switch-placeholder{display:none!important}
+}
+@media(min-width:768px) and (max-width:1180px){
+  .std-lang-switch-under-brand{left:calc(26px - 0.1cm)!important;gap:2px!important}
+  .std-lang-switch-under-brand button{min-width:25px!important;font-size:13px!important}
+}
+
+@media(min-width:768px){
+  .std-lang-switch-under-brand:before{
+    content:"🌐"!important;
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    width:20px!important;
+    height:28px!important;
+    margin-right:5px!important;
+    font-size:16px!important;
+    line-height:1!important;
+    filter:grayscale(1)!important;
+  }
+}
+
+@media(min-width:768px){
+  .std-lang-switch-under-brand{
+    box-sizing:border-box!important;
+    padding:4px 10px 4px 8px!important;
+    height:38px!important;
+    border:1px solid rgba(72,68,65,.16)!important;
+    border-radius:13px!important;
+    background:rgba(105,105,105,.13)!important;
+    box-shadow:0 6px 18px rgba(55,48,44,.07),inset 0 1px 0 rgba(255,255,255,.38)!important;
+    backdrop-filter:blur(9px)!important;
+    -webkit-backdrop-filter:blur(9px)!important;
+  }
+  .std-lang-switch-under-brand:before{
+    margin-right:6px!important;
+  }
+}
+
+
+@media(min-width:768px){
+  /* Header tone integrated with the hero. */
+  .std-header{
+    background:rgba(239,230,221,.92)!important;
+    border-bottom:1px solid rgba(103,82,70,.10)!important;
+    box-shadow:0 7px 24px rgba(73,55,46,.035)!important;
+  }
+
+  /* Language control: 1mm lower, clear hover and selected state. */
+  .std-lang-switch-under-brand{transform:translateY(.1cm)!important}
+  .std-lang-switch-under-brand button{
+    position:relative!important;
+    border-radius:7px!important;
+    transition:background .18s ease,color .18s ease,font-weight .18s ease,transform .18s ease!important;
+  }
+  .std-lang-switch-under-brand button:hover{
+    background:rgba(64,58,54,.08)!important;
+    color:#201c1a!important;
+    transform:translateY(-1px)!important;
+  }
+  .std-lang-switch-under-brand button.active{
+    background:rgba(61,55,51,.14)!important;
+    color:#171412!important;
+    font-weight:700!important;
+    box-shadow:inset 0 0 0 1px rgba(56,49,45,.08)!important;
+  }
+
+  /* Minimal navigation hover. */
+  .std-nav a{position:relative!important;transition:color .18s ease!important}
+  .std-nav a:after{
+    content:""!important;
+    position:absolute!important;
+    left:50%!important;
+    right:50%!important;
+    bottom:-7px!important;
+    height:1px!important;
+    background:currentColor!important;
+    opacity:.65!important;
+    transition:left .2s ease,right .2s ease!important;
+  }
+  .std-nav a:hover:after{left:0!important;right:0!important}
+
+  /* Give the hero sentence a distinct editorial face without loading a new asset. */
+  #esmeraldaDesktopTop .std-tagline{
+    font-family:"Cormorant Garamond",Georgia,serif!important;
+    font-weight:500!important;
+    letter-spacing:.005em!important;
+    font-style:italic!important;
+  }
+}
+
+
+@media(min-width:768px){
+  .std-lang-switch-under-brand button.active{
+    background:rgba(61,55,51,.075)!important;
+    box-shadow:inset 0 0 0 1px rgba(56,49,45,.045)!important;
+    font-weight:650!important;
+  }
+  .std-lang-switch-under-brand .sep{
+    color:rgba(43,38,35,.42)!important;
+    font-weight:400!important;
+  }
+  .std-nav a{color:#332d29!important}
+  .std-nav a:hover{color:#1f1b19!important}
+  html,body{scroll-snap-type:none!important;overscroll-behavior-y:auto!important}
+}
+
+@media(min-width:768px){
+.std-lang-switch-under-brand{background:rgba(125,125,125,.095)!important;border-color:rgba(72,68,65,.125)!important;box-shadow:0 6px 18px rgba(55,48,44,.045),inset 0 1px 0 rgba(255,255,255,.46)!important}
+html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:none!important;overscroll-behavior:auto!important}
+.std-section-reveal,.std-section-reveal.in-view,.std-section-reveal.is-visible{opacity:1!important;transform:none!important;transition:none!important}
+#esmeralda-desktop-v1 section{scroll-snap-align:none!important;scroll-snap-stop:normal!important}
+#esmeraldaDesktopTop.std-hero:after{content:""!important;display:block!important;position:absolute!important;z-index:4!important;left:0!important;right:0!important;bottom:-1px!important;width:auto!important;height:150px!important;border:0!important;border-radius:0!important;background:linear-gradient(180deg,rgba(243,235,227,0) 0%,rgba(243,235,227,.46) 45%,#f3ebe3 100%)!important;pointer-events:none!important}
+#esmeraldaDesktopPortfolio.std-portfolio{margin-top:-1px!important;padding-top:92px!important;background:radial-gradient(ellipse 330px 520px at -2% 18%,rgba(83,57,45,.12) 0%,rgba(105,74,58,.06) 38%,transparent 76%),radial-gradient(ellipse 390px 560px at 102% 76%,rgba(119,84,67,.08) 0%,rgba(151,112,91,.035) 35%,transparent 76%),radial-gradient(ellipse 760px 500px at 37% 20%,rgba(255,255,255,.36) 0%,rgba(255,255,255,.13) 48%,transparent 78%),linear-gradient(180deg,#f3ebe3 0%,#f4eee7 48%,#eee3da 100%)!important}
+#esmeraldaDesktopPortfolio.std-portfolio:before{width:760px!important;height:760px!important;left:-470px!important;bottom:-390px!important;border:1px solid rgba(151,112,91,.09)!important;border-radius:50%!important;background:transparent!important;filter:none!important}
+#esmeraldaDesktopPortfolio.std-portfolio:after{width:980px!important;height:980px!important;right:-520px!important;top:-610px!important;border:1px solid rgba(151,112,91,.12)!important;border-radius:50%!important;background:transparent!important;filter:none!important}
+#esmeraldaDesktopPortfolio .std-portfolio-kicker{color:#62564f!important}
+#esmeraldaDesktopPortfolio .std-portfolio-title{color:#211c19!important}
+#esmeraldaDesktopPortfolio .std-portfolio-copy{color:#655b55!important}
+#esmeraldaDesktopPortfolio .std-work{border:1px solid rgba(93,70,59,.10)!important;box-shadow:0 18px 42px rgba(70,51,43,.07)!important}
+#esmeraldaDesktopPortfolio .std-portfolio-more{background:rgba(255,255,255,.20)!important;border-color:rgba(80,61,52,.17)!important;backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important}
+}
+@media(min-width:768px){
+/* Hero and portfolio share one background family; separation comes from subtle depth, not a fade strip. */
+#esmeraldaDesktopTop.std-hero:after{display:none!important}
+#esmeraldaDesktopPortfolio.std-portfolio{
+  margin-top:0!important;
+  padding-top:92px!important;
+  border-top:1px solid rgba(93,70,59,.055)!important;
+  background:
+    radial-gradient(ellipse 185px 610px at -1% 38%,rgba(83,57,45,.18) 0%,rgba(105,74,58,.105) 25%,rgba(133,96,76,.05) 48%,transparent 76%),
+    radial-gradient(ellipse 360px 640px at 101% 68%,rgba(119,84,67,.09) 0%,rgba(151,112,91,.04) 34%,transparent 76%),
+    radial-gradient(ellipse 720px 500px at 35% 34%,rgba(255,255,255,.42) 0%,rgba(255,255,255,.17) 48%,transparent 78%),
+    linear-gradient(102deg,#f3ebe3 0%,#f4eee7 47%,#eee3da 100%)!important;
+  box-shadow:inset 0 30px 52px -48px rgba(73,54,45,.38)!important;
+}
+#esmeraldaDesktopPortfolio.std-portfolio:before{
+  width:620px!important;height:620px!important;left:-430px!important;bottom:-330px!important;
+  border:1px solid rgba(151,112,91,.075)!important;border-radius:50%!important;background:transparent!important;filter:none!important;
+}
+#esmeraldaDesktopPortfolio.std-portfolio:after{
+  width:900px!important;height:900px!important;right:-520px!important;top:-590px!important;
+  border:1px solid rgba(151,112,91,.10)!important;border-radius:50%!important;background:transparent!important;filter:none!important;
+}
+#esmeraldaDesktopPortfolio .std-portfolio-inner{
+  padding-top:8px!important;
+}
+#esmeraldaDesktopPortfolio .std-portfolio-grid{
+  filter:drop-shadow(0 18px 30px rgba(71,52,44,.055))!important;
+}
+}
+@media(min-width:768px){
+/* Stronger but soft depth between hero and portfolio; same background family. */
+#esmeraldaDesktopTop.std-hero{box-shadow:inset 0 -34px 60px -58px rgba(64,45,37,.48),0 18px 44px -40px rgba(64,45,37,.42)!important}
+#esmeraldaDesktopPortfolio.std-portfolio{
+  padding-top:calc(92px - .7cm)!important;
+  box-shadow:inset 0 38px 64px -62px rgba(64,45,37,.52),inset 0 -28px 58px -58px rgba(64,45,37,.24)!important;
+}
+#esmeraldaDesktopPortfolio .std-work{box-shadow:0 20px 46px rgba(66,48,40,.105)!important}
+
+/* Gallery button: larger and vertically balanced before services. */
+#esmeraldaDesktopPortfolio .std-portfolio-more{
+  width:min(100%,650px)!important;
+  height:72px!important;
+  margin:54px auto 48px!important;
+  border-radius:14px!important;
+  font-size:17.5px!important;
+  gap:16px!important;
+  background:rgba(255,255,255,.25)!important;
+  box-shadow:0 14px 34px rgba(68,49,41,.09)!important;
+  transition:transform .22s cubic-bezier(.2,.75,.25,1),box-shadow .22s ease,background .22s ease,border-color .22s ease!important;
+}
+#esmeraldaDesktopPortfolio .std-portfolio-more:hover{
+  transform:translateY(-3px) scale(1.012)!important;
+  background:rgba(255,255,255,.39)!important;
+  border-color:rgba(75,55,47,.25)!important;
+  box-shadow:0 20px 42px rgba(68,49,41,.14)!important;
+}
+#esmeraldaDesktopPortfolio .std-portfolio-more span{transition:transform .22s ease!important}
+#esmeraldaDesktopPortfolio .std-portfolio-more:hover span{transform:translateX(5px)!important}
+
+/* Independent gallery overlay with its own entrance. */
+.std-gallery-browser{
+  display:block!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+  transform:translate3d(0,16px,0) scale(.992)!important;
+  transition:opacity .34s ease,transform .42s cubic-bezier(.16,1,.3,1),visibility .42s!important;
+}
+.std-gallery-browser.open{
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+  transform:none!important;
+}
+.std-gallery-browser-shell{
+  opacity:0!important;
+  transform:translateY(12px)!important;
+  transition:opacity .32s ease .06s,transform .42s cubic-bezier(.16,1,.3,1) .06s!important;
+}
+.std-gallery-browser.open .std-gallery-browser-shell{opacity:1!important;transform:none!important}
+
+/* Gallery heading sizing and alignment. */
+.std-gallery-browser-title strong{font-size:clamp(59.4px,4.4vw,70.4px)!important}
+.std-gallery-browser-title span{
+  margin-top:calc(9px + .1cm)!important;
+  font-size:11.55px!important;
+}
+
+/* Clear back control. */
+.std-gallery-browser-back{
+  width:50px!important;height:50px!important;
+  border:1px solid rgba(64,52,46,.18)!important;
+  border-radius:50%!important;
+  background:rgba(255,255,255,.34)!important;
+  box-shadow:0 8px 22px rgba(70,51,43,.08)!important;
+  transition:transform .18s ease,background .18s ease,box-shadow .18s ease!important;
+}
+.std-gallery-browser-back:hover{transform:translateX(-2px)!important;background:rgba(255,255,255,.58)!important;box-shadow:0 11px 26px rgba(70,51,43,.12)!important}
+
+/* Gallery category pills are visibly actionable even when inactive. */
+.std-gallery-browser-tabs{gap:11px!important}
+.std-gallery-browser-tab{
+  min-width:116px!important;
+  height:46px!important;
+  padding:0 25px!important;
+  border:1px solid rgba(72,57,49,.17)!important;
+  background:#e7ddd4!important;
+  color:#4f4540!important;
+  box-shadow:0 5px 14px rgba(65,48,41,.045)!important;
+  transition:transform .18s ease,background .18s ease,box-shadow .18s ease!important;
+}
+.std-gallery-browser-tab:hover{transform:translateY(-2px)!important;background:#ded0c5!important;box-shadow:0 9px 20px rgba(65,48,41,.08)!important}
+.std-gallery-browser-tab.active{background:#302825!important;border-color:#302825!important;color:#fff!important;box-shadow:0 8px 18px rgba(48,40,37,.14)!important}
+}
+@media(min-width:768px){
+/* Hero and portfolio use the exact same base canvas. No seam/fade at the boundary. */
+#esmeraldaDesktopTop.std-hero,
+#esmeraldaDesktopPortfolio.std-portfolio{
+  background:
+    radial-gradient(ellipse 185px 610px at -1% 43%,rgba(83,57,45,.24) 0%,rgba(105,74,58,.15) 25%,rgba(133,96,76,.065) 48%,transparent 76%),
+    radial-gradient(ellipse 360px 640px at 101% 70%,rgba(119,84,67,.105) 0%,rgba(151,112,91,.045) 34%,transparent 76%),
+    radial-gradient(ellipse 720px 500px at 35% 45%,rgba(255,255,255,.52) 0%,rgba(255,255,255,.22) 48%,transparent 78%),
+    linear-gradient(102deg,#f3ebe3 0%,#f4eee7 47%,#eee3da 100%)!important;
+}
+#esmeraldaDesktopTop.std-hero{
+  box-shadow:inset 0 0 90px rgba(83,57,45,.035)!important;
+}
+#esmeraldaDesktopPortfolio.std-portfolio{
+  border-top:0!important;
+  box-shadow:inset 0 26px 52px -50px rgba(69,49,41,.28),inset 0 -32px 62px -58px rgba(69,49,41,.20)!important;
+}
+#esmeraldaDesktopPortfolio.std-portfolio:before{
+  width:540px!important;height:540px!important;left:-365px!important;top:70px!important;bottom:auto!important;
+  border:1px solid rgba(151,112,91,.10)!important;background:transparent!important;
+}
+#esmeraldaDesktopPortfolio.std-portfolio:after{
+  width:820px!important;height:820px!important;right:-410px!important;bottom:-540px!important;top:auto!important;
+  border:1px solid rgba(151,112,91,.10)!important;background:transparent!important;
+}
+
+/* Gallery header and category controls. */
+.std-gallery-browser-title span{margin-top:calc(9px + .2cm)!important}
+.std-gallery-browser-tabs{
+  overflow:visible!important;
+  padding:8px 10px 12px!important;
+  margin-top:19px!important;
+}
+.std-gallery-browser-tab{overflow:visible!important}
+.std-gallery-browser-tab:hover,
+.std-gallery-browser-tab.active{transform:translateY(-2px)!important}
+.std-gallery-browser-shell{overflow:visible!important}
+
+/* Photo viewer: clearer zoom instruction and Julia-style counter beside the gallery action. */
+.std-gallery-hint{
+  top:-45px!important;
+  left:0!important;
+  padding:8px 12px!important;
+  border:1px solid rgba(255,255,255,.15)!important;
+  border-radius:9px!important;
+  background:rgba(24,20,18,.56)!important;
+  backdrop-filter:blur(10px)!important;
+  -webkit-backdrop-filter:blur(10px)!important;
+  color:rgba(255,255,255,.88)!important;
+  font:500 12px/1.2 "Manrope",Arial,sans-serif!important;
+  letter-spacing:.01em!important;
+}
+.std-gallery-count{
+  left:calc(50% + 132px)!important;
+  bottom:-54px!important;
+  transform:none!important;
+  min-width:76px!important;
+  height:42px!important;
+  padding:0 13px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  border:1px solid rgba(255,255,255,.25)!important;
+  border-radius:999px!important;
+  background:rgba(22,18,16,.66)!important;
+  backdrop-filter:blur(12px)!important;
+  -webkit-backdrop-filter:blur(12px)!important;
+  color:#fff!important;
+  font:600 11px/1 "Manrope",Arial,sans-serif!important;
+  letter-spacing:.08em!important;
+}
+.std-view-gallery{left:calc(50% - 48px)!important}
+}
+@media(min-width:768px){#esmeralda-desktop-v1{opacity:0;transform:none;transition:opacity 1.05s cubic-bezier(.22,.72,.28,1)}#esmeralda-desktop-v1.desktop-ready{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){#esmeralda-desktop-v1{opacity:1!important;transform:none!important;transition:none!important}}
+
 @media(min-width:768px){
   #esmeralda-desktop-v1{transition:opacity .45s cubic-bezier(.22,.72,.28,1)!important}
 
@@ -1977,12 +4360,8 @@
     max-width:none!important;
   }
 }
-`;
-  document.head.appendChild(pcRestorationCss);
 
-  const desktopStabilityCss=document.createElement('style');
-  desktopStabilityCss.id='esmeralda-desktop-stability-v45';
-  desktopStabilityCss.textContent=`
+
 @media(min-width:768px){
   #esmeraldaDesktopPortfolio,
   #esmeraldaDesktopAbout,
@@ -2341,23 +4720,8 @@
   #esmeraldaDesktopTeam.br-team-panel{padding:36px 28px!important}
   #esmeraldaDesktopTeam .std-master-avatar{width:min(100%,118px)!important}
 }
-`;
-  document.head.appendChild(desktopStabilityCss);
 
-  /* Consolidate iterative desktop CSS layers into one stylesheet.
-     This preserves cascade order while avoiding dozens of live style sheets. */
-  const desktopStyleNodes=[...document.head.querySelectorAll('style[id^="esmeralda-desktop-"]')];
-  if(desktopStyleNodes.length>1){
-    const mergedDesktopCss=document.createElement('style');
-    mergedDesktopCss.id='esmeralda-desktop-bundle-v46';
-    mergedDesktopCss.textContent=desktopStyleNodes.map(node=>node.textContent||'').join('\n');
-    desktopStyleNodes.forEach(node=>node.remove());
-    document.head.appendChild(mergedDesktopCss);
-  }
 
-  const clientFinalCss=document.createElement('style');
-  clientFinalCss.id='esmeralda-desktop-client-final-v47';
-  clientFinalCss.textContent=`
 @media(min-width:768px){
   /* Services sit closer to the gallery and keep a single horizontal category rail. */
   #esmeraldaDesktopServices.mct-prices{
@@ -3003,15 +5367,8 @@
   #esmeraldaDesktopTeam .std-master-avatar{width:142px!important}
   #esmeraldaDesktopTeam .std-master{min-height:248px!important}
 }
-`;
-  document.head.appendChild(clientFinalCss);
 
-  /* Correct the grid row introduced by the separate right-hand title.
-     The sticky left rail spans every right-hand row, including expanded services. */
 
-  const geometryFix=document.createElement('style');
-  geometryFix.id='esmeralda-desktop-layout-v49';
-  geometryFix.textContent=`
 @media(min-width:768px){
   #esmeraldaDesktopServices.mct-prices{overflow:visible!important;padding:54px 0 90px!important}
   #esmeraldaDesktopServices.mct-prices>.mct-shell{
@@ -3130,12 +5487,8 @@
 @media(prefers-reduced-motion:reduce){
   #esmeraldaDesktopServices .dct-service-sticky-book,#esmeraldaDesktopServices .dct-service-sticky-book:after{animation:none!important}
 }
-`;
-  document.head.appendChild(geometryFix);
 
-  const projectionFinal=document.createElement('style');
-  projectionFinal.id='esmeralda-desktop-projection-final-v49';
-  projectionFinal.textContent=`
+
 @media(min-width:768px){
   /* Services: one stable geometry. */
   #esmeraldaDesktopServices.mct-prices{overflow:visible!important}
@@ -3255,8 +5608,584 @@
   }
   #esmeraldaDesktopServices .mct-tabs{padding:5px 1cm 15px .7cm!important}
 }
+
+
+@media(min-width:768px){
+  #esmeraldaDesktopServices.mct-prices{
+    padding:58px 0 94px!important;
+    overflow:visible!important;
+    background:
+      radial-gradient(720px 520px at 6% 12%,rgba(190,145,121,.14),transparent 68%),
+      radial-gradient(760px 520px at 96% 92%,rgba(190,145,121,.08),transparent 72%),
+      #2d2824!important;
+  }
+  #esmeraldaDesktopServices.mct-prices>.mct-shell{
+    width:calc(100% - 2cm)!important;
+    max-width:none!important;
+    margin:0 1cm!important;
+    grid-template-columns:minmax(410px,470px) minmax(0,1fr)!important;
+    grid-template-rows:48px auto minmax(680px,auto) auto!important;
+    column-gap:2cm!important;
+    row-gap:0!important;
+    overflow:visible!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head{
+    position:sticky!important;
+    top:94px!important;
+    grid-column:1!important;
+    grid-row:1 / 5!important;
+    align-self:start!important;
+    width:100%!important;
+    height:auto!important;
+    margin:0!important;
+    padding:0!important;
+    transform:none!important;
+    z-index:5!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head:after{
+    top:0!important;
+    right:-1cm!important;
+    width:1px!important;
+    height:min(74vh,700px)!important;
+    background:linear-gradient(180deg,rgba(229,205,193,0),rgba(229,205,193,.22) 10%,rgba(229,205,193,.22) 88%,rgba(229,205,193,0))!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card{
+    width:100%!important;
+    min-height:0!important;
+    margin:0!important;
+    padding:0 28px 28px!important;
+    overflow:hidden!important;
+    border:1px solid rgba(255,255,255,.44)!important;
+    border-radius:28px!important;
+    background:
+      radial-gradient(360px 260px at 100% 0%,rgba(255,255,255,.92),transparent 76%),
+      linear-gradient(145deg,#fffaf5 0%,#f0e1d6 100%)!important;
+    box-shadow:0 28px 70px rgba(8,6,5,.28),0 0 84px rgba(206,164,140,.09)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card:before{
+    content:""!important;
+    position:absolute!important;
+    inset:auto -90px -125px auto!important;
+    width:280px!important;
+    height:280px!important;
+    border:1px solid rgba(143,103,85,.09)!important;
+    border-radius:50%!important;
+    pointer-events:none!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card>strong,
+  #esmeraldaDesktopServices .dct-services-main-title{
+    height:48px!important;
+    min-height:48px!important;
+    margin:0!important;
+    padding:0!important;
+    font:500 46px/.94 "Cormorant Garamond",Georgia,serif!important;
+    letter-spacing:-.03em!important;
+    white-space:nowrap!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card>strong{
+    display:block!important;
+    color:#241d19!important;
+  }
+  #esmeraldaDesktopServices .dct-services-main-title{
+    display:block!important;
+    grid-column:2!important;
+    grid-row:1!important;
+    color:#f7f3f0!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-lead{
+    margin:13px 0 0!important;
+    max-width:390px!important;
+    color:#6c5f58!important;
+    font:400 12px/1.55 "Manrope",Arial,sans-serif!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-info{
+    display:grid!important;
+    grid-template-columns:1fr 1.08fr!important;
+    gap:11px!important;
+    margin:17px 0 0!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-row{
+    min-width:0!important;
+    min-height:68px!important;
+    padding:11px 12px!important;
+    gap:10px!important;
+    border:1px solid rgba(84,61,51,.10)!important;
+    border-radius:15px!important;
+    background:rgba(255,255,255,.55)!important;
+    transition:background .22s ease,border-color .22s ease,box-shadow .22s ease!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-icon{
+    width:38px!important;
+    height:38px!important;
+    flex:0 0 38px!important;
+    background:rgba(255,255,255,.64)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-icon svg{width:18px!important;height:18px!important}
+  #esmeraldaDesktopServices .dct-service-sticky-copy b{font-size:12px!important}
+  #esmeraldaDesktopServices .dct-service-sticky-copy small{margin-top:4px!important;font-size:9.5px!important;color:#766a64!important}
+  #esmeraldaDesktopServices .dct-service-sticky-card.is-closed .dct-service-availability{
+    border-color:rgba(167,79,86,.22)!important;
+    background:rgba(255,240,239,.82)!important;
+    box-shadow:inset 3px 0 0 rgba(167,79,86,.56)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card.is-closed .dct-service-availability b,
+  #esmeraldaDesktopServices .dct-service-sticky-card.is-closed .dct-service-availability svg{color:#a34f56!important;stroke:#a34f56!important}
+  #esmeraldaDesktopServices .dct-service-sticky-card.is-open .dct-service-availability{
+    border-color:rgba(63,135,80,.20)!important;
+    background:rgba(239,249,241,.84)!important;
+    box-shadow:inset 3px 0 0 rgba(63,135,80,.55)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-card.is-open .dct-service-availability b,
+  #esmeraldaDesktopServices .dct-service-sticky-card.is-open .dct-service-availability svg{color:#3f8750!important;stroke:#3f8750!important}
+  #esmeraldaDesktopServices .dct-service-sticky-steps{
+    margin-top:16px!important;
+    padding:14px 0 13px!important;
+    border-top:1px solid rgba(89,66,56,.11)!important;
+    border-bottom:1px solid rgba(89,66,56,.11)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-steps-title{
+    display:block!important;
+    margin-bottom:11px!important;
+    color:#77675f!important;
+    font:600 9px/1 "Manrope",Arial,sans-serif!important;
+    letter-spacing:.14em!important;
+    text-transform:uppercase!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-steps ol{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:0!important;
+    margin:0!important;
+    padding:0!important;
+    list-style:none!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-steps li{
+    min-width:0!important;
+    padding:0 11px!important;
+    border-left:1px solid rgba(89,66,56,.11)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-steps li:first-child{padding-left:0!important;border-left:0!important}
+  #esmeraldaDesktopServices .dct-service-sticky-steps li:last-child{padding-right:0!important}
+  #esmeraldaDesktopServices .dct-service-sticky-steps b{
+    display:block!important;
+    color:#a77f6c!important;
+    font:600 9px/1 "Manrope",Arial,sans-serif!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-steps li span{
+    display:block!important;
+    margin-top:6px!important;
+    overflow:hidden!important;
+    color:#352d29!important;
+    font:600 10px/1.22 "Manrope",Arial,sans-serif!important;
+    text-overflow:ellipsis!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-book,
+  #esmeraldaDesktopServices .dct-service-sticky-work{
+    width:100%!important;
+    height:58px!important;
+    border-radius:15px!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-book{
+    margin-top:17px!important;
+    border:1px solid rgba(255,255,255,.18)!important;
+    background:linear-gradient(105deg,#8d6959 0%,#b68a73 45%,#8d6959 100%)!important;
+    background-size:220% 100%!important;
+    color:#fff!important;
+    box-shadow:0 15px 30px rgba(108,72,56,.22)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-work{
+    margin-top:10px!important;
+    border:1px solid rgba(85,62,52,.16)!important;
+    background:rgba(255,255,255,.38)!important;
+    color:#332b27!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-work:hover{background:#fff!important;transform:translateY(-2px)!important}
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{
+    position:relative!important;
+    grid-column:2!important;
+    grid-row:2!important;
+    width:100%!important;
+    max-width:none!important;
+    margin:27px 0 0!important;
+    padding:0 0 19px!important;
+    overflow:hidden!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap:after{
+    content:""!important;
+    position:absolute!important;
+    z-index:2!important;
+    top:0!important;
+    right:0!important;
+    width:40px!important;
+    height:58px!important;
+    background:linear-gradient(90deg,transparent,#2d2824 88%)!important;
+    pointer-events:none!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs{
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:4px 0 10px!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    clip-path:none!important;
+    mask-image:none!important;
+    -webkit-mask-image:none!important;
+    scrollbar-width:none!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs-track{
+    display:flex!important;
+    width:max-content!important;
+    min-width:100%!important;
+    flex-wrap:nowrap!important;
+    gap:10px!important;
+    padding-right:36px!important;
+  }
+  #esmeraldaDesktopServices .mct-tab{
+    flex:0 0 auto!important;
+    min-height:48px!important;
+    padding:0 21px!important;
+    border:1px solid rgba(255,255,255,.16)!important;
+    border-radius:999px!important;
+    background:rgba(255,255,255,.035)!important;
+    color:#ded5cf!important;
+    font-size:13px!important;
+    transition:transform .2s ease,background .2s ease,border-color .2s ease,color .2s ease,box-shadow .2s ease!important;
+  }
+  #esmeraldaDesktopServices .mct-tab:hover{
+    border-color:rgba(229,196,180,.34)!important;
+    background:rgba(255,255,255,.08)!important;
+    transform:translateY(-2px)!important;
+  }
+  #esmeraldaDesktopServices .mct-tab[aria-selected="true"]{
+    border-color:#e7c8b8!important;
+    background:#d7b5a4!important;
+    color:#241d19!important;
+    box-shadow:0 10px 24px rgba(0,0,0,.18)!important;
+    transform:none!important;
+  }
+  #esmeraldaDesktopServices .dct-service-groups{
+    grid-column:2!important;
+    grid-row:3!important;
+    width:100%!important;
+    min-width:0!important;
+    min-height:680px!important;
+    margin:0!important;
+    padding:0!important;
+  }
+  #esmeraldaDesktopServices .dct-service-category-list{width:100%!important;max-width:none!important}
+  #esmeraldaDesktopServices .dct-service-card{
+    width:100%!important;
+    min-width:0!important;
+    border-color:rgba(255,255,255,.12)!important;
+    background:rgba(255,255,255,.035)!important;
+    transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease!important;
+  }
+  #esmeraldaDesktopServices .dct-service-card:hover{
+    border-color:rgba(225,191,174,.30)!important;
+    background:rgba(255,255,255,.075)!important;
+    box-shadow:0 18px 36px rgba(0,0,0,.14)!important;
+    transform:translateY(-2px)!important;
+  }
+  #esmeraldaDesktopServices .mct-more-services{
+    grid-column:2!important;
+    grid-row:4!important;
+    margin:26px auto 0!important;
+  }
+
+  #esmeraldaDesktopAbout.br-about-team{
+    padding:88px 32px 102px!important;
+    overflow:hidden!important;
+    background:
+      radial-gradient(700px 460px at 4% 12%,rgba(217,190,176,.15),transparent 70%),
+      radial-gradient(660px 480px at 96% 88%,rgba(217,190,176,.11),transparent 72%),
+      #f8f4ee!important;
+  }
+  #esmeraldaDesktopAbout>.br-about-team-headings,
+  #esmeraldaDesktopAbout>.br-about-team-shell{
+    width:min(100%,1500px)!important;
+    margin-inline:auto!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    column-gap:72px!important;
+  }
+  #esmeraldaDesktopAbout>.br-about-team-headings{margin-bottom:27px!important}
+  #esmeraldaDesktopAbout>.br-about-team-headings h2{
+    margin:0!important;
+    color:#201b18!important;
+    font:500 clamp(54px,4.5vw,68px)/.94 "Cormorant Garamond",Georgia,serif!important;
+    letter-spacing:-.045em!important;
+    text-align:center!important;
+  }
+  #esmeraldaDesktopAbout>.br-about-team-shell{
+    position:relative!important;
+    align-items:stretch!important;
+  }
+  #esmeraldaDesktopAbout>.br-about-team-shell:after{
+    content:""!important;
+    position:absolute!important;
+    top:16px!important;
+    bottom:16px!important;
+    left:50%!important;
+    width:1px!important;
+    background:linear-gradient(180deg,transparent,rgba(78,58,49,.16) 12%,rgba(78,58,49,.16) 88%,transparent)!important;
+    transform:translateX(-.5px)!important;
+    pointer-events:none!important;
+  }
+  #esmeraldaDesktopAbout .br-about-column,
+  #esmeraldaDesktopTeam.br-team-panel{
+    box-sizing:border-box!important;
+    width:100%!important;
+    min-width:0!important;
+    min-height:760px!important;
+    height:760px!important;
+    border-radius:30px!important;
+  }
+  #esmeraldaDesktopAbout .br-about-column{
+    padding:20px!important;
+    border:1px solid rgba(72,55,47,.10)!important;
+    background:rgba(255,255,255,.46)!important;
+    box-shadow:0 24px 60px rgba(69,50,42,.09)!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-card{
+    display:grid!important;
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    grid-template-rows:335px minmax(0,1fr)!important;
+    gap:0!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    border:0!important;
+    border-radius:22px!important;
+    background:transparent!important;
+    box-shadow:none!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-portrait-wrap,
+  #esmeraldaDesktopAbout .mct-about-portrait,
+  #esmeraldaDesktopAbout .mct-about-portrait img{
+    display:block!important;
+    width:100%!important;
+    height:335px!important;
+    min-height:335px!important;
+    margin:0!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-portrait-wrap{overflow:hidden!important;border-radius:20px!important}
+  #esmeraldaDesktopAbout .mct-about-portrait img{
+    object-fit:cover!important;
+    transition:transform .8s cubic-bezier(.2,.7,.2,1)!important;
+  }
+  #esmeraldaDesktopAbout .br-about-column:hover .mct-about-portrait img{transform:scale(1.025)!important}
+  #esmeraldaDesktopAbout .mct-about-copy{
+    display:flex!important;
+    min-width:0!important;
+    flex-direction:column!important;
+    justify-content:flex-start!important;
+    padding:24px 8px 2px!important;
+    overflow:visible!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-lead{
+    margin:0!important;
+    color:#241e1a!important;
+    font:500 31px/1.02 "Cormorant Garamond",Georgia,serif!important;
+    letter-spacing:-.025em!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-copy>p:not(.mct-about-lead){
+    margin:11px 0 0!important;
+    color:#685f5a!important;
+    font:400 12.5px/1.5 "Manrope",Arial,sans-serif!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-amenities{margin-top:auto!important;padding-top:17px!important}
+  #esmeraldaDesktopAbout .dct-about-amenities-grid{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:9px!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-amenities-grid article{
+    min-width:0!important;
+    min-height:88px!important;
+    padding:13px!important;
+    border:1px solid rgba(81,60,51,.09)!important;
+    border-radius:14px!important;
+    background:rgba(255,255,255,.55)!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-amenities-grid article+article{border-left:1px solid rgba(81,60,51,.09)!important}
+  #esmeraldaDesktopAbout .dct-about-amenities-grid strong{font-size:11.5px!important;line-height:1.2!important}
+  #esmeraldaDesktopAbout .dct-about-amenities-grid span{margin-top:7px!important;font-size:8.8px!important;line-height:1.35!important}
+  #esmeraldaDesktopTeam.br-team-panel{
+    display:flex!important;
+    flex-direction:column!important;
+    padding:34px 34px 30px!important;
+    overflow:hidden!important;
+    border:1px solid rgba(255,255,255,.08)!important;
+    background:
+      radial-gradient(460px 340px at 100% 0%,rgba(185,142,121,.14),transparent 72%),
+      #302925!important;
+    color:#f7f3f0!important;
+    box-shadow:0 24px 60px rgba(38,27,22,.16)!important;
+  }
+  #esmeraldaDesktopTeam .std-team-kicker{
+    display:block!important;
+    margin:0!important;
+    color:#d1c1b9!important;
+    font:600 11px/1 "Manrope",Arial,sans-serif!important;
+    letter-spacing:.24em!important;
+    text-align:center!important;
+    text-transform:uppercase!important;
+  }
+  #esmeraldaDesktopTeam .std-team-subtitle{
+    margin:12px auto 24px!important;
+    max-width:460px!important;
+    color:#ad9f98!important;
+    font-size:11px!important;
+    line-height:1.5!important;
+    text-align:center!important;
+  }
+  #esmeraldaDesktopTeam .std-team-track{
+    display:grid!important;
+    width:100%!important;
+    min-height:0!important;
+    flex:1 1 auto!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-template-rows:repeat(2,minmax(0,1fr))!important;
+    gap:18px 28px!important;
+    align-items:center!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:visible!important;
+  }
+  #esmeraldaDesktopTeam .std-master{
+    display:flex!important;
+    width:100%!important;
+    min-width:0!important;
+    min-height:0!important;
+    height:100%!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    padding:4px!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    color:#f7f3f0!important;
+    transition:transform .22s ease!important;
+  }
+  #esmeraldaDesktopTeam .std-master:hover{background:transparent!important;box-shadow:none!important;transform:translateY(-4px)!important}
+  #esmeraldaDesktopTeam .std-master-avatar{
+    width:154px!important;
+    height:154px!important;
+    max-width:100%!important;
+    border:1px solid rgba(255,255,255,.10)!important;
+    background:radial-gradient(circle at 38% 28%,rgba(255,255,255,.12),transparent 43%),linear-gradient(145deg,#826d63,#5b4a43)!important;
+    color:#eaded7!important;
+    box-shadow:0 14px 34px rgba(0,0,0,.16)!important;
+  }
+  #esmeraldaDesktopTeam .std-master-avatar svg{width:58px!important;height:58px!important}
+  #esmeraldaDesktopTeam .std-master-name{
+    margin-top:13px!important;
+    color:#f7f3f0!important;
+    font-size:25px!important;
+    line-height:1!important;
+  }
+  #esmeraldaDesktopTeam .std-master-role{
+    margin-top:7px!important;
+    color:#baada6!important;
+    font-size:10.5px!important;
+  }
+  #esmeraldaDesktopTeam .std-master-cats{margin-top:5px!important}
+  #esmeraldaDesktopTeam .std-master-cat{padding:0!important;border:0!important;background:transparent!important;color:#d3c5be!important;font-size:9px!important}
+
+  #esmeraldaDesktopContacts .std-contact-action-btn{
+    border:1px solid rgba(244,237,232,.26)!important;
+    background:#f4ede8!important;
+    color:#2b2522!important;
+    box-shadow:0 12px 28px rgba(0,0,0,.14)!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-action-btn:hover{
+    border-color:#fff!important;
+    background:#fff!important;
+    color:#211d1a!important;
+    transform:translateY(-3px)!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-bottom{
+    width:100vw!important;
+    min-height:118px!important;
+    margin:42px calc(50% - 50vw) 0!important;
+    padding:18px 24px!important;
+    overflow:visible!important;
+    background:#11100f!important;
+  }
+  #esmeraldaDesktopContacts .std-contact-brand{
+    display:flex!important;
+    width:auto!important;
+    min-height:82px!important;
+    margin:0 auto!important;
+    padding:10px 24px!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:7px!important;
+    border:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+  }
+  #esmeraldaDesktopContacts .br-tanem-mark{
+    display:grid!important;
+    width:31px!important;
+    height:31px!important;
+    flex:0 0 31px!important;
+    place-items:center!important;
+    border:1px solid rgba(255,255,255,.38)!important;
+    border-radius:9px!important;
+    color:#fff!important;
+    font:600 20px/1 "Cormorant Garamond",Georgia,serif!important;
+  }
+  #esmeraldaDesktopContacts .br-tanem-copy{
+    color:rgba(255,255,255,.72)!important;
+    font:500 10px/1.2 "Manrope",Arial,sans-serif!important;
+    letter-spacing:.04em!important;
+    text-align:center!important;
+  }
+  #esmeraldaDesktopContacts .br-tanem-copy strong{color:#fff!important;font-size:11.5px!important;font-weight:600!important}
+}
+@media(min-width:768px) and (max-width:1199px){
+  #esmeraldaDesktopServices.mct-prices>.mct-shell{
+    width:calc(100% - 56px)!important;
+    margin:0 28px!important;
+    grid-template-columns:minmax(310px,39%) minmax(0,1fr)!important;
+    column-gap:44px!important;
+  }
+  #esmeraldaDesktopServices .mct-price-head:after{right:-22px!important}
+  #esmeraldaDesktopServices .dct-service-sticky-card{padding-inline:20px!important}
+  #esmeraldaDesktopServices .dct-service-sticky-card>strong,
+  #esmeraldaDesktopServices .dct-services-main-title{font-size:40px!important}
+  #esmeraldaDesktopServices .dct-service-sticky-info{grid-template-columns:1fr!important}
+  #esmeraldaDesktopServices .dct-service-sticky-steps li{padding-inline:7px!important}
+  #esmeraldaDesktopServices .dct-service-sticky-steps li span{font-size:9px!important}
+  #esmeraldaDesktopAbout>.br-about-team-headings,
+  #esmeraldaDesktopAbout>.br-about-team-shell{column-gap:42px!important}
+  #esmeraldaDesktopAbout .br-about-column,
+  #esmeraldaDesktopTeam.br-team-panel{height:720px!important;min-height:720px!important}
+  #esmeraldaDesktopAbout .mct-about-card{grid-template-rows:300px minmax(0,1fr)!important}
+  #esmeraldaDesktopAbout .mct-about-portrait-wrap,
+  #esmeraldaDesktopAbout .mct-about-portrait,
+  #esmeraldaDesktopAbout .mct-about-portrait img{height:300px!important;min-height:300px!important}
+  #esmeraldaDesktopAbout .mct-about-lead{font-size:27px!important}
+  #esmeraldaDesktopAbout .dct-about-amenities-grid{grid-template-columns:1fr!important}
+  #esmeraldaDesktopAbout .dct-about-amenities-grid article{min-height:54px!important}
+  #esmeraldaDesktopTeam .std-master-avatar{width:126px!important;height:126px!important}
+  #esmeraldaDesktopTeam .std-master-name{font-size:22px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  #esmeraldaDesktopAbout .mct-about-portrait img,
+  #esmeraldaDesktopTeam .std-master,
+  #esmeraldaDesktopServices .mct-tab,
+  #esmeraldaDesktopServices .dct-service-card{transition:none!important}
+}
 `;
-  document.head.appendChild(projectionFinal);
+  document.head.appendChild(desktopCss);
 
 
   const root=document.createElement('div');
@@ -3352,11 +6281,11 @@
     <section class="mct-prices" id="esmeraldaDesktopServices" aria-labelledby="stdServicesTitle">
       <div class="mct-shell">
         <div class="mct-price-head">
-          <div class="dct-service-sticky-card" aria-label="Выберите услугу">
+          <div class="dct-service-sticky-card" id="stdStickyServiceCard" aria-label="Выберите услугу">
             <strong>Выберите услугу</strong>
-            <p class="dct-service-sticky-lead">Все направления салона собраны здесь. Выберите категорию справа, затем нужную процедуру.</p>
+            <p class="dct-service-sticky-lead">Выберите направление справа, затем нужную процедуру. После этого откроется удобный способ связи с салоном.</p>
             <div class="dct-service-sticky-info">
-              <div class="dct-service-sticky-row">
+              <div class="dct-service-sticky-row dct-service-availability">
                 <span class="dct-service-sticky-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5v5l3.2 2"></path></svg>
                 </span>
@@ -3375,9 +6304,13 @@
                 </span>
               </div>
             </div>
-            <div class="dct-service-sticky-benefits" aria-label="Информация о записи">
-              <span><b>Без лишних шагов</b><small>Выберите процедуру и способ связи</small></span>
-              <span><b>Ежедневно</b><small>Салон работает с 09:00 до 20:00</small></span>
+            <div class="dct-service-sticky-steps" aria-label="Как записаться">
+              <span class="dct-service-sticky-steps-title">Как записаться</span>
+              <ol>
+                <li><b>01</b><span>Категория</span></li>
+                <li><b>02</b><span>Услуга</span></li>
+                <li><b>03</b><span>Связь с салоном</span></li>
+              </ol>
             </div>
             <button class="dct-service-sticky-book" id="stdStickyServiceBook" type="button"><span>Записаться</span><span aria-hidden="true">→</span></button>
             <a class="dct-service-sticky-work" href="#esmeraldaDesktopPortfolio"><span>Открыть галерею</span><span aria-hidden="true">✦</span></a>
@@ -4171,6 +7104,8 @@
     ['Косметология','Կոսմետոլոգիա','Cosmetology'],['Эпиляция','Էպիլյացիա','Hair removal'],['Макияж','Դիմահարդարում','Makeup'],
     ['Массаж','Մերսում','Massage'],['Другое','Այլ','Other'],['Все','Բոլորը','All'],
     ['Услуги и цены','Ծառայություններ և գներ','Services & prices'],['Выберите услугу','Ընտրեք ծառայությունը','Choose a service'],
+    ['Выберите направление справа, затем нужную процедуру. После этого откроется удобный способ связи с салоном.','Աջ կողմում ընտրեք ուղղությունը, ապա անհրաժեշտ ծառայությունը։ Դրանից հետո կբացվի սրահի հետ կապվելու հարմար տարբերակը։','Choose a category on the right, then select a service. You can then contact the salon in the way that suits you.'],
+    ['Как записаться','Ինչպես ամրագրվել','How to book'],['Категория','Բաժին','Category'],['Услуга','Ծառայություն','Service'],['Связь с салоном','Կապ սրահի հետ','Contact the salon'],
     ['Выберите направление и нужную процедуру. Запись открывается в отдельной плашке, а все услуги собраны в одной понятной структуре.','Ընտրեք ուղղությունն ու անհրաժեշտ ծառայությունը։ Բոլոր ծառայությունները հավաքված են մեկ պարզ կառուցվածքում։','Choose a category and service. Everything is organized in one clear structure.'],['Выберите направление и нужную процедуру. Нажмите на услугу, чтобы выбрать удобный способ записи.','Ընտրեք ուղղությունն ու անհրաժեշտ ծառայությունը։ Սեղմեք ծառայության վրա՝ ամրագրման հարմար տարբերակ ընտրելու համար։','Choose a category and service. Select a service to choose a convenient booking method.'],
     ['Свернуть','Փակել ցանկը','Show less'],['Свернуть услуги','Փակել ծառայությունները','Collapse services'],['Открыть ещё','Բացել ևս','Show'],['О салоне','Սրահի մասին','About the salon'],
     ['Beauty Room by Esmeralda — салон красоты в Ереване.','Beauty Room by Esmeralda — գեղեցկության սրահ Երևանում։','Beauty Room by Esmeralda — a beauty salon in Yerevan.'],
@@ -4333,16 +7268,18 @@
       sub.textContent=desktopTrText(isOpen?'до 20:00':'до 09:00');
       main.style.color=isOpen?'#3f8750':'#a45e64';
     }
-    const stickyStatus=document.getElementById('stdStickyServiceStatus'),stickyStatusSub=document.getElementById('stdStickyServiceStatusSub');
+    const stickyStatus=document.getElementById('stdStickyServiceStatus'),stickyStatusSub=document.getElementById('stdStickyServiceStatusSub'),stickyCard=document.getElementById('stdStickyServiceCard');
     if(stickyStatus&&stickyStatusSub){
       stickyStatus.textContent=desktopTrText(isOpen?'Открыто':'Закрыто');
       stickyStatusSub.textContent=desktopTrText(isOpen?'до 20:00':'до 09:00');
-      stickyStatus.style.color=isOpen?'#3f8750':'#a45e64';
+      stickyCard?.classList.toggle('is-open',isOpen);
+      stickyCard?.classList.toggle('is-closed',!isOpen);
     }
     const contactStatus=document.getElementById('stdContactStatus'),contactStatusText=document.getElementById('stdContactStatusText');
     if(contactStatus&&contactStatusText){
       contactStatusText.textContent=desktopTrText(isOpen?'Открыто до 20:00':'Закрыто до 09:00');
       contactStatus.classList.toggle('open',isOpen);
+      contactStatus.classList.toggle('closed',!isOpen);
     }
   }
   updateStatus();
