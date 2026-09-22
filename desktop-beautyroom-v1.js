@@ -6639,6 +6639,99 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
 }
 `);
 
+  appendDesktopStyle('esmeralda-desktop-pc-polish-v62',String.raw`
+@media(min-width:1024px){
+  /* Services copy: larger, without moving the category baseline. */
+  #esmeraldaDesktopServices .dct-service-sticky-copy b{font-size:14px!important}
+  #esmeraldaDesktopServices .dct-service-sticky-copy small{font-size:11px!important}
+  #esmeraldaDesktopServices .dct-service-sticky-steps-title{font-size:10.5px!important}
+  #esmeraldaDesktopServices .dct-service-sticky-steps li span{font-size:12px!important;line-height:1.42!important}
+  #esmeraldaDesktopServices .dct-service-sticky-book>span:first-child{font-size:15px!important;font-weight:600!important}
+  #esmeraldaDesktopServices .dct-service-sticky-work>span:first-child{font-size:13px!important;font-weight:600!important}
+
+  /* Categories return to the service-column baseline. Fade sits 0.5cm to the left, outside "Все". */
+  #esmeraldaDesktopServices .mct-tabs{padding-left:0!important;scroll-padding-left:0!important}
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap{overflow:visible!important}
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap:before{
+    left:-.5cm!important;
+    width:.5cm!important;
+    z-index:12!important;
+    background:linear-gradient(90deg,#242424 0%,rgba(36,36,36,.82) 38%,transparent 100%)!important;
+  }
+  #esmeraldaDesktopServices .mct-tabs-ribbon-wrap:after{right:0!important}
+  #esmeraldaDesktopServices .mct-tab-all{position:relative!important;z-index:3!important}
+
+  /* About + team: restore the paired-card structure, with larger readable facts. */
+  #esmeraldaDesktopAbout.br-about-team{
+    position:relative!important;
+    padding-top:64px!important;
+    background:
+      radial-gradient(720px 460px at 8% 8%,rgba(255,255,255,.82),transparent 68%),
+      radial-gradient(660px 500px at 94% 86%,rgba(176,137,119,.15),transparent 70%),
+      linear-gradient(145deg,#f8f4ee 0%,#efe2da 52%,#f7f0eb 100%)!important;
+  }
+  #esmeraldaDesktopAbout.br-about-team:before{
+    content:""!important;position:absolute!important;inset:0!important;pointer-events:none!important;
+    background:
+      linear-gradient(120deg,transparent 0 42%,rgba(255,255,255,.28) 42.2%,transparent 42.5%),
+      radial-gradient(circle at 76% 20%,rgba(255,255,255,.44),transparent 19%)!important;
+    opacity:.72!important;
+  }
+  #esmeraldaDesktopAbout>.br-about-team-headings,
+  #esmeraldaDesktopAbout>.br-about-team-shell{position:relative!important;z-index:1!important}
+
+  #esmeraldaDesktopAbout .br-about-column{
+    display:flex!important;
+    flex-direction:column!important;
+    padding:20px!important;
+    border:1px solid rgba(72,55,47,.10)!important;
+    border-radius:28px!important;
+    background:rgba(255,253,250,.76)!important;
+    box-shadow:0 24px 58px rgba(69,50,42,.11)!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-card{
+    display:grid!important;
+    width:100%!important;height:100%!important;min-height:0!important;
+    grid-template-rows:385px minmax(0,1fr)!important;
+    margin:0!important;padding:0!important;overflow:hidden!important;
+    border:0!important;border-radius:22px!important;background:transparent!important;box-shadow:none!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-portrait-wrap{
+    height:385px!important;min-height:385px!important;
+    overflow:hidden!important;border:0!important;border-radius:20px!important;
+    background:rgba(255,255,255,.28)!important;box-shadow:none!important;
+  }
+  #esmeraldaDesktopAbout .mct-about-portrait{width:100%!important;height:100%!important}
+  #esmeraldaDesktopAbout .mct-about-portrait img{
+    width:100%!important;height:100%!important;object-fit:contain!important;object-position:center center!important;
+    transform:translateY(-8px) scale(.88)!important;
+  }
+  #esmeraldaDesktopAbout .br-about-column:hover .mct-about-portrait img{transform:translateY(-8px) scale(.88)!important}
+  #esmeraldaDesktopAbout .mct-about-copy{padding:24px 4px 2px!important}
+  #esmeraldaDesktopAbout .mct-about-lead{font-size:clamp(30px,2.3vw,38px)!important;line-height:1.02!important}
+  #esmeraldaDesktopAbout .mct-about-copy>p:not(.mct-about-lead){font-size:15.5px!important;line-height:1.62!important}
+  #esmeraldaDesktopAbout .dct-about-amenities{margin-top:24px!important;padding-top:20px!important}
+  #esmeraldaDesktopAbout .dct-about-amenities-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:9px!important}
+  #esmeraldaDesktopAbout .dct-about-amenities-grid article{
+    min-height:94px!important;padding:14px!important;
+    border:1px solid rgba(81,60,51,.09)!important;border-radius:14px!important;
+    background:rgba(255,255,255,.56)!important;box-shadow:0 9px 22px rgba(80,56,45,.055)!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-amenities-grid article+article{border-left:1px solid rgba(81,60,51,.09)!important}
+  #esmeraldaDesktopAbout .dct-about-amenities-grid strong{font-size:16.5px!important;line-height:1.2!important}
+  #esmeraldaDesktopAbout .dct-about-amenities-grid span{margin-top:8px!important;font-size:12.5px!important;line-height:1.42!important}
+
+  #esmeraldaDesktopTeam.br-team-panel{
+    border-radius:28px!important;
+    box-shadow:0 24px 58px rgba(54,41,35,.15)!important;
+  }
+
+  /* TANEM lower badge uses the exact mobile footer background. */
+  #esmeraldaDesktopContacts .std-contact-bottom,
+  #esmeraldaDesktopContacts .std-contact-brand{background:#11100f!important}
+}
+`);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
@@ -6759,7 +6852,7 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
               <span class="dct-service-sticky-steps-title">Быстрая запись</span>
               <ol>
                 <li><b>01</b><span>Выберите услугу</span></li>
-                <li><b>02</b><span>Нажмите «Записаться»</span></li>
+                <li><b>02</b><span>Записаться</span></li>
                 <li><b>03</b><span>Связь с салоном</span></li>
               </ol>
             </div>
@@ -7568,7 +7661,7 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
     ['Массаж','Մերսում','Massage'],['Другое','Այլ','Other'],['Все','Բոլորը','All'],
     ['Услуги и цены','Ծառայություններ և գներ','Services & prices'],['Выберите услугу','Ընտրեք ծառայությունը','Choose a service'],
     ['Все услуги собраны по направлениям. Выберите подходящую процедуру — запись откроется сразу, без лишних шагов.','Աջ կողմում ընտրեք ուղղությունը, ապա անհրաժեշտ ծառայությունը։ Դրանից հետո կբացվի սրահի հետ կապվելու հարմար տարբերակը։','Choose a category on the right, then select a service. You can then contact the salon in the way that suits you.'],
-    ['Как записаться','Ինչպես ամրագրվել','How to book'],['Быстрая запись','Արագ ամրագրում','Quick booking'],['Нажмите «Записаться»','Սեղմեք «Ամրագրել»','Tap “Book”'],['Категория','Բաժին','Category'],['Услуга','Ծառայություն','Service'],['Связь с салоном','Կապ սրահի հետ','Contact the salon'],
+    ['Как записаться','Ինչպես ամրագրվել','How to book'],['Быстрая запись','Արագ ամրագրում','Quick booking'],['Записаться','Ամրագրել','Book'],['Категория','Բաժին','Category'],['Услуга','Ծառայություն','Service'],['Связь с салоном','Կապ սրահի հետ','Contact the salon'],
     ['Выберите направление и нужную процедуру. Запись открывается в отдельной плашке, а все услуги собраны в одной понятной структуре.','Ընտրեք ուղղությունն ու անհրաժեշտ ծառայությունը։ Բոլոր ծառայությունները հավաքված են մեկ պարզ կառուցվածքում։','Choose a category and service. Everything is organized in one clear structure.'],['Выберите направление и нужную процедуру. Нажмите на услугу, чтобы выбрать удобный способ записи.','Ընտրեք ուղղությունն ու անհրաժեշտ ծառայությունը։ Սեղմեք ծառայության վրա՝ ամրագրման հարմար տարբերակ ընտրելու համար։','Choose a category and service. Select a service to choose a convenient booking method.'],
     ['Свернуть','Փակել ցանկը','Show less'],['Свернуть услуги','Փակել ծառայությունները','Collapse services'],['Открыть ещё','Բացել ևս','Show'],['О салоне','Սրահի մասին','About the salon'],
     ['Beauty Room by Esmeralda — салон красоты в Ереване.','Beauty Room by Esmeralda — գեղեցկության սրահ Երևանում։','Beauty Room by Esmeralda — a beauty salon in Yerevan.'],
