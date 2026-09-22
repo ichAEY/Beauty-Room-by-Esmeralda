@@ -5615,6 +5615,8 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
 }
 `);
   appendDesktopStyle('esmeralda-desktop-current',String.raw`@media(min-width:768px){
+  #esmeraldaDesktopPortfolio.std-portfolio{padding-bottom:38px!important}
+  #esmeraldaDesktopPortfolio #stdOpenGallery{margin-bottom:0!important}
   #esmeraldaDesktopServices.mct-prices{
     padding:58px 0 94px!important;
     overflow:visible!important;
