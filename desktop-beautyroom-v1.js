@@ -7334,14 +7334,17 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
   serviceMore.onclick=()=>{
     const beforeTop=serviceMore.getBoundingClientRect().top;
     const beforeScroll=window.scrollY;
-    desktopServicesExpanded=!desktopServicesExpanded;
+    const opening=!desktopServicesExpanded;
+    desktopServicesExpanded=opening;
     renderDesktopServices();
     requestAnimationFrame(()=>{
+      if(opening){
+        window.scrollTo(0,beforeScroll);
+        return;
+      }
       const afterTop=serviceMore.getBoundingClientRect().top;
       const delta=afterTop-beforeTop;
-      if(Number.isFinite(delta)&&Math.abs(delta)>.5){
-        window.scrollTo(0,Math.max(0,beforeScroll+delta));
-      }
+      window.scrollTo(0,Math.max(0,beforeScroll+(Number.isFinite(delta)?delta:0)));
     });
   };
   renderDesktopServices();
