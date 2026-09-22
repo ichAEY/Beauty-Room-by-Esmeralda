@@ -6947,6 +6947,40 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
 }
 `);
 
+  appendDesktopStyle('esmeralda-desktop-final-v66',String.raw`
+@media(min-width:1024px){
+  #esmeraldaDesktopServices #stdServiceTabs .mct-tab.is-active[aria-selected="true"],
+  #esmeraldaDesktopServices #stdServiceTabs .mct-tab-all.is-active[aria-selected="true"]{
+    background:#eee7df!important;border-color:#eee7df!important;color:#2b2420!important;
+    box-shadow:0 8px 20px rgba(0,0,0,.13)!important;
+  }
+  #esmeraldaDesktopServices .dct-service-sticky-book{position:relative!important;isolation:isolate!important;overflow:hidden!important}
+  #esmeraldaDesktopServices .dct-service-sticky-book>span{position:relative!important;z-index:2!important}
+  #esmeraldaDesktopServices .dct-service-sticky-book:after{
+    content:""!important;display:block!important;position:absolute!important;z-index:1!important;
+    top:-45%!important;bottom:-45%!important;left:-52%!important;width:38%!important;
+    background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,.08) 24%,rgba(255,255,255,.72) 50%,rgba(255,255,255,.10) 76%,transparent 100%)!important;
+    transform:skewX(-20deg)!important;animation:brStickyBookGlint 3.8s cubic-bezier(.2,.7,.2,1) infinite!important;pointer-events:none!important;
+  }
+  @keyframes brStickyBookGlint{0%,58%{left:-52%;opacity:0}61%{opacity:1}78%{left:120%;opacity:1}80%,100%{left:120%;opacity:0}}
+  #esmeraldaDesktopAbout .dct-about-rating{transform:scale(1.07)!important;transform-origin:left bottom!important}
+  #esmeraldaDesktopAbout .mct-about-copy{padding:26px 18px 18px!important}
+  #esmeraldaDesktopAbout .dct-about-copy{margin-top:15px!important;line-height:1.58!important}
+  #esmeraldaDesktopAbout .dct-about-amenities{margin-top:18px!important;padding-top:15px!important}
+  #esmeraldaDesktopAbout .dct-about-amenities-grid{gap:10px!important}
+  #esmeraldaDesktopAbout .dct-about-amenities-grid article{
+    min-height:102px!important;padding:15px!important;
+    background:linear-gradient(145deg,#e4d6cb 0%,#eadfd6 100%)!important;
+    border-color:rgba(86,64,53,.10)!important;
+    box-shadow:0 10px 24px rgba(70,50,41,.075),inset 0 1px 0 rgba(255,255,255,.42)!important;
+  }
+  #esmeraldaDesktopAbout .dct-about-amenities-grid strong{font-size:16.5px!important}
+  #esmeraldaDesktopAbout .dct-about-amenities-grid span{font-size:12.7px!important;line-height:1.45!important}
+  #esmeraldaDesktopContacts .std-contact-status,
+  #esmeraldaDesktopContacts .std-contact-status span{font-size:14px!important;font-weight:600!important}
+}
+`);
+
   const root=document.createElement('div');
   root.id='esmeralda-desktop-v1';
   root.innerHTML=`
@@ -7894,7 +7928,7 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
     ['Армения · открыть в Google Maps','Հայաստան · բացել Google Maps-ում','Armenia · open in Google Maps'],
     ['Нажмите, чтобы позвонить','Սեղմեք զանգահարելու համար','Click to call'],['Написать в салон','Գրել սրահին','Message the salon'],
     ['Ежедневно 09:00–20:00','Ամեն օր՝ 09:00–20:00','Daily 09:00–20:00'],['Без выходных','Առանց հանգստյան օրերի','Open every day'],
-    ['Цифровой офис для салонов красоты','Թվային գրասենյակ գեղեցկության սրահների համար','Digital office for beauty salons'],['Создано в','Ստեղծված է','Created in'],['Позвонить','Զանգահարել','Call'],['Построить маршрут','Կառուցել երթուղի','Get directions'],['Всё необходимое для комфортного визита','Ամեն ինչ հարմարավետ այցի համար','Everything for a comfortable visit'],['Разные направления','Տարբեր ուղղություններ','Different services'],['Комфорт','Հարմարավետություն','Comfort'],['Прямая запись','Ուղիղ ամրագրում','Direct booking'],
+    ['Цифровой офис для салонов красоты','Թվային գրասենյակ գեղեցկության սրահների համար','Digital office for beauty salons'],['Создано в','Ստեղծված է','Created in'],['Позвонить','Զանգահարել','Call'],['Построить маршрут','Կառուցել երթուղի','Get directions'],['Всё необходимое для комфортного визита','Ամեն ինչ հարմարավետ այցի համար','Everything for a comfortable visit'],['Салон красоты в Ереване','Գեղեցկության սրահ Երևանում','Beauty salon in Yerevan'],['Здесь можно спокойно выбрать нужные процедуры и доверить уход мастерам разных направлений. Мы ценим аккуратную работу, комфорт и внимательное отношение к каждому гостю.','Այստեղ կարող եք հանգիստ ընտրել անհրաժեշտ ծառայությունները և վստահել խնամքը տարբեր ուղղությունների մասնագետներին։ Մենք կարևորում ենք ճշգրիտ աշխատանքը, հարմարավետությունն ու յուրաքանչյուր հյուրի նկատմամբ ուշադիր վերաբերմունքը։','Choose the services you need and trust your care to specialists across different beauty fields. We value precise work, comfort, and attentive service for every guest.'],['Маникюр, волосы, брови и косметология.','Մատնահարդարում, մազեր, հոնքեր և կոսմետոլոգիա։','Nails, hair, brows and cosmetology.'],['Спокойная атмосфера и внимание к каждому гостю.','Հանգիստ մթնոլորտ և ուշադրություն յուրաքանչյուր հյուրի նկատմամբ։','A calm atmosphere and personal attention.'],['Связь по телефону или Viber без лишних шагов.','Կապ հեռախոսով կամ Viber-ով՝ առանց ավելորդ քայլերի։','Direct booking by phone or Viber.'],['Разные направления','Տարբեր ուղղություններ','Different services'],['Комфорт','Հարմարավետություն','Comfort'],['Прямая запись','Ուղիղ ամրագրում','Direct booking'],
     ['Запись','Ամրագրում','Booking'],['Как вам удобнее записаться?','Ինչպե՞ս է ձեզ հարմար ամրագրել։','How would you like to book?'],
     ['Выберите удобный способ связи.','Ընտրեք ձեզ հարմար կապի տարբերակը։','Choose the most convenient way to contact us.'],
     ['Телефон','Հեռախոս','Phone'],['Открыть','Բացել','Open'],['Профиль','Պրոֆիլ','Profile'],['О мастере','Մասնագետի մասին','About the specialist'],
@@ -8000,22 +8034,6 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
     document.body.dataset.brLang=currentDesktopLang;
 
     if(currentDesktopLang==='hy'){
-      const about=root.querySelector('#esmeraldaDesktopAbout');
-      const brand=about?.querySelector('.dct-about-brand');
-      const kind=about?.querySelector('.dct-about-kind');
-      const copy=about?.querySelector('.dct-about-copy');
-      const rating=about?.querySelector('.dct-about-rating span:last-child');
-      const facts=about?.querySelectorAll('.dct-about-amenities-grid article');
-      if(brand)brand.textContent='Beauty Room by Esmeralda';
-      if(kind)kind.textContent='Салон красоты в Ереване';
-      if(copy)copy.textContent='Здесь можно спокойно выбрать нужные процедуры и доверить уход мастерам разных направлений. Мы ценим аккуратную работу, комфорт и внимательное отношение к каждому гостю.';
-      if(rating)rating.textContent='рейтинг салона';
-      const factCopy=[
-        ['Разные направления','Маникюр, волосы, брови и косметология.'],
-        ['Комфорт','Спокойная атмосфера и внимание к каждому гостю.'],
-        ['Прямая запись','Связь по телефону или Viber без лишних шагов.']
-      ];
-      facts?.forEach((el,i)=>{if(factCopy[i]){const a=el.querySelector('strong'),b=el.querySelector('span');if(a)a.textContent=factCopy[i][0];if(b)b.textContent=factCopy[i][1];}});
       const roleEn={nails:'Nail master',hair:'Hair master',cosmetology:'Cosmetologist',brows:'Brow & Lash master'};
       root.querySelectorAll('#esmeraldaDesktopTeam [data-desktop-master]').forEach(card=>{
         const role=card.querySelector('.std-master-role');
