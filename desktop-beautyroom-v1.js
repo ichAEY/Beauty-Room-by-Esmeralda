@@ -6197,7 +6197,7 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
 }
 `);
 
-  appendDesktopStyle('esmeralda-desktop-pc-polish-v56',String.raw`
+  appendDesktopStyle('esmeralda-desktop-pc-polish-v57',String.raw`
 @media(min-width:1024px){
   .std-btn-primary{
     height:58px!important;border:0!important;border-radius:8px!important;
@@ -6224,7 +6224,7 @@ html,body,#esmeralda-desktop-v1{scroll-behavior:auto!important;scroll-snap-type:
   }
 
   #esmeraldaDesktopPortfolio.std-portfolio{
-    padding-bottom:58px!important;
+    padding-bottom:42px!important;
     box-shadow:inset 0 1px 0 rgba(255,255,255,.72),inset 0 -20px 42px rgba(124,91,74,.035)!important;
   }
   #esmeraldaDesktopPortfolio .std-work{
